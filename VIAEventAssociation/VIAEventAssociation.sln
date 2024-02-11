@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{08A4C771-4AC8-4D9C-88AE-EC8F59872C3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Docs", "Documentation\Docs\Docs.csproj", "{006F1862-F64D-40D8-9F19-FDA48FF64ADA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assigment1", "Documentation\Assigment1\Assigment1.csproj", "{2EE60A60-8BC2-4DAE-BF56-589A0CAC2B0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{006F1862-F64D-40D8-9F19-FDA48FF64ADA} = {08A4C771-4AC8-4D9C-88AE-EC8F59872C3A}
+		{2EE60A60-8BC2-4DAE-BF56-589A0CAC2B0F} = {08A4C771-4AC8-4D9C-88AE-EC8F59872C3A}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{006F1862-F64D-40D8-9F19-FDA48FF64ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{006F1862-F64D-40D8-9F19-FDA48FF64ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{006F1862-F64D-40D8-9F19-FDA48FF64ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{006F1862-F64D-40D8-9F19-FDA48FF64ADA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EE60A60-8BC2-4DAE-BF56-589A0CAC2B0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EE60A60-8BC2-4DAE-BF56-589A0CAC2B0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EE60A60-8BC2-4DAE-BF56-589A0CAC2B0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EE60A60-8BC2-4DAE-BF56-589A0CAC2B0F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
