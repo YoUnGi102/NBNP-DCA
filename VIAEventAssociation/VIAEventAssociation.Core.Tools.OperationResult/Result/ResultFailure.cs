@@ -33,7 +33,7 @@ public class ResultFailure<T> : Result<T>
             messages[i] = new Message(code[i]);
         }
     }
-    
+
     private ResultFailure(T obj, HTTPCodes[] code, string[] messages)
     {
         this.obj = obj;
@@ -61,21 +61,21 @@ public class ResultFailure<T> : Result<T>
 
     public static Result<T> CreateHTTPResult(T obj, HTTPCodes[] code)
     {
-        if (Enum.IsDefined(typeof(HTTPCodes), code))
-        {
-            return new ResultFailure<T>(obj, code);
-        }
-
-        throw new ArgumentException("Invalid HTML code");
+        return new ResultFailure<T>(obj, code);
     }
-    
+
     public static Result<T> CreateResult(T obj, HTTPCodes[] code, string[] messages)
     {
-        if (Enum.IsDefined(typeof(HTTPCodes), code))
-        {
-            return new ResultFailure<T>(obj, code, messages);
-        }
+        return new ResultFailure<T>(obj, code, messages);
+    }
 
-        throw new ArgumentException("Invalid HTML code");
+    public T? GetObj()
+    {
+        return obj;
+    }
+
+    public Message[]? GetMessages()
+    {
+        return messages;
     }
 }

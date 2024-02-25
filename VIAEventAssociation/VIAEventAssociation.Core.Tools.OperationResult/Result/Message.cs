@@ -20,4 +20,14 @@ public class Message
         this.message = message;
         this.code = code;
     }
+    
+    public string? GetMessage()
+    {
+        return message;
+    }
+    
+    public HTTPCodes? GetCode()
+    {
+        return code;
+    }
 }
