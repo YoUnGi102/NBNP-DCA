@@ -2,8 +2,7 @@ namespace VIAEventAssociation.Core.Tools.OperationResult.Result;
 
 public class ResultSuccess<T> : Result<T>
 {
-    private string? message { get; init; }
-    private HTMLCodes? code { get; init; }
+    private Message[]? messages { get; init; }
     private T? obj { get; init; }
 
     private ResultSuccess()
@@ -15,16 +14,34 @@ public class ResultSuccess<T> : Result<T>
         this.obj = obj;
     }
 
-    private ResultSuccess(T obj, string message)
+    private ResultSuccess(T obj, string[] messages)
     {
         this.obj = obj;
-        this.message = message;
+        this.messages = new Message[messages.Length];
+        for (int i = 0; i < messages.Length; i++)
+        {
+            this.messages[i] = new Message(messages[i]);
+        }
     }
 
-    private ResultSuccess(T obj, HTMLCodes code)
+    private ResultSuccess(T obj, HTTPCodes[] codes)
     {
         this.obj = obj;
-        this.code = code;
+        messages = new Message[codes.Length];
+        for (int i = 0; i < codes.Length; i++)
+        {
+            messages[i] = new Message(codes[i]);
+        }
+    }
+    
+    private ResultSuccess(T obj, HTTPCodes[] codes, string[] messages)
+    {
+        this.obj = obj;
+        this.messages = new Message[messages.Length];
+        for (int i = 0; i < messages.Length; i++)
+        {
+            this.messages[i] = new Message(messages[i], codes[i]);
+        }
     }
 
     public static Result<T> CreateEmptyResult()
@@ -37,16 +54,26 @@ public class ResultSuccess<T> : Result<T>
         return new ResultSuccess<T>(obj);
     }
 
-    public static Result<T> CreateMessageResult(T obj, string message)
+    public static Result<T> CreateMessageResult(T obj, string[] messages)
     {
-        return new ResultSuccess<T>(obj, message);
+        return new ResultSuccess<T>(obj, messages);
     }
 
-    public static Result<T> CreateHtmlResult(T obj, HTMLCodes code)
+    public static Result<T> CreateHTTPResult(T obj, HTTPCodes[] codes)
     {
-        if (Enum.IsDefined(typeof(HTMLCodes), code))
+        if (Enum.IsDefined(typeof(HTTPCodes), codes))
         {
-            return new ResultSuccess<T>(obj, code);
+            return new ResultSuccess<T>(obj, codes);
+        }
+
+        throw new ArgumentException("Invalid HTML code");
+    }
+    
+    public static Result<T> CreateResult(T obj, HTTPCodes[] codes, string[] messages)
+    {
+        if (Enum.IsDefined(typeof(HTTPCodes), codes))
+        {
+            return new ResultSuccess<T>(obj, codes, messages);
         }
 
         throw new ArgumentException("Invalid HTML code");

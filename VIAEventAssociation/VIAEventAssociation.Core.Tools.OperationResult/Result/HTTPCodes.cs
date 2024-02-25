@@ -1,6 +1,6 @@
 namespace VIAEventAssociation.Core.Tools.OperationResult.Result;
 
-public enum HTMLCodes
+public enum HTTPCodes
 {
     // Informational 1xx
     Continue = 100,
