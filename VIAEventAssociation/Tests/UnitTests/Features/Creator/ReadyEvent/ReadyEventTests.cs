@@ -15,10 +15,12 @@ public class ReadyEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>());
 
         // Act
-        creator.ReadyEvent(_event);
+        var result = creator.ReadyEvent(_event);
+        bool isSuccess = result.GetObj().status != EventStatus.Ready;
         
         // Assert
-        Assert.NotEqual(EventStatus.Ready, _event.status);
+        Assert.True(isSuccess);
+        Assert.NotEqual(EventStatus.Ready, result.GetObj().status);
     }
     [Fact]
     public void ReadyEvent_WhenEventIsDeleted_ShouldNotReadyEvent()
@@ -28,10 +30,12 @@ public class ReadyEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>());
 
         // Act
-        creator.ReadyEvent(_event);
+        var result = creator.ReadyEvent(_event);
+        bool isSuccess = result.GetObj().status != EventStatus.Ready;
         
         // Assert
-        Assert.NotEqual(EventStatus.Ready, _event.status);
+        Assert.True(isSuccess);
+        Assert.NotEqual(EventStatus.Ready, result.GetObj().status);
     }
     [Fact]
     public void ReadyEvent_WhenEventIsActive_ShouldNotReadyEvent()
@@ -41,10 +45,12 @@ public class ReadyEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Active, new List<Guest>());
 
         // Act
-        creator.ReadyEvent(_event);
+        var result = creator.ReadyEvent(_event);
+        bool isSuccess = result.GetObj().status != EventStatus.Ready;
         
         // Assert
-        Assert.NotEqual(EventStatus.Ready, _event.status);
+        Assert.True(isSuccess);
+        Assert.NotEqual(EventStatus.Ready, result.GetObj().status);
     }
     [Fact]
     public void ReadyEvent_WhenEventIsReady_ShouldReadyEvent()
@@ -54,9 +60,11 @@ public class ReadyEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>());
 
         // Act
-        creator.ReadyEvent(_event);
+        var result = creator.ReadyEvent(_event);
+        bool isSuccess = result.GetObj().status == EventStatus.Ready;
         
         // Assert
-        Assert.Equal(EventStatus.Ready, _event.status);
+        Assert.True(isSuccess);
+        Assert.Equal(EventStatus.Ready, result.GetObj().status);
     }
 }

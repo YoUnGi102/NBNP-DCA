@@ -15,10 +15,12 @@ public class DeleteEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>());
 
         // Act
-        creator.DeleteEvent(_event);
+        var result = creator.DeleteEvent(_event);
+        bool isSuccess = result.GetObj().status == EventStatus.Deleted;
         
         // Assert
-        Assert.Equal(EventStatus.Deleted, _event.status);
+        Assert.True(isSuccess);
+        Assert.Equal(EventStatus.Deleted, result.GetObj().status);
     }
     [Fact]
     public void DeleteEvent_WhenEventIsActive_ShouldDeleteEvent()
@@ -28,10 +30,12 @@ public class DeleteEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Active, new List<Guest>());
 
         // Act
-        creator.DeleteEvent(_event);
+        var result = creator.DeleteEvent(_event);
+        bool isSuccess = result.GetObj().status == EventStatus.Deleted;
         
         // Assert
-        Assert.Equal(EventStatus.Deleted, _event.status);
+        Assert.True(isSuccess);
+        Assert.Equal(EventStatus.Deleted, result.GetObj().status);
     }
     [Fact]
     public void DeleteEvent_WhenEventIsCancelled_ShouldNotDeleteEvent()
@@ -41,10 +45,12 @@ public class DeleteEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>());
 
         // Act
-        creator.DeleteEvent(_event);
+        var result = creator.DeleteEvent(_event);
+        bool isSuccess = result.GetObj().status != EventStatus.Deleted;
         
         // Assert
-        Assert.NotEqual(EventStatus.Deleted, _event.status);
+        Assert.True(isSuccess);
+        Assert.NotEqual(EventStatus.Deleted, result.GetObj().status);
     }
     
 }

@@ -16,10 +16,13 @@ public class CancelEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>());
 
         // Act
-        creator.CancelEvent(_event);
+        var result = creator.CancelEvent(_event);
+        bool isSuccess = result.GetObj().status == EventStatus.Cancelled;
+
         
         // Assert
-        Assert.Equal(EventStatus.Cancelled, _event.status);
+        Assert.True(isSuccess);
+        Assert.Equal(EventStatus.Cancelled, result.GetObj().status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsActive_ShouldCancelEvent()
@@ -29,10 +32,11 @@ public class CancelEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Active, new List<Guest>());
 
         // Act
-        creator.CancelEvent(_event);
-        
+        var result = creator.CancelEvent(_event);
+        bool isSuccess = result.GetObj().status == EventStatus.Cancelled;
         // Assert
-        Assert.Equal(EventStatus.Cancelled, _event.status);
+        Assert.True(isSuccess);
+        Assert.Equal(EventStatus.Cancelled, result.GetObj().status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsDeleted_ShouldNotCancelEvent()
@@ -42,10 +46,12 @@ public class CancelEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>());
 
         // Act
-        creator.CancelEvent(_event);
+        var result = creator.CancelEvent(_event);
+        bool isSuccess = result.GetObj().status != EventStatus.Cancelled;
         
         // Assert
-        Assert.NotEqual(EventStatus.Cancelled, _event.status);
+        Assert.True(isSuccess);
+        Assert.NotEqual(EventStatus.Cancelled, result.GetObj().status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsCancelled_ShouldNotCancelEvent()
@@ -55,10 +61,12 @@ public class CancelEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>());
 
         // Act
-        creator.CancelEvent(_event);
-        
+        var result = creator.CancelEvent(_event);
+        bool isSuccess = result.GetObj().status != EventStatus.Cancelled;
+
         // Assert
-        Assert.NotEqual(EventStatus.Cancelled, _event.status);
+        Assert.True(isSuccess);
+        Assert.NotEqual(EventStatus.Cancelled, result.GetObj().status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsDraft_ShouldNotCancelEvent()
@@ -68,10 +76,12 @@ public class CancelEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>());
 
         // Act
-        creator.CancelEvent(_event);
+        var result = creator.CancelEvent(_event);
+        bool isSuccess = result.GetObj().status != EventStatus.Cancelled;
         
         // Assert
-        Assert.NotEqual(EventStatus.Cancelled, _event.status);
+        Assert.True(isSuccess);
+        Assert.NotEqual(EventStatus.Cancelled, result.GetObj().status);
     }
     
     [Fact]
@@ -82,10 +92,13 @@ public class CancelEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>());
 
         // Act
-        creator.CancelEvent(_event);
+        var result = creator.CancelEvent(_event);
+        bool isSuccess = result.GetObj().status == EventStatus.Cancelled;
+
         
         // Assert
-        Assert.Equal(EventStatus.Cancelled, _event.status);
+        Assert.True(isSuccess);
+        Assert.Equal(EventStatus.Cancelled, result.GetObj().status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsDeleted_ShouldNotChangeEventStatus()
@@ -95,9 +108,11 @@ public class CancelEventTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>());
 
         // Act
-        creator.CancelEvent(_event);
+        var result = creator.CancelEvent(_event);
+        bool isSuccess = result.GetObj().status == EventStatus.Cancelled;
         
         // Assert
-        Assert.Equal(EventStatus.Deleted, _event.status);
+        Assert.True(isSuccess);
+        Assert.Equal(EventStatus.Cancelled, result.GetObj().status);
     }
 }

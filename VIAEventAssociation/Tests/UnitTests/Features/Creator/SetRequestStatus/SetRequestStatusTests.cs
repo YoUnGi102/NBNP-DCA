@@ -16,10 +16,12 @@ public class SetRequestStatusTests
             
 
         // Act
-        creator.setRequestedStatus(request, RequestStatus.Accepted);
+        var result = creator.setRequestedStatus(request, RequestStatus.Accepted);
+        bool isSuccess = result.GetObj().status == RequestStatus.Accepted;
         
         // Assert
-        Assert.Equal(RequestStatus.Accepted, request.status);
+        Assert.True(isSuccess);
+        Assert.Equal(RequestStatus.Accepted, result.GetObj().status);
     }
     [Fact]
     public void SetRequestStatus_WhenStatusIsUnanswered_ShouldSetRequestStatusDeclined()
@@ -30,10 +32,12 @@ public class SetRequestStatusTests
             
 
         // Act
-        creator.setRequestedStatus(request, RequestStatus.Declined);
+        var result = creator.setRequestedStatus(request, RequestStatus.Declined);
+        bool isSuccess = result.GetObj().status == RequestStatus.Declined;
         
         // Assert
-        Assert.Equal(RequestStatus.Declined, request.status);
+        Assert.True(isSuccess);
+        Assert.Equal(RequestStatus.Declined, result.GetObj().status);
     }
     
 }

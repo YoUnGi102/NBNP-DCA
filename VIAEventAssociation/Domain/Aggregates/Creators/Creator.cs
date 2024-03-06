@@ -1,6 +1,7 @@
 ﻿using Domain.Aggregates.Events;
 using Domain.Common.Entities;
 using Domain.Common.Enums;
+using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
 namespace Domain.Aggregates.Creator;
 
@@ -17,43 +18,55 @@ public class Creator
         this.password = password;
     }
 
-    public void CancelEvent(Event _event)
+    public Result<Event> CancelEvent(Event _event)
     {
         _event.SetEventStatus(EventStatus.Cancelled);
+        return ResultSuccess<Event>.CreateSimpleResult(_event);
+
     }
 
-    public void ReadyEvent(Event _event)
+    public Result<Event> ReadyEvent(Event _event)
     {
         if (_event.status != EventStatus.Active && _event.status != EventStatus.Deleted && _event.status != 
             EventStatus.Cancelled)
         {
             _event.SetEventStatus(EventStatus.Ready);
+            return ResultSuccess<Event>.CreateSimpleResult(_event);
+
         }
+        return ResultFailure<Event>.CreateSimpleResult(_event);
     }
 
-    public void ActivateEvent(Event _event)
+    public Result<Event> ActivateEvent(Event _event)
     {
         _event.SetEventStatus(EventStatus.Active);
+        return ResultSuccess<Event>.CreateSimpleResult(_event);
     }
 
-    public void DeleteEvent(Event _event)
+    public Result<Event> DeleteEvent(Event _event)
     {
         if (_event.status != EventStatus.Deleted && _event.status != EventStatus.Cancelled)
         {
-            _event.SetEventStatus(EventStatus.Deleted);   
+            _event.SetEventStatus(EventStatus.Deleted);  
+            return ResultSuccess<Event>.CreateSimpleResult(_event);
         }
+        return ResultFailure<Event>.CreateSimpleResult(_event);
     }
 
-    public void setRequestedStatus(Request request, RequestStatus status)
+    public Result<Request> setRequestedStatus(Request request, RequestStatus status)
     {
         switch(status) 
         {
             case RequestStatus.Accepted:
                 request.status = RequestStatus.Accepted;
+                return ResultSuccess<Request>.CreateSimpleResult(request);
                 break;
             case RequestStatus.Declined:
                 request.status = RequestStatus.Declined;
+                return ResultSuccess<Request>.CreateSimpleResult(request);
                 break;
         }
+        return ResultFailure<Request>.CreateSimpleResult(request);
+
     }
 }
