@@ -1,5 +1,7 @@
 ﻿using Domain.Aggregates.Events;
 using Domain.Common.Entities;
+using VIAEventAssociation.Core.Tools.OperationResult.Result;
+
 
 namespace Domain.Aggregates.Guests;
 
@@ -15,15 +17,31 @@ public class Guest
         this.email = email;
         this.requests = requests;
     }
-    
-    public void Participate(Event _event){}
-    public void RemoveParticipation(Event _event){}
-    
-    public void RequestToJoin(Event _event){}
-    
-    public void AcceptInvitation(Invitation invitation){}
-    
-    public void DeclineInvitation(Invitation invitation){}
+
+    public Result<Event> Participate(Event _event)
+    {
+        return ResultSuccess<Event>.CreateSimpleResult(_event);
+    }
+
+    public Result<Event> RemoveParticipation(Event _event)
+    {
+        return ResultSuccess<Event>.CreateSimpleResult(_event);
+    }
+
+    public Result<Event> RequestToJoin(Event _event)
+    {
+        return ResultSuccess<Event>.CreateSimpleResult(_event);
+    }
+
+    public Result<Invitation> AcceptInvitation(Invitation invitation)
+    {
+        return ResultSuccess<Invitation>.CreateSimpleResult(invitation);
+    }
+
+    public Result<Invitation> DeclineInvitation(Invitation invitation)
+    {
+        return ResultSuccess<Invitation>.CreateSimpleResult(invitation);
+    }
     
     public List<Request> GetRequests()
     {

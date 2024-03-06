@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "VIAEventAssociation.Core.Tools.OperationResult/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/VIAEventAssociation.Core.Tools.OperationResult.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VIAEventAssociation.Core.Tools.OperationResult.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "VIAEventAssociation.Core.Tools.OperationResult/1.0.0": {
+      "type": "project",
+      "path": "../VIAEventAssociation.Core.Tools.OperationResult/VIAEventAssociation.Core.Tools.OperationResult.csproj",
+      "msbuildProject": "../VIAEventAssociation.Core.Tools.OperationResult/VIAEventAssociation.Core.Tools.OperationResult.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "VIAEventAssociation.Core.Tools.OperationResult >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\matas\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
+              "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

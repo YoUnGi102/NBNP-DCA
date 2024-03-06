@@ -11,17 +11,17 @@ public class AcceptInvitationTests
     public void AcceptInvitation_WhenInvitationIsUnanswered_ShouldAcceptInvitation()
     {
         // Arrange
-        var invitation = new Invitation(InvitationStatus.Unanswered);
+        var invitation = new Invitation(InvitationStatus.Unanswered, null);
         var invitations = new List<Invitation>();
         invitations.Add(invitation);
         var guest = new Guest("email@gmail.com", null, null);
         
         // Act
         invitations.Add(invitation);
-        guest.AcceptInvitation(invitation);
+        var result = guest.AcceptInvitation(invitation);
         
         // Assert
-        Assert.True(invitation.GetStatus().Equals(InvitationStatus.Accepted));
+        Assert.True(result.GetObj().GetStatus().Equals(InvitationStatus.Accepted));
     }
 
 }

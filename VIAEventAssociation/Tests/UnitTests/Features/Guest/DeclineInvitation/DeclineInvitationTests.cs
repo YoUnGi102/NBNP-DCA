@@ -11,16 +11,16 @@ public class DeclineInvitationTests
     public void DeclineInvitation_WhenInvitationIsUnanswered_ShouldAcceptInvitation()
     {
         // Arrange
-        var invitation = new Invitation(InvitationStatus.Unanswered);
+        var invitation = new Invitation(InvitationStatus.Unanswered, null);
         var invitations = new List<Invitation>();
         invitations.Add(invitation);
         var guest = new Guest("email@gmail.com", null, null);
         
         // Act
         invitations.Add(invitation);
-        guest.DeclineInvitation(invitation);
+        var result = guest.DeclineInvitation(invitation);
         
         // Assert
-        Assert.True(invitation.GetStatus().Equals(InvitationStatus.Declined));
+        Assert.True(result.GetObj().GetStatus().Equals(InvitationStatus.Declined));
     }
 }

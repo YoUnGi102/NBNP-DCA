@@ -16,9 +16,10 @@ public class RemoveParticipationTests
         // Act
         guest.Participate(_event);
         guest.RemoveParticipation(_event);
+        var result = guest.RemoveParticipation(_event);
 
         // Assert
-        Assert.False(_event.GetGuests().Contains(guest));
+        Assert.False(result.GetObj().GetGuests().Contains(guest));
     }
 
     [Fact]
@@ -30,9 +31,9 @@ public class RemoveParticipationTests
         var guest = new Guest("email@gmail.com", null, null);
         
         // Act
-        
+        var result = guest.RemoveParticipation(_event);
         
         // Assert
-        Assert.Throws(typeof(InvalidOperationException), () => guest.RemoveParticipation(_event));
+        Assert.True(result.GetObj().GetGuests().Contains(guest));
     }
 }

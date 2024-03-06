@@ -19,10 +19,11 @@ public class RequestToJoinTests
         
         // Act
         request.SetEvent(_event);
-        guest.RequestToJoin(_event);
+        // guest.RequestToJoin(_event);
+        var result = guest.RequestToJoin(_event);
         
         // Assert
-        Assert.True(guest.GetRequests().Find(request => request.GetEvent() == _event).status == RequestStatus.Unanswered);
+        Assert.True(result.GetObj().GetGuests().Find(a => a == guest).GetRequests().Find(request => request.GetEvent() == _event).status == RequestStatus.Unanswered);
     }
     [Fact]
     public void Request_to_join_WhenInvitationIsCreated_ShouldNotCreateInvitation()
@@ -36,8 +37,9 @@ public class RequestToJoinTests
         // Act
         request.SetEvent(_event);
         guest.RequestToJoin(_event);
+        var result = guest.RequestToJoin(_event);
         
         // Assert
-        Assert.Throws(typeof(InvalidOperationException), () => guest.RequestToJoin(_event));
+        Assert.True(result.GetObj().GetGuests().Find(a => a == guest).GetRequests().Find(request => request.GetEvent() == _event).status == RequestStatus.Unanswered);
     }
 }

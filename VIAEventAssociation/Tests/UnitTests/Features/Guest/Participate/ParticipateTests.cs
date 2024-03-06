@@ -14,10 +14,11 @@ public class ParticipateTests
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>());
         var guest = new Guest("email@gmail.com", null, null);
         // Act
-        guest.Participate(_event);
+        var result = guest.Participate(_event);
 
         // Assert
-        Assert.False(_event.GetGuests().Contains(guest));
+        Assert.False(result.GetObj().GetGuests().Contains(guest));
+        
     }
     [Fact]
     public void Participate_WhenEventIsFull_ShouldNotParticipate()
@@ -29,10 +30,11 @@ public class ParticipateTests
         
         // Act
         guest1.Participate(_event);
-        guest2.Participate(_event);
+        var result = guest2.Participate(_event);
         
         // Assert
-        Assert.False(_event.GetGuests().Contains(guest2));
+        Assert.False(result.GetObj().GetGuests().Contains(guest2));
+
     }
     
 }
