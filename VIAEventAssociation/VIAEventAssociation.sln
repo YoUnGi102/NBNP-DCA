@@ -21,6 +21,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Tests\UnitTests\UnitTests.csproj", "{D92E1547-348B-4F27-B4CB-E75D9A1D4513}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{C0CFC3F9-4B1B-4033-8C57-FED802E14654}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6655F336-FB5F-4533-A385-E4B8BA93E13F} = {6655F336-FB5F-4533-A385-E4B8BA93E13F}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
