@@ -22,7 +22,7 @@ public class Event
 
 
     public Event(int id, string title, string description, DateTime start_date_time, DateTime end_date_time,
-        int max_guests, EventVisibility visibility, EventStatus status, List<Guest> guests)
+        int max_guests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)
     {
         this.id = id;
         this.title = title;
@@ -33,6 +33,7 @@ public class Event
         this.visibility = visibility;
         this.status = status;
         this.guests = guests;
+        this.location = location;
     }
 
     public Result<Event> UpdateTitle(string title)
@@ -66,13 +67,13 @@ public class Event
                                                                          " too big!"});
         }
         return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
-            start_date_time, end_date_time, max_guests, visibility, status, guests));
+            start_date_time, end_date_time, max_guests, visibility, status, guests, location));
     }
 
 public Result<Event> SetVisibility(EventVisibility visibility)
     {
         return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
-            start_date_time, end_date_time, max_guests, visibility, status, guests));
+            start_date_time, end_date_time, max_guests, visibility, status, guests, location));
     }
 
     public Result<Event> UpdateStartDateTime(DateTime startDateTime)
@@ -89,7 +90,7 @@ public Result<Event> SetVisibility(EventVisibility visibility)
                                                                          " into the future as a start date time"});
         }
         return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
-            startDateTime, end_date_time, max_guests, visibility, status, guests));
+            startDateTime, end_date_time, max_guests, visibility, status, guests, location));
     }
 
     public Result<Event> UpdateEndDateTime(DateTime endDateTime)
@@ -122,7 +123,7 @@ public Result<Event> SetVisibility(EventVisibility visibility)
         // if (messages.Length > 0)
         //     return ResultFailure<Event>.CreateMessageResult(this, messages);
         return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
-            start_date_time, end_date_time, max_guests, visibility, status, guests));
+            start_date_time, end_date_time, max_guests, visibility, status, guests, location));
     }
 
     public Result<Event> SetMaxGuests(int maxGuests)

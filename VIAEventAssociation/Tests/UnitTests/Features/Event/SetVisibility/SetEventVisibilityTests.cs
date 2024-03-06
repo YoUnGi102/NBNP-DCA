@@ -1,3 +1,5 @@
+using Domain.Aggregates.Locations;
+
 namespace UnitTests.Features.Event.SetVisibility;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Domain.Aggregates.Events;
@@ -14,7 +16,8 @@ public class SetEventVisibilityTests
     public SetEventVisibilityTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public, EventStatus.Active, new List<Guest>());
+        Location location = new Location("location", 32, new List<DateTime>([DateTime.Now.AddDays(1)]));
+        _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public, EventStatus.Active, new List<Guest>(), location);
     }
     
     [Fact]

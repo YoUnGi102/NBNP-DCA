@@ -1,3 +1,4 @@
+using Domain.Aggregates.Locations;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit.Abstractions;
 
@@ -16,8 +17,9 @@ public class UpdateEventDescriptionAggregateTests
     public UpdateEventDescriptionAggregateTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
+        Location location = new Location("location", 32, new List<DateTime>([DateTime.Now.AddDays(1)]));
         _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public,
-            EventStatus.Active, new List<Domain.Aggregates.Guests.Guest>());
+            EventStatus.Active, new List<Guest>(), location);
     }
 
     [Fact]

@@ -1,4 +1,5 @@
-﻿using VIAEventAssociation.Core.Tools.OperationResult.Result;
+﻿using Domain.Aggregates.Locations;
+using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -12,10 +13,12 @@ using Domain.Aggregates.Guests;
 public class ActivateEventTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
+    private Location _location;
 
     public ActivateEventTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
+        _location = new Location("location", 32, new List<DateTime>([DateTime.Now.AddDays(1)]));
     }
 
     [Fact]
@@ -23,7 +26,7 @@ public class ActivateEventTests
     {
         // Arrange
         var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>());
+        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>(), _location);
         // Act
         var result = creator.ActivateEvent(_event);
         bool isSuccess = result.GetObj().status == EventStatus.Active;
@@ -38,7 +41,7 @@ public class ActivateEventTests
     {
         // Arrange
         var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>());
+        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>(), _location);
         // Act
         var result = creator.ActivateEvent(_event);
         bool isSuccess = result.GetObj().status == EventStatus.Active;
@@ -53,7 +56,7 @@ public class ActivateEventTests
     {
         // Arrange
         var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>());
+        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>(), _location);
         // Act
         var result = creator.ActivateEvent(_event);
         bool isSuccess = result.GetObj().status == EventStatus.Active;
@@ -67,7 +70,7 @@ public class ActivateEventTests
     {
         // Arrange
         var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>());
+        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>(), _location);
         // Act
         var result = creator.ActivateEvent(_event);
         bool isSuccess = result.GetObj().status == EventStatus.Active;
@@ -82,7 +85,7 @@ public class ActivateEventTests
     {
         // Arrange
         var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Private, EventStatus.Draft, new List<Guest>());
+        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Private, EventStatus.Draft, new List<Guest>(), _location);
         // Act
         var result = creator.ActivateEvent(_event);
         if(result.GetType() == typeof(ResultFailure<Event>))
@@ -102,7 +105,7 @@ public class ActivateEventTests
     {
         // Arrange
         var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>());
+        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>(), _location);
         // Act
         var result = creator.ActivateEvent(_event);
         bool isSuccess = result.GetObj().status == EventStatus.Active;
