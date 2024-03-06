@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj": {}
+    "/mnt/EEB6E830B6E7F74D/Work/NBNP-DCA/VIAEventAssociation/Domain/Domain.csproj": {}
   },
   "projects": {
-    "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj": {
+    "/mnt/EEB6E830B6E7F74D/Work/NBNP-DCA/VIAEventAssociation/Domain/Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj",
+        "projectUniqueName": "/mnt/EEB6E830B6E7F74D/Work/NBNP-DCA/VIAEventAssociation/Domain/Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Domain\\obj\\",
+        "projectPath": "/mnt/EEB6E830B6E7F74D/Work/NBNP-DCA/VIAEventAssociation/Domain/Domain.csproj",
+        "packagesPath": "/home/dragos/.nuget/packages/",
+        "outputPath": "/mnt/EEB6E830B6E7F74D/Work/NBNP-DCA/VIAEventAssociation/Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/dragos/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\tomas\\.dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/dragos/.dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
