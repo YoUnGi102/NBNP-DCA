@@ -1,7 +1,8 @@
-﻿using Domain.Aggregates.Events;
-using Domain.Common.Enums;
+﻿namespace Domain.Common.Entities;
 
-namespace Domain.Common.Entities;
+using System.Collections.Generic;
+using Domain.Aggregates.Events;
+using Domain.Common.Enums;
 
 public class Invitation
 {

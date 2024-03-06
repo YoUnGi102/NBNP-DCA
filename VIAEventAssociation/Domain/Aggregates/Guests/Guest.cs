@@ -1,4 +1,5 @@
-﻿using Domain.Aggregates.Events;
+﻿using System.Collections.Generic;
+using Domain.Aggregates.Events;
 using Domain.Common.Entities;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 

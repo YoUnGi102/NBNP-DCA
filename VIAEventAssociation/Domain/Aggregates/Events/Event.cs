@@ -1,4 +1,6 @@
-﻿using Domain.Aggregates.Guests;
+﻿using System;
+using System.Collections.Generic;
+using Domain.Aggregates.Guests;
 using Domain.Aggregates.Locations;
 using Domain.Common.Enums;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
@@ -57,7 +59,8 @@ public class Event
 
 public Result<Event> SetVisibility(EventVisibility visibility)
     {
-        return ResultFailure<Event>.CreateEmptyResult();
+        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
+            start_date_time, end_date_time, max_guests, visibility, status, guests));
     }
 
     public Result<Event> UpdateStartDateTime(DateTime startDateTime)
