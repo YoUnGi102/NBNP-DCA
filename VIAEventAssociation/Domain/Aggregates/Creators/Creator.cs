@@ -1,4 +1,5 @@
 ﻿using Domain.Aggregates.Events;
+using Domain.Common.Entities;
 using Domain.Common.Enums;
 
 namespace Domain.Aggregates.Creator;
@@ -23,5 +24,5 @@ public class Creator
     
     public void DeleteEvent(Event _event){}
     
-    public void setRequestedStatus(RequestStatus status){}
+    public void setRequestedStatus(Request request, RequestStatus status){}
 }

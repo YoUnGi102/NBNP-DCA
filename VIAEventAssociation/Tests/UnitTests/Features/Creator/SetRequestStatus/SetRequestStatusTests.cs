@@ -16,7 +16,7 @@ public class SetRequestStatusTests
             
 
         // Act
-        creator.setRequestedStatus(request.status);
+        creator.setRequestedStatus(request, RequestStatus.Accepted);
         
         // Assert
         Assert.Equal(RequestStatus.Accepted, request.status);
@@ -30,7 +30,7 @@ public class SetRequestStatusTests
             
 
         // Act
-        creator.setRequestedStatus(request.status);
+        creator.setRequestedStatus(request, RequestStatus.Declined);
         
         // Assert
         Assert.Equal(RequestStatus.Declined, request.status);
