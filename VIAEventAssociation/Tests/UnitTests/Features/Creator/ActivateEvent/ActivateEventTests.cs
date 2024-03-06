@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using VIAEventAssociation.Core.Tools.OperationResult.Result;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace UnitTests.Features.Creator.ActivateEvent;
 using Domain.Aggregates.Creator;
@@ -9,6 +11,13 @@ using Domain.Aggregates.Guests;
 
 public class ActivateEventTests
 {
+    private readonly ITestOutputHelper _testOutputHelper;
+
+    public ActivateEventTests(ITestOutputHelper testOutputHelper)
+    {
+        _testOutputHelper = testOutputHelper;
+    }
+
     [Fact]
     public void ChangeEventStatusToActive_WhenEventIsDraft()
     {
@@ -16,16 +25,12 @@ public class ActivateEventTests
         var creator = new Creator(1, "creator", "123");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>());
         // Act
-        creator.ActivateEvent(_event);
-        var result = false;
-        if(_event.status == EventStatus.Active)
-        {
-            result = true;
-        }
+        var result = creator.ActivateEvent(_event);
+        bool isSuccess = result.GetObj().status == EventStatus.Active;
 
         // Assert
-        Assert.True(result);
-        Assert.Equal(EventStatus.Active, _event.status);
+        Assert.True(isSuccess);
+        Assert.Equal(EventStatus.Active, result.GetObj().status);
     }
     
     [Fact]
@@ -35,16 +40,12 @@ public class ActivateEventTests
         var creator = new Creator(1, "creator", "123");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>());
         // Act
-        creator.ActivateEvent(_event);
-        var result = false;
-        if(_event.status == EventStatus.Active)
-        {
-            result = true;
-        }
+        var result = creator.ActivateEvent(_event);
+        bool isSuccess = result.GetObj().status == EventStatus.Active;
 
         // Assert
-        Assert.True(result);
-        Assert.Equal(EventStatus.Active, _event.status);
+        Assert.True(isSuccess);
+        Assert.Equal(EventStatus.Active, result.GetObj().status);
     }
     
     [Fact]
@@ -54,16 +55,12 @@ public class ActivateEventTests
         var creator = new Creator(1, "creator", "123");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>());
         // Act
-        creator.ActivateEvent(_event);
-        var result = false;
-        if(_event.status == EventStatus.Active)
-        {
-            result = true;
-        }
+        var result = creator.ActivateEvent(_event);
+        bool isSuccess = result.GetObj().status == EventStatus.Active;
 
         // Assert
-        Assert.True(result);
-        Assert.Equal(EventStatus.Active, _event.status);
+        Assert.True(isSuccess);
+        Assert.Equal(EventStatus.Active, result.GetObj().status);
     }
     [Fact]
     public void ChangeEventStatusToActive_WhenEventIsDeleted()
@@ -72,16 +69,12 @@ public class ActivateEventTests
         var creator = new Creator(1, "creator", "123");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>());
         // Act
-        creator.ActivateEvent(_event);
-        var result = false;
-        if(_event.status == EventStatus.Active)
-        {
-            result = true;
-        }
+        var result = creator.ActivateEvent(_event);
+        bool isSuccess = result.GetObj().status == EventStatus.Active;
 
         // Assert
-        Assert.True(result);
-        Assert.Equal(EventStatus.Active, _event.status);
+        Assert.True(isSuccess);
+        Assert.Equal(EventStatus.Active, result.GetObj().status);
     }
     
     [Fact]
@@ -91,16 +84,17 @@ public class ActivateEventTests
         var creator = new Creator(1, "creator", "123");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Private, EventStatus.Draft, new List<Guest>());
         // Act
-        creator.ActivateEvent(_event);
-        var result = false;
-        if(_event.status == EventStatus.Active)
+        var result = creator.ActivateEvent(_event);
+        if(result.GetType() == typeof(ResultFailure<Event>))
         {
-            result = true;
+            foreach (var error in result.GetMessages())
+            {
+                _testOutputHelper.WriteLine(error.ToString());
+            }
         }
-
         // Assert
-        Assert.True(result);
-        Assert.Equal(EventStatus.Active, _event.status);
+        Assert.Equal(EventStatus.Active, result.GetObj().status);
+        
     }
     
     [Fact]
@@ -110,15 +104,11 @@ public class ActivateEventTests
         var creator = new Creator(1, "creator", "123");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>());
         // Act
-        creator.ActivateEvent(_event);
-        var result = false;
-        if(_event.status == EventStatus.Active)
-        {
-            result = true;
-        }
+        var result = creator.ActivateEvent(_event);
+        bool isSuccess = result.GetObj().status == EventStatus.Active;
 
         // Assert
-        Assert.True(result);
-        Assert.Equal(EventStatus.Active, _event.status);
+        Assert.True(isSuccess);
+        Assert.Equal(EventStatus.Active, result.GetObj().status);
     }
 }
