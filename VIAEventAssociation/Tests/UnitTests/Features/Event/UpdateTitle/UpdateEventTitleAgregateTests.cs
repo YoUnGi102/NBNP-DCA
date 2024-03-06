@@ -22,7 +22,7 @@ public class UpdateEventTitleAgregateTests
         _event.UpdateTitle(title);
         
         // Assert
-        Assert.Equal(title, _event.title);
+        Assert.Equal(title, _event.GetTitle());
     }
     
     [Fact]
@@ -35,7 +35,7 @@ public class UpdateEventTitleAgregateTests
         _event.UpdateTitle(title);
         
         // Assert
-        Assert.NotEqual(title, _event.title);
+        Assert.NotEqual(title, _event.GetTitle());
     }
     
     [Fact]
@@ -48,7 +48,7 @@ public class UpdateEventTitleAgregateTests
         _event.UpdateTitle(title);
         
         // Assert
-        Assert.NotEqual(title, _event.title);
+        Assert.NotEqual(title, _event.GetTitle());
     }
     
     [Fact]
@@ -61,6 +61,6 @@ public class UpdateEventTitleAgregateTests
         _event.UpdateTitle(title);
         
         // Assert
-        Assert.NotEqual(title, _event.title);
+        Assert.NotEqual(title, _event.GetTitle());
     }
 }
