@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/mnt/EEB6E830B6E7F74D/Work/NBNP-DCA/VIAEventAssociation/Domain/Domain.csproj": {}
+    "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "/mnt/EEB6E830B6E7F74D/Work/NBNP-DCA/VIAEventAssociation/Domain/Domain.csproj": {
+    "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/mnt/EEB6E830B6E7F74D/Work/NBNP-DCA/VIAEventAssociation/Domain/Domain.csproj",
+        "projectUniqueName": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "/mnt/EEB6E830B6E7F74D/Work/NBNP-DCA/VIAEventAssociation/Domain/Domain.csproj",
-        "packagesPath": "/home/dragos/.nuget/packages/",
-        "outputPath": "/mnt/EEB6E830B6E7F74D/Work/NBNP-DCA/VIAEventAssociation/Domain/obj/",
+        "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\matas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/dragos/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\matas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -53,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/dragos/.dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

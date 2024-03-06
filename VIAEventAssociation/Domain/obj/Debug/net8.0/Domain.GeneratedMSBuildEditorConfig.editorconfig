@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Domain
-build_property.ProjectDir = /mnt/EEB6E830B6E7F74D/Work/NBNP-DCA/VIAEventAssociation/Domain/
+build_property.ProjectDir = C:\Users\matas\Documents\GitHub\NBNP-DCA\VIAEventAssociation\Domain\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
