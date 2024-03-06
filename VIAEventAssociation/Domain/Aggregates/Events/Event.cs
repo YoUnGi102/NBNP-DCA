@@ -85,8 +85,8 @@ public Result<Event> SetVisibility(EventVisibility visibility)
 
         if (startDateTime > DateTime.Now.AddYears(35))
         {
-            return ResultFailure<Event>.CreateMessageResult(this, new []{"Cannot assign a date too far into" +
-                                                                         " the future as a start date time"});
+            return ResultFailure<Event>.CreateMessageResult(this, new []{"Cannot assign a date too far" +
+                                                                         " into the future as a start date time"});
         }
         return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
             startDateTime, end_date_time, max_guests, visibility, status, guests));
@@ -94,7 +94,19 @@ public Result<Event> SetVisibility(EventVisibility visibility)
 
     public Result<Event> UpdateEndDateTime(DateTime endDateTime)
     {
-        return ResultFailure<Event>.CreateEmptyResult();
+        if (endDateTime < DateTime.Now)
+        {
+            return ResultFailure<Event>.CreateMessageResult(this, new []{"The End time can't be in " +
+                                                                         "the past!"});
+        }
+
+        if (endDateTime == start_date_time)
+        {
+            return ResultFailure<Event>.CreateMessageResult(this, new []{"The End time can't be the same" +
+                                                                         " as the start time"});
+        }
+        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
+            start_date_time, endDateTime, max_guests, visibility, status, guests));
     }
     
     public Result<Event> SetEventStatus(EventStatus status)
