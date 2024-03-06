@@ -34,7 +34,7 @@ public class UpdateEventDescriptionAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(description, _event.GetDescription());
+        Assert.Equal(description, result.GetObj()?.GetDescription());
     }
 
     [Fact]
@@ -50,7 +50,7 @@ public class UpdateEventDescriptionAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(description, _event.GetDescription());
+        Assert.NotEqual(description, result.GetObj()?.GetDescription());
     }
 
     [Fact]
@@ -66,7 +66,7 @@ public class UpdateEventDescriptionAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(description, _event.GetDescription());
+        Assert.NotEqual(description, result.GetObj()?.GetDescription());
     }
 
     [Fact]
@@ -82,6 +82,6 @@ public class UpdateEventDescriptionAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(description, _event.GetDescription());
+        Assert.NotEqual(description, result.GetObj()?.GetDescription());
     }
 }
