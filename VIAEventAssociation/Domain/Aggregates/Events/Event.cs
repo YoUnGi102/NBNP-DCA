@@ -6,15 +6,17 @@ namespace Domain.Aggregates.Events;
 
 public class Event
 {
-    private int id;
-    public string title;
-    public string desctiption;
-    public DateTime start_date_time;
-    public DateTime end_date_time;
-    private int max_guests;
-    private EventVisibility visibility;
-    public EventStatus Status;
-    private List<Guest> guests;
+    private int id { get; init; }
+    private string title { get; init; }
+    private string desctiption { get; init; }
+    private DateTime start_date_time { get; init; }
+    private DateTime end_date_time { get; init; }
+    private int max_guests { get; init; }
+    private EventVisibility visibility { get; init; }
+    public EventStatus Status { get; init; }
+    private List<Guest> guests { get; init; }
+    private Location location { get; init; }
+    
     
     public Event(int id, string title, string desctiption, DateTime start_date_time, DateTime end_date_time, int max_guests, EventVisibility visibility, EventStatus status, List<Guest> guests)
     {
@@ -40,4 +42,49 @@ public class Event
     public void SetMaxGuests(int maxGuests){}
     
     public void SetLocation(Location location){}
+    
+    public int GetId()
+    {
+        return id;
+    }
+    
+    public string GetTitle()
+    {
+        return title;
+    }
+    
+    public string GetDescription()
+    {
+        return desctiption;
+    }
+    
+    public DateTime GetStartDateTime()
+    {
+        return start_date_time;
+    }
+    
+    public DateTime GetEndDateTime()
+    {
+        return end_date_time;
+    }
+    
+    public int GetMaxGuests()
+    {
+        return max_guests;
+    }
+    
+    public EventVisibility GetVisibility()
+    {
+        return visibility;
+    }
+    
+    public List<Guest> GetGuests()
+    {
+        return guests;
+    }
+    
+    public Location GetLocation()
+    {
+        return location;
+    }
 }
