@@ -1,6 +1,7 @@
 ﻿using Domain.Aggregates.Guests;
 using Domain.Aggregates.Locations;
 using Domain.Common.Enums;
+using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
 namespace Domain.Aggregates.Events;
 
@@ -42,9 +43,20 @@ public class Event
     
     public void UpdateEndDateTime(DateTime endDateTime){}
     
-    public void SetEventStatus(EventStatus status)
+    public Result<Event> SetEventStatus(EventStatus status)
     {
         this.status = status;
+        // string[] messages = new string[5];
+        // if (status == this.status)
+        //     return ResultSuccess<Event>.CreateMessageResult(this, new []{"Already in this status"});
+        // if (1 < 2)
+        //     messages.Append("1 is less than 2");
+        // if (2 > 4)
+        //     messages.Append("2 is smaller than 4");
+        // if (messages.Length > 0)
+        //     return ResultFailure<Event>.CreateMessageResult(this, messages);
+        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, desctiption,
+            start_date_time, end_date_time, max_guests, visibility, status, guests));
     }
     
     public void SetMaxGuests(int maxGuests){}

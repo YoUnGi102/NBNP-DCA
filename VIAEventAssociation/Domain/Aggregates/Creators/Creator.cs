@@ -20,9 +20,23 @@ public class Creator
 
     public Result<Event> CancelEvent(Event _event)
     {
+        if (_event.status == EventStatus.Deleted)
+        {
+            return ResultFailure<Event>.CreateMessageResult(_event, new []{"The event is deleted already!"});
+            
+        }
+
+        if (_event.status == EventStatus.Cancelled)
+        {
+            return ResultFailure<Event>.CreateMessageResult(_event, new []{"The event is cancelled already!"});
+        }
+
+        if (_event.status == EventStatus.Draft)
+        {
+            return ResultFailure<Event>.CreateMessageResult(_event, new []{"The event is still a draft!"});
+        }
         _event.SetEventStatus(EventStatus.Cancelled);
         return ResultSuccess<Event>.CreateSimpleResult(_event);
-
     }
 
     public Result<Event> ReadyEvent(Event _event)

@@ -10,7 +10,7 @@ public class UpdateEventDescriptionAggregateTests
     
     public UpdateEventDescriptionAggregateTests()
     {
-        _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public, EventStatus.Active, new List<Guest>());
+        _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public, EventStatus.Active, new List<Domain.Aggregates.Guests.Guest>());
     }
     
     [Fact]
