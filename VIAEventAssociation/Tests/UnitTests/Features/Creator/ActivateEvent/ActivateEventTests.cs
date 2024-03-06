@@ -16,16 +16,16 @@ public class ActivateEventTests
         var creator = new Creator(1, "creator", "123");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>());
         // Act
-        creator.ActiveEvent(_event);
+        creator.ActivateEvent(_event);
         var result = false;
-        if(_event.Status == EventStatus.Active)
+        if(_event.status == EventStatus.Active)
         {
             result = true;
         }
 
         // Assert
         Assert.True(result);
-        Assert.Equal(EventStatus.Active, _event.Status);
+        Assert.Equal(EventStatus.Active, _event.status);
     }
     
     [Fact]
@@ -35,16 +35,16 @@ public class ActivateEventTests
         var creator = new Creator(1, "creator", "123");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>());
         // Act
-        creator.ActiveEvent(_event);
+        creator.ActivateEvent(_event);
         var result = false;
-        if(_event.Status == EventStatus.Active)
+        if(_event.status == EventStatus.Active)
         {
             result = true;
         }
 
         // Assert
         Assert.True(result);
-        Assert.Equal(EventStatus.Active, _event.Status);
+        Assert.Equal(EventStatus.Active, _event.status);
     }
     
     [Fact]
@@ -54,16 +54,16 @@ public class ActivateEventTests
         var creator = new Creator(1, "creator", "123");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>());
         // Act
-        creator.ActiveEvent(_event);
+        creator.ActivateEvent(_event);
         var result = false;
-        if(_event.Status == EventStatus.Active)
+        if(_event.status == EventStatus.Active)
         {
             result = true;
         }
 
         // Assert
         Assert.True(result);
-        Assert.Equal(EventStatus.Active, _event.Status);
+        Assert.Equal(EventStatus.Active, _event.status);
     }
     [Fact]
     public void ChangeEventStatusToActive_WhenEventIsDeleted()
@@ -72,16 +72,16 @@ public class ActivateEventTests
         var creator = new Creator(1, "creator", "123");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>());
         // Act
-        creator.ActiveEvent(_event);
+        creator.ActivateEvent(_event);
         var result = false;
-        if(_event.Status == EventStatus.Active)
+        if(_event.status == EventStatus.Active)
         {
             result = true;
         }
 
         // Assert
         Assert.True(result);
-        Assert.Equal(EventStatus.Active, _event.Status);
+        Assert.Equal(EventStatus.Active, _event.status);
     }
     
     [Fact]
@@ -91,16 +91,16 @@ public class ActivateEventTests
         var creator = new Creator(1, "creator", "123");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Private, EventStatus.Draft, new List<Guest>());
         // Act
-        creator.ActiveEvent(_event);
+        creator.ActivateEvent(_event);
         var result = false;
-        if(_event.Status == EventStatus.Active)
+        if(_event.status == EventStatus.Active)
         {
             result = true;
         }
 
         // Assert
         Assert.True(result);
-        Assert.Equal(EventStatus.Active, _event.Status);
+        Assert.Equal(EventStatus.Active, _event.status);
     }
     
     [Fact]
@@ -110,15 +110,15 @@ public class ActivateEventTests
         var creator = new Creator(1, "creator", "123");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>());
         // Act
-        creator.ActiveEvent(_event);
+        creator.ActivateEvent(_event);
         var result = false;
-        if(_event.Status == EventStatus.Active)
+        if(_event.status == EventStatus.Active)
         {
             result = true;
         }
 
         // Assert
         Assert.True(result);
-        Assert.Equal(EventStatus.Active, _event.Status);
+        Assert.Equal(EventStatus.Active, _event.status);
     }
 }

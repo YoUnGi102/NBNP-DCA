@@ -19,7 +19,7 @@ public class CancelEventTests
         creator.CancelEvent(_event);
         
         // Assert
-        Assert.Equal(EventStatus.Cancelled, _event.Status);
+        Assert.Equal(EventStatus.Cancelled, _event.status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsActive_ShouldCancelEvent()
@@ -32,7 +32,7 @@ public class CancelEventTests
         creator.CancelEvent(_event);
         
         // Assert
-        Assert.Equal(EventStatus.Cancelled, _event.Status);
+        Assert.Equal(EventStatus.Cancelled, _event.status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsDeleted_ShouldNotCancelEvent()
@@ -45,7 +45,7 @@ public class CancelEventTests
         creator.CancelEvent(_event);
         
         // Assert
-        Assert.NotEqual(EventStatus.Cancelled, _event.Status);
+        Assert.NotEqual(EventStatus.Cancelled, _event.status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsCancelled_ShouldNotCancelEvent()
@@ -58,7 +58,7 @@ public class CancelEventTests
         creator.CancelEvent(_event);
         
         // Assert
-        Assert.NotEqual(EventStatus.Cancelled, _event.Status);
+        Assert.NotEqual(EventStatus.Cancelled, _event.status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsDraft_ShouldNotCancelEvent()
@@ -71,7 +71,7 @@ public class CancelEventTests
         creator.CancelEvent(_event);
         
         // Assert
-        Assert.NotEqual(EventStatus.Cancelled, _event.Status);
+        Assert.NotEqual(EventStatus.Cancelled, _event.status);
     }
     
     [Fact]
@@ -85,7 +85,7 @@ public class CancelEventTests
         creator.CancelEvent(_event);
         
         // Assert
-        Assert.Equal(EventStatus.Cancelled, _event.Status);
+        Assert.Equal(EventStatus.Cancelled, _event.status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsDeleted_ShouldNotChangeEventStatus()
@@ -98,6 +98,6 @@ public class CancelEventTests
         creator.CancelEvent(_event);
         
         // Assert
-        Assert.Equal(EventStatus.Deleted, _event.Status);
+        Assert.Equal(EventStatus.Deleted, _event.status);
     }
 }

@@ -18,7 +18,7 @@ public class ReadyEventTests
         creator.ReadyEvent(_event);
         
         // Assert
-        Assert.NotEqual(EventStatus.Ready, _event.Status);
+        Assert.NotEqual(EventStatus.Ready, _event.status);
     }
     [Fact]
     public void ReadyEvent_WhenEventIsDeleted_ShouldNotReadyEvent()
@@ -31,7 +31,7 @@ public class ReadyEventTests
         creator.ReadyEvent(_event);
         
         // Assert
-        Assert.NotEqual(EventStatus.Ready, _event.Status);
+        Assert.NotEqual(EventStatus.Ready, _event.status);
     }
     [Fact]
     public void ReadyEvent_WhenEventIsActive_ShouldNotReadyEvent()
@@ -44,7 +44,7 @@ public class ReadyEventTests
         creator.ReadyEvent(_event);
         
         // Assert
-        Assert.NotEqual(EventStatus.Ready, _event.Status);
+        Assert.NotEqual(EventStatus.Ready, _event.status);
     }
     [Fact]
     public void ReadyEvent_WhenEventIsReady_ShouldReadyEvent()
@@ -57,6 +57,6 @@ public class ReadyEventTests
         creator.ReadyEvent(_event);
         
         // Assert
-        Assert.Equal(EventStatus.Ready, _event.Status);
+        Assert.Equal(EventStatus.Ready, _event.status);
     }
 }

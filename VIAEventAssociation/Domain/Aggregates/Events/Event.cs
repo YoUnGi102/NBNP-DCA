@@ -12,8 +12,8 @@ public class Event
     private DateTime start_date_time { get; init; }
     private DateTime end_date_time { get; init; }
     private int max_guests { get; init; }
-    private EventVisibility visibility { get; init; }
-    public EventStatus Status { get; init; }
+    private EventVisibility visibility { get; set; }
+    public EventStatus status { get; set; }
     private List<Guest> guests { get; init; }
     private Location location { get; init; }
     
@@ -27,17 +27,25 @@ public class Event
         this.end_date_time = end_date_time;
         this.max_guests = max_guests;
         this.visibility = visibility;
-        Status = status;
+        this.status = status;
         this.guests = guests;
     }
     public void UpdateTitle(string title){}
     public void UpdateDescription(string description){}
-    
-    public void SetVisibility(EventVisibility visibility){}
+
+    public void SetVisibility(EventVisibility visibility)
+    {
+        this.visibility = visibility;
+    }
     
     public void UpdateStartDateTime(DateTime startDateTime){}
     
     public void UpdateEndDateTime(DateTime endDateTime){}
+    
+    public void SetEventStatus(EventStatus status)
+    {
+        this.status = status;
+    }
     
     public void SetMaxGuests(int maxGuests){}
     

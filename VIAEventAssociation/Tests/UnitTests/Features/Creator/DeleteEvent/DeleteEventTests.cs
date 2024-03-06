@@ -18,7 +18,7 @@ public class DeleteEventTests
         creator.DeleteEvent(_event);
         
         // Assert
-        Assert.Equal(EventStatus.Deleted, _event.Status);
+        Assert.Equal(EventStatus.Deleted, _event.status);
     }
     [Fact]
     public void DeleteEvent_WhenEventIsActive_ShouldDeleteEvent()
@@ -31,20 +31,7 @@ public class DeleteEventTests
         creator.DeleteEvent(_event);
         
         // Assert
-        Assert.Equal(EventStatus.Deleted, _event.Status);
-    }
-    [Fact]
-    public void DeleteEvent_WhenEventIsDeleted_ShouldNotDeleteEvent()
-    {
-        // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>());
-
-        // Act
-        creator.DeleteEvent(_event);
-        
-        // Assert
-        Assert.NotEqual(EventStatus.Deleted, _event.Status);
+        Assert.Equal(EventStatus.Deleted, _event.status);
     }
     [Fact]
     public void DeleteEvent_WhenEventIsCancelled_ShouldNotDeleteEvent()
@@ -57,7 +44,7 @@ public class DeleteEventTests
         creator.DeleteEvent(_event);
         
         // Assert
-        Assert.NotEqual(EventStatus.Deleted, _event.Status);
+        Assert.NotEqual(EventStatus.Deleted, _event.status);
     }
     
 }

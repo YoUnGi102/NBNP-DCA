@@ -16,13 +16,44 @@ public class Creator
         this.username = username;
         this.password = password;
     }
-    public void CancelEvent(Event _event){}
-    
-    public void ReadyEvent(Event _event){}
-    
-    public void ActiveEvent(Event _event){}
-    
-    public void DeleteEvent(Event _event){}
-    
-    public void setRequestedStatus(Request request, RequestStatus status){}
+
+    public void CancelEvent(Event _event)
+    {
+        _event.SetEventStatus(EventStatus.Cancelled);
+    }
+
+    public void ReadyEvent(Event _event)
+    {
+        if (_event.status != EventStatus.Active && _event.status != EventStatus.Deleted && _event.status != 
+            EventStatus.Cancelled)
+        {
+            _event.SetEventStatus(EventStatus.Ready);
+        }
+    }
+
+    public void ActivateEvent(Event _event)
+    {
+        _event.SetEventStatus(EventStatus.Active);
+    }
+
+    public void DeleteEvent(Event _event)
+    {
+        if (_event.status != EventStatus.Deleted && _event.status != EventStatus.Cancelled)
+        {
+            _event.SetEventStatus(EventStatus.Deleted);   
+        }
+    }
+
+    public void setRequestedStatus(Request request, RequestStatus status)
+    {
+        switch(status) 
+        {
+            case RequestStatus.Accepted:
+                request.status = RequestStatus.Accepted;
+                break;
+            case RequestStatus.Declined:
+                request.status = RequestStatus.Declined;
+                break;
+        }
+    }
 }

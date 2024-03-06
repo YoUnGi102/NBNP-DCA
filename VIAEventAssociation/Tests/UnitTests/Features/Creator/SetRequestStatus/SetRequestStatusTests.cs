@@ -22,7 +22,7 @@ public class SetRequestStatusTests
         Assert.Equal(RequestStatus.Accepted, request.status);
     }
     [Fact]
-    public void SetRequestStatus_WhenStatusIsnanswered_ShouldSetRequestStatusDeclined()
+    public void SetRequestStatus_WhenStatusIsUnanswered_ShouldSetRequestStatusDeclined()
     {
         // Arrange
         var creator = new Creator(1, "creator", "123");
