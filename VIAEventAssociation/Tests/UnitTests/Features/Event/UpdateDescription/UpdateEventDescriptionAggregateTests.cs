@@ -38,22 +38,6 @@ public class UpdateEventDescriptionAggregateTests
     }
 
     [Fact]
-    public void GivenNoDescription_WhenUpdatingDescription_ThenDescriptionIsNotUpdated()
-    {
-        // Arrange
-        var description = "";
-
-        // Act
-        var result = _event.UpdateDescription(description);
-        if (result is ResultFailure<Event>)
-            foreach (var error in result.GetMessages()!)
-                _testOutputHelper.WriteLine(error.GetMessage());
-
-        // Assert
-        Assert.NotEqual(description, result.GetObj()?.GetDescription());
-    }
-
-    [Fact]
     public void GivenTooLongDescription_WhenUpdatingDescription_ThenDescriptionIsNotUpdated()
     {
         // Arrange

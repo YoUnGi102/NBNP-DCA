@@ -10,4 +10,8 @@
       <ProjectReference Include="..\VIAEventAssociation.Core.Tools.OperationResult\VIAEventAssociation.Core.Tools.OperationResult.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="obj\Debug\net8.0\" />
+    </ItemGroup>
+
 </Project>
