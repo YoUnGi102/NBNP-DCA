@@ -1,8 +1,7 @@
-﻿using Domain.Aggregates.Events;
+﻿namespace Domain.Common.Entities;
+using Domain.Aggregates.Events;
 using Domain.Aggregates.Guests;
 using Domain.Common.Enums;
-
-namespace Domain.Common.Entities;
 
 public class Request
 {

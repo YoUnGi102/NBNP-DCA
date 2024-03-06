@@ -1,11 +1,14 @@
-using Domain.Aggregates.Guests;
-using Domain.Common.Enums;
-using Xunit;
-
 namespace UnitTests.Features.Event.UpdateStartDateTime;
 using Domain.Aggregates.Events;
+using Domain.Aggregates.Guests;
+using Domain.Common.Enums;
+using VIAEventAssociation.Core.Tools.OperationResult.Result;
+using Xunit;
+using Xunit.Abstractions;
+
 public class UpdateStartDateTimeTests
 {
+    private readonly ITestOutputHelper _testOutputHelper;
     private Event _event;
     
     public UpdateStartDateTimeTests()
@@ -17,25 +20,53 @@ public class UpdateStartDateTimeTests
     public void GivenGoodStartDateTime_WhenUpdatingStartDateTime_ThenStartDateTimeIsUpdated()
     {
         // Arrange
-        var startDateTime = DateTime.Now;
+        var currentTime = DateTime.Now;
+        var startDateTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day+1);
         
         // Act
-        _event.UpdateStartDateTime(startDateTime);
+        var result = _event.UpdateStartDateTime(startDateTime);
+
+        if (result is ResultFailure<Event>)
+            foreach (var error in result.GetMessages()!)
+                _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.Equal(startDateTime, _event.GetStartDateTime());
+        Assert.True(startDateTime - DateTime.Now > TimeSpan.Zero);
+        Assert.Equal(startDateTime, result.GetObj()?.GetStartDateTime());
     }
 
     [Fact]
-    public void GivenBadStartDateTime_WhenUpdatingStartDateTime_ThenStartDateTimeIsNotUpdated()
+    public void GivenAPastDate_WhenUpdatingStartDateTime_ThenStartDateTimeIsNotUpdated()
     {
         // Arrange
-        var startDateTime = DateTime.MinValue;
+        var startDateTime = new DateTime(2021, 1, 1);
 
         // Act
-        _event.UpdateStartDateTime(startDateTime);
+        var result = _event.UpdateStartDateTime(startDateTime);
 
+        if (result is ResultFailure<Event>)
+            foreach (var error in result.GetMessages()!)
+                _testOutputHelper.WriteLine(error.GetMessage());
+        
         // Assert
-        Assert.NotEqual(startDateTime, _event.GetStartDateTime());
+        Assert.NotEqual(startDateTime, result.GetObj()?.GetStartDateTime());
+    }
+    
+    [Fact]
+    
+    public void GivenATooFarInTheFutureDate_WhenUpdatingStartDateTime_ThenStartDateTimeIsNotUpdated()
+    {
+        // Arrange
+        var startDateTime = new DateTime(DateTime.Now.Year+30, 1, 1);
+
+        // Act
+        var result = _event.UpdateStartDateTime(startDateTime);
+
+        if (result is ResultFailure<Event>)
+            foreach (var error in result.GetMessages()!)
+                _testOutputHelper.WriteLine(error.GetMessage());
+        
+        // Assert
+        Assert.NotEqual(startDateTime, result.GetObj()?.GetStartDateTime());
     }
 }
