@@ -3,6 +3,11 @@
 public class Guest
 {
     private string email;
+
+    public Guest(string email)
+    {
+        this.email = email;
+    }
     
     public void Participate(){}
     public void RemoveParticipation(){}

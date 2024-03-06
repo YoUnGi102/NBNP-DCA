@@ -4,5 +4,10 @@ namespace Domain.Common.Entities;
 
 public class Invitation
 {
-    public InvitationStatus status;
+    internal InvitationStatus status;
+
+    public Invitation(InvitationStatus status)
+    {
+        this.status = status;
+    }
 }

@@ -1,4 +1,5 @@
-﻿using Domain.Common.Enums;
+﻿using Domain.Aggregates.Events;
+using Domain.Common.Enums;
 
 namespace Domain.Aggregates.Creator;
 
@@ -8,15 +9,19 @@ public class Creator
     private string username;
     private string password;
 
-    public void CancelEvent()
+    public Creator(int id, string username, string password)
     {
+        this.id = id;
+        this.username = username;
+        this.password = password;
     }
+    public void CancelEvent(Event _event){}
     
-    public void ReadyEvent(){}
+    public void ReadyEvent(Event _event){}
     
-    public void ActiveEvent(){}
+    public void ActiveEvent(Event _event){}
     
-    public void DeleteEvent(){}
+    public void DeleteEvent(Event _event){}
     
     public void setRequestedStatus(RequestStatus status){}
 }
