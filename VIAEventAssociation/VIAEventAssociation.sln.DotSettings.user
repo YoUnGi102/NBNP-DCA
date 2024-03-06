@@ -17,5 +17,9 @@
     &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.UpdateStartDateTime.UpdateStartDateTimeTests.GivenGoodStartDateTime_WhenUpdatingStartDateTime_ThenStartDateTimeIsUpdated&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.UpdateStartDateTime.UpdateStartDateTimeTests.GivenAPastDate_WhenUpdatingStartDateTime_ThenStartDateTimeIsNotUpdated&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.UpdateStartDateTime.UpdateStartDateTimeTests.GivenATooFarInTheFutureDate_WhenUpdatingStartDateTime_ThenStartDateTimeIsNotUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::VIAEventAssociation.Tests.UnitTests.Features.Event.Activate.UpdateEventTitleAgregateTests.GivenGoodTitle_WhenUpdatingTitle_ThenTitleIsUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::VIAEventAssociation.Tests.UnitTests.Features.Event.Activate.UpdateEventTitleAgregateTests.GivenTooShortTitle_WhenUpdatingTitle_ThenTitleIsNotUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::VIAEventAssociation.Tests.UnitTests.Features.Event.Activate.UpdateEventTitleAgregateTests.GivenNoTitle_WhenUpdatingTitle_ThenTitleIsNotUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::VIAEventAssociation.Tests.UnitTests.Features.Event.Activate.UpdateEventTitleAgregateTests.GivenTooLongTitle_WhenUpdatingTitle_ThenTitleIsNotUpdated&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

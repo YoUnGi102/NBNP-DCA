@@ -37,7 +37,19 @@ public class Event
 
     public Result<Event> UpdateTitle(string title)
     {
-        return ResultFailure<Event>.CreateEmptyResult();
+        if (title.Length < 3)
+        {
+            return ResultFailure<Event>.CreateMessageResult(this, new []{"The title can't be smaller than" +
+                                                                         " 5 characters!"});
+        }
+
+        if (title.Length > 100)
+        {
+            return ResultFailure<Event>.CreateMessageResult(this, new []{"The title can't be larger than" +
+                                                                         " 100 characters!"});   
+        }
+        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
+            start_date_time, end_date_time, max_guests, visibility, status, guests));
     }
 
     public Result<Event> UpdateDescription(string description)
