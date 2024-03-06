@@ -9,7 +9,7 @@ public class Event
 {
     private int id { get; init; }
     private string title { get; init; }
-    private string desctiption { get; init; }
+    private string description { get; init; }
     private DateTime start_date_time { get; init; }
     private DateTime end_date_time { get; init; }
     private int max_guests { get; init; }
@@ -19,12 +19,12 @@ public class Event
     private Location location { get; init; }
 
 
-    public Event(int id, string title, string desctiption, DateTime start_date_time, DateTime end_date_time,
+    public Event(int id, string title, string description, DateTime start_date_time, DateTime end_date_time,
         int max_guests, EventVisibility visibility, EventStatus status, List<Guest> guests)
     {
         this.id = id;
         this.title = title;
-        this.desctiption = desctiption;
+        this.description = description;
         this.start_date_time = start_date_time;
         this.end_date_time = end_date_time;
         this.max_guests = max_guests;
@@ -40,7 +40,19 @@ public class Event
 
     public Result<Event> UpdateDescription(string description)
     {
-        return ResultFailure<Event>.CreateEmptyResult();
+        if (description.Length < 11)
+        {
+            return ResultFailure<Event>.CreateMessageResult(this, new[]{"The length of the description is" +
+                                                                        " too small!"});
+        }
+
+        if (description.Length > 700)
+        {
+            return ResultFailure<Event>.CreateMessageResult(this, new []{"The length of the description is" +
+                                                                         " too big!"});
+        }
+        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
+            start_date_time, end_date_time, max_guests, visibility, status, guests));
     }
 
 public Result<Event> SetVisibility(EventVisibility visibility)
@@ -70,7 +82,7 @@ public Result<Event> SetVisibility(EventVisibility visibility)
         //     messages.Append("2 is smaller than 4");
         // if (messages.Length > 0)
         //     return ResultFailure<Event>.CreateMessageResult(this, messages);
-        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, desctiption,
+        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
             start_date_time, end_date_time, max_guests, visibility, status, guests));
     }
 
@@ -96,7 +108,7 @@ public Result<Event> SetVisibility(EventVisibility visibility)
     
     public string GetDescription()
     {
-        return desctiption;
+        return description;
     }
     
     public DateTime GetStartDateTime()
