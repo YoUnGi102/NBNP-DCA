@@ -1,3 +1,5 @@
+using Xunit.Sdk;
+
 namespace UnitTests.Features.Event.UpdateStartDateTime;
 using Domain.Aggregates.Events;
 using Domain.Aggregates.Guests;
@@ -11,8 +13,9 @@ public class UpdateStartDateTimeTests
     private readonly ITestOutputHelper _testOutputHelper;
     private Event _event;
     
-    public UpdateStartDateTimeTests()
+    public UpdateStartDateTimeTests(ITestOutputHelper testOutputHelper)
     {
+        _testOutputHelper = testOutputHelper;
         _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public, EventStatus.Active, new List<Domain.Aggregates.Guests.Guest>());
     }
     
@@ -57,7 +60,7 @@ public class UpdateStartDateTimeTests
     public void GivenATooFarInTheFutureDate_WhenUpdatingStartDateTime_ThenStartDateTimeIsNotUpdated()
     {
         // Arrange
-        var startDateTime = new DateTime(DateTime.Now.Year+30, 1, 1);
+        var startDateTime = DateTime.Now.AddYears(40);
 
         // Act
         var result = _event.UpdateStartDateTime(startDateTime);
