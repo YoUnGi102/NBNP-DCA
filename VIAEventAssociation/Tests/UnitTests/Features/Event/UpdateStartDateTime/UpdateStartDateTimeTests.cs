@@ -16,15 +16,14 @@ public class UpdateStartDateTimeTests
     public UpdateStartDateTimeTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public, EventStatus.Active, new List<Domain.Aggregates.Guests.Guest>());
+        _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30, EventVisibility.Public, EventStatus.Active, new List<Domain.Aggregates.Guests.Guest>());
     }
     
     [Fact]
     public void GivenGoodStartDateTime_WhenUpdatingStartDateTime_ThenStartDateTimeIsUpdated()
     {
         // Arrange
-        var currentTime = DateTime.Now;
-        var startDateTime = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day+1);
+        var startDateTime = DateTime.Now.AddDays(1);
         
         // Act
         var result = _event.UpdateStartDateTime(startDateTime);

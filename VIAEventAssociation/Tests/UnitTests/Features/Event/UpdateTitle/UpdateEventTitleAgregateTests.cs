@@ -1,15 +1,19 @@
-using Domain.Aggregates.Guests;
-using Domain.Common.Enums;
-using Xunit;
+using VIAEventAssociation.Core.Tools.OperationResult.Result;
+using Xunit.Abstractions;
 
 namespace VIAEventAssociation.Tests.UnitTests.Features.Event.Activate;
 using Domain.Aggregates.Events;
+using Domain.Aggregates.Guests;
+using Domain.Common.Enums;
+using Xunit;
 public class UpdateEventTitleAgregateTests
 {
+    private readonly ITestOutputHelper _testOutputHelper;
     private Event _event;
     
-    public UpdateEventTitleAgregateTests()
+    public UpdateEventTitleAgregateTests(ITestOutputHelper testOutputHelper)
     {
+        _testOutputHelper = testOutputHelper;
         _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public, EventStatus.Active, new List<Guest>());
     }
     [Fact]
@@ -19,10 +23,14 @@ public class UpdateEventTitleAgregateTests
         var title = "New Title";
         
         // Act
-        _event.UpdateTitle(title);
+        var result = _event.UpdateTitle(title);
+
+        if (result is ResultFailure<Event>)
+            foreach (var error in result.GetMessages()!)
+                _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.Equal(title, _event.GetTitle());
+        Assert.Equal(title, result.GetObj().GetTitle());
     }
     
     [Fact]
@@ -32,10 +40,14 @@ public class UpdateEventTitleAgregateTests
         var title = "";
         
         // Act
-        _event.UpdateTitle(title);
+        var result = _event.UpdateTitle(title);
+
+        if (result is ResultFailure<Event>)
+            foreach (var error in result.GetMessages()!)
+                _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.NotEqual(title, _event.GetTitle());
+        Assert.NotEqual(title, result.GetObj().GetTitle());
     }
     
     [Fact]
@@ -45,10 +57,14 @@ public class UpdateEventTitleAgregateTests
         string title = new string('a', 101);
         
         // Act
-        _event.UpdateTitle(title);
+        var result = _event.UpdateTitle(title);
+
+        if (result is ResultFailure<Event>)
+            foreach (var error in result.GetMessages()!)
+                _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.NotEqual(title, _event.GetTitle());
+        Assert.NotEqual(title, result.GetObj().GetTitle());
     }
     
     [Fact]
@@ -58,9 +74,13 @@ public class UpdateEventTitleAgregateTests
         string title = new string('a', 1);
         
         // Act
-        _event.UpdateTitle(title);
+        var result = _event.UpdateTitle(title);
+
+        if (result is ResultFailure<Event>)
+            foreach (var error in result.GetMessages()!)
+                _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.NotEqual(title, _event.GetTitle());
+        Assert.NotEqual(title, result.GetObj().GetTitle());
     }
 }
