@@ -17,9 +17,10 @@ public class Event
     public EventStatus status { get; set; }
     private List<Guest> guests { get; init; }
     private Location location { get; init; }
-    
-    
-    public Event(int id, string title, string desctiption, DateTime start_date_time, DateTime end_date_time, int max_guests, EventVisibility visibility, EventStatus status, List<Guest> guests)
+
+
+    public Event(int id, string title, string desctiption, DateTime start_date_time, DateTime end_date_time,
+        int max_guests, EventVisibility visibility, EventStatus status, List<Guest> guests)
     {
         this.id = id;
         this.title = title;
@@ -31,17 +32,31 @@ public class Event
         this.status = status;
         this.guests = guests;
     }
-    public void UpdateTitle(string title){}
-    public void UpdateDescription(string description){}
 
-    public void SetVisibility(EventVisibility visibility)
+    public Result<Event> UpdateTitle(string title)
     {
-        this.visibility = visibility;
+        return ResultFailure<Event>.CreateEmptyResult();
     }
-    
-    public void UpdateStartDateTime(DateTime startDateTime){}
-    
-    public void UpdateEndDateTime(DateTime endDateTime){}
+
+    public Result<Event> UpdateDescription(string description)
+    {
+        return ResultFailure<Event>.CreateEmptyResult();
+    }
+
+public Result<Event> SetVisibility(EventVisibility visibility)
+    {
+        return ResultFailure<Event>.CreateEmptyResult();
+    }
+
+    public Result<Event> UpdateStartDateTime(DateTime startDateTime)
+    {
+        return ResultFailure<Event>.CreateEmptyResult();
+    }
+
+    public Result<Event> UpdateEndDateTime(DateTime endDateTime)
+    {
+        return ResultFailure<Event>.CreateEmptyResult();
+    }
     
     public Result<Event> SetEventStatus(EventStatus status)
     {
@@ -58,10 +73,16 @@ public class Event
         return ResultSuccess<Event>.CreateSimpleResult(new(id, title, desctiption,
             start_date_time, end_date_time, max_guests, visibility, status, guests));
     }
-    
-    public void SetMaxGuests(int maxGuests){}
-    
-    public void SetLocation(Location location){}
+
+    public Result<Event> SetMaxGuests(int maxGuests)
+    {
+        return ResultFailure<Event>.CreateEmptyResult();
+    }
+
+    public Result<Event> SetLocation(Location location)
+    {
+        return ResultFailure<Event>.CreateEmptyResult();
+    }
     
     public int GetId()
     {
