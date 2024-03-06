@@ -1,15 +1,19 @@
-using Xunit;
-
 namespace UnitTests.Features.Event.SetVisibility;
+using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Domain.Aggregates.Events;
 using Domain.Aggregates.Guests;
 using Domain.Common.Enums;
+using Xunit.Abstractions;
+
+using Xunit;
 public class SetEventVisibilityTests
 {
+    private readonly ITestOutputHelper _testOutputHelper;
     private Event _event;
     
-    public SetEventVisibilityTests()
+    public SetEventVisibilityTests(ITestOutputHelper testOutputHelper)
     {
+        _testOutputHelper = testOutputHelper;
         _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public, EventStatus.Active, new List<Guest>());
     }
     
@@ -20,10 +24,14 @@ public class SetEventVisibilityTests
         var visibility = EventVisibility.Private;
         
         // Act
-        _event.SetVisibility(visibility);
+        var result = _event.SetVisibility(visibility);
+
+        if (result is ResultFailure<Event>)
+            foreach (var error in result.GetMessages()!)
+                _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.Equal(visibility, _event.GetVisibility());
+        Assert.Equal(visibility, result.GetObj()?.GetVisibility());
     }
     
     [Fact]
@@ -33,9 +41,13 @@ public class SetEventVisibilityTests
         var visibility = EventVisibility.Public;
         
         // Act
-        _event.SetVisibility(visibility);
+        var result = _event.SetVisibility(visibility);
+
+        if (result is ResultFailure<Event>)
+            foreach (var error in result.GetMessages()!)
+                _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.Equal(visibility, _event.GetVisibility());
+        Assert.Equal(visibility, result.GetObj()?.GetVisibility());
     }
 }
