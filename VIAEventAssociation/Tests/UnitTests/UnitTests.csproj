@@ -42,4 +42,8 @@
       <ProjectReference Include="..\..\VIAEventAssociation.Core.Tools.OperationResult\VIAEventAssociation.Core.Tools.OperationResult.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Features\Location\" />
+    </ItemGroup>
+
 </Project>

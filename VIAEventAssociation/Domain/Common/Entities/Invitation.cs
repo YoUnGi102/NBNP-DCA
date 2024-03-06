@@ -10,4 +10,8 @@ public class Invitation
     {
         this.status = status;
     }
+    public InvitationStatus GetStatus()
+    {
+        return this.status;
+    }
 }
