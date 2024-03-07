@@ -128,7 +128,21 @@ public Result<Event> SetVisibility(EventVisibility visibility)
 
     public Result<Event> SetMaxGuests(int maxGuests)
     {
-        return ResultFailure<Event>.CreateEmptyResult();
+        if (maxGuests < 1)
+        {
+            return ResultFailure<Event>.CreateMessageResult(this, new []{"The maximum number of guests" +
+                                                                         " should be a positive number hher than 0"});
+        }
+
+        if (maxGuests > location.maxCapacity + 1)
+        {
+            return ResultFailure<Event>.CreateMessageResult(this, new []{"The amount of users can't be" +
+                                                                         " higher than the number of places at the" +
+                                                                         " chosen location. The number of places" +
+                                                                         " is:" + location.maxCapacity});
+        }
+        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
+            start_date_time, end_date_time, maxGuests, visibility, status, guests, location));
     }
 
     public Result<Event> SetLocation(Location location)

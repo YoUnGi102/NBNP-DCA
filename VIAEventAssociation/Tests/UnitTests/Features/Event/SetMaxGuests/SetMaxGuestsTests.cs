@@ -13,14 +13,13 @@ public class SetMaxGuestsTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
     private Event _event;
-    private Location _location;
 
     public SetMaxGuestsTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        _location = new Location("location", 32, new List<DateTime>([DateTime.Now.AddDays(1)]));
+        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
         _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
-            EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
+            EventVisibility.Public, EventStatus.Active, new List<Guest>(), location);
     }
     
     [Fact]
