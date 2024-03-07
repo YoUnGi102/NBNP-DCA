@@ -18,6 +18,13 @@ public class Guest
         this.email = email;
         this.requests = new List<Request>();
     }
+    
+    public Guest(string email, List<Request> requests, List<Invitation> invitations)
+    {
+        this.email = email;
+        this.requests = requests;
+        this.invitations = invitations;
+    }
 
     public Result<Event> Participate(Event _event)
     {
