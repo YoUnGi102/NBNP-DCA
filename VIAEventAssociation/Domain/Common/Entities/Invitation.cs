@@ -1,4 +1,6 @@
-﻿namespace Domain.Common.Entities;
+﻿using VIAEventAssociation.Core.Tools.OperationResult.Result;
+
+namespace Domain.Common.Entities;
 
 using System.Collections.Generic;
 using Domain.Aggregates.Events;
@@ -7,9 +9,9 @@ using Domain.Common.Enums;
 public class Invitation
 {
     internal InvitationStatus status;
-    internal List<Event> events;
+    internal Event events;
 
-    public Invitation(InvitationStatus status, List<Event> events)
+    public Invitation(InvitationStatus status, Event events)
     {
         this.status = status;
         this.events = events;
@@ -18,7 +20,7 @@ public class Invitation
     {
         return this.status;
     }
-    public List<Event> GetEvents()
+    public Event GetEvent()
     {
         return this.events;
     }

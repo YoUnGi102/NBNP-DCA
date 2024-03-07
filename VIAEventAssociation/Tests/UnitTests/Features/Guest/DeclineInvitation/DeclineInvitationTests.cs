@@ -14,7 +14,7 @@ public class DeclineInvitationTests
         var invitation = new Invitation(InvitationStatus.Unanswered, null);
         var invitations = new List<Invitation>();
         invitations.Add(invitation);
-        var guest = new Guest("email@gmail.com", null, null);
+        var guest = new Guest("email@gmail.com");
         
         // Act
         invitations.Add(invitation);

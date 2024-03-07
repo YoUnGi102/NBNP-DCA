@@ -26,7 +26,7 @@ public class RequestToJoinTests
         // Arrange
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Active, new List<Guest>(),_location);
-        var guest = new Guest("email@gmail.com", null, null);
+        var guest = new Guest("email@gmail.com");
         var request = new Request(RequestStatus.Unanswered);
 
         // Act
@@ -45,7 +45,7 @@ public class RequestToJoinTests
         // Arrange
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Active, new List<Guest>(), _location);
-        var guest = new Guest("email@gmail.com", null, null);
+        var guest = new Guest("email@gmail.com");
         var request = new Request(RequestStatus.Unanswered);
 
         // Act
