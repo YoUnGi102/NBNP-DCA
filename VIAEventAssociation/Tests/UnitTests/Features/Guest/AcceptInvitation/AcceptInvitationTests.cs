@@ -91,6 +91,9 @@ public class AcceptInvitationTests
         var guest = new Guest("email@gmail.com");
 
         // Act
+        // guest.AcceptInvitation(invitation);
+        // guest.AcceptInvitation(invitation);
+        // guest.AcceptInvitation(invitation);
         var result = guest.AcceptInvitation(invitation);
         if (result is ResultFailure<Invitation>)
             foreach (var error in result.GetMessages()!)

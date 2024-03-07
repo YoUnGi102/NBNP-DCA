@@ -15,7 +15,7 @@ public class Event
     private DateTime start_date_time { get; init; }
     private DateTime end_date_time { get; init; }
     private int max_guests { get; init; }
-    private EventVisibility visibility { get; set; }
+    private EventVisibility visibility { get; init; }
     public EventStatus status { get; set; }
     private List<Guest> guests { get; init; }
     private Location location { get; init; }
@@ -68,6 +68,12 @@ public class Event
         }
         return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
             start_date_time, end_date_time, max_guests, visibility, status, guests, location));
+    }
+
+    public void AddGuest(Guest guest)
+    {
+        guests.Add(guest);
+        //return ResultSuccess<Guest>.CreateSimpleResult(guest);
     }
 
 public Result<Event> SetVisibility(EventVisibility visibility)

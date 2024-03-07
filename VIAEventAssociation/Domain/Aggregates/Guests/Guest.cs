@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Domain.Aggregates.Events;
 using Domain.Common.Entities;
+using Domain.Common.Enums;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
 
@@ -8,8 +10,8 @@ namespace Domain.Aggregates.Guests;
 
 public class Guest
 {
-    private string email;
-    private List<Request> requests;
+    private string email { get; init; }
+    private List<Request> requests { get; init; }
     private List<Invitation> invitations;
 
     public Guest(string email)
@@ -43,6 +45,22 @@ public class Guest
 
     public Result<Invitation> AcceptInvitation(Invitation invitation)
     {
+        var _event = invitation.events;
+        if (_event.GetEndDateTime() < DateTime.Now)
+        {
+            invitation.status = InvitationStatus.Declined;
+            return ResultFailure<Invitation>.CreateMessageResult(invitation, new []{"The event has already" +
+                " finished!"});
+        }
+
+        if (_event.GetMaxGuests() == _event.GetGuests().Count)
+        {
+            invitation.status = InvitationStatus.Declined;
+            return ResultFailure<Invitation>.CreateMessageResult(invitation, new []{"The event doesn't have" +
+                " any spots left!"});
+        }
+        _event.AddGuest(this);
+        invitation.status = InvitationStatus.Accepted;
         return ResultSuccess<Invitation>.CreateSimpleResult(invitation);
     }
 
