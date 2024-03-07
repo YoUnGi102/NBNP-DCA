@@ -33,8 +33,13 @@ public class Guest
         return ResultSuccess<Event>.CreateSimpleResult(_event);
     }
 
-    public Result<Event> RemoveParticipation(Event _event)
+    public Result<Event> RemoveParticipation(Event _event, Guest guest)
     {
+        if (!_event.GetGuests().Contains(guest))
+        {
+            return ResultFailure<Event>.CreateMessageResult(_event, new[] { "The guest isn't assigned to" +
+                                                                     " this event!" });
+        }
         return ResultSuccess<Event>.CreateSimpleResult(_event);
     }
 
@@ -66,6 +71,7 @@ public class Guest
 
     public Result<Invitation> DeclineInvitation(Invitation invitation)
     {
+        invitation.status = InvitationStatus.Declined;
         return ResultSuccess<Invitation>.CreateSimpleResult(invitation);
     }
     

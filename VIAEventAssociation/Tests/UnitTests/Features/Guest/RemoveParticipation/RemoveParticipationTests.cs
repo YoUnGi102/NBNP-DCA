@@ -1,4 +1,6 @@
 ﻿using Domain.Aggregates.Locations;
+using Domain.Common.Entities;
+using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -28,8 +30,8 @@ public class RemoveParticipationTests
         var guest = new Guest("email@gmail.com");
         // Act
         guest.Participate(_event);
-        guest.RemoveParticipation(_event);
-        var result = guest.RemoveParticipation(_event);
+        guest.RemoveParticipation(_event, guest);
+        var result = guest.RemoveParticipation(_event, guest);
 
         // Assert
         Assert.False(result.GetObj().GetGuests().Contains(guest));
@@ -44,9 +46,13 @@ public class RemoveParticipationTests
         var guest = new Guest("email@gmail.com");
 
         // Act
-        var result = guest.RemoveParticipation(_event);
+        var result = guest.RemoveParticipation(_event, guest);
+        if (result is ResultFailure<Event>)
+            foreach (var error in result.GetMessages()!)
+                _testOutputHelper.WriteLine(error.GetMessage());
+
 
         // Assert
-        Assert.True(result.GetObj().GetGuests().Contains(guest));
+        Assert.False(result.GetObj().GetGuests().Contains(guest));
     }
 }

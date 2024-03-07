@@ -85,15 +85,16 @@ public class AcceptInvitationTests
     public void AcceptInvitation_WhenMaxGuestsIsReached_ShouldNotAcceptInvitation()
     {
         // Arrange
-        var _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 0,
+        var _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 3,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
         var guest = new Guest("email@gmail.com");
+        var guest1 = new Guest("email@gmail.org");
 
         // Act
-        // guest.AcceptInvitation(invitation);
-        // guest.AcceptInvitation(invitation);
-        // guest.AcceptInvitation(invitation);
+        guest1.AcceptInvitation(invitation);
+        guest1.AcceptInvitation(invitation);
+        guest1.AcceptInvitation(invitation);
         var result = guest.AcceptInvitation(invitation);
         if (result is ResultFailure<Invitation>)
             foreach (var error in result.GetMessages()!)
