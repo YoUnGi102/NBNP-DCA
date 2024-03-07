@@ -23,14 +23,7 @@ public class Creator
         if (_event.status == EventStatus.Deleted)
         {
             return ResultFailure<Event>.CreateMessageResult(_event, new []{"The event is deleted already!"});
-            
         }
-
-        if (_event.status == EventStatus.Cancelled)
-        {
-            return ResultFailure<Event>.CreateMessageResult(_event, new []{"The event is cancelled already!"});
-        }
-
         if (_event.status == EventStatus.Draft)
         {
             return ResultFailure<Event>.CreateMessageResult(_event, new []{"The event is still a draft!"});
@@ -41,14 +34,16 @@ public class Creator
 
     public Result<Event> ReadyEvent(Event _event)
     {
-        if (_event.status != EventStatus.Active && _event.status != EventStatus.Deleted && _event.status != 
-            EventStatus.Cancelled)
-        {
-            _event.SetEventStatus(EventStatus.Ready);
-            return ResultSuccess<Event>.CreateSimpleResult(_event);
 
-        }
-        return ResultFailure<Event>.CreateSimpleResult(_event);
+        if (_event.status != EventStatus.Active)
+            return ResultFailure<Event>.CreateMessageResult(_event, new[] { "The event is already Active" });
+        if (_event.status != EventStatus.Deleted)
+            return ResultFailure<Event>.CreateMessageResult(_event, new[] { "The event is already Deleted" });
+        if (_event.status != EventStatus.Cancelled)
+            return ResultFailure<Event>.CreateMessageResult(_event, new[] { "The event is already Cancelled" });
+        _event.SetEventStatus(EventStatus.Ready);
+        return ResultSuccess<Event>.CreateSimpleResult(_event);
+        
     }
 
     public Result<Event> ActivateEvent(Event _event)
@@ -59,12 +54,12 @@ public class Creator
 
     public Result<Event> DeleteEvent(Event _event)
     {
-        if (_event.status != EventStatus.Deleted && _event.status != EventStatus.Cancelled)
-        {
-            _event.SetEventStatus(EventStatus.Deleted);  
-            return ResultSuccess<Event>.CreateSimpleResult(_event);
-        }
-        return ResultFailure<Event>.CreateSimpleResult(_event);
+        if (_event.status == EventStatus.Deleted)
+            return ResultFailure<Event>.CreateMessageResult(_event, new []{"The event is already Deleted"});
+        if (_event.status == EventStatus.Cancelled)
+            return ResultFailure<Event>.CreateMessageResult(_event, new []{"The event is already Cancelled"});
+        _event.SetEventStatus(EventStatus.Deleted);
+        return ResultSuccess<Event>.CreateSimpleResult(_event);
     }
 
     public Result<Request> setRequestedStatus(Request request, RequestStatus status)

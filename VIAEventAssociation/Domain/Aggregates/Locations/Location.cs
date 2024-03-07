@@ -1,4 +1,6 @@
-﻿using VIAEventAssociation.Core.Tools.OperationResult.Result;
+﻿using System;
+using System.Collections.Generic;
+using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
 namespace Domain.Aggregates.Locations;
 

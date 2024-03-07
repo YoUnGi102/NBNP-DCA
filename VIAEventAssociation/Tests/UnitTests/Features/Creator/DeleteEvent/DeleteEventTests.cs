@@ -16,7 +16,7 @@ public class DeleteEventTests
     public DeleteEventTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        _location = new Location("location", 32, new List<DateTime>([DateTime.Now.AddDays(1)]));
+        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
     }
     [Fact]
     public void DeleteEvent_WhenEventIsReady_ShouldDeleteEvent()

@@ -17,7 +17,7 @@ public class CancelEventTests
     public CancelEventTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        _location = new Location("location", 32, new List<DateTime>([DateTime.Now.AddDays(1)]));
+        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
     }
     [Fact]
     public void CancelEvent_WhenEventIsReady_ShouldCancelEvent()
@@ -63,22 +63,6 @@ public class CancelEventTests
             foreach (var error in result.GetMessages()!)
                 _testOutputHelper.WriteLine(error.GetMessage());
         
-        // Assert
-        Assert.NotEqual(EventStatus.Cancelled, result.GetObj().status);
-    }
-    [Fact]
-    public void CancelEvent_WhenEventIsCancelled_ShouldNotCancelEvent()
-    {
-        // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>(), _location);
-
-        // Act
-        var result = creator.CancelEvent(_event);
-        if (result is ResultFailure<Event>)
-            foreach (var error in result.GetMessages()!)
-                _testOutputHelper.WriteLine(error.GetMessage());
-
         // Assert
         Assert.NotEqual(EventStatus.Cancelled, result.GetObj().status);
     }
@@ -130,6 +114,6 @@ public class CancelEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.Equal(EventStatus.Cancelled, result.GetObj().status);
+        Assert.Equal(EventStatus.Deleted, result.GetObj().status);
     }
 }

@@ -17,7 +17,7 @@ public class RequestToJoinTests
     public RequestToJoinTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        _location = new Location("location", 32, new List<DateTime>([DateTime.Now.AddDays(1)]));
+        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
     }
 
     [Fact]
