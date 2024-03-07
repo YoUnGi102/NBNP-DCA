@@ -12,11 +12,11 @@ public class Guest
     private List<Request> requests;
     private List<Invitation> invitations;
 
-    public Guest(string email, List<Request> requests, Invitation invitations)
+    public Guest(string email)
     {
         this.invitations = new List<Invitation>();
         this.email = email;
-        this.requests = requests;
+        this.requests = new List<Request>();
     }
 
     public Result<Event> Participate(Event _event)
