@@ -80,7 +80,7 @@ public class CancelEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(EventStatus.Cancelled, result.GetObj().status);
+        Assert.Equal(EventStatus.Cancelled, result.GetObj().status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsDraft_ShouldNotCancelEvent()
@@ -130,6 +130,6 @@ public class CancelEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.Equal(EventStatus.Cancelled, result.GetObj().status);
+        Assert.Equal(EventStatus.Deleted, result.GetObj().status);
     }
 }

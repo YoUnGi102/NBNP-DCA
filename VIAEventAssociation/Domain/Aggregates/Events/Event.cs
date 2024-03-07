@@ -50,7 +50,7 @@ public class Event
                                                                          " 100 characters!"});   
         }
         return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
-            start_date_time, end_date_time, max_guests, visibility, status, guests));
+            start_date_time, end_date_time, max_guests, visibility, status, guests, location));
     }
 
     public Result<Event> UpdateDescription(string description)
@@ -107,7 +107,7 @@ public Result<Event> SetVisibility(EventVisibility visibility)
                                                                          " as the start time"});
         }
         return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
-            start_date_time, endDateTime, max_guests, visibility, status, guests));
+            start_date_time, endDateTime, max_guests, visibility, status, guests, location));
     }
     
     public Result<Event> SetEventStatus(EventStatus status)
