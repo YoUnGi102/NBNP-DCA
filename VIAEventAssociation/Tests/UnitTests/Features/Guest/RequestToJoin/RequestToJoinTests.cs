@@ -1,10 +1,9 @@
-﻿using Domain.Aggregates.Locations;
+﻿namespace UnitTests.Features.Guest.RequestToJoin;
+
+using Domain.Aggregates.Locations;
 using Domain.Common.Entities;
 using Xunit;
 using Xunit.Abstractions;
-
-namespace UnitTests.Features.Guest.RequestToJoin;
-
 using Domain.Aggregates.Events;
 using Domain.Common.Enums;
 using Domain.Aggregates.Guests;

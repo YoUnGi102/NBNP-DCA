@@ -17,9 +17,18 @@ public class Location
         this.availability = availability;
     }
 
-    public Result<Location> UpdateName(int maxCapacity)
+    public Result<Location> UpdateName(string name)
     {
-        return ResultFailure<Location>.CreateEmptyResult();
+        if (name.Length < 3)
+        {
+            return ResultFailure<Location>.CreateMessageResult(this, new[]{"The name is too short!"});
+        }
+        if (name.Length > 30)
+        {
+            return ResultFailure<Location>.CreateMessageResult(this, new[]{"The name is too long!"});
+        }
+        
+        return ResultFailure<Location>.CreateSimpleResult(new Location(name, maxCapacity, availability));
     }
 
     public Result<Location> SetMaxCapacity(int maxCapacity)
@@ -31,4 +40,10 @@ public class Location
     {
         return ResultFailure<Location>.CreateEmptyResult();
     }
+
+    public string GetName()
+    {
+        return name;
+    }
+    
 }

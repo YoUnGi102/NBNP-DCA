@@ -7,6 +7,7 @@ namespace UnitTests.Features.Event.UpdateDescription;
 using Domain.Aggregates.Events;
 using Domain.Aggregates.Guests;
 using Domain.Common.Enums;
+using Domain.Aggregates.Locations;
 using Xunit;
 
 public class UpdateEventDescriptionAggregateTests

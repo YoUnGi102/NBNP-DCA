@@ -1,15 +1,15 @@
-﻿using Domain.Aggregates.Locations;
-using Domain.Common.Entities;
+﻿namespace UnitTests.Features.Guest.RemoveParticipation;
+
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
 using Xunit.Abstractions;
+using Domain.Aggregates.Locations;
+using Domain.Common.Entities;
 
-namespace UnitTests.Features.Guest.RemoveParticipation;
 
 using Domain.Aggregates.Events;
 using Domain.Common.Enums;
 using Domain.Aggregates.Guests;
-
 public class RemoveParticipationTests
 {
     private ITestOutputHelper _testOutputHelper;
