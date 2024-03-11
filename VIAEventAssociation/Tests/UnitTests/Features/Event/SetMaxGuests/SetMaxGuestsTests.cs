@@ -1,5 +1,3 @@
-using Domain.Aggregates.Locations;
-
 namespace UnitTests.Features.Event.SetMaxGuests;
 
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
@@ -8,6 +6,7 @@ using Domain.Aggregates.Guests;
 using Domain.Common.Enums;
 using Xunit.Abstractions;
 using Xunit;
+using Domain.Aggregates.Locations;
 
 public class SetMaxGuestsTests
 {

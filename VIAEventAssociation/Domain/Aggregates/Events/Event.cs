@@ -153,7 +153,14 @@ public Result<Event> SetVisibility(EventVisibility visibility)
 
     public Result<Event> SetLocation(Location location)
     {
-        return ResultFailure<Event>.CreateEmptyResult();
+
+        if (location.GetMaxCapacity() < GetMaxGuests())
+        {
+            return ResultFailure<Event>.CreateMessageResult(this, ["The event guest capacity cannot exceed location capacity"]);
+        }
+        
+        return ResultSuccess<Event>.CreateSimpleResult(new Event(id, title, description,
+            start_date_time, end_date_time, max_guests, visibility, status, guests, location));
     }
     
     public int GetId()
