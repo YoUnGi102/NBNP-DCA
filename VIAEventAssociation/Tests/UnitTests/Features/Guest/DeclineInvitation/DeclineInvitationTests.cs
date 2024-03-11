@@ -1,9 +1,9 @@
-﻿using Domain.Aggregates.Locations;
+﻿namespace UnitTests.Features.Guest.DeclineInvitation;
+
+using Domain.Aggregates.Locations;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
 using Xunit.Abstractions;
-
-namespace UnitTests.Features.Guest.DeclineInvitation;
 using Domain.Common.Enums;
 using Domain.Aggregates.Guests;
 using Domain.Common.Entities;
@@ -17,7 +17,6 @@ public class DeclineInvitationTests
     {
         _testOutputHelper = testOutputHelper;
         _location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
-        
     }
     
     [Fact]

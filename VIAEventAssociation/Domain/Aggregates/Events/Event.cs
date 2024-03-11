@@ -207,4 +207,18 @@ public Result<Event> SetVisibility(EventVisibility visibility)
     {
         return location;
     }
+    
+    public override bool Equals(Object other)
+    {
+        Event b = (Event)other;
+
+        return id == b.id &&
+               title == b.title &&
+               description == b.description &&
+               start_date_time == b.start_date_time &&
+               end_date_time == b.end_date_time &&
+               max_guests == b.max_guests &&
+               visibility == b.visibility &&
+               status == b.status;
+    }
 }

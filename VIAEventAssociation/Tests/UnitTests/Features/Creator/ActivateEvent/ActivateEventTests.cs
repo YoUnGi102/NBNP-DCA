@@ -1,9 +1,9 @@
-﻿using Domain.Aggregates.Locations;
+﻿namespace UnitTests.Features.Creator.ActivateEvent;
+
+using Domain.Aggregates.Locations;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
 using Xunit.Abstractions;
-
-namespace UnitTests.Features.Creator.ActivateEvent;
 using Domain.Aggregates.Creator;
 using Domain.Aggregates.Events;
 using Domain.Common.Enums;

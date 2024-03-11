@@ -43,9 +43,24 @@ public class Guest
         return ResultSuccess<Event>.CreateSimpleResult(_event);
     }
 
-    public Result<Event> RequestToJoin(Event _event)
+    public Result<Request> RequestToJoin(Event _event)
     {
-        return ResultSuccess<Event>.CreateSimpleResult(_event);
+        foreach (var request in requests)
+        {
+            if (request.GetEvent().Equals(_event))
+            {
+                return ResultFailure<Request>.CreateMessageResult(null, ["Request was already created"]);
+            }
+        }
+        
+        if (_event.GetMaxGuests() <= _event.GetGuests().Count)
+        {
+            return ResultFailure<Request>.CreateMessageResult(null, ["Maximum capacity of guests was reached"]);
+        }
+
+        Request _request = new Request(this, _event);
+        requests.Add(_request);
+        return ResultSuccess<Request>.CreateSimpleResult(_request);
     }
 
     public Result<Invitation> AcceptInvitation(Invitation invitation)

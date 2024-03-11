@@ -1,8 +1,8 @@
-﻿using Domain.Aggregates.Locations;
+﻿namespace UnitTests.Features.Guest.Participate;
+
+using Domain.Aggregates.Locations;
 using Xunit;
 using Xunit.Abstractions;
-
-namespace UnitTests.Features.Guest.Participate;
 using Domain.Aggregates.Events;
 using Domain.Common.Enums;
 using Domain.Aggregates.Guests;

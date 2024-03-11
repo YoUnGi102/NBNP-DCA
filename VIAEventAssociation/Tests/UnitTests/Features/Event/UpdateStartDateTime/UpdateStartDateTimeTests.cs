@@ -1,8 +1,6 @@
-using Domain.Aggregates.Locations;
-using Xunit.Sdk;
-
 namespace UnitTests.Features.Event.UpdateStartDateTime;
 
+using Domain.Aggregates.Locations;
 using Domain.Aggregates.Events;
 using Domain.Aggregates.Guests;
 using Domain.Common.Enums;

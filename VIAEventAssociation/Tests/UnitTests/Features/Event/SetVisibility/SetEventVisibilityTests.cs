@@ -1,6 +1,6 @@
-using Domain.Aggregates.Locations;
-
 namespace UnitTests.Features.Event.SetVisibility;
+
+using Domain.Aggregates.Locations;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Domain.Aggregates.Events;
 using Domain.Aggregates.Guests;

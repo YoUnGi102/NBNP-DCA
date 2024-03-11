@@ -1,10 +1,10 @@
-﻿using Domain.Aggregates.Locations;
+﻿namespace UnitTests.Features.Guest.AcceptInvitation;
+
+using Domain.Aggregates.Locations;
 using Domain.Common.Entities;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
 using Xunit.Abstractions;
-
-namespace UnitTests.Features.Guest.AcceptInvitation;
 using Domain.Common.Enums;
 using Domain.Aggregates.Guests;
 using Domain.Aggregates.Events;

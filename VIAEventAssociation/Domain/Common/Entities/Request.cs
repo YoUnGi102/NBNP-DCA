@@ -13,6 +13,14 @@ public class Request
     {
         this.status = status;
     }
+
+    public Request(Guest guest, Event _event)
+    {
+        this.guest = guest;
+        this._event = _event;
+        status = RequestStatus.Unanswered;
+    }
+    
     public void SetGuest(Guest guest)
     {
         this.guest = guest;
