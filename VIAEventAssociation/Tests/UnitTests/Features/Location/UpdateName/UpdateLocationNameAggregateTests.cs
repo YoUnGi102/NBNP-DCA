@@ -3,23 +3,17 @@
 using Domain.Aggregates.Locations;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit.Abstractions;
-using Domain.Aggregates.Events;
-using Domain.Aggregates.Guests;
-using Domain.Common.Enums;
 using Xunit;
 
 public class UpdateLocationNameAggregateTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
-    private Event _event;
     private Location _location;
 
     public UpdateLocationNameAggregateTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        Location location = new Location("location", 32, [DateTime.Now.AddDays(1)]);
-        _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public,
-            EventStatus.Active, new List<Guest>(), location);
+        _location = new Location("location", 32, [DateTime.Now.AddDays(1)]);
     }
 
     [Fact]

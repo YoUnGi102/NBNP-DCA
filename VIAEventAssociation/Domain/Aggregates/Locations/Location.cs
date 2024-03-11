@@ -10,6 +10,13 @@ public class Location
     public int maxCapacity { get; init; }
     public List<DateTime> availability { get; init; }
 
+    public Location(string name, int maxCapacity)
+    {
+        this.name = name;
+        this.maxCapacity = maxCapacity;
+        this.availability = new List<DateTime>();
+    }
+    
     public Location(string name, int maxCapacity, List<DateTime> availability)
     {
         this.name = name;
@@ -21,11 +28,11 @@ public class Location
     {
         if (name.Length < 3)
         {
-            return ResultFailure<Location>.CreateMessageResult(this, new[]{"The name is too short!"});
+            return ResultFailure<Location>.CreateMessageResult(this, ["The name is too short!"]);
         }
         if (name.Length > 30)
         {
-            return ResultFailure<Location>.CreateMessageResult(this, new[]{"The name is too long!"});
+            return ResultFailure<Location>.CreateMessageResult(this, ["The name is too long!"]);
         }
         
         return ResultFailure<Location>.CreateSimpleResult(new Location(name, maxCapacity, availability));
@@ -33,17 +40,36 @@ public class Location
 
     public Result<Location> SetMaxCapacity(int maxCapacity)
     {
-        return ResultFailure<Location>.CreateEmptyResult();
+        if (name.Length <= 0)
+        {
+            return ResultFailure<Location>.CreateMessageResult(this, ["The capacity cannot be less or equal to zero!"]);
+        }
+        
+        return ResultSuccess<Location>.CreateSimpleResult(new Location(name, maxCapacity, availability));
     }
 
     public Result<Location> SetAvailability(DateTime startDateTime, DateTime endDateTime)
     {
-        return ResultFailure<Location>.CreateEmptyResult();
+        if (startDateTime > endDateTime)
+        {
+            return ResultFailure<Location>.CreateMessageResult(this, ["The end date time cannot be before start date time"]);
+        }
+        return ResultSuccess<Location>.CreateSimpleResult(new Location(name, maxCapacity, availability));
     }
 
     public string GetName()
     {
         return name;
+    }
+    
+    public int GetMaxCapacity()
+    {
+        return maxCapacity;
+    }
+
+    public List<DateTime> GetAvailability()
+    {
+        return availability;
     }
     
 }
