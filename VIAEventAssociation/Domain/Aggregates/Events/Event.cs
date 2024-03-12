@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Domain.Aggregates.Guests;
 using Domain.Aggregates.Locations;
+using Domain.Common.Entities;
 using Domain.Common.Enums;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
@@ -19,7 +20,6 @@ public class Event
     public EventStatus status { get; set; }
     private List<Guest> guests { get; init; }
     private Location location { get; init; }
-
 
     public Event(int id, string title, string description, DateTime start_date_time, DateTime end_date_time,
         int max_guests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)

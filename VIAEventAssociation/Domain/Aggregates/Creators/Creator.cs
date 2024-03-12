@@ -1,9 +1,10 @@
-﻿using Domain.Aggregates.Events;
+﻿namespace Domain.Aggregates.Creator;
+
+using Domain.Aggregates.Events;
+using Domain.Aggregates.Guests;
 using Domain.Common.Entities;
 using Domain.Common.Enums;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
-
-namespace Domain.Aggregates.Creator;
 
 public class Creator
 {
@@ -77,6 +78,28 @@ public class Creator
         }
         return ResultFailure<Request>.CreateSimpleResult(request);
 
+    }
+    
+    public Result<Invitation> SendInvitation(Guest guest, Event _event)
+    {
+        foreach (var invitation in guest.GetInvitations())
+        {
+            if (invitation.GetEvent().Equals(_event))
+            {
+                return ResultFailure<Invitation>.CreateMessageResult(null,
+                    ["An invitation for this guest for this event already exists"]);
+            }
+        }
+
+        if (_event.GetStartDateTime() > DateTime.Now)
+        {
+            return ResultFailure<Invitation>.CreateMessageResult(null, ["This event already started"]);
+        }
+
+        var _invitation = new Invitation(_event, guest);
+        guest.GetInvitations().Add(_invitation);
+        return ResultSuccess<Invitation>.CreateSimpleResult(_invitation);
+        
     }
     
 }

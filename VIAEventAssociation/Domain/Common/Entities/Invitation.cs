@@ -1,4 +1,5 @@
-﻿using VIAEventAssociation.Core.Tools.OperationResult.Result;
+﻿using Domain.Aggregates.Guests;
+using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
 namespace Domain.Common.Entities;
 
@@ -10,12 +11,21 @@ public class Invitation
 {
     internal InvitationStatus status;
     internal Event events;
+    internal Guest guest;
 
     public Invitation(InvitationStatus status, Event events)
     {
         this.status = status;
         this.events = events;
     }
+
+    public Invitation(Event events, Guest guest)
+    {
+        this.guest = guest;
+        this.events = events;
+        this.status = InvitationStatus.Unanswered;
+    }
+    
     public InvitationStatus GetStatus()
     {
         return this.status;
@@ -23,5 +33,10 @@ public class Invitation
     public Event GetEvent()
     {
         return this.events;
+    }
+
+    public Guest GetGuest()
+    {
+        return guest;
     }
 }
