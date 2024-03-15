@@ -50,10 +50,12 @@ public class Location
 
     public Result<Location> SetAvailability(DateTime startDateTime, DateTime endDateTime)
     {
-        if (startDateTime > endDateTime)
+        if (startDateTime.CompareTo(endDateTime) > 0)
         {
             return ResultFailure<Location>.CreateMessageResult(this, ["The end date time cannot be before start date time"]);
         }
+        availability.Add(startDateTime);
+        availability.Add(endDateTime);
         return ResultSuccess<Location>.CreateSimpleResult(new Location(name, maxCapacity, availability));
     }
 

@@ -43,8 +43,6 @@ public class SetLocationAvailabilityIntervalAggregateTests
         var start = DateTime.Now.AddDays(1);
         var end = DateTime.Now;
 
-        var count = _location.GetAvailability().Count;
-
         // Act
         var result = _location.SetAvailability(start, end);
 
@@ -53,6 +51,6 @@ public class SetLocationAvailabilityIntervalAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(count, result.GetObj()?.GetAvailability().Count);
+        Assert.Equal(0, result.GetObj()?.GetAvailability().Count);
     }
 }
