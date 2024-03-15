@@ -14,6 +14,7 @@
     &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Creator.ReadyEvent.SendInvitationAggregateTest.SendInvitation_WhenGuestListIsFull_ShouldNotSendInvitation&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.DeclineInvitation.DeclineInvitationTests&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Location.UpdateName.SetLocationAvailabilityIntervalAggregateTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Location.UpdateName.UpdateLocationNameAggregateTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0c7d378d_002D5b4a_002D4b91_002D846c_002D21d1b4751c4f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GivenGoodStartDateTime_WhenUpdatingStartDateTime_ThenStartDateTimeIsUpdated" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;

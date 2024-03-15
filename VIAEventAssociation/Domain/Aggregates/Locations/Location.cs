@@ -35,7 +35,7 @@ public class Location
             return ResultFailure<Location>.CreateMessageResult(this, ["The name is too long!"]);
         }
         
-        return ResultFailure<Location>.CreateSimpleResult(new Location(name, maxCapacity, availability));
+        return ResultSuccess<Location>.CreateSimpleResult(new Location(name, maxCapacity, availability));
     }
 
     public Result<Location> SetMaxCapacity(int maxCapacity)
