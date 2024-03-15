@@ -1,6 +1,44 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3ea64f72_002D017d_002D4c92_002D8be0_002D6d199334a25a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Test1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.OperationResult.OperationResultUnitTest&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9c6e1f4c_002D30e1_002D45d1_002D857b_002Dc32baedef869/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="DeclineInvitation_WhenInvitationIsUnanswered_ShouldDeclineInvitation" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.DeclineInvitation.DeclineInvitationTests.DeclineInvitation_WhenInvitationIsUnanswered_ShouldDeclineInvitation&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.RequestToJoin.RequestToJoinTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Creator.ReadyEvent.SendInvitationAggregateTest.SendInvitation_WhenGuestListIsFull_ShouldNotSendInvitation&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Location.UpdateName.SetLocationAvailabilityIntervalAggregateTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ff134510_002Dec30_002D46a3_002D8ca4_002D5ce87e7a2e49/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CancelEvent_WhenEventIsDeleted_ShouldNotCancelEvent" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.DeclineInvitation.DeclineInvitationTests.DeclineInvitation_WhenInvitationIsUnanswered_ShouldDeclineInvitation&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.RequestToJoin.RequestToJoinTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Creator.ReadyEvent.SendInvitationAggregateTest.SendInvitation_WhenGuestListIsFull_ShouldNotSendInvitation&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.DeclineInvitation.DeclineInvitationTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Location.UpdateName.SetLocationAvailabilityIntervalAggregateTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Location.UpdateName.UpdateLocationNameAggregateTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0c7d378d_002D5b4a_002D4b91_002D846c_002D21d1b4751c4f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GivenGoodStartDateTime_WhenUpdatingStartDateTime_ThenStartDateTimeIsUpdated" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.UpdateStartDateTime.UpdateStartDateTimeTests.GivenGoodStartDateTime_WhenUpdatingStartDateTime_ThenStartDateTimeIsUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.UpdateStartDateTime.UpdateStartDateTimeTests.GivenAPastDate_WhenUpdatingStartDateTime_ThenStartDateTimeIsNotUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.UpdateStartDateTime.UpdateStartDateTimeTests.GivenATooFarInTheFutureDate_WhenUpdatingStartDateTime_ThenStartDateTimeIsNotUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::VIAEventAssociation.Tests.UnitTests.Features.Event.Activate.UpdateEventTitleAgregateTests.GivenGoodTitle_WhenUpdatingTitle_ThenTitleIsUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::VIAEventAssociation.Tests.UnitTests.Features.Event.Activate.UpdateEventTitleAgregateTests.GivenTooShortTitle_WhenUpdatingTitle_ThenTitleIsNotUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::VIAEventAssociation.Tests.UnitTests.Features.Event.Activate.UpdateEventTitleAgregateTests.GivenNoTitle_WhenUpdatingTitle_ThenTitleIsNotUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::VIAEventAssociation.Tests.UnitTests.Features.Event.Activate.UpdateEventTitleAgregateTests.GivenTooLongTitle_WhenUpdatingTitle_ThenTitleIsNotUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.UpdateEndDateTime.UpdateEndDateTimeTests.GivenGoodEndDateTime_WhenUpdatingEndDateTime_ThenEndDateTimeIsUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.UpdateEndDateTime.UpdateEndDateTimeTests.GivenEndDateTimeBeforeStartDateTime_WhenUpdatingEndDateTime_ThenEndDateTimeIsNotUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.UpdateEndDateTime.UpdateEndDateTimeTests.GivenEndDateTimeEqualsStartDateTime_WhenUpdatingEndDateTime_ThenEndDateTimeIsNotUpdated&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Creator.CancelEvent.CancelEventTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.UpdateEndDateTime.UpdateEndDateTimeTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Creator.ReadyEvent.ReadyEventTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.SetMaxGuests.SetMaxGuestsTests.GivenGoodMaxGuests_WhenSettingMaxGuests_ThenMaxGuestsIsSet&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.SetMaxGuests.SetMaxGuestsTests.GivenMaxGuestsLessThanZero_WhenSettingMaxGuests_ThenMaxGuestsIsNotSet&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.SetMaxGuests.SetMaxGuestsTests.GivenMaxGuestsEqualsZero_WhenSettingMaxGuests_ThenMaxGuestsIsNotSet&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.SetMaxGuests.SetMaxGuestsTests.GivenMaxGuestsMoreThanLocationCapacity_WhenSettingMaxGuests_ThenMaxGuestsIsNotSet&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Event.SetMaxGuests.SetMaxGuestsTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.RequestToJoin.RequestToJoinTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Creator.ReadyEvent.SendInvitationAggregateTest.SendInvitation_WhenGuestListIsFull_ShouldNotSendInvitation&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Creator.ReadyEvent.SendInvitationAggregateTest.SendInvitation_WhenInvitationExists_ShouldNotSendInvitation&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
