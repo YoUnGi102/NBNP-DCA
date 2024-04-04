@@ -1,0 +1,111 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "VIAEventAssociation.Core.Tools.OperationResult": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
+      "VIAEventAssociation.Core.Tools.OperationResult/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/VIAEventAssociation.Core.Tools.OperationResult.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/VIAEventAssociation.Core.Tools.OperationResult.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "VIAEventAssociation.Core.Tools.OperationResult/1.0.0": {
+      "type": "project",
+      "path": "../VIAEventAssociation.Core.Tools.OperationResult/VIAEventAssociation.Core.Tools.OperationResult.csproj",
+      "msbuildProject": "../VIAEventAssociation.Core.Tools.OperationResult/VIAEventAssociation.Core.Tools.OperationResult.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "Domain >= 1.0.0",
+      "VIAEventAssociation.Core.Tools.OperationResult >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\tomas\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Application\\Application.csproj",
+      "projectName": "Application",
+      "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
+      "outputPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Application\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj"
+            },
+            "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
+              "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Users\\tomas\\.dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

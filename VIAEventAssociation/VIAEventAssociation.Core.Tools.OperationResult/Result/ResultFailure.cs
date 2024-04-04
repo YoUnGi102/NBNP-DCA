@@ -78,4 +78,9 @@ public class ResultFailure<T> : Result<T>
     {
         return messages;
     }
+
+    public bool isFailure()
+    {
+       return true;
+    }
 }
