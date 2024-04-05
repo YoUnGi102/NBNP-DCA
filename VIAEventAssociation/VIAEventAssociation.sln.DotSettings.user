@@ -42,5 +42,7 @@
     &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Creator.ReadyEvent.SendInvitationAggregateTest.SendInvitation_WhenInvitationExists_ShouldNotSendInvitation&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::VIAEventAssociation.Tests.UnitTests.Features.Event.Activate.UpdateEventTitleHandlerTests.Handle_InvalidInput_Failure&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::VIAEventAssociation.Tests.UnitTests.Features.Event.Activate.UpdateEventTitleHandlerTests.Handle_ValidInput_Success&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::VIAEventAssociation.Tests.UnitTests.Features.Event.Activate.UpdateEventTitleCommandTests.Handle_ValidInput_Success&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::VIAEventAssociation.Tests.UnitTests.Features.Event.Activate.UpdateEventTitleCommandTests.Handle_InvalidInput_Failure&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
