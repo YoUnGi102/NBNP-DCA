@@ -5,25 +5,26 @@ using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
 namespace ViaEventAssociation.Core.Application.Features;
 
-public class UpdateEventTitleHandler : ICommandHandler<UpdateEventTitleCommand, Event>
+public class UpdateEventTitleHandler : ICommandHandler<UpdateEventTitleCommand>
 {
     private readonly IEventRepository repository;
     private readonly IUnitOfWork uow;
     
-    internal UpdateEventTitleHandler(IEventRepository repository, IUnitOfWork uow)
+    public UpdateEventTitleHandler(IEventRepository repository, IUnitOfWork uow)
      => (this.repository, this.uow) = (repository, uow);
     
-    public async Task<Result<Event>> HandleAsync(UpdateEventTitleCommand command)
+    public async Task<Result<None>> HandleAsync(UpdateEventTitleCommand command)
     {
-        Event evt = await repository.GetAsync(command.Id);
+        Event? evt = await repository.GetAsync(command.Id);
         Result<Event> result = evt.UpdateTitle(command.Title);
         
-        if(result.isFailure())
+        if(result.IsFailure())
         {
-            return result;
+            // TODO Fix this
+            return ResultFailure<None>.CreateMessageResult(new None(), result.GetMessages() ?? []);
         }
 
         await uow.SaveChangesAsync();
-        return ResultSuccess<Event>.CreateEmptyResult();
+        return ResultSuccess<None>.CreateEmptyResult();
     }
 }

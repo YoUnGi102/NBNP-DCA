@@ -13,6 +13,12 @@ public class ResultFailure<T> : Result<T>
     {
         this.obj = obj;
     }
+    
+    private ResultFailure(T obj, Message[] messages)
+    {
+        this.obj = obj;
+        this.messages = messages;
+    }
 
     private ResultFailure(T obj, string[] messages)
     {
@@ -58,6 +64,11 @@ public class ResultFailure<T> : Result<T>
     {
         return new ResultFailure<T>(obj, messages);
     }
+    
+    public static Result<T> CreateMessageResult(T obj, Message[] messages)
+    {
+        return new ResultFailure<T>(obj, messages);
+    }
 
     public static Result<T> CreateHTTPResult(T obj, HTTPCodes[] code)
     {
@@ -79,7 +90,7 @@ public class ResultFailure<T> : Result<T>
         return messages;
     }
 
-    public bool isFailure()
+    public bool IsFailure()
     {
        return true;
     }

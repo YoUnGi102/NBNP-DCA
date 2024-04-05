@@ -79,7 +79,7 @@ public class ResultSuccess<T> : Result<T>
         return messages;
     }
     
-    public bool isFailure()
+    public bool IsFailure()
     {
         return false;
     }
