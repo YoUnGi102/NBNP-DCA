@@ -58,11 +58,14 @@
     - ~~Handler~~
     - ~~Command~~
 19. Event creator should be able to set the availability interval of the location.
-20. Event creator should be able to set the location of the event.
-
+20. ~~Event creator should be able to set the location of the event.~~
+    - ~~Handler~~
+    - ~~Command~~
 ### Could Have:
 
-21. Guests should be able to request to join a private event.
+21. ~~Guests should be able to request to join a private event.~~
+    - ~~Handler~~
+    - ~~Command~~
 22. Event creator should be able to approve a join request.
 23. Event creator should be able to decline a join request.
 24. ~~Event creator should be able to cancel an active event.~~
