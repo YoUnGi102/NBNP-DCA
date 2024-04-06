@@ -57,7 +57,9 @@
 18. ~~Event creator should be able to set the maximum number of people for the location.~~
     - ~~Handler~~
     - ~~Command~~
-19. Event creator should be able to set the availability interval of the location.
+19. ~~Event creator should be able to set the availability interval of the location.~~
+    - ~~Handler~~
+    - ~~Command~~
 20. ~~Event creator should be able to set the location of the event.~~
     - ~~Handler~~
     - ~~Command~~
