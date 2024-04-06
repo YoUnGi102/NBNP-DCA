@@ -13,21 +13,23 @@ using Xunit.Abstractions;
 
 namespace VIAEventAssociation.Tests.UnitTests.Features.Event.Activate;
 
-public class UpdateEventTitleHandlerTests
+public class CreateEventHandlerTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
-    private readonly ICommandHandler<UpdateEventTitleCommand> _handler;
+    private readonly ICommandHandler<CreateEventCommand> _handler;
     private Domain.Aggregates.Events.Event _event;
 
+    private ILocationRepository _locationRepository;
     private IEventRepository _repository;
     private IUnitOfWork _uow;
 
-    public UpdateEventTitleHandlerTests(ITestOutputHelper testOutputHelper)
+    public CreateEventHandlerTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
+        _locationRepository = new LocationRepoFake();
         _repository = new EventRepoFake();
         _uow = new UnitOfWorkFake();
-        _handler = new UpdateEventTitleHandler(_repository, _uow);
+        _handler = new CreateEventHandler(_repository, _locationRepository, _uow);
         
         Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
         _event = new Domain.Aggregates.Events.Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public,
@@ -35,43 +37,52 @@ public class UpdateEventTitleHandlerTests
     }
 
     [Fact]
-    public async Task GivenValidData_WhenUpdatingTitle_ThenTitleUpdated()
+    public async Task GivenValidData_WhenCreatingEvent_ThenEventCreated()
     {
         // Arrange
-        Result<UpdateEventTitleCommand> titleCommand = UpdateEventTitleCommand.Create(1, "New Title");
-
+        Result<CreateEventCommand> cmd = CreateEventCommand.Create(
+            "Chess Tournament", 
+            "Monthly Chess Tournament by VIA Chess Club", 
+            Constants.START_DATE_STRING,
+            Constants.END_DATE_STRING, 
+            100, 
+            "Public",
+            "Active", 
+            1);
         // Act
-        if (titleCommand.IsFailure())
-        {
-            foreach (var error in titleCommand.GetMessages()!)
-                _testOutputHelper.WriteLine(error.GetMessage());
-        }
-        var result = await _handler.HandleAsync(titleCommand.GetObj());
         
+        var result = await _handler.HandleAsync(cmd.GetObj());
         if (result.IsFailure())
         {
             foreach (var error in result.GetMessages()!)
                 _testOutputHelper.WriteLine(error.GetMessage());
         }
-        
+
         // Assert
         Assert.False(result.IsFailure());
-        
     }
     
     [Fact]
-    public async Task GivenShortTitle_WhenUpdatingTitle_ThenTitleNotUpdated()
+    public async Task GivenInvalidData_WhenCreatingEvent_ThenEventNotCreated()
     {
         // Arrange
-        Result<UpdateEventTitleCommand> titleCommand = UpdateEventTitleCommand.Create(1, "");
+        Result<CreateEventCommand> cmd = CreateEventCommand.Create(
+            "Chess Tournament",
+            "Monthly Chess Tournament by VIA Chess Club",
+            Constants.END_DATE_STRING,
+            Constants.START_DATE_STRING,
+            -1,
+            "Public",
+            "Active",
+            1);
 
         // Act
-        if (titleCommand.IsFailure())
+        if (cmd.IsFailure())
         {
-            foreach (var error in titleCommand.GetMessages()!)
+            foreach (var error in cmd.GetMessages()!)
                 _testOutputHelper.WriteLine(error.GetMessage());
         }
-        var result = await _handler.HandleAsync(titleCommand.GetObj());
+        var result = await _handler.HandleAsync(cmd.GetObj());
         
         // Assert
         Assert.True(result.IsFailure());

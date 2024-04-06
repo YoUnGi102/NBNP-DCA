@@ -13,14 +13,16 @@ public class UpdateEventTitleHandler : ICommandHandler<UpdateEventTitleCommand>
     public UpdateEventTitleHandler(IEventRepository repository, IUnitOfWork uow)
      => (this.repository, this.uow) = (repository, uow);
     
-    public async Task<Result<None>> HandleAsync(UpdateEventTitleCommand command)
+    public async Task<Result<None>> HandleAsync(UpdateEventTitleCommand? command)
     {
+        if(command is null)
+            return ResultFailure<None>.CreateMessageResult(new None(), ["Command is null."]);
+        
         Event? evt = await repository.GetAsync(command.Id);
         Result<Event> result = evt.UpdateTitle(command.Title);
         
         if(result.IsFailure())
         {
-            // TODO Fix this
             return ResultFailure<None>.CreateMessageResult(new None(), result.GetMessages() ?? []);
         }
 

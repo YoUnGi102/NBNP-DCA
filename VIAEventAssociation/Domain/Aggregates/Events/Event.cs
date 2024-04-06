@@ -21,6 +21,21 @@ public class Event
     private List<Guest> guests { get; init; }
     private Location location { get; init; }
 
+    
+    public Event(string title, string description, DateTime start_date_time, DateTime end_date_time,
+        int max_guests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)
+    {
+        this.title = title;
+        this.description = description;
+        this.start_date_time = start_date_time;
+        this.end_date_time = end_date_time;
+        this.max_guests = max_guests;
+        this.visibility = visibility;
+        this.status = status;
+        this.guests = guests;
+        this.location = location;
+    }
+    
     public Event(int id, string title, string description, DateTime start_date_time, DateTime end_date_time,
         int max_guests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)
     {

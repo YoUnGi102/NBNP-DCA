@@ -6,6 +6,7 @@ namespace Domain.Aggregates.Locations;
 
 public class Location
 {
+    public int id { get; init; }
     public string name { get; init; }
     public int maxCapacity { get; init; }
     public List<DateTime> availability { get; init; }
@@ -19,6 +20,14 @@ public class Location
     
     public Location(string name, int maxCapacity, List<DateTime> availability)
     {
+        this.name = name;
+        this.maxCapacity = maxCapacity;
+        this.availability = availability;
+    }
+    
+    public Location(int id, string name, int maxCapacity, List<DateTime> availability)
+    {
+        this.id = id;
         this.name = name;
         this.maxCapacity = maxCapacity;
         this.availability = availability;

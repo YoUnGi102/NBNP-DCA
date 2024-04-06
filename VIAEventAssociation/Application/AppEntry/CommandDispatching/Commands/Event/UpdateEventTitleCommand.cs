@@ -9,7 +9,8 @@ public class UpdateEventTitleCommand
 
     public static Result<UpdateEventTitleCommand> Create(int id, string title)
     {
-        // TODO Add validation
+        if (id <= 0 || string.IsNullOrWhiteSpace(title) || title.Length > 100 || title.Length < 3)
+            return ResultFailure<UpdateEventTitleCommand>.CreateMessageResult(null, ["Title has to be between 3 and 100 characters long."]);
         return ResultSuccess<UpdateEventTitleCommand>.CreateSimpleResult(new UpdateEventTitleCommand(id, title));
     }
 
