@@ -36,12 +36,12 @@
 12. ~~Guests should be able to remove their choice to participate in a public event.~~
     - ~~Handler~~
     - ~~Command~~
-13. Event creator should be able to extend an invitation to a guest to participate in an event.
-    - Handler
-    - Command
-14. Guests should be able to accept an invitation.
-    - Handler
-    - Command
+13. ~~Event creator should be able to extend an invitation to a guest to participate in an event.~~
+    - ~~Handler~~
+    - ~~Command~~
+14. ~~Guests should be able to accept an invitation.~~
+    - ~~Handler~~
+    - ~~Command~~
 15. Guests should be able to decline an invitation.
     - Handler
     - Command

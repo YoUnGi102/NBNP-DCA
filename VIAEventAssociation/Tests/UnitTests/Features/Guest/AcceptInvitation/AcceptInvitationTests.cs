@@ -25,10 +25,11 @@ public class AcceptInvitationTests
     public void AcceptInvitation_WhenInvitationIsUnanswered_ShouldAcceptInvitation()
     {
         // Arrange
-        var _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
+        var _event = new Event(1, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
-        var guest = new Guest("email@gmail.com");
+        var guest = new Guest(1, "email@gmail.com");
+        guest.SendInvitation(invitation);
         
         // Act
         var result = guest.AcceptInvitation(invitation);
@@ -45,10 +46,11 @@ public class AcceptInvitationTests
     public void AcceptInvitation_WhenInvitationIsDeclined_ShouldAcceptInvitation()
     {
         // Arrange
-        var _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
+        var _event = new Event(1, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Declined, _event);
-        var guest = new Guest("email@gmail.com");
+        var guest = new Guest(1,"email@gmail.com");
+        guest.SendInvitation(invitation);
         
         // Act
         var result = guest.AcceptInvitation(invitation);
@@ -91,7 +93,7 @@ public class AcceptInvitationTests
         var guest1 = new Guest("email@gmail.com");
         var guest2 = new Guest("email@gmail.org");
         
-        guest2.SetInvitations([invitation]);
+        guest2.SendInvitation(invitation);
         
         _event.AddGuest(guest1);
 

@@ -39,4 +39,9 @@ public class Invitation
     {
         return guest;
     }
+
+    public void SetGuest(Guest guest)
+    {
+        this.guest = guest;
+    }
 }

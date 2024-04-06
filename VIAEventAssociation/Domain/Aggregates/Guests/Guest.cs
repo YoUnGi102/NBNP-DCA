@@ -103,13 +103,28 @@ public class Guest
                 " any spots left!"});
         }
         _event.AddGuest(this);
-        invitation.status = InvitationStatus.Accepted;
-        return ResultSuccess<Invitation>.CreateSimpleResult(invitation);
+
+        Invitation? find = invitations.FirstOrDefault(i =>
+            i?.events.GetId() == invitation?.events.GetId());
+
+        if (find is null)
+        {
+            return ResultFailure<Invitation>.CreateMessageResult(invitation, ["Invitation not found!"]);
+        }
+
+        find.status = InvitationStatus.Accepted;
+        return ResultSuccess<Invitation>.CreateSimpleResult(find);
     }
 
     public Result<Invitation> DeclineInvitation(Invitation invitation)
     {
-        invitation.status = InvitationStatus.Declined;
+        Invitation? find = invitations.FirstOrDefault(i =>
+            i?.events.GetId() == invitation?.events.GetId());
+        if (find is null)
+        {
+            return ResultFailure<Invitation>.CreateMessageResult(invitation, ["Invitation not found!"]);
+        }
+        find.status = InvitationStatus.Declined;
         return ResultSuccess<Invitation>.CreateSimpleResult(invitation);
     }
     
@@ -124,8 +139,20 @@ public class Guest
     {
         return this.invitations;
     }
-    public void SetInvitations(List<Invitation> invitations)
+    public Result<None> SendInvitation(Invitation invitation)
     {
-        this.invitations = invitations;
+        if (invitation.events.GetGuests().Contains(invitation.guest))
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), ["Guest is already participating!"]);
+        }
+
+        Invitation? find = invitations.FirstOrDefault(i =>
+            i?.events.GetId() == invitation?.events.GetId());
+        if (find is not null)
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), ["Invitation already sent!"]);
+        }
+        invitations.Add(invitation);
+        return ResultSuccess<None>.CreateMessageResult(new None(), ["Invitation sent!"]);
     }
 }
