@@ -42,9 +42,9 @@
 14. ~~Guests should be able to accept an invitation.~~
     - ~~Handler~~
     - ~~Command~~
-15. Guests should be able to decline an invitation.
-    - Handler
-    - Command
+15. ~~Guests should be able to decline an invitation.~~
+    - ~~Handler~~
+    - ~~Command~~
 
 ### Nice to Have:
 
