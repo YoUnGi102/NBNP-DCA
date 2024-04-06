@@ -7,5 +7,5 @@ public interface IGuestRepository
 {
     public Task<Guest> GetAsync(int id);
 
-    public Task<Guest> SaveAsync(Location e);
+    public Task<Guest> SaveAsync(Guest e);
 }

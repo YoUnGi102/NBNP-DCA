@@ -23,7 +23,7 @@ public class CreateEventHandler : ICommandHandler<CreateEventCommand>
             return ResultFailure<None>.CreateMessageResult(new None(), ["Command is null."]);
         
         Location location = await locationRepository.GetAsync(command.LocationId);
-        Event newEvent = new Event(command.Title, command.Description, command.StartDateTime, command.EndDateTime, command.MaxGuests, command.Visibility, EventStatus.Active, new List<Guest>(), location);
+        Event newEvent = new Event(command.Title, command.Description, command.StartDateTime, command.EndDateTime, command.MaxGuests, command.Visibility, EventStatus.Active, [], location);
 
         Event? result = await eventRepository.SaveAsync(newEvent);
         

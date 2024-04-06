@@ -27,9 +27,9 @@
 9. ~~Event creator should be able to activate the event.~~
     - ~~Handler~~
     - ~~Command~~
-10. Anonymous users should be able to register a new account.
-    - Handler
-    - Command
+10. ~~Anonymous users should be able to register a new account.~~
+    - ~~Handler~~
+    - ~~Command~~
 11. Guests should be able to choose to participate in a public event
     - Handler
     - Command.

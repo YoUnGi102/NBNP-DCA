@@ -10,10 +10,12 @@ namespace Domain.Aggregates.Guests;
 
 public class Guest
 {
+    private int id { get; init; }
     private string email { get; init; }
     private List<Request> requests { get; init; }
     private List<Invitation> invitations;
 
+    
     public Guest(string email)
     {
         this.invitations = new List<Invitation>();
@@ -21,8 +23,24 @@ public class Guest
         this.requests = new List<Request>();
     }
     
+    public Guest(int id, string email)
+    {
+        this.id = id;
+        this.invitations = new List<Invitation>();
+        this.email = email;
+        this.requests = new List<Request>();
+    }
+    
     public Guest(string email, List<Request> requests, List<Invitation> invitations)
     {
+        this.email = email;
+        this.requests = requests;
+        this.invitations = invitations;
+    }
+    
+    public Guest(int id, string email, List<Request> requests, List<Invitation> invitations)
+    {
+        this.id = id;
         this.email = email;
         this.requests = requests;
         this.invitations = invitations;
@@ -90,6 +108,9 @@ public class Guest
         return ResultSuccess<Invitation>.CreateSimpleResult(invitation);
     }
     
+    public string Email => email;
+    public int Id => id;
+
     public List<Request> GetRequests()
     {
         return this.requests;
