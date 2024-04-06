@@ -6,9 +6,9 @@
 2. ~~Event creator should be able to update the title of the event.~~
     - ~~Handler~~
     - ~~Command~~
-3. Event creator should be able to update the description of the event.
-    - Handler
-    - Command
+3. ~~Event creator should be able to update the description of the event.~~
+    - ~~Handler~~
+    - ~~Command~~
 4. Event creator should be able to update the start-time, end-time, start-date, and end-date of the event.
     - Handler
     - Command

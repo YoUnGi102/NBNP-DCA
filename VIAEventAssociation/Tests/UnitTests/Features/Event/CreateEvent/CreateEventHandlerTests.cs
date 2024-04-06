@@ -30,10 +30,6 @@ public class CreateEventHandlerTests
         _repository = new EventRepoFake();
         _uow = new UnitOfWorkFake();
         _handler = new CreateEventHandler(_repository, _locationRepository, _uow);
-        
-        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
-        _event = new Domain.Aggregates.Events.Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public,
-            EventStatus.Active, new List<Guest>(), location);
     }
 
     [Fact]

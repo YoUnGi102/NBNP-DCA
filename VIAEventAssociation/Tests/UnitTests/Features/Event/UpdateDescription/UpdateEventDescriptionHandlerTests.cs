@@ -13,34 +13,35 @@ using Xunit.Abstractions;
 
 namespace VIAEventAssociation.Tests.UnitTests.Features.Event.Activate;
 
-public class UpdateEventTitleHandlerTests
+public class UpdateEventDescriptionHandlerTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
-    private readonly ICommandHandler<UpdateEventTitleCommand> _handler;
+    private readonly ICommandHandler<UpdateEventDescriptionCommand> _handler;
+
     private IEventRepository _repository;
     private IUnitOfWork _uow;
 
-    public UpdateEventTitleHandlerTests(ITestOutputHelper testOutputHelper)
+    public UpdateEventDescriptionHandlerTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
         _repository = new EventRepoFake();
         _uow = new UnitOfWorkFake();
-        _handler = new UpdateEventTitleHandler(_repository, _uow);
-    }
+        _handler = new UpdateEventDescriptionHandler(_repository, _uow);
+   }
 
     [Fact]
-    public async Task GivenValidData_WhenUpdatingTitle_ThenTitleUpdated()
+    public async Task GivenValidData_WhenUpdatingDescription_ThenDescriptionUpdated()
     {
         // Arrange
-        Result<UpdateEventTitleCommand> titleCommand = UpdateEventTitleCommand.Create(1, "New Title");
+        Result<UpdateEventDescriptionCommand> descriptionCommand = UpdateEventDescriptionCommand.Create(1, "New Description");
 
         // Act
-        if (titleCommand.IsFailure())
+        if (descriptionCommand.IsFailure())
         {
-            foreach (var error in titleCommand.GetMessages()!)
+            foreach (var error in descriptionCommand.GetMessages()!)
                 _testOutputHelper.WriteLine(error.GetMessage());
         }
-        var result = await _handler.HandleAsync(titleCommand.GetObj());
+        var result = await _handler.HandleAsync(descriptionCommand.GetObj());
         
         if (result.IsFailure())
         {
@@ -54,18 +55,18 @@ public class UpdateEventTitleHandlerTests
     }
     
     [Fact]
-    public async Task GivenShortTitle_WhenUpdatingTitle_ThenTitleNotUpdated()
+    public async Task GivenShortDescription_WhenUpdatingDescription_ThenDescriptionNotUpdated()
     {
         // Arrange
-        Result<UpdateEventTitleCommand> titleCommand = UpdateEventTitleCommand.Create(1, "");
+        Result<UpdateEventDescriptionCommand> descriptionCommand = UpdateEventDescriptionCommand.Create(1, "");
 
         // Act
-        if (titleCommand.IsFailure())
+        if (descriptionCommand.IsFailure())
         {
-            foreach (var error in titleCommand.GetMessages()!)
+            foreach (var error in descriptionCommand.GetMessages()!)
                 _testOutputHelper.WriteLine(error.GetMessage());
         }
-        var result = await _handler.HandleAsync(titleCommand.GetObj());
+        var result = await _handler.HandleAsync(descriptionCommand.GetObj());
         
         // Assert
         Assert.True(result.IsFailure());
