@@ -21,12 +21,12 @@
 7. ~~Event creator should be able to set the maximum number of guests for the event.~~
     - ~~Handler~~
     - ~~Command~~
-8. Event creator should be able to mark the event as "ready."
-    - Handler
-    - Command
-9. Event creator should be able to activate the event.
-    - Handler
-    - Command
+8. ~~Event creator should be able to mark the event as "ready."~~
+    - ~~Handler~~
+    - ~~Command~~
+9. ~~Event creator should be able to activate the event.~~
+    - ~~Handler~~
+    - ~~Command~~
 10. Anonymous users should be able to register a new account.
     - Handler
     - Command
@@ -59,5 +59,9 @@
 21. Guests should be able to request to join a private event.
 22. Event creator should be able to approve a join request.
 23. Event creator should be able to decline a join request.
-24. Event creator should be able to cancel an active event.
-25. Event creator should be able to delete a draft or ready event.
+24. ~~Event creator should be able to cancel an active event.~~
+    - ~~Handler~~
+    - ~~Command~~
+25. ~~Event creator should be able to delete a draft or ready event.~~
+    - ~~Handler~~
+    - ~~Command~~

@@ -33,7 +33,7 @@ public class SetEventMaxGuestsHandlerTests
     public async Task GivenValidData_WhenSettingMaxGuests_ThenMaxGuestsSet()
     {
         // Arrange
-        Result<SetEventMaxGuestsCommand> maxGuestsCommand = SetEventMaxGuestsCommand.Create(1, 100);
+        Result<SetEventMaxGuestsCommand> maxGuestsCommand = SetEventMaxGuestsCommand.Create(1, 10);
 
         // Act
         if (maxGuestsCommand.IsFailure())
