@@ -9,36 +9,29 @@ using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace VIAEventAssociation.Tests.UnitTests.Features.Guest.RemoveParticipation;
+namespace VIAEventAssociation.Tests.UnitTests.Features.Guest.RegisterAccount;
 
-public class RemoveParticipationHandlerTests
+public class RegisterAccountHandlerTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
-    private readonly ICommandHandler<AddParticipationCommand> _addHandler;
-    private readonly ICommandHandler<RemoveParticipationCommand> _handler;
+    private readonly ICommandHandler<RegisterAccountCommand> _handler;
 
-    private IGuestRepository _guestRepository;
-    private IEventRepository _eventRepository;
+    private IGuestRepository _repository;
     private IUnitOfWork _uow;
 
-    public RemoveParticipationHandlerTests(ITestOutputHelper testOutputHelper)
+    public RegisterAccountHandlerTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        _guestRepository = new GuestRepoFake();
-        _eventRepository = new EventRepoFake();
+        _repository = new GuestRepoFake();
         _uow = new UnitOfWorkFake();
-        _addHandler = new AddParticipationHandler(_guestRepository, _eventRepository, _uow);
-        _handler = new RemoveParticipationHandler(_guestRepository, _eventRepository, _uow);
+        _handler = new RegisterAccountHandler(_repository, _uow);
     }
 
     [Fact]
-    public async Task GivenValidData_WhenRemovingParticipation_ThenParticipationRemoved()
+    public async Task GivenValidData_WhenRegisteringAccount_ThenAccountRegistered()
     {
         // Arrange
-        Result<AddParticipationCommand> cm = AddParticipationCommand.Create("guest1@gmail.com", 1);
-        await _addHandler.HandleAsync(cm.GetObj());
-        
-        Result<RemoveParticipationCommand> cmd = RemoveParticipationCommand.Create("guest1@gmail.com", 1);
+        Result<RegisterAccountCommand> cmd = RegisterAccountCommand.Create("guest1@example.com");
 
         // Act
         var result = await _handler.HandleAsync(cmd.GetObj());
@@ -53,10 +46,10 @@ public class RemoveParticipationHandlerTests
     }
 
     [Fact]
-    public async Task GivenGuestNotInEvent_WhenRemovingParticipation_ThenParticipationNotRemoved()
+    public async Task GivenInvalidData_WhenRegisteringAccount_ThenAccountNotRegistered()
     {
         // Arrange
-        Result<RemoveParticipationCommand> cmd = RemoveParticipationCommand.Create("guest1@gmail.com", 1);
+        Result<RegisterAccountCommand> cmd = RegisterAccountCommand.Create("");
 
         // Act
         if (cmd.IsFailure())

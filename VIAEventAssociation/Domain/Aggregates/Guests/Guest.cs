@@ -46,19 +46,24 @@ public class Guest
         this.invitations = invitations;
     }
 
-    public Result<Event> Participate(Event _event)
+    public Result<None> Participate(Event _event)
     {
-        return ResultSuccess<Event>.CreateSimpleResult(_event);
+        if (_event.GetVisibility() == EventVisibility.Private)
+        { 
+            return ResultFailure<None>.CreateMessageResult(new None(), ["The event is private!"]);
+        }
+        
+        Result<None> result = _event.AddGuest(this);
+        if (result.IsFailure())
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), result.GetMessages());
+        }
+        return ResultSuccess<None>.CreateSimpleResult(new None());
     }
 
-    public Result<Event> RemoveParticipation(Event _event, Guest guest)
+    public Result<None> RemoveParticipation(Event _event)
     {
-        if (!_event.GetGuests().Contains(guest))
-        {
-            return ResultFailure<Event>.CreateMessageResult(_event, new[] { "The guest isn't assigned to" +
-                                                                     " this event!" });
-        }
-        return ResultSuccess<Event>.CreateSimpleResult(_event);
+        return _event.RemoveGuest(this);
     }
 
     public Result<Request> RequestToJoin(Event _event)

@@ -30,12 +30,12 @@
 10. ~~Anonymous users should be able to register a new account.~~
     - ~~Handler~~
     - ~~Command~~
-11. Guests should be able to choose to participate in a public event
-    - Handler
-    - Command.
-12. Guests should be able to remove their choice to participate in a public event.
-    - Handler
-    - Command
+11. ~~Guests should be able to choose to participate in a public event~~
+    - ~~Handler~~
+    - ~~Command.~~
+12. ~~Guests should be able to remove their choice to participate in a public event.~~
+    - ~~Handler~~
+    - ~~Command~~
 13. Event creator should be able to extend an invitation to a guest to participate in an event.
     - Handler
     - Command

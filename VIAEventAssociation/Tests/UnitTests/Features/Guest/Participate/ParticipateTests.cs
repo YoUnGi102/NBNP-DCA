@@ -28,7 +28,7 @@ public class ParticipateTests
         var result = guest.Participate(_event);
 
         // Assert
-        Assert.False(result.GetObj().GetGuests().Contains(guest));
+        Assert.False(_event.GetGuests().Contains(guest));
         
     }
     [Fact]
@@ -44,7 +44,7 @@ public class ParticipateTests
         var result = guest2.Participate(_event);
         
         // Assert
-        Assert.False(result.GetObj().GetGuests().Contains(guest2));
+        Assert.False(_event.GetGuests().Contains(guest2));
 
     }
     

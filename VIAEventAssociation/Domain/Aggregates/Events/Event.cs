@@ -85,10 +85,36 @@ public class Event
             start_date_time, end_date_time, max_guests, visibility, status, guests, location));
     }
 
-    public void AddGuest(Guest guest)
+    public Result<None> AddGuest(Guest guest)
     {
+        if (status != EventStatus.Active)
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), ["The event is not active!"]);
+        }
+        
+        if (guests.Contains(guest))
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), new []{"The guest is already in the list"});
+        }
+        
+        if (max_guests <= guests.Count)
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), new []{"The event is full"});
+        }
+        
         guests.Add(guest);
-        //return ResultSuccess<Guest>.CreateSimpleResult(guest);
+        return ResultSuccess<None>.CreateSimpleResult(new None());
+    }
+
+    public Result<None> RemoveGuest(Guest guest)
+    {
+        if(!guests.Contains(guest))
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), new []{"The guest is not in the list"});
+        }
+
+        guests.Remove(guest);
+        return ResultSuccess<None>.CreateSimpleResult(new None());
     }
 
 public Result<Event> SetVisibility(EventVisibility visibility)

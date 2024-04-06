@@ -9,36 +9,31 @@ using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace VIAEventAssociation.Tests.UnitTests.Features.Guest.RemoveParticipation;
+namespace VIAEventAssociation.Tests.UnitTests.Features.Guest.AddParticipation;
 
-public class RemoveParticipationHandlerTests
+public class AddParticipationHandlerTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
-    private readonly ICommandHandler<AddParticipationCommand> _addHandler;
-    private readonly ICommandHandler<RemoveParticipationCommand> _handler;
+    private readonly ICommandHandler<AddParticipationCommand> _handler;
 
     private IGuestRepository _guestRepository;
     private IEventRepository _eventRepository;
     private IUnitOfWork _uow;
 
-    public RemoveParticipationHandlerTests(ITestOutputHelper testOutputHelper)
+    public AddParticipationHandlerTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
         _guestRepository = new GuestRepoFake();
         _eventRepository = new EventRepoFake();
         _uow = new UnitOfWorkFake();
-        _addHandler = new AddParticipationHandler(_guestRepository, _eventRepository, _uow);
-        _handler = new RemoveParticipationHandler(_guestRepository, _eventRepository, _uow);
+        _handler = new AddParticipationHandler(_guestRepository, _eventRepository, _uow);
     }
 
     [Fact]
-    public async Task GivenValidData_WhenRemovingParticipation_ThenParticipationRemoved()
+    public async Task GivenValidData_WhenAddingParticipation_ThenParticipationAdded()
     {
         // Arrange
-        Result<AddParticipationCommand> cm = AddParticipationCommand.Create("guest1@gmail.com", 1);
-        await _addHandler.HandleAsync(cm.GetObj());
-        
-        Result<RemoveParticipationCommand> cmd = RemoveParticipationCommand.Create("guest1@gmail.com", 1);
+        Result<AddParticipationCommand> cmd = AddParticipationCommand.Create("guest1@gmail.com", 1);
 
         // Act
         var result = await _handler.HandleAsync(cmd.GetObj());
@@ -53,10 +48,10 @@ public class RemoveParticipationHandlerTests
     }
 
     [Fact]
-    public async Task GivenGuestNotInEvent_WhenRemovingParticipation_ThenParticipationNotRemoved()
+    public async Task GivenInvalidData_WhenAddingParticipation_ThenParticipationNotAdded()
     {
         // Arrange
-        Result<RemoveParticipationCommand> cmd = RemoveParticipationCommand.Create("guest1@gmail.com", 1);
+        Result<AddParticipationCommand> cmd = AddParticipationCommand.Create("", 1);
 
         // Act
         if (cmd.IsFailure())

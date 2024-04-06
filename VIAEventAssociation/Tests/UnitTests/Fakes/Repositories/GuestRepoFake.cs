@@ -9,14 +9,19 @@ public class GuestRepoFake : IGuestRepository
 {
     private Guest[] Guests { get; } =
     [
-        new Guest(1, "Guest1"),
-        new Guest(2, "Guest2"),
-        new Guest(3, "Guest3")
+        new Guest(1, "guest1@gmail.com"),
+        new Guest(2, "guest2@gmail.com"),
+        new Guest(3, "guest3@gmail.com")
     ];
 
     public async Task<Guest?> GetAsync(int id)
     {
         return await Task.FromResult(Guests.FirstOrDefault(g => g.Id == id));
+    }
+
+    public Task<Guest?> GetAsync(string email)
+    {
+        return Task.FromResult(Guests.FirstOrDefault(g => g.Email == email));
     }
 
     public async Task<Guest> SaveAsync(Guest guest)
