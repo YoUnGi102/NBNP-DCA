@@ -9,15 +9,15 @@
 3. ~~Event creator should be able to update the description of the event.~~
     - ~~Handler~~
     - ~~Command~~
-4. Event creator should be able to update the start-time, end-time, start-date, and end-date of the event.
-    - Handler
-    - Command
-5. Event creator should be able to set the visibility of the event to "public."
-    - Handler
-    - Command
-6. Event creator should be able to set the visibility of the event to "private."
-    - Handler
-    - Command
+4. ~~Event creator should be able to update the start-time, end-time, start-date, and end-date of the event.~~
+    - ~~Handler~~
+    - ~~Command~~
+5. ~~Event creator should be able to set the visibility of the event to "public."~~
+    - ~~Handler~~
+    - ~~Command~~
+6. ~~Event creator should be able to set the visibility of the event to "private."~~
+    - ~~Handler~~
+    - ~~Command~~
 7. Event creator should be able to set the maximum number of guests for the event.
     - Handler
     - Command
