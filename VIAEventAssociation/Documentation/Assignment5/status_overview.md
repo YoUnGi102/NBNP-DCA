@@ -18,9 +18,9 @@
 6. ~~Event creator should be able to set the visibility of the event to "private."~~
     - ~~Handler~~
     - ~~Command~~
-7. Event creator should be able to set the maximum number of guests for the event.
-    - Handler
-    - Command
+7. ~~Event creator should be able to set the maximum number of guests for the event.~~
+    - ~~Handler~~
+    - ~~Command~~
 8. Event creator should be able to mark the event as "ready."
     - Handler
     - Command
