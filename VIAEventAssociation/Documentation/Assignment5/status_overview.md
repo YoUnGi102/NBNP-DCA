@@ -51,7 +51,9 @@
 16. ~~Event creator should be able to add a new location.~~
     - ~~Handler~~
     - ~~Command~~
-17. Event creator should be able to update the name of the location.
+17. ~~Event creator should be able to update the name of the location.~~
+    - ~~Handler~~
+    - ~~Command~~
 18. Event creator should be able to set the maximum number of people for the location.
 19. Event creator should be able to set the availability interval of the location.
 20. Event creator should be able to set the location of the event.
