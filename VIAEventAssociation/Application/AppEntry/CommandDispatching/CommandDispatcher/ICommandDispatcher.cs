@@ -4,6 +4,6 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Dispa
 
 public interface ICommandDispatcher
 { 
-    Task<Result<None>> DispatchAsync<TCommand>(TCommand command);
+    Task<Result<None>> DispatchAsync<TCommand>(TCommand? command);
     T GetService<T>();
 }

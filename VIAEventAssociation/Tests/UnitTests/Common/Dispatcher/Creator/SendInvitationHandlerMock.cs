@@ -1,13 +1,13 @@
 ﻿using ViaEventAssociation.Core.Application.AppEntry;
-using ViaEventAssociation.Core.Application.Features;
+using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Commands.Guest;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
-namespace UnitTests.Fakes.Moks.Event;
+namespace UnitTests.Common.Dispatcher.Creator;
 
-public class CreateEventHandlerMock : ICommandHandler<CreateEventCommand>
+public class SendInvitationHandlerMock : ICommandHandler<SendInvitationCommand>
 {
     private bool _reachedHere = false;
-    public async Task<Result<None>> HandleAsync(CreateEventCommand? command)
+    public async Task<Result<None>> HandleAsync(SendInvitationCommand? command)
     {
         _reachedHere = true;
         return command != null ? ResultSuccess<None>.CreateEmptyResult() : ResultFailure<None>.CreateMessageResult(new None(), ["Command is null."]);

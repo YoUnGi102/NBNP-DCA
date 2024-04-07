@@ -11,14 +11,14 @@ using Xunit.Abstractions;
 
 namespace UnitTests.Features.Event.CreateEvent;
 
-public class CreateEventDispatchTest
+public class CreateEventDispatchTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
     private readonly ICommandDispatcher _commandDispatcher;
     private readonly ICommandDispatcher _commandDispatcherWTimer;
     private CreateEventHandlerMock handler;
     
-    public CreateEventDispatchTest(ITestOutputHelper testOutputHelper)
+    public CreateEventDispatchTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
         IServiceCollection serviceCollection = new ServiceCollection();
@@ -95,7 +95,7 @@ public class CreateEventDispatchTest
         
         // Assert
         _testOutputHelper.WriteLine(handler.ReachedHere().ToString());
-        Assert.False(handler.ReachedHere());
+        Assert.True(handler.ReachedHere());
     }
     
     [Fact]
@@ -118,6 +118,6 @@ public class CreateEventDispatchTest
         
         // Assert
         _testOutputHelper.WriteLine(handler.ReachedHere().ToString());
-        Assert.False(handler.ReachedHere());
+        Assert.True(handler.ReachedHere());
     }
 }

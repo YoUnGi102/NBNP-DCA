@@ -6,13 +6,12 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
 
 public class CommandDispatcherWithTimer(ICommandDispatcher next): ICommandDispatcher
 {
-    public async Task<Result<None>> DispatchAsync<TCommand>(TCommand command)
+    public async Task<Result<None>> DispatchAsync<TCommand>(TCommand? command)
     {
         var timer = Stopwatch.StartNew();
-        if(command == null) return ResultFailure<None>.CreateMessageResult(new None(), ["Command is null."]);
         var result = await next.DispatchAsync(command);
         timer.Stop();
-        Console.WriteLine($"Command {command!.GetType().Name} took {timer.ElapsedMilliseconds}ms to execute.");
+        Console.WriteLine($"Command took {timer.ElapsedMilliseconds}ms to execute.");
         return result;
     }
 
