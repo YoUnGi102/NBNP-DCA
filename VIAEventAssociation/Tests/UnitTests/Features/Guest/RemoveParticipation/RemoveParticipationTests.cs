@@ -30,11 +30,11 @@ public class RemoveParticipationTests
         var guest = new Guest("email@gmail.com");
         // Act
         guest.Participate(_event);
-        guest.RemoveParticipation(_event, guest);
-        var result = guest.RemoveParticipation(_event, guest);
+        guest.RemoveParticipation(_event);
+        var result = guest.RemoveParticipation(_event);
 
         // Assert
-        Assert.False(result.GetObj().GetGuests().Contains(guest));
+        Assert.False(_event.GetGuests().Contains(guest));
     }
 
     [Fact]
@@ -46,13 +46,12 @@ public class RemoveParticipationTests
         var guest = new Guest("email@gmail.com");
 
         // Act
-        var result = guest.RemoveParticipation(_event, guest);
+        var result = guest.RemoveParticipation(_event);
         if (result is ResultFailure<Event>)
             foreach (var error in result.GetMessages()!)
                 _testOutputHelper.WriteLine(error.GetMessage());
-
-
+        
         // Assert
-        Assert.False(result.GetObj().GetGuests().Contains(guest));
+        Assert.False(_event.GetGuests().Contains(guest));
     }
 }

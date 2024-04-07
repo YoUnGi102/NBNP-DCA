@@ -38,6 +38,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Application\Application.csproj" />
       <ProjectReference Include="..\..\Domain\Domain.csproj" />
       <ProjectReference Include="..\..\VIAEventAssociation.Core.Tools.OperationResult\VIAEventAssociation.Core.Tools.OperationResult.csproj" />
     </ItemGroup>

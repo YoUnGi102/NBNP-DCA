@@ -21,6 +21,21 @@ public class Event
     private List<Guest> guests { get; init; }
     private Location location { get; init; }
 
+    
+    public Event(string title, string description, DateTime start_date_time, DateTime end_date_time,
+        int max_guests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)
+    {
+        this.title = title;
+        this.description = description;
+        this.start_date_time = start_date_time;
+        this.end_date_time = end_date_time;
+        this.max_guests = max_guests;
+        this.visibility = visibility;
+        this.status = status;
+        this.guests = guests;
+        this.location = location;
+    }
+    
     public Event(int id, string title, string description, DateTime start_date_time, DateTime end_date_time,
         int max_guests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)
     {
@@ -70,10 +85,36 @@ public class Event
             start_date_time, end_date_time, max_guests, visibility, status, guests, location));
     }
 
-    public void AddGuest(Guest guest)
+    public Result<None> AddGuest(Guest guest)
     {
+        if (status != EventStatus.Active)
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), ["The event is not active!"]);
+        }
+        
+        if (guests.Contains(guest))
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), new []{"The guest is already in the list"});
+        }
+        
+        if (max_guests <= guests.Count)
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), new []{"The event is full"});
+        }
+        
         guests.Add(guest);
-        //return ResultSuccess<Guest>.CreateSimpleResult(guest);
+        return ResultSuccess<None>.CreateSimpleResult(new None());
+    }
+
+    public Result<None> RemoveGuest(Guest guest)
+    {
+        if(!guests.Contains(guest))
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), new []{"The guest is not in the list"});
+        }
+
+        guests.Remove(guest);
+        return ResultSuccess<None>.CreateSimpleResult(new None());
     }
 
 public Result<Event> SetVisibility(EventVisibility visibility)

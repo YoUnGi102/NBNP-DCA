@@ -23,26 +23,17 @@ public class DeclineInvitationTests
     public void DeclineInvitation_WhenInvitationIsUnanswered_ShouldDeclineInvitation()
     {
         // Arrange
-        var _event = new Domain.Aggregates.Events.Event(0, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
+        var _event = new Domain.Aggregates.Events.Event(1, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
-        var guest = new Guest("email@gmail.com");
+        var guest = new Guest(1, "email@gmail.com");
+        guest.SendInvitation(invitation);
         
         // Act
         var result = guest.DeclineInvitation(invitation);
         if (result is ResultFailure<Invitation>)
             foreach (var error in result.GetMessages()!)
                 _testOutputHelper.WriteLine(error.GetMessage());
-        
-        // // Arrange
-        // var invitation = new Invitation(InvitationStatus.Unanswered, null);
-        // var invitations = new List<Invitation>();
-        // invitations.Add(invitation);
-        // var guest = new Guest("email@gmail.com");
-        //
-        // // Act
-        // invitations.Add(invitation);
-        // var result = guest.DeclineInvitation(invitation);
         
         // Assert
         Assert.True(result.GetObj().GetStatus().Equals(InvitationStatus.Declined));

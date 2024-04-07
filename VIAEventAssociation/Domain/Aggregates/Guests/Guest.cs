@@ -10,12 +10,22 @@ namespace Domain.Aggregates.Guests;
 
 public class Guest
 {
+    private int id { get; init; }
     private string email { get; init; }
     private List<Request> requests { get; init; }
     private List<Invitation> invitations;
 
+    
     public Guest(string email)
     {
+        this.invitations = new List<Invitation>();
+        this.email = email;
+        this.requests = new List<Request>();
+    }
+    
+    public Guest(int id, string email)
+    {
+        this.id = id;
         this.invitations = new List<Invitation>();
         this.email = email;
         this.requests = new List<Request>();
@@ -27,20 +37,33 @@ public class Guest
         this.requests = requests;
         this.invitations = invitations;
     }
-
-    public Result<Event> Participate(Event _event)
+    
+    public Guest(int id, string email, List<Request> requests, List<Invitation> invitations)
     {
-        return ResultSuccess<Event>.CreateSimpleResult(_event);
+        this.id = id;
+        this.email = email;
+        this.requests = requests;
+        this.invitations = invitations;
     }
 
-    public Result<Event> RemoveParticipation(Event _event, Guest guest)
+    public Result<None> Participate(Event _event)
     {
-        if (!_event.GetGuests().Contains(guest))
-        {
-            return ResultFailure<Event>.CreateMessageResult(_event, new[] { "The guest isn't assigned to" +
-                                                                     " this event!" });
+        if (_event.GetVisibility() == EventVisibility.Private)
+        { 
+            return ResultFailure<None>.CreateMessageResult(new None(), ["The event is private!"]);
         }
-        return ResultSuccess<Event>.CreateSimpleResult(_event);
+        
+        Result<None> result = _event.AddGuest(this);
+        if (result.IsFailure())
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), result.GetMessages());
+        }
+        return ResultSuccess<None>.CreateSimpleResult(new None());
+    }
+
+    public Result<None> RemoveParticipation(Event _event)
+    {
+        return _event.RemoveGuest(this);
     }
 
     public Result<Request> RequestToJoin(Event _event)
@@ -80,16 +103,34 @@ public class Guest
                 " any spots left!"});
         }
         _event.AddGuest(this);
-        invitation.status = InvitationStatus.Accepted;
-        return ResultSuccess<Invitation>.CreateSimpleResult(invitation);
+
+        Invitation? find = invitations.FirstOrDefault(i =>
+            i?.events.GetId() == invitation?.events.GetId());
+
+        if (find is null)
+        {
+            return ResultFailure<Invitation>.CreateMessageResult(invitation, ["Invitation not found!"]);
+        }
+
+        find.status = InvitationStatus.Accepted;
+        return ResultSuccess<Invitation>.CreateSimpleResult(find);
     }
 
     public Result<Invitation> DeclineInvitation(Invitation invitation)
     {
-        invitation.status = InvitationStatus.Declined;
+        Invitation? find = invitations.FirstOrDefault(i =>
+            i?.events.GetId() == invitation?.events.GetId());
+        if (find is null)
+        {
+            return ResultFailure<Invitation>.CreateMessageResult(invitation, ["Invitation not found!"]);
+        }
+        find.status = InvitationStatus.Declined;
         return ResultSuccess<Invitation>.CreateSimpleResult(invitation);
     }
     
+    public string Email => email;
+    public int Id => id;
+
     public List<Request> GetRequests()
     {
         return this.requests;
@@ -98,8 +139,20 @@ public class Guest
     {
         return this.invitations;
     }
-    public void SetInvitations(List<Invitation> invitations)
+    public Result<None> SendInvitation(Invitation invitation)
     {
-        this.invitations = invitations;
+        if (invitation.events.GetGuests().Contains(invitation.guest))
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), ["Guest is already participating!"]);
+        }
+
+        Invitation? find = invitations.FirstOrDefault(i =>
+            i?.events.GetId() == invitation?.events.GetId());
+        if (find is not null)
+        {
+            return ResultFailure<None>.CreateMessageResult(new None(), ["Invitation already sent!"]);
+        }
+        invitations.Add(invitation);
+        return ResultSuccess<None>.CreateMessageResult(new None(), ["Invitation sent!"]);
     }
 }
