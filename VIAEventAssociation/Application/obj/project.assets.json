@@ -46,19 +46,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tomas\\.nuget\\packages\\": {}
+    "C:\\Users\\chiri\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Application\\Application.csproj",
+      "projectUniqueName": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
-      "outputPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Application\\obj\\",
+      "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+      "outputPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -70,11 +70,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj": {
-              "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj"
+            "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Domain\\Domain.csproj"
             },
-            "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
-              "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
+            "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
+              "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
             }
           }
         }
@@ -104,7 +104,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\tomas\\.dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

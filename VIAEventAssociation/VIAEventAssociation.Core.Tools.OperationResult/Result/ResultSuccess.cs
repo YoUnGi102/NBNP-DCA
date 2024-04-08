@@ -13,6 +13,12 @@ public class ResultSuccess<T> : Result<T>
     {
         this.obj = obj;
     }
+    
+    private ResultSuccess(T obj, Message[] messages)
+    {
+        this.obj = obj;
+        this.messages = messages;
+    }
 
     private ResultSuccess(T obj, string[] messages)
     {
@@ -55,6 +61,11 @@ public class ResultSuccess<T> : Result<T>
     }
 
     public static Result<T> CreateMessageResult(T obj, string[] messages)
+    {
+        return new ResultSuccess<T>(obj, messages);
+    }
+    
+    public static Result<T> CreateMessageResult(T obj, Message[] messages)
     {
         return new ResultSuccess<T>(obj, messages);
     }

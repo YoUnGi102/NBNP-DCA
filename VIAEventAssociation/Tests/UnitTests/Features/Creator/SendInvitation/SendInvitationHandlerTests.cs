@@ -3,6 +3,7 @@ using Domain.Aggregates.Guests;
 using Domain.Common.UnitOfWork;
 using UnitTests.Fakes;
 using ViaEventAssociation.Core.Application.AppEntry;
+using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Commands.Creator;
 using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Commands.Guest;
 using ViaEventAssociation.Core.Application.Features.Guest;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;

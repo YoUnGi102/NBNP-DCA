@@ -1,6 +1,6 @@
 ﻿using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
-namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Commands.Guest;
+namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Commands.Creator;
 
 public class SendInvitationCommand
 {

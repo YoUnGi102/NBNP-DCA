@@ -3,6 +3,7 @@ using Domain.Aggregates.Guests;
 using Domain.Common.Entities;
 using Domain.Common.UnitOfWork;
 using ViaEventAssociation.Core.Application.AppEntry;
+using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Commands.Creator;
 using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Commands.Guest;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
