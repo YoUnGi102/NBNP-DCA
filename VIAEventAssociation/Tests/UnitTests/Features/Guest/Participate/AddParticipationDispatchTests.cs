@@ -11,33 +11,32 @@ using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace UnitTests.Features.Guest.AcceptInvitation;
+namespace UnitTests.Features.Guest.Participate;
 
-public class AcceptInvitationDispatchTests
+public class AddParticipationDispatchTests
 {
-    
     private readonly ITestOutputHelper _testOutputHelper;
     private readonly ICommandDispatcher _commandDispatcher;
     private readonly ICommandDispatcher _commandDispatcherWTimer;
-    private AcceptInvitationHandlerMock handler;
+    private AddParticipationHandlerMock handler;
     
-    public AcceptInvitationDispatchTests(ITestOutputHelper testOutputHelper)
+    public AddParticipationDispatchTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
         IServiceCollection serviceCollection = new ServiceCollection();
-        serviceCollection.AddScoped<ICommandHandler<AcceptInvitationCommand>, AcceptInvitationHandlerMock>();
+        serviceCollection.AddScoped<ICommandHandler<AddParticipationCommand>, AddParticipationHandlerMock>();
         IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
         _commandDispatcher = new CommandDispatcher(serviceProvider);
         _commandDispatcherWTimer = new CommandDispatcherWithTimer(_commandDispatcher);
-        handler = (AcceptInvitationHandlerMock) serviceProvider.GetService<ICommandHandler<AcceptInvitationCommand>>()!;
+        handler = (AddParticipationHandlerMock) serviceProvider.GetService<ICommandHandler<AddParticipationCommand>>()!;
     }
     
     [Fact]
-    public async Task GivenValidData_WhenAcceptingInvitation_ThenInvitationAccepted()
+    public async Task GivenValidData_WhenAddingParticipation_ThenParticipationAdded()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", 1);
-        AcceptInvitationCommand command = result.GetObj();
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", 1);
+        AddParticipationCommand command = result.GetObj();
         
         // Act
         Result<None> dispatchResult = await _commandDispatcher.DispatchAsync(command);
@@ -48,11 +47,11 @@ public class AcceptInvitationDispatchTests
     }
     
     [Fact]
-    public async Task GivenValidData_WhenAcceptingInvitation_ThenInvitationAccepted_WithTimer()
+    public async Task GivenValidData_WhenAddingParticipation_ThenParticipationAdded_WithTimer()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", 1);
-        AcceptInvitationCommand command = result.GetObj();
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", 1);
+        AddParticipationCommand command = result.GetObj();
         
         // Act
         Result<None> dispatchResult = await _commandDispatcherWTimer.DispatchAsync(command);
@@ -63,11 +62,11 @@ public class AcceptInvitationDispatchTests
     }
     
     [Fact]
-    public async Task GivenEmptyEmail_WhenAcceptingInvitation_ThenInvitationNotAccepted()
+    public async Task GivenEmptyEmail_WhenAddingParticipation_ThenParticipationNotAdded()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("", 1);
-        AcceptInvitationCommand command = result.GetObj();
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("", 1);
+        AddParticipationCommand command = result.GetObj();
         
         // Act
         Result<None> dispatchResult = await _commandDispatcher.DispatchAsync(command);
@@ -78,11 +77,11 @@ public class AcceptInvitationDispatchTests
     }
     
     [Fact]
-    public async Task GivenEmptyEmail_WhenAcceptingInvitation_ThenInvitationNotAccepted_WithTimer()
+    public async Task GivenEmptyEmail_WhenAddingParticipation_ThenParticipationNotAdded_WithTimer()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("", 1);
-        AcceptInvitationCommand command = result.GetObj();
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("", 1);
+        AddParticipationCommand command = result.GetObj();
         
         // Act
         Result<None> dispatchResult = await _commandDispatcherWTimer.DispatchAsync(command);
@@ -93,11 +92,11 @@ public class AcceptInvitationDispatchTests
     }
 
     [Fact]
-    public async Task GivenInvalidEventId_WhenAcceptingInvitation_ThenInvitationNotAccepted()
+    public async Task GivenInvalidEventId_WhenAddingParticipation_ThenParticipationNotAdded()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", -1);
-        AcceptInvitationCommand command = result.GetObj();
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", -1);
+        AddParticipationCommand command = result.GetObj();
         
         // Act
         Result<None> dispatchResult = await _commandDispatcher.DispatchAsync(command);
@@ -108,11 +107,11 @@ public class AcceptInvitationDispatchTests
     }
     
     [Fact]
-    public async Task GivenInvalidEventId_WhenAcceptingInvitation_ThenInvitationNotAccepted_WithTimer()
+    public async Task GivenInvalidEventId_WhenAddingParticipation_ThenParticipationNotAdded_WithTimer()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", -1);
-        AcceptInvitationCommand command = result.GetObj();
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", -1);
+        AddParticipationCommand command = result.GetObj();
         
         // Act
         Result<None> dispatchResult = await _commandDispatcherWTimer.DispatchAsync(command);
@@ -121,5 +120,4 @@ public class AcceptInvitationDispatchTests
         _testOutputHelper.WriteLine(handler.ReachedHere().ToString());
         Assert.True(handler.ReachedHere());
     }
-    
 }

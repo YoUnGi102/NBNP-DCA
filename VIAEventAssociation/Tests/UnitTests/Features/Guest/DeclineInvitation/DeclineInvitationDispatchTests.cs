@@ -11,34 +11,33 @@ using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace UnitTests.Features.Guest.AcceptInvitation;
+namespace UnitTests.Features.Guest.DeclineInvitation;
 
-public class AcceptInvitationDispatchTests
+public class DeclineInvitationDispatchTests
 {
-    
     private readonly ITestOutputHelper _testOutputHelper;
     private readonly ICommandDispatcher _commandDispatcher;
     private readonly ICommandDispatcher _commandDispatcherWTimer;
-    private AcceptInvitationHandlerMock handler;
+    private DeclineInvitationHandlerMock handler;
     
-    public AcceptInvitationDispatchTests(ITestOutputHelper testOutputHelper)
+    public DeclineInvitationDispatchTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
         IServiceCollection serviceCollection = new ServiceCollection();
-        serviceCollection.AddScoped<ICommandHandler<AcceptInvitationCommand>, AcceptInvitationHandlerMock>();
+        serviceCollection.AddScoped<ICommandHandler<DeclineInvitationCommand>, DeclineInvitationHandlerMock>();
         IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
         _commandDispatcher = new CommandDispatcher(serviceProvider);
         _commandDispatcherWTimer = new CommandDispatcherWithTimer(_commandDispatcher);
-        handler = (AcceptInvitationHandlerMock) serviceProvider.GetService<ICommandHandler<AcceptInvitationCommand>>()!;
+        handler = (DeclineInvitationHandlerMock) serviceProvider.GetService<ICommandHandler<DeclineInvitationCommand>>()!;
     }
     
     [Fact]
-    public async Task GivenValidData_WhenAcceptingInvitation_ThenInvitationAccepted()
+    public async Task GivenValidData_WhenDecliningInvitation_ThenInvitationDeclined()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", 1);
-        AcceptInvitationCommand command = result.GetObj();
-        
+        Result<DeclineInvitationCommand> result = DeclineInvitationCommand.Create("Guest1@example.com", 1);
+        DeclineInvitationCommand command = result.GetObj();
+
         // Act
         Result<None> dispatchResult = await _commandDispatcher.DispatchAsync(command);
         
@@ -48,42 +47,12 @@ public class AcceptInvitationDispatchTests
     }
     
     [Fact]
-    public async Task GivenValidData_WhenAcceptingInvitation_ThenInvitationAccepted_WithTimer()
+    public async Task GivenValidData_WhenDecliningInvitation_ThenInvitationDeclined_WithTimer()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", 1);
-        AcceptInvitationCommand command = result.GetObj();
-        
-        // Act
-        Result<None> dispatchResult = await _commandDispatcherWTimer.DispatchAsync(command);
-        
-        // Assert
-        _testOutputHelper.WriteLine(handler.ReachedHere().ToString());
-        Assert.True(handler.ReachedHere());
-    }
-    
-    [Fact]
-    public async Task GivenEmptyEmail_WhenAcceptingInvitation_ThenInvitationNotAccepted()
-    {
-        // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("", 1);
-        AcceptInvitationCommand command = result.GetObj();
-        
-        // Act
-        Result<None> dispatchResult = await _commandDispatcher.DispatchAsync(command);
-        
-        // Assert
-        _testOutputHelper.WriteLine(handler.ReachedHere().ToString());
-        Assert.True(handler.ReachedHere());
-    }
-    
-    [Fact]
-    public async Task GivenEmptyEmail_WhenAcceptingInvitation_ThenInvitationNotAccepted_WithTimer()
-    {
-        // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("", 1);
-        AcceptInvitationCommand command = result.GetObj();
-        
+        Result<DeclineInvitationCommand> result = DeclineInvitationCommand.Create("Guest1@example.com", 1);
+        DeclineInvitationCommand command = result.GetObj();
+
         // Act
         Result<None> dispatchResult = await _commandDispatcherWTimer.DispatchAsync(command);
         
@@ -93,12 +62,12 @@ public class AcceptInvitationDispatchTests
     }
 
     [Fact]
-    public async Task GivenInvalidEventId_WhenAcceptingInvitation_ThenInvitationNotAccepted()
+    public async Task GivenEmptyEmail_WhenDecliningInvitation_ThenInvitationNotDeclined()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", -1);
-        AcceptInvitationCommand command = result.GetObj();
-        
+        Result<DeclineInvitationCommand> result = DeclineInvitationCommand.Create("", 1);
+        DeclineInvitationCommand command = result.GetObj();
+
         // Act
         Result<None> dispatchResult = await _commandDispatcher.DispatchAsync(command);
         
@@ -108,12 +77,12 @@ public class AcceptInvitationDispatchTests
     }
     
     [Fact]
-    public async Task GivenInvalidEventId_WhenAcceptingInvitation_ThenInvitationNotAccepted_WithTimer()
+    public async Task GivenEmptyEmail_WhenDecliningInvitation_ThenInvitationNotDeclined_WithTimer()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", -1);
-        AcceptInvitationCommand command = result.GetObj();
-        
+        Result<DeclineInvitationCommand> result = DeclineInvitationCommand.Create("", 1);
+        DeclineInvitationCommand command = result.GetObj();
+
         // Act
         Result<None> dispatchResult = await _commandDispatcherWTimer.DispatchAsync(command);
         
@@ -121,5 +90,34 @@ public class AcceptInvitationDispatchTests
         _testOutputHelper.WriteLine(handler.ReachedHere().ToString());
         Assert.True(handler.ReachedHere());
     }
+
+    [Fact]
+    public async Task GivenInvalidEventId_WhenDecliningInvitation_ThenInvitationNotDeclined()
+    {
+        // Arrange
+        Result<DeclineInvitationCommand> result = DeclineInvitationCommand.Create("Guest1@example.com", -1);
+        DeclineInvitationCommand command = result.GetObj();
+
+        // Act
+        Result<None> dispatchResult = await _commandDispatcher.DispatchAsync(command);
+        
+        // Assert
+        _testOutputHelper.WriteLine(handler.ReachedHere().ToString());
+        Assert.True(handler.ReachedHere());
+    }
     
+    [Fact]
+    public async Task GivenInvalidEventId_WhenDecliningInvitation_ThenInvitationNotDeclined_WithTimer()
+    {
+        // Arrange
+        Result<DeclineInvitationCommand> result = DeclineInvitationCommand.Create("Guest1@example.com", -1);
+        DeclineInvitationCommand command = result.GetObj();
+
+        // Act
+        Result<None> dispatchResult = await _commandDispatcherWTimer.DispatchAsync(command);
+        
+        // Assert
+        _testOutputHelper.WriteLine(handler.ReachedHere().ToString());
+        Assert.True(handler.ReachedHere());
+    }
 }
