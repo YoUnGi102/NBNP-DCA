@@ -11,8 +11,11 @@ public class CommandDispatcherWithTimer(ICommandDispatcher next): ICommandDispat
         var timer = Stopwatch.StartNew();
         var result = await next.DispatchAsync(command);
         timer.Stop();
-        Console.WriteLine($"Command took {timer.ElapsedMilliseconds}ms to execute.");
-        return result;
+        string[] timer_message = { $"Command took {timer.ElapsedMilliseconds}ms to execute." };
+        Message[] messages = ResultHelper<None>.CombineResultMessages([result, ResultFailure<None>.CreateMessageResult(default,timer_message)]);;
+        if (result is ResultFailure<None>)
+            return ResultFailure<None>.CreateMessageResult(new None(), messages);
+        return ResultSuccess<None>.CreateMessageResult(new None(), messages);
     }
 
     public T GetService<T>()

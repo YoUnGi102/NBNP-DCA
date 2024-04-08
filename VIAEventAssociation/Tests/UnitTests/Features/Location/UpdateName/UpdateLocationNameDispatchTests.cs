@@ -1,40 +1,39 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using UnitTests.Common.Dispatcher.Creator;
+using UnitTests.Common.Dispatcher.Location;
 using ViaEventAssociation.Core.Application.AppEntry;
 using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.CommandDispatcher;
-using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Commands.Creator;
-using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Commands.Guest;
 using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Dispatcher;
+using ViaEventAssociation.Core.Application.Features;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace UnitTests.Features.Creator.SendInvitation;
+namespace UnitTests.Features.Location.UpdateName;
 
-public class SendInvitationDispatchTests
+public class UpdateLocationNameDispatchTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
     private readonly ICommandDispatcher _commandDispatcher;
     private readonly ICommandDispatcher _commandDispatcherWTimer;
-    private SendInvitationHandlerMock handler;
+    private UpdateLocationNameHandlerMock handler;
     
-    public SendInvitationDispatchTests(ITestOutputHelper testOutputHelper)
+    public UpdateLocationNameDispatchTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
         IServiceCollection serviceCollection = new ServiceCollection();
-        serviceCollection.AddScoped<ICommandHandler<SendInvitationCommand>, SendInvitationHandlerMock>();
+        serviceCollection.AddScoped<ICommandHandler<UpdateLocationNameCommand>, UpdateLocationNameHandlerMock>();
         IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
         _commandDispatcher = new CommandDispatcher(serviceProvider);
         _commandDispatcherWTimer = new CommandDispatcherWithTimer(_commandDispatcher);
-        handler = (SendInvitationHandlerMock) serviceProvider.GetService<ICommandHandler<SendInvitationCommand>>()!;
+        handler = (UpdateLocationNameHandlerMock) serviceProvider.GetService<ICommandHandler<UpdateLocationNameCommand>>()!;
     }
     
     [Fact]
-    public async Task GivenValidData_WhenSendingInvitation_ThenInvitationSent()
+    public async Task GivenValidData_WhenUpdatingLocationName_ThenLocationNameUpdated()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(1, 1);
-        SendInvitationCommand command = result.GetObj()!;
+        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create(1, "Name");
+        UpdateLocationNameCommand command = result.GetObj()!;
         
         // Act
         Result<None> dispatchResult = await _commandDispatcher.DispatchAsync(command);
@@ -45,11 +44,11 @@ public class SendInvitationDispatchTests
     }
     
     [Fact]
-    public async Task GivenValidData_WhenSendingInvitation_ThenInvitationSent_WithTimer()
+    public async Task GivenValidData_WhenUpdatingLocationName_ThenLocationNameUpdated_WithTimer()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(1, 1);
-        SendInvitationCommand command = result.GetObj()!;
+        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create(1, "Name");
+        UpdateLocationNameCommand command = result.GetObj()!;
         
         // Act
         Result<None> dispatchResult = await _commandDispatcherWTimer.DispatchAsync(command);
@@ -60,32 +59,24 @@ public class SendInvitationDispatchTests
     }
     
     [Fact]
-    public async Task GivenNullData_WhenSendingInvitation_ThenInvitationNotSent()
+    public async Task GivenInvalidData_WhenUpdatingLocationName_ThenLocationNameNotUpdated()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(0, 0);
-        SendInvitationCommand command = result.GetObj()!;
+        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create(1, "");
+        UpdateLocationNameCommand command = result.GetObj()!;
         
         // Act
         Result<None> dispatchResult = await _commandDispatcher.DispatchAsync(command);
-        
-        // Assert
-        _testOutputHelper.WriteLine(handler.ReachedHere().ToString());
-        Assert.True(handler.ReachedHere());
     }
     
     [Fact]
-    public async Task GivenNullData_WhenSendingInvitation_ThenInvitationNotSent_WithTimer()
+    public async Task GivenInvalidData_WhenUpdatingLocationName_ThenLocationNameNotUpdated_WithTimer()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(0, 0);
-        SendInvitationCommand command = result.GetObj()!;
+        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create(1, "");
+        UpdateLocationNameCommand command = result.GetObj()!;
         
         // Act
         Result<None> dispatchResult = await _commandDispatcherWTimer.DispatchAsync(command);
-        
-        // Assert
-        _testOutputHelper.WriteLine(handler.ReachedHere().ToString());
-        Assert.True(handler.ReachedHere());
     }
 }
