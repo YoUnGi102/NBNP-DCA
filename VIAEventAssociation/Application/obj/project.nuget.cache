@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bKp0iPV881yfG4+1pBSmm8SF49/qFPRIQ9Vn3eG4TMVYNldsWxv54w0+nZECgwEhTXqwP/4slVzDK2RyFFTDNg==",
+  "dgSpecHash": "yRytsa+ENLGraa+B69HNxoJM56ZjmzPOWM3cMicz6/0i9sgRanLOnd8WADVMlr01H3DIhMhTQAWmrH/60/rwQQ==",
   "success": true,
-  "projectFilePath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Application\\Application.csproj",
+  "projectFilePath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Application\\Application.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
