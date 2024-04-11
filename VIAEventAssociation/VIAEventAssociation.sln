@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Core\Applica
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{91B77E50-56B1-426E-AC4E-DFE857A9C105}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence", "Infrastructure\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.csproj", "{5DE655D8-5A8D-4CE6-9496-CA539CB3EA2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,7 @@ Global
 		{C0CFC3F9-4B1B-4033-8C57-FED802E14654} = {AE70260B-D9A6-4689-BE73-9C9ABD1A5B75}
 		{09D0CDF1-72CA-4AF1-AB68-FEAA12C0303E} = {AE70260B-D9A6-4689-BE73-9C9ABD1A5B75}
 		{91B77E50-56B1-426E-AC4E-DFE857A9C105} = {152FF120-5529-46B2-AD18-88BEE01CF016}
+		{5DE655D8-5A8D-4CE6-9496-CA539CB3EA2E} = {91B77E50-56B1-426E-AC4E-DFE857A9C105}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{006F1862-F64D-40D8-9F19-FDA48FF64ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -75,5 +78,9 @@ Global
 		{09D0CDF1-72CA-4AF1-AB68-FEAA12C0303E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09D0CDF1-72CA-4AF1-AB68-FEAA12C0303E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09D0CDF1-72CA-4AF1-AB68-FEAA12C0303E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DE655D8-5A8D-4CE6-9496-CA539CB3EA2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE655D8-5A8D-4CE6-9496-CA539CB3EA2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE655D8-5A8D-4CE6-9496-CA539CB3EA2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE655D8-5A8D-4CE6-9496-CA539CB3EA2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
