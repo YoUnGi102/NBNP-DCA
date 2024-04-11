@@ -1,19 +1,5 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=17110471_002D7de4_002D4030_002Db2de_002D4a936d641186/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AcceptInvitationDispatchTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.AcceptInvitation.AcceptInvitationDispatchTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.DeclineInvitation.DeclineInvitationDispatchTests.GivenValidData_WhenDecliningInvitation_ThenInvitationDeclined&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.DeclineInvitation.DeclineInvitationDispatchTests.GivenValidData_WhenDecliningInvitation_ThenInvitationDeclined_WithTimer&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.DeclineInvitation.DeclineInvitationDispatchTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.Participate.AddParticipationDispatchTests.GivenValidData_WhenAddingParticipation_ThenParticipationAdded_WithTimer&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.Participate.AddParticipationDispatchTests.GivenValidData_WhenAddingParticipation_ThenParticipationAdded&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.Participate.AddParticipationDispatchTests.GivenEmptyEmail_WhenAddingParticipation_ThenParticipationNotAdded&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.Participate.AddParticipationDispatchTests.GivenEmptyEmail_WhenAddingParticipation_ThenParticipationNotAdded_WithTimer&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.Participate.AddParticipationDispatchTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.RegisterAccount.RegisterAccountDispatchTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.RemoveParticipation.RemoveParticipationDispatchTests&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.RequestToJoin.RequestToJoinEventDispatchTests.GivenValidData_WhenCreatingCommand_ThenCommandCreated&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;xUnit::D92E1547-348B-4F27-B4CB-E75D9A1D4513::net8.0::UnitTests.Features.Guest.RequestToJoin.RequestToJoinEventDispatchTests&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;Project Location="D:\GIT\NBNP-DCA\VIAEventAssociation\Tests\UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 </wpf:ResourceDictionary>

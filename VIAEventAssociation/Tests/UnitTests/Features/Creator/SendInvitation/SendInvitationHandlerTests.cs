@@ -1,5 +1,4 @@
 ﻿using Domain.Aggregates.Events;
-using Domain.Aggregates.Guests;
 using Domain.Common.UnitOfWork;
 using UnitTests.Fakes;
 using ViaEventAssociation.Core.Application.AppEntry;
@@ -10,7 +9,7 @@ using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace VIAEventAssociation.Tests.UnitTests.Features.Guest.SendInvitation;
+namespace UnitTests.Features.Creator.SendInvitation;
 
 public class SendInvitationHandlerTests
 {

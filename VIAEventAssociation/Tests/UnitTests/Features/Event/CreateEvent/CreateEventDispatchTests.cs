@@ -3,6 +3,7 @@ using UnitTests.Fakes;
 using UnitTests.Fakes.Moks.Event;
 using ViaEventAssociation.Core.Application.AppEntry;
 using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.CommandDispatcher;
+using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Commands.Event;
 using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Dispatcher;
 using ViaEventAssociation.Core.Application.Features;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;

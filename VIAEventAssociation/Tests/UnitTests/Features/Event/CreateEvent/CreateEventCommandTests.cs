@@ -1,4 +1,5 @@
 ﻿using UnitTests.Fakes;
+using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Commands.Event;
 using ViaEventAssociation.Core.Application.Features;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;

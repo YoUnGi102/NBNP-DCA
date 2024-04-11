@@ -3,6 +3,7 @@ using Domain.Aggregates.Locations;
 using Domain.Common.UnitOfWork;
 using UnitTests.Fakes;
 using ViaEventAssociation.Core.Application.AppEntry;
+using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Commands.Event;
 using ViaEventAssociation.Core.Application.Features;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;

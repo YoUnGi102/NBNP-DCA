@@ -12,24 +12,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{152FF120-552
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{AE70260B-D9A6-4689-BE73-9C9ABD1A5B75}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{323F4521-D3F7-4627-A02C-496898A32257}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Core\Tools", "{323F4521-D3F7-4627-A02C-496898A32257}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIAEventAssociation.Core.Tools.OperationResult", "VIAEventAssociation.Core.Tools.OperationResult\VIAEventAssociation.Core.Tools.OperationResult.csproj", "{6655F336-FB5F-4533-A385-E4B8BA93E13F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VIAEventAssociation.Core.Tools.OperationResult", "Core\Tools\VIAEventAssociation.Core.Tools.OperationResult\VIAEventAssociation.Core.Tools.OperationResult.csproj", "{6655F336-FB5F-4533-A385-E4B8BA93E13F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A1D2999C-3964-42A2-8922-2B03208E6646}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Tests\UnitTests\UnitTests.csproj", "{D92E1547-348B-4F27-B4CB-E75D9A1D4513}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{C0CFC3F9-4B1B-4033-8C57-FED802E14654}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Core\Domain\Domain.csproj", "{C0CFC3F9-4B1B-4033-8C57-FED802E14654}"
 	ProjectSection(ProjectDependencies) = postProject
 		{6655F336-FB5F-4533-A385-E4B8BA93E13F} = {6655F336-FB5F-4533-A385-E4B8BA93E13F}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{09D0CDF1-72CA-4AF1-AB68-FEAA12C0303E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Core\Application\Application.csproj", "{09D0CDF1-72CA-4AF1-AB68-FEAA12C0303E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{577C3DA0-010D-4569-9AE9-CE32A5D996DD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteDomainModelPersistence", "src\Infrastructure\SqliteDomainModelPersistence\SqliteDomainModelPersistence.csproj", "{A00B48DA-0D1A-4136-ADCF-CA0C9D769233}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{91B77E50-56B1-426E-AC4E-DFE857A9C105}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,8 +44,7 @@ Global
 		{D92E1547-348B-4F27-B4CB-E75D9A1D4513} = {A1D2999C-3964-42A2-8922-2B03208E6646}
 		{C0CFC3F9-4B1B-4033-8C57-FED802E14654} = {AE70260B-D9A6-4689-BE73-9C9ABD1A5B75}
 		{09D0CDF1-72CA-4AF1-AB68-FEAA12C0303E} = {AE70260B-D9A6-4689-BE73-9C9ABD1A5B75}
-		{577C3DA0-010D-4569-9AE9-CE32A5D996DD} = {152FF120-5529-46B2-AD18-88BEE01CF016}
-		{A00B48DA-0D1A-4136-ADCF-CA0C9D769233} = {577C3DA0-010D-4569-9AE9-CE32A5D996DD}
+		{91B77E50-56B1-426E-AC4E-DFE857A9C105} = {152FF120-5529-46B2-AD18-88BEE01CF016}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{006F1862-F64D-40D8-9F19-FDA48FF64ADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -78,9 +75,5 @@ Global
 		{09D0CDF1-72CA-4AF1-AB68-FEAA12C0303E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09D0CDF1-72CA-4AF1-AB68-FEAA12C0303E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09D0CDF1-72CA-4AF1-AB68-FEAA12C0303E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A00B48DA-0D1A-4136-ADCF-CA0C9D769233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A00B48DA-0D1A-4136-ADCF-CA0C9D769233}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A00B48DA-0D1A-4136-ADCF-CA0C9D769233}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A00B48DA-0D1A-4136-ADCF-CA0C9D769233}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
