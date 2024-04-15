@@ -40,7 +40,6 @@ public class AddAvailabilityIntervalHandler : ICommandHandler<AddAvailabilityInt
             return ResultFailure<None>.CreateMessageResult(new None(), result.GetMessages());
         }
 
-        await _locationRepository.SaveAsync(location);
         await _uow.SaveChangesAsync();
 
         return ResultSuccess<None>.CreateMessageResult(new None(), ["Availability interval added successfully."]);

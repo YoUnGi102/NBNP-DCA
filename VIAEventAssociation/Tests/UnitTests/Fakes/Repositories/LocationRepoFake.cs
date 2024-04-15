@@ -13,10 +13,16 @@ public class LocationRepoFake : ILocationRepository
     {
         return await Task.FromResult(Locations.FirstOrDefault(e => e.id == id));
     }
-    
-    public async Task<Location> SaveAsync(Location e)
+
+    public Task AddAsync(Location e)
     {
         Locations.Add(e);
-        return e;
+        return Task.CompletedTask;
+    }
+
+    public Task RemoveAsync(int id)
+    {
+        Locations.Remove(Locations.FirstOrDefault(e => e.id == id) ?? throw new InvalidOperationException());
+        return Task.CompletedTask;
     }
 }

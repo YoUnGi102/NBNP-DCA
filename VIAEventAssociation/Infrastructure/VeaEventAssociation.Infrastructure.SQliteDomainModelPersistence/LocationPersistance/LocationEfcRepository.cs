@@ -1,6 +1,10 @@
-﻿namespace VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.LocationPersistance;
+﻿using Domain.Aggregates.Events;
+using Domain.Aggregates.Locations;
+using Microsoft.EntityFrameworkCore;
 
-public class LocationEfcRepository
+namespace VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.LocationPersistance;
+
+public class LocationEfcRepository(DmContext context) : BaseEfcRepository<Location>(context), ILocationRepository
 {
-    
+    private DmContext context = context;
 }

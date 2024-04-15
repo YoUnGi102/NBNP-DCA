@@ -1,11 +1,9 @@
 ﻿using Domain.Aggregates.Guests;
 using Domain.Aggregates.Locations;
+using Domain.Common.Repository;
 
 namespace Domain.Aggregates.Events;
 
-public interface ILocationRepository
+public interface ILocationRepository : IGenericRepository<Location>
 {
-    public Task<Location> GetAsync(int id);
-
-    public Task<Location> SaveAsync(Location e);
 }

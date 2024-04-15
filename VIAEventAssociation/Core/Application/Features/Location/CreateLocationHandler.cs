@@ -27,7 +27,7 @@ public class CreateLocationHandler : ICommandHandler<CreateLocationCommand>
 
         var location = new Domain.Aggregates.Locations.Location(command.Name, command.MaxCapacity);
 
-        await _locationRepository.SaveAsync(location);
+        await _locationRepository.AddAsync(location);
         await _uow.SaveChangesAsync();
 
         return ResultSuccess<None>.CreateMessageResult(new None(), ["Location created successfully."]);
