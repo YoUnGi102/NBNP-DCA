@@ -48,7 +48,7 @@ public class SendInvitationHandler : ICommandHandler<SendInvitationCommand>
             return ResultFailure<None>.CreateMessageResult(new None(), result.GetMessages());
         }
         
-        await _eventRepository.SaveAsync(_event);
+        await _eventRepository.AddAsync(_event);
         await _uow.SaveChangesAsync();
 
         return ResultSuccess<None>.CreateMessageResult(new None(), ["Invitation sent."]);

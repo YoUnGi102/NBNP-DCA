@@ -27,7 +27,7 @@ public class RegisterAccountHandler : ICommandHandler<RegisterAccountCommand>
         
         var guest = new Domain.Aggregates.Guests.Guest(command.Email);
 
-        await _repository.SaveAsync(guest);
+        await _repository.AddAsync(guest);
         await _uow.SaveChangesAsync();
 
         return ResultSuccess<None>.CreateMessageResult(new None(), [ "Guest account created." ]);

@@ -27,7 +27,7 @@ public class AddParticipationHandler : ICommandHandler<AddParticipationCommand>
             return ResultFailure<None>.CreateMessageResult(new None(), ["Command is null."]);
         }
 
-        var guest = await _guestRepository.GetAsync(command.Email);
+        var guest = await _guestRepository.GetByEmailAsync(command.Email);
         if (guest is null)
         {
             return ResultFailure<None>.CreateMessageResult(new None(), ["Guest not found."]);
@@ -40,7 +40,6 @@ public class AddParticipationHandler : ICommandHandler<AddParticipationCommand>
         }
 
         guest.Participate(_event);
-        await _eventRepository.SaveAsync(_event);
         await _uow.SaveChangesAsync();
 
         return ResultSuccess<None>.CreateMessageResult(new None(), ["Participation added."]);

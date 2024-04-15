@@ -5,7 +5,7 @@ namespace UnitTests.Fakes;
 
 public class UnitOfWorkFake : IUnitOfWork
 {
-    public Task<Result<None>> SaveChangesAsync()
+    public Task SaveChangesAsync()
     {
         return Task.FromResult(ResultSuccess<None>.CreateEmptyResult());
     }

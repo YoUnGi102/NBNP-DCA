@@ -4,5 +4,5 @@ namespace Domain.Common.UnitOfWork;
 
 public interface IUnitOfWork
 {
-    public Task<Result<None>> SaveChangesAsync();
+    public Task SaveChangesAsync();
 }

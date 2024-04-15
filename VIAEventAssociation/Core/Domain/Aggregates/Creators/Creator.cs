@@ -101,5 +101,9 @@ public class Creator
         return ResultSuccess<Invitation>.CreateSimpleResult(_invitation);
         
     }
-    
+
+    public string Username
+    {
+        get => username;
+    }
 }

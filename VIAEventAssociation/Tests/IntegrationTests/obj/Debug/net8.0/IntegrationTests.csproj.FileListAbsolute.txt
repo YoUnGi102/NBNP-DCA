@@ -1,0 +1,12 @@
+D:\VIA\Semester6\DCA1\NBNP-DCA\NBNP-DCA\VIAEventAssociation\Tests\IntegrationTests\bin\Debug\net8.0\IntegrationTests.deps.json
+D:\VIA\Semester6\DCA1\NBNP-DCA\NBNP-DCA\VIAEventAssociation\Tests\IntegrationTests\bin\Debug\net8.0\IntegrationTests.dll
+D:\VIA\Semester6\DCA1\NBNP-DCA\NBNP-DCA\VIAEventAssociation\Tests\IntegrationTests\bin\Debug\net8.0\IntegrationTests.pdb
+D:\VIA\Semester6\DCA1\NBNP-DCA\NBNP-DCA\VIAEventAssociation\Tests\IntegrationTests\obj\Debug\net8.0\IntegrationTests.GeneratedMSBuildEditorConfig.editorconfig
+D:\VIA\Semester6\DCA1\NBNP-DCA\NBNP-DCA\VIAEventAssociation\Tests\IntegrationTests\obj\Debug\net8.0\IntegrationTests.AssemblyInfoInputs.cache
+D:\VIA\Semester6\DCA1\NBNP-DCA\NBNP-DCA\VIAEventAssociation\Tests\IntegrationTests\obj\Debug\net8.0\IntegrationTests.AssemblyInfo.cs
+D:\VIA\Semester6\DCA1\NBNP-DCA\NBNP-DCA\VIAEventAssociation\Tests\IntegrationTests\obj\Debug\net8.0\IntegrationTests.csproj.CoreCompileInputs.cache
+D:\VIA\Semester6\DCA1\NBNP-DCA\NBNP-DCA\VIAEventAssociation\Tests\IntegrationTests\obj\Debug\net8.0\IntegrationTests.sourcelink.json
+D:\VIA\Semester6\DCA1\NBNP-DCA\NBNP-DCA\VIAEventAssociation\Tests\IntegrationTests\obj\Debug\net8.0\IntegrationTests.dll
+D:\VIA\Semester6\DCA1\NBNP-DCA\NBNP-DCA\VIAEventAssociation\Tests\IntegrationTests\obj\Debug\net8.0\refint\IntegrationTests.dll
+D:\VIA\Semester6\DCA1\NBNP-DCA\NBNP-DCA\VIAEventAssociation\Tests\IntegrationTests\obj\Debug\net8.0\IntegrationTests.pdb
+D:\VIA\Semester6\DCA1\NBNP-DCA\NBNP-DCA\VIAEventAssociation\Tests\IntegrationTests\obj\Debug\net8.0\ref\IntegrationTests.dll

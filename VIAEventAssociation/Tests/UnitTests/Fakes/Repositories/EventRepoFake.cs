@@ -18,8 +18,13 @@ public class EventRepoFake : IEventRepository
         return await Task.FromResult(Events.FirstOrDefault(e => e.GetId() == id));
     }
     
-    public async Task<Event> SaveAsync(Event e)
+    public async Task AddAsync(Event e)
     {
-        return await Task.FromResult(e);
+        await Task.FromResult(e);
+    }
+
+    public Task RemoveAsync(int id)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -1,13 +1,11 @@
 ﻿using Domain.Aggregates.Guests;
 using Domain.Aggregates.Locations;
+using Domain.Common.Repository;
+using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
 namespace Domain.Aggregates.Events;
 
-public interface IGuestRepository
+public interface IGuestRepository : IGenericRepository<Guest>
 {
-    public Task<Guest?> GetAsync(int id);
-
-    public Task<Guest?> GetAsync(string email);
-    
-    public Task<Guest> SaveAsync(Guest e);
+    public Task<Guest> GetByEmailAsync(string email);
 }

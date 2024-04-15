@@ -1,8 +1,8 @@
-﻿namespace Domain.Aggregates.Events;
+﻿using Domain.Common.Repository;
 
-public interface IEventRepository
+namespace Domain.Aggregates.Events;
+
+public interface IEventRepository : IGenericRepository<Event>
 {
-    public Task<Event?> GetAsync(int id);
-
-    public Task<Event?> SaveAsync(Event e);
+    
 }

@@ -1,8 +1,8 @@
-﻿namespace Domain.Aggregates.Creator;
+﻿using Domain.Common.Repository;
 
-public interface ICreatorRepository
+namespace Domain.Aggregates.Creator;
+
+public interface ICreatorRepository : IGenericRepository<Creator>
 {
-    public Task<Creator?> GetAsync(int id);
-
-    public Task<Creator?> SaveAsync(Creator e);
+    Task<Creator> GetByUsernameAsync(string username);
 }

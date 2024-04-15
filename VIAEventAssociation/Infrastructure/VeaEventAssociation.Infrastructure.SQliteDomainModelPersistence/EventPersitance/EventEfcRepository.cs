@@ -1,6 +1,16 @@
-﻿namespace VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.EventPersitance;
+﻿using Domain.Aggregates.Events;
+using Domain.Aggregates.Guests;
+using Domain.Common.Entities;
+using Microsoft.EntityFrameworkCore;
 
-public class EventEfcRepository
+namespace VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.EventPersitance;
+
+public class EventEfcRepository(DmContext context) : BaseEfcRepository<Event>(context), IEventRepository
 {
-    
+    private DmContext context = context;
+
+    public override async Task<Event> GetAsync(int id)
+    {
+        return await context.Set<Event>().Include(e => e.GetGuests()).SingleAsync(e => e.GetId() == id) ?? throw new InvalidOperationException();
+    }
 }

@@ -26,14 +26,9 @@ public class CreateEventHandler : ICommandHandler<CreateEventCommand>
         Domain.Aggregates.Locations.Location location = await locationRepository.GetAsync(command.LocationId);
         Event newEvent = new Event(command.Title, command.Description, command.StartDateTime, command.EndDateTime, command.MaxGuests, command.Visibility, EventStatus.Active, [], location);
 
-        Event? result = await eventRepository.SaveAsync(newEvent);
-        
-        if(result == null)
-        {
-            return ResultFailure<None>.CreateMessageResult(new None(), ["The event could not be created"]);
-        }
-
+        await eventRepository.AddAsync(newEvent);
         await uow.SaveChangesAsync();
+        
         return ResultSuccess<None>.CreateEmptyResult();
     }
 }
