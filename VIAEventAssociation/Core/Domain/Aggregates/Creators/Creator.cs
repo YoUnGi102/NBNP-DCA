@@ -21,6 +21,10 @@ public class Creator
 
     private Creator(){}
 
+    public int Id => id;
+
+    public string Password => password;
+
     public Result<Event> CancelEvent(Event _event)
     {
         if (_event.status == EventStatus.Deleted)

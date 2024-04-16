@@ -9,6 +9,7 @@ using Domain.Common.Enums;
 
 public class Invitation
 {
+    internal int id; 
     internal InvitationStatus status;
     internal Event events;
     internal Guest guest;
@@ -27,6 +28,8 @@ public class Invitation
     }
     
     private Invitation(){}
+    
+    public int Id => id;
     
     public InvitationStatus GetStatus()
     {

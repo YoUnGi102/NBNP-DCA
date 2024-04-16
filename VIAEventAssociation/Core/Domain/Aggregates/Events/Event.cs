@@ -10,16 +10,16 @@ namespace Domain.Aggregates.Events;
 
 public class Event
 {
-    private int id { get; init; }
-    private string title { get; init; }
-    private string description { get; init; }
-    private DateTime start_date_time { get; init; }
-    private DateTime end_date_time { get; init; }
-    private int max_guests { get; init; }
-    private EventVisibility visibility { get; init; }
+    public int id { get; private set;}
+    public string title { get; private set; }
+    public string description { get; private set; }
+    public DateTime start_date_time { get; private set; }
+    public DateTime end_date_time { get; private set; }
+    public int max_guests { get; private set; }
+    public EventVisibility visibility { get; private set; }
     public EventStatus status { get; set; }
-    private List<Guest> guests { get; init; }
-    private Location location { get; init; }
+    public List<Guest> guests { get; private set; }
+    public Location location { get; private set; }
 
     
     public Event(string title, string description, DateTime start_date_time, DateTime end_date_time,
@@ -205,6 +205,16 @@ public Result<Event> SetVisibility(EventVisibility visibility)
         return ResultSuccess<Event>.CreateSimpleResult(new Event(id, title, description,
             start_date_time, end_date_time, max_guests, visibility, status, guests, location));
     }
+
+    public string Title => title;
+    public string Description => description;
+    public DateTime StartDateTime => start_date_time;
+    public DateTime EndDateTime => start_date_time;
+    public int MaxGuests => max_guests;
+    public EventVisibility Visibility => visibility;
+    public List<Guest> Guests => guests;
+    public Location Location => location;
+    
     
     public int GetId()
     {

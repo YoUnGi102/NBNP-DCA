@@ -5,9 +5,10 @@ using Domain.Common.Enums;
 
 public class Request
 {
-    public RequestStatus status;
-    private Guest guest;
-    private Event _event;
+    internal int id; 
+    internal RequestStatus status;
+    internal Guest guest;
+    internal Event _event;
 
     public Request(RequestStatus status)
     {
@@ -22,6 +23,8 @@ public class Request
     }
 
     private Request(){}
+    
+    public int Id => id; 
 
     public void SetGuest(Guest guest)
         {
