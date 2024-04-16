@@ -45,6 +45,8 @@ public class Guest
         this.requests = requests;
         this.invitations = invitations;
     }
+    
+    private Guest(){}
 
     public Result<None> Participate(Event _event)
     {

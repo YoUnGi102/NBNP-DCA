@@ -19,6 +19,8 @@ public class Creator
         this.password = password;
     }
 
+    private Creator(){}
+
     public Result<Event> CancelEvent(Event _event)
     {
         if (_event.status == EventStatus.Deleted)

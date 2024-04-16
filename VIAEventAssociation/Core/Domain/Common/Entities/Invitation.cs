@@ -26,10 +26,13 @@ public class Invitation
         this.status = InvitationStatus.Unanswered;
     }
     
+    private Invitation(){}
+    
     public InvitationStatus GetStatus()
     {
         return this.status;
     }
+    
     public Event GetEvent()
     {
         return this.events;

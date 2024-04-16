@@ -32,6 +32,8 @@ public class Location
         this.maxCapacity = maxCapacity;
         this.availability = availability;
     }
+    
+    private Location(){}
 
     public Result<Location> UpdateName(string name)
     {

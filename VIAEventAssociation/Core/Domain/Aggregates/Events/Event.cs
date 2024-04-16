@@ -50,6 +50,8 @@ public class Event
         this.guests = guests;
         this.location = location;
     }
+    
+    private Event(){}
 
     public Result<Event> UpdateTitle(string title)
     {
