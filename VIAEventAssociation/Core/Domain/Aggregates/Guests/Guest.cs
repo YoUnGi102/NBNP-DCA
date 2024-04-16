@@ -10,10 +10,10 @@ namespace Domain.Aggregates.Guests;
 
 public class Guest
 {
-    private int id { get; init; }
-    private string email { get; init; }
-    private List<Request> requests { get; init; }
-    private List<Invitation> invitations;
+    public int id { get; private set; }
+    public string email { get; private set; }
+    public List<Request> requests { get; private set; }
+    public List<Invitation> invitations { get; private set; }
 
     
     public Guest(string email)
