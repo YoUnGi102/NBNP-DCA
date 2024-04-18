@@ -5,12 +5,6 @@ using Domain.Aggregates.Locations;
 using Domain.Common.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.CreatorPersistance;
-using VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.EventPersitance;
-using VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.GuestPersistance;
-using VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.InvitationPersistance;
-using VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.LocationPersistance;
-using VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.RequestPersistance;
 
 namespace VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence;
 
@@ -21,6 +15,7 @@ public class DmContext(DbContextOptions options) : DbContext(options)
     public DbSet<Guest> Guests => Set<Guest>();
     public DbSet<Location> Locations => Set<Location>();
     public DbSet<Creator> Creators => Set<Creator>();
+    
     // public DbSet<Invitation> Invitations => Set<Invitation>();
     // public DbSet<Request> Requests => Set<Request>();
     

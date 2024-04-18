@@ -1,4 +1,6 @@
-﻿using Domain.Common.UnitOfWork;
+﻿using System.Data.Common;
+using Domain.Common.UnitOfWork;
+using Microsoft.EntityFrameworkCore;
 using VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence;
 using VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.LocationPersistance;
 using VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.UnitOfWork;
@@ -6,6 +8,7 @@ using ViaEventAssociation.Core.Application.AppEntry;
 using ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Commands.Event;
 using ViaEventAssociation.Core.Application.Features;
 using ViaEventAssociation.Core.Application.Features.Location;
+using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -29,10 +32,18 @@ public class AddLocationIntegrationTest
     {
         //Arrange
         var res = CreateLocationCommand.Create("VIA University College", 100);
-        
-        //Act
-        var result = await _handler.HandleAsync(res.GetObj());
 
+        var result = ResultFailure<None>.CreateEmptyResult();
+        try
+        {
+            //Act
+            result = await _handler.HandleAsync(res.GetObj());
+        }
+        catch (DbUpdateException ex)
+        {
+            var innerException = ex.InnerException;
+        }
+        
         //Assert
         Assert.False(result.IsFailure());
     }

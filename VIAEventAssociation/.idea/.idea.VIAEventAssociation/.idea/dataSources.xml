@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="VIADatabaseProduction" uuid="954cfcff-65f7-4a57-9ad9-5fef698e2f8d">
+    <data-source source="LOCAL" name="VIAEventAsociation" uuid="766ecffb-94ab-4281-a79f-9a56a44889e0">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:dca_db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:VIAEventAsociation</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
