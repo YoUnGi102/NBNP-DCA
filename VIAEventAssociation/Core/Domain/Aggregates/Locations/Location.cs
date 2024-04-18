@@ -9,20 +9,20 @@ public class Location
     public int id { get; init; }
     public string name { get; init; }
     public int maxCapacity { get; init; }
-    public List<DateTime> availability { get; init; }
+    // public List<DateTime> availability { get; init; }
 
     public Location(string name, int maxCapacity)
     {
         this.name = name;
         this.maxCapacity = maxCapacity;
-        this.availability = new List<DateTime>();
+        // this.availability = new List<DateTime>();
     }
     
     public Location(string name, int maxCapacity, List<DateTime> availability)
     {
         this.name = name;
         this.maxCapacity = maxCapacity;
-        this.availability = availability;
+        // this.availability = availability;
     }
     
     public Location(int id, string name, int maxCapacity, List<DateTime> availability)
@@ -30,7 +30,7 @@ public class Location
         this.id = id;
         this.name = name;
         this.maxCapacity = maxCapacity;
-        this.availability = availability;
+        // this.availability = availability;
     }
     
     private Location(){}
@@ -46,7 +46,7 @@ public class Location
             return ResultFailure<Location>.CreateMessageResult(this, ["The name is too long!"]);
         }
         
-        return ResultSuccess<Location>.CreateSimpleResult(new Location(name, maxCapacity, availability));
+        return ResultSuccess<Location>.CreateSimpleResult(new Location(name, maxCapacity, []));
     }
 
     public Result<Location> SetMaxCapacity(int maxCapacity)
@@ -56,7 +56,7 @@ public class Location
             return ResultFailure<Location>.CreateMessageResult(this, ["The capacity cannot be less or equal to zero!"]);
         }
         
-        return ResultSuccess<Location>.CreateSimpleResult(new Location(name, maxCapacity, availability));
+        return ResultSuccess<Location>.CreateSimpleResult(new Location(name, maxCapacity, []));
     }
 
     public Result<Location> SetAvailability(DateTime startDateTime, DateTime endDateTime)
@@ -65,9 +65,9 @@ public class Location
         {
             return ResultFailure<Location>.CreateMessageResult(this, ["The end date time cannot be before start date time"]);
         }
-        availability.Add(startDateTime);
-        availability.Add(endDateTime);
-        return ResultSuccess<Location>.CreateSimpleResult(new Location(name, maxCapacity, availability));
+        // availability.Add(startDateTime);
+        // availability.Add(endDateTime);
+        return ResultSuccess<Location>.CreateSimpleResult(new Location(name, maxCapacity));
     }
 
     public string GetName()
@@ -82,7 +82,7 @@ public class Location
 
     public List<DateTime> GetAvailability()
     {
-        return availability;
+        return [];
     }
     
 }
