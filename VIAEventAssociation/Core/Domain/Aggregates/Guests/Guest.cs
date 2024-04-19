@@ -15,6 +15,8 @@ public class Guest
     public List<Request> requests { get; private set; }
     public List<Invitation> invitations { get; private set; }
 
+    public List<Event> events { get; private set; } = [];
+
     
     public Guest(string email)
     {

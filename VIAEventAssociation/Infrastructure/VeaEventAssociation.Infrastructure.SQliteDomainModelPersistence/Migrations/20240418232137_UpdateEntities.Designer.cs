@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence;
 
@@ -10,9 +11,11 @@ using VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence;
 namespace VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.Migrations
 {
     [DbContext(typeof(DmContext))]
-    partial class DmContextModelSnapshot : ModelSnapshot
+    [Migration("20240418232137_UpdateEntities")]
+    partial class UpdateEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0-preview.3.24172.4");

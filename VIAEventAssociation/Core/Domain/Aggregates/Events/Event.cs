@@ -18,8 +18,12 @@ public class Event
     public int max_guests { get; private set; }
     public EventVisibility visibility { get; private set; }
     public EventStatus status { get; set; }
-    public List<Guest> guests { get; private set; }
+    public List<Guest> guests { get; private set; } = [];
     public Location location { get; private set; }
+
+    public List<Invitation> invitations { get; private set; }
+    
+    public List<Request> requests { get; private set; }
 
     
     public Event(string title, string description, DateTime start_date_time, DateTime end_date_time,
@@ -212,7 +216,6 @@ public Result<Event> SetVisibility(EventVisibility visibility)
     public DateTime EndDateTime => start_date_time;
     public int MaxGuests => max_guests;
     public EventVisibility Visibility => visibility;
-    public List<Guest> Guests => guests;
     public Location Location => location;
     
     
