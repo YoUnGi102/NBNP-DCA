@@ -17,7 +17,7 @@ public class UpdateEventTitleAgregateTests
     public UpdateEventTitleAgregateTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        Domain.Aggregates.Locations.Location location = new Domain.Aggregates.Locations.Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        Domain.Aggregates.Locations.Location location = new Domain.Aggregates.Locations.Location("location", 32);
         _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public,
             EventStatus.Active, new List<Guest>(), location);
     }
@@ -36,7 +36,7 @@ public class UpdateEventTitleAgregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(title, result.GetObj().GetTitle());
+        Assert.Equal(title, result.GetObj().Title);
     }
 
     [Fact]
@@ -53,7 +53,7 @@ public class UpdateEventTitleAgregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(title, result.GetObj().GetTitle());
+        Assert.NotEqual(title, (result.GetObj().Title));
     }
 
     [Fact]
@@ -70,7 +70,7 @@ public class UpdateEventTitleAgregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(title, result.GetObj().GetTitle());
+        Assert.NotEqual(title, result.GetObj().Title);
     }
 
     [Fact]
@@ -87,6 +87,6 @@ public class UpdateEventTitleAgregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(title, result.GetObj().GetTitle());
+        Assert.NotEqual(title, result.GetObj().Title);
     }
 }

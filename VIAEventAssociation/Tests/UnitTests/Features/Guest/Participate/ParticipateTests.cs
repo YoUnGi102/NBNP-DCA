@@ -15,7 +15,7 @@ public class ParticipateTests
     public ParticipateTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        Location location = new Location("location", 32);
 
     }
     [Fact]
@@ -28,7 +28,7 @@ public class ParticipateTests
         var result = guest.Participate(_event);
 
         // Assert
-        Assert.False(_event.GetGuests().Contains(guest));
+        Assert.False(_event.Guests.Contains(guest));
         
     }
     [Fact]
@@ -44,7 +44,7 @@ public class ParticipateTests
         var result = guest2.Participate(_event);
         
         // Assert
-        Assert.False(_event.GetGuests().Contains(guest2));
+        Assert.False(_event.Guests.Contains(guest2));
 
     }
     

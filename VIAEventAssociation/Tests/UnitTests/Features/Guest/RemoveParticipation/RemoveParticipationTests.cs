@@ -18,7 +18,7 @@ public class RemoveParticipationTests
     public RemoveParticipationTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        Location location = new Location("location", 32);
     }
 
     [Fact]
@@ -34,7 +34,7 @@ public class RemoveParticipationTests
         var result = guest.RemoveParticipation(_event);
 
         // Assert
-        Assert.False(_event.GetGuests().Contains(guest));
+        Assert.DoesNotContain(_event.Guests, g => g.Email == guest.Email);
     }
 
     [Fact]
@@ -52,6 +52,6 @@ public class RemoveParticipationTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.False(_event.GetGuests().Contains(guest));
+        Assert.False(_event.Guests.Contains(guest));
     }
 }

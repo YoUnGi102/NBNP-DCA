@@ -16,7 +16,7 @@ public class SetEventVisibilityTests
     public SetEventVisibilityTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        Location location = new Location("location", 32);
         _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public, EventStatus.Active, new List<Guest>(), location);
     }
     
@@ -34,7 +34,7 @@ public class SetEventVisibilityTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.Equal(visibility, result.GetObj()?.GetVisibility());
+        Assert.Equal(visibility, result.GetObj()?.Visibility);
     }
     
     [Fact]
@@ -51,6 +51,6 @@ public class SetEventVisibilityTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.Equal(visibility, result.GetObj()?.GetVisibility());
+        Assert.Equal(visibility, result.GetObj()?.Visibility);
     }
 }

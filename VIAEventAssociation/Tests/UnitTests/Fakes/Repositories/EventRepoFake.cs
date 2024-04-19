@@ -10,12 +10,12 @@ public class EventRepoFake : IEventRepository
     private Event[] Events { get; } =
     [
         new Event(1, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(2), 30, EventVisibility.Public,
-            EventStatus.Active, [], new Location("location", 32, []))
+            EventStatus.Active, [], new Location("location", 32))
     ];
 
     public async Task<Event?> GetAsync(int id)
     {
-        return await Task.FromResult(Events.FirstOrDefault(e => e.GetId() == id));
+        return await Task.FromResult(Events.FirstOrDefault(e => e.Id == id));
     }
     
     public async Task AddAsync(Event e)

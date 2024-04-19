@@ -16,7 +16,7 @@ public class UpdateStartDateTimeTests
     public UpdateStartDateTimeTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        Location location = new Location("location", 32);
         _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), location);
     }
@@ -36,7 +36,7 @@ public class UpdateStartDateTimeTests
 
         // Assert
         Assert.True(startDateTime - DateTime.Now > TimeSpan.Zero);
-        Assert.Equal(startDateTime, result.GetObj()?.GetStartDateTime());
+        Assert.Equal(startDateTime, result.GetObj()?.StartDateTime);
     }
 
     [Fact]
@@ -53,7 +53,7 @@ public class UpdateStartDateTimeTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(startDateTime, result.GetObj()?.GetStartDateTime());
+        Assert.NotEqual(startDateTime, result.GetObj()?.StartDateTime);
     }
 
     [Fact]
@@ -70,6 +70,6 @@ public class UpdateStartDateTimeTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(startDateTime, result.GetObj()?.GetStartDateTime());
+        Assert.NotEqual(startDateTime, result.GetObj()?.StartDateTime);
     }
 }

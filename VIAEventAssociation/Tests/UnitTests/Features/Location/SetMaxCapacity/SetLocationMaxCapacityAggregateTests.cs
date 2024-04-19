@@ -13,7 +13,7 @@ public class SetLocationMaxCapacityAggregateTests
     public SetLocationMaxCapacityAggregateTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        _location = new Location("location", 32, [DateTime.Now.AddDays(1)]);
+        _location = new Location("location", 32);
     }
 
     [Fact]
@@ -30,7 +30,7 @@ public class SetLocationMaxCapacityAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(capacity, result.GetObj()?.GetMaxCapacity());
+        Assert.Equal(capacity, result.GetObj()?.MaxCapacity);
     }
 
     [Fact]
@@ -47,6 +47,6 @@ public class SetLocationMaxCapacityAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(capacity, result.GetObj()?.GetMaxCapacity());
+        Assert.Equal(capacity, result.GetObj()?.MaxCapacity);
     }
 }

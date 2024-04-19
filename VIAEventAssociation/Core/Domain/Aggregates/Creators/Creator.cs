@@ -27,11 +27,11 @@ public class Creator
 
     public Result<Event> CancelEvent(Event _event)
     {
-        if (_event.status == EventStatus.Deleted)
+        if (_event.Status == EventStatus.Deleted)
         {
             return ResultFailure<Event>.CreateMessageResult(_event, new []{"The event is deleted already!"});
         }
-        if (_event.status == EventStatus.Draft)
+        if (_event.Status == EventStatus.Draft)
         {
             return ResultFailure<Event>.CreateMessageResult(_event, new []{"The event is still a draft!"});
         }
@@ -42,11 +42,11 @@ public class Creator
     public Result<Event> ReadyEvent(Event _event)
     {
 
-        if (_event.status != EventStatus.Active)
+        if (_event.Status != EventStatus.Active)
             return ResultFailure<Event>.CreateMessageResult(_event, new[] { "The event is already Active" });
-        if (_event.status != EventStatus.Deleted)
+        if (_event.Status != EventStatus.Deleted)
             return ResultFailure<Event>.CreateMessageResult(_event, new[] { "The event is already Deleted" });
-        if (_event.status != EventStatus.Cancelled)
+        if (_event.Status != EventStatus.Cancelled)
             return ResultFailure<Event>.CreateMessageResult(_event, new[] { "The event is already Cancelled" });
         _event.SetEventStatus(EventStatus.Ready);
         return ResultSuccess<Event>.CreateSimpleResult(_event);
@@ -61,9 +61,9 @@ public class Creator
 
     public Result<Event> DeleteEvent(Event _event)
     {
-        if (_event.status == EventStatus.Deleted)
+        if (_event.Status == EventStatus.Deleted)
             return ResultFailure<Event>.CreateMessageResult(_event, new []{"The event is already Deleted"});
-        if (_event.status == EventStatus.Cancelled)
+        if (_event.Status == EventStatus.Cancelled)
             return ResultFailure<Event>.CreateMessageResult(_event, new []{"The event is already Cancelled"});
         _event.SetEventStatus(EventStatus.Deleted);
         return ResultSuccess<Event>.CreateSimpleResult(_event);
@@ -74,11 +74,11 @@ public class Creator
         switch(status) 
         {
             case RequestStatus.Accepted:
-                request.status = RequestStatus.Accepted;
+                request.SetStatus(RequestStatus.Accepted);
                 return ResultSuccess<Request>.CreateSimpleResult(request);
                 break;
             case RequestStatus.Declined:
-                request.status = RequestStatus.Declined;
+                request.SetStatus(RequestStatus.Declined);
                 return ResultSuccess<Request>.CreateSimpleResult(request);
                 break;
         }
@@ -88,7 +88,7 @@ public class Creator
     
     public Result<Invitation> SendInvitation(Guest guest, Event _event)
     {
-        foreach (var invitation in guest.GetInvitations())
+        foreach (var invitation in guest.Invitations)
         {
             if (invitation.GetEvent().Equals(_event))
             {
@@ -97,13 +97,13 @@ public class Creator
             }
         }
 
-        if (_event.GetStartDateTime() > DateTime.Now)
+        if (_event.StartDateTime > DateTime.Now)
         {
             return ResultFailure<Invitation>.CreateMessageResult(null, ["This event already started"]);
         }
 
         var _invitation = new Invitation(_event, guest);
-        guest.GetInvitations().Add(_invitation);
+        guest.Invitations.Add(_invitation);
         return ResultSuccess<Invitation>.CreateSimpleResult(_invitation);
         
     }

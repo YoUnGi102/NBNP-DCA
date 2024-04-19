@@ -13,7 +13,7 @@ public class SetLocationAvailabilityIntervalAggregateTests
     public SetLocationAvailabilityIntervalAggregateTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        _location = new Location("location", 32, []);
+        _location = new Location("location", 32);
     }
 
     [Fact]
@@ -23,7 +23,7 @@ public class SetLocationAvailabilityIntervalAggregateTests
         var start = DateTime.Now;
         var end = DateTime.Now.AddDays(1);
 
-        var expect = _location.GetAvailability().Count + 2;
+        var expect = _location.Availability.Count + 1;
 
         // Act
         var result = _location.SetAvailability(start, end);
@@ -33,7 +33,7 @@ public class SetLocationAvailabilityIntervalAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(expect, result.GetObj()?.GetAvailability().Count);
+        Assert.Equal(expect, _location.Availability.Count);
     }
 
     [Fact]
@@ -51,6 +51,6 @@ public class SetLocationAvailabilityIntervalAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(0, result.GetObj()?.GetAvailability().Count);
+        Assert.Equal(0, result.GetObj()?.Availability.Count);
     }
 }

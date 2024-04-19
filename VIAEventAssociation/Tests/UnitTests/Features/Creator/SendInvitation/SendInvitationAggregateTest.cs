@@ -17,7 +17,7 @@ public class SendInvitationAggregateTest
     public SendInvitationAggregateTest(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        _location = new Location("location", 32);
     }
 
     [Fact]
@@ -29,7 +29,7 @@ public class SendInvitationAggregateTest
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Cancelled, [], _location);
 
-        var expect = guest.GetInvitations().Count + 1;
+        var expect = guest.Invitations.Count + 1;
         
         // Act
         var result = creator.SendInvitation(guest, _event);
@@ -38,7 +38,7 @@ public class SendInvitationAggregateTest
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(expect, guest.GetInvitations().Count);
+        Assert.Equal(expect, guest.Invitations.Count);
     }
 
     [Fact]
@@ -52,7 +52,7 @@ public class SendInvitationAggregateTest
 
         creator.SendInvitation(guest, _event);
         
-        var expect = guest.GetInvitations().Count;
+        var expect = guest.Invitations.Count;
         
         // Act
         var result = creator.SendInvitation(guest, _event);
@@ -61,6 +61,6 @@ public class SendInvitationAggregateTest
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(expect, guest.GetInvitations().Count);
+        Assert.Equal(expect, guest.Invitations.Count);
     }
 }

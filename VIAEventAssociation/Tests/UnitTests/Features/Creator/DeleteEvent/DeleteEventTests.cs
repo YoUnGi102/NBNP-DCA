@@ -16,7 +16,7 @@ public class DeleteEventTests
     public DeleteEventTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        _location = new Location("location", 32);
     }
     [Fact]
     public void DeleteEvent_WhenEventIsReady_ShouldDeleteEvent()
@@ -32,7 +32,7 @@ public class DeleteEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.Equal(EventStatus.Deleted, result.GetObj().status);
+        Assert.Equal(EventStatus.Deleted, result.GetObj().Status);
     }
     [Fact]
     public void DeleteEvent_WhenEventIsActive_ShouldDeleteEvent()
@@ -48,7 +48,7 @@ public class DeleteEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.Equal(EventStatus.Deleted, result.GetObj().status);
+        Assert.Equal(EventStatus.Deleted, result.GetObj().Status);
     }
     [Fact]
     public void DeleteEvent_WhenEventIsCancelled_ShouldNotDeleteEvent()
@@ -64,7 +64,7 @@ public class DeleteEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.NotEqual(EventStatus.Deleted, result.GetObj().status);
+        Assert.NotEqual(EventStatus.Deleted, result.GetObj().Status);
     }
     
 }

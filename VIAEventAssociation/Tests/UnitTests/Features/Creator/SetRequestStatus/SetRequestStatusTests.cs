@@ -17,11 +17,11 @@ public class SetRequestStatusTests
 
         // Act
         var result = creator.setRequestedStatus(request, RequestStatus.Accepted);
-        bool isSuccess = result.GetObj().status == RequestStatus.Accepted;
+        bool isSuccess = result.GetObj().Status == RequestStatus.Accepted;
         
         // Assert
         Assert.True(isSuccess);
-        Assert.Equal(RequestStatus.Accepted, result.GetObj().status);
+        Assert.Equal(RequestStatus.Accepted, result.GetObj().Status);
     }
     [Fact]
     public void SetRequestStatus_WhenStatusIsUnanswered_ShouldSetRequestStatusDeclined()
@@ -33,11 +33,11 @@ public class SetRequestStatusTests
 
         // Act
         var result = creator.setRequestedStatus(request, RequestStatus.Declined);
-        bool isSuccess = result.GetObj().status == RequestStatus.Declined;
+        bool isSuccess = result.GetObj().Status == RequestStatus.Declined;
         
         // Assert
         Assert.True(isSuccess);
-        Assert.Equal(RequestStatus.Declined, result.GetObj().status);
+        Assert.Equal(RequestStatus.Declined, result.GetObj().Status);
     }
     
 }

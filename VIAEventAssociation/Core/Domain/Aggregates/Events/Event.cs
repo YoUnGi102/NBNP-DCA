@@ -10,51 +10,51 @@ namespace Domain.Aggregates.Events;
 
 public class Event
 {
-    public int id { get; private set;}
-    public string title { get; private set; }
-    public string description { get; private set; }
-    public DateTime start_date_time { get; private set; }
-    public DateTime end_date_time { get; private set; }
-    public int max_guests { get; private set; }
-    public EventVisibility visibility { get; private set; }
-    public EventStatus status { get; set; }
-    public List<Guest> guests { get; private set; } = [];
-    public Location location { get; private set; }
-
-    public List<Invitation> invitations { get; private set; }
-    
-    public List<Request> requests { get; private set; }
+    public int Id { get; private set;}
+    public string Title { get; private set; }
+    public string Description { get; private set; }
+    public DateTime StartDateTime { get; private set; }
+    public DateTime EndDateTime { get; private set; }
+    public int MaxGuests { get; private set; }
+    public EventVisibility Visibility { get; private set; }
+    public EventStatus Status { get; set; }
+    public List<Guest> Guests { get; private set; } = [];
+    public Location Location { get; private set; }
+    public List<Invitation> Invitations { get; private set; }
+    public List<Request> Requests { get; private set; }
 
     
-    public Event(string title, string description, DateTime start_date_time, DateTime end_date_time,
-        int max_guests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)
+    public Event(string title, string description, DateTime startDateTime, DateTime endDateTime,
+        int maxGuests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)
     {
-        this.title = title;
-        this.description = description;
-        this.start_date_time = start_date_time;
-        this.end_date_time = end_date_time;
-        this.max_guests = max_guests;
-        this.visibility = visibility;
-        this.status = status;
-        this.guests = guests;
-        this.location = location;
+        Title = title;
+        Description = description;
+        StartDateTime = startDateTime;
+        EndDateTime = endDateTime;
+        MaxGuests = maxGuests;
+        Visibility = visibility;
+        Status = status;
+        Guests = guests;
+        Location = location;
     }
     
-    public Event(int id, string title, string description, DateTime start_date_time, DateTime end_date_time,
-        int max_guests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)
+    // Needed for Fake Repositories in Unit Tests
+    public Event(int id, string title, string description, DateTime startDateTime, DateTime endDateTime,
+        int maxGuests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)
     {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.start_date_time = start_date_time;
-        this.end_date_time = end_date_time;
-        this.max_guests = max_guests;
-        this.visibility = visibility;
-        this.status = status;
-        this.guests = guests;
-        this.location = location;
+        Id = id;
+        Title = title;
+        Description = description;
+        StartDateTime = startDateTime;
+        EndDateTime = endDateTime;
+        MaxGuests = maxGuests;
+        Visibility = visibility;
+        Status = status;
+        Guests = guests;
+        Location = location;
     }
     
+    // Needed for EFC
     private Event(){}
 
     public Result<Event> UpdateTitle(string title)
@@ -70,8 +70,8 @@ public class Event
             return ResultFailure<Event>.CreateMessageResult(this, new []{"The title can't be larger than" +
                                                                          " 100 characters!"});   
         }
-        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
-            start_date_time, end_date_time, max_guests, visibility, status, guests, location));
+        return ResultSuccess<Event>.CreateSimpleResult(new(Id, title, Description,
+            StartDateTime, EndDateTime, MaxGuests, Visibility, Status, Guests, Location));
     }
 
     public Result<Event> UpdateDescription(string description)
@@ -87,46 +87,46 @@ public class Event
             return ResultFailure<Event>.CreateMessageResult(this, new []{"The length of the description is" +
                                                                          " too big!"});
         }
-        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
-            start_date_time, end_date_time, max_guests, visibility, status, guests, location));
+        return ResultSuccess<Event>.CreateSimpleResult(new(Id, Title, description,
+            StartDateTime, EndDateTime, MaxGuests, Visibility, Status, Guests, Location));
     }
 
     public Result<None> AddGuest(Guest guest)
     {
-        if (status != EventStatus.Active)
+        if (Status != EventStatus.Active)
         {
             return ResultFailure<None>.CreateMessageResult(new None(), ["The event is not active!"]);
         }
         
-        if (guests.Contains(guest))
+        if (Guests.Contains(guest))
         {
             return ResultFailure<None>.CreateMessageResult(new None(), new []{"The guest is already in the list"});
         }
         
-        if (max_guests <= guests.Count)
+        if (MaxGuests <= Guests.Count)
         {
             return ResultFailure<None>.CreateMessageResult(new None(), new []{"The event is full"});
         }
         
-        guests.Add(guest);
+        Guests.Add(guest);
         return ResultSuccess<None>.CreateSimpleResult(new None());
     }
 
     public Result<None> RemoveGuest(Guest guest)
     {
-        if(!guests.Contains(guest))
+        if(!Guests.Contains(guest))
         {
             return ResultFailure<None>.CreateMessageResult(new None(), new []{"The guest is not in the list"});
         }
 
-        guests.Remove(guest);
+        Guests.Remove(guest);
         return ResultSuccess<None>.CreateSimpleResult(new None());
     }
 
-public Result<Event> SetVisibility(EventVisibility visibility)
+    public Result<Event> SetVisibility(EventVisibility visibility)
     {
-        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
-            start_date_time, end_date_time, max_guests, visibility, status, guests, location));
+        return ResultSuccess<Event>.CreateSimpleResult(new(Id, Title, Description,
+            StartDateTime, EndDateTime, MaxGuests, visibility, Status, Guests, Location));
     }
 
     public Result<Event> UpdateStartDateTime(DateTime startDateTime)
@@ -142,8 +142,8 @@ public Result<Event> SetVisibility(EventVisibility visibility)
             return ResultFailure<Event>.CreateMessageResult(this, new []{"Cannot assign a date too far" +
                                                                          " into the future as a start date time"});
         }
-        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
-            startDateTime, end_date_time, max_guests, visibility, status, guests, location));
+        return ResultSuccess<Event>.CreateSimpleResult(new(Id, Title, Description,
+            startDateTime, EndDateTime, MaxGuests, Visibility, Status, Guests, Location));
     }
 
     public Result<Event> UpdateEndDateTime(DateTime endDateTime)
@@ -154,18 +154,18 @@ public Result<Event> SetVisibility(EventVisibility visibility)
                                                                          "the past!"});
         }
 
-        if (endDateTime == start_date_time)
+        if (endDateTime == StartDateTime)
         {
             return ResultFailure<Event>.CreateMessageResult(this, new []{"The End time can't be the same" +
                                                                          " as the start time"});
         }
-        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
-            start_date_time, endDateTime, max_guests, visibility, status, guests, location));
+        return ResultSuccess<Event>.CreateSimpleResult(new(Id, Title, Description,
+            StartDateTime, endDateTime, MaxGuests, Visibility, Status, Guests, Location));
     }
     
     public Result<Event> SetEventStatus(EventStatus status)
     {
-        this.status = status;
+        this.Status = status;
         // string[] messages = new string[5];
         // if (status == this.status)
         //     return ResultSuccess<Event>.CreateMessageResult(this, new []{"Already in this status"});
@@ -175,8 +175,8 @@ public Result<Event> SetVisibility(EventVisibility visibility)
         //     messages.Append("2 is smaller than 4");
         // if (messages.Length > 0)
         //     return ResultFailure<Event>.CreateMessageResult(this, messages);
-        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
-            start_date_time, end_date_time, max_guests, visibility, status, guests, location));
+        return ResultSuccess<Event>.CreateSimpleResult(new(Id, Title, Description,
+            StartDateTime, EndDateTime, MaxGuests, Visibility, status, Guests, Location));
     }
 
     public Result<Event> SetMaxGuests(int maxGuests)
@@ -187,94 +187,40 @@ public Result<Event> SetVisibility(EventVisibility visibility)
                                                                          " should be a positive number hher than 0"});
         }
 
-        if (maxGuests > location.maxCapacity + 1)
+        if (maxGuests > Location.MaxCapacity + 1)
         {
             return ResultFailure<Event>.CreateMessageResult(this, new []{"The amount of users can't be" +
                                                                          " higher than the number of places at the" +
                                                                          " chosen location. The number of places" +
-                                                                         " is:" + location.maxCapacity});
+                                                                         " is:" + Location.MaxCapacity});
         }
-        return ResultSuccess<Event>.CreateSimpleResult(new(id, title, description,
-            start_date_time, end_date_time, maxGuests, visibility, status, guests, location));
+        return ResultSuccess<Event>.CreateSimpleResult(new(Id, Title, Description,
+            StartDateTime, EndDateTime, maxGuests, Visibility, Status, Guests, Location));
     }
 
     public Result<Event> SetLocation(Location location)
     {
 
-        if (location.GetMaxCapacity() < GetMaxGuests())
+        if (location.MaxCapacity < MaxGuests)
         {
             return ResultFailure<Event>.CreateMessageResult(this, ["The event guest capacity cannot exceed location capacity"]);
         }
         
-        return ResultSuccess<Event>.CreateSimpleResult(new Event(id, title, description,
-            start_date_time, end_date_time, max_guests, visibility, status, guests, location));
+        return ResultSuccess<Event>.CreateSimpleResult(new Event(Id, Title, Description,
+            StartDateTime, EndDateTime, MaxGuests, Visibility, Status, Guests, location));
     }
 
-    public string Title => title;
-    public string Description => description;
-    public DateTime StartDateTime => start_date_time;
-    public DateTime EndDateTime => start_date_time;
-    public int MaxGuests => max_guests;
-    public EventVisibility Visibility => visibility;
-    public Location Location => location;
-    
-    
-    public int GetId()
-    {
-        return id;
-    }
-    
-    public string GetTitle()
-    {
-        return title;
-    }
-    
-    public string GetDescription()
-    {
-        return description;
-    }
-    
-    public DateTime GetStartDateTime()
-    {
-        return start_date_time;
-    }
-    
-    public DateTime GetEndDateTime()
-    {
-        return end_date_time;
-    }
-    
-    public int GetMaxGuests()
-    {
-        return max_guests;
-    }
-    
-    public EventVisibility GetVisibility()
-    {
-        return visibility;
-    }
-    
-    public List<Guest> GetGuests()
-    {
-        return guests;
-    }
-    
-    public Location GetLocation()
-    {
-        return location;
-    }
-    
-    public override bool Equals(Object other)
-    {
-        Event b = (Event)other;
-
-        return id == b.id &&
-               title == b.title &&
-               description == b.description &&
-               start_date_time == b.start_date_time &&
-               end_date_time == b.end_date_time &&
-               max_guests == b.max_guests &&
-               visibility == b.visibility &&
-               status == b.status;
-    }
+    // public override bool Equals(Object other)
+    // {
+    //     Event b = (Event)other;
+    //
+    //     return Id == b.Id &&
+    //            Title == b.Title &&
+    //            Description == b.Description &&
+    //            StartDateTime == b.StartDateTime &&
+    //            EndDateTime == b.EndDateTime &&
+    //            MaxGuests == b.MaxGuests &&
+    //            Visibility == b.Visibility &&
+    //            Status == b.Status;
+    // }
 }

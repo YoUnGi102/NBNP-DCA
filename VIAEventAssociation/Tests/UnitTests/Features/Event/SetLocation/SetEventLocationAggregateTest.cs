@@ -25,7 +25,7 @@ public class SetMaxGuestsTests
     public void GivenFreeLocation_WhenSettingLocation_ThenLocationIsSet()
     {
         // Arrange
-        var newLocation = new Location("VIA University College", 40, []);
+        var newLocation = new Location("VIA University College", 40);
 
         // Act
         var result = _event.SetLocation(newLocation);
@@ -35,14 +35,14 @@ public class SetMaxGuestsTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(newLocation.GetName(), result.GetObj()?.GetLocation().GetName());
+        Assert.Equal(newLocation.Name, result.GetObj()?.Location.Name);
     }
     
     [Fact]
     public void GivenLocationWithLowCapacity_WhenSettingLocation_ThenLocationIsNotSet()
     {
         // Arrange
-        var newLocation = new Location("VIA A2.05", 20, []);
+        var newLocation = new Location("VIA A2.05", 20);
 
         // Act
         var result = _event.SetLocation(newLocation);
@@ -52,7 +52,7 @@ public class SetMaxGuestsTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(newLocation.GetName(), result.GetObj()?.GetLocation().GetName());
+        Assert.NotEqual(newLocation.Name, result.GetObj()?.Location.Name);
     }
     
 }

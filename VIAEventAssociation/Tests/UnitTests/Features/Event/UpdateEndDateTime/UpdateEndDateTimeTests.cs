@@ -16,7 +16,7 @@ public class UpdateEndDateTimeTests
     public UpdateEndDateTimeTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        Location location = new Location("location", 32);
         _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), location);
     }
@@ -35,7 +35,7 @@ public class UpdateEndDateTimeTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(endDateTime, result.GetObj()?.GetEndDateTime());
+        Assert.Equal(endDateTime, result.GetObj()?.EndDateTime);
     }
 
     [Fact]
@@ -52,14 +52,14 @@ public class UpdateEndDateTimeTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(endDateTime, result.GetObj()?.GetEndDateTime());
+        Assert.NotEqual(endDateTime, result.GetObj()?.EndDateTime);
     }
 
     [Fact]
     public void GivenEndDateTimeEqualsStartDateTime_WhenUpdatingEndDateTime_ThenEndDateTimeIsNotUpdated()
     {
         // Arrange
-        var endDateTime = _event.GetStartDateTime();
+        var endDateTime = _event.StartDateTime;
 
         // Act
         var result = _event.UpdateEndDateTime(endDateTime);
@@ -69,6 +69,6 @@ public class UpdateEndDateTimeTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(endDateTime, result.GetObj()?.GetEndDateTime());
+        Assert.NotEqual(endDateTime, result.GetObj()?.EndDateTime);
     }
 }

@@ -17,7 +17,7 @@ public class ReadyEventTests
     public ReadyEventTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        _location = new Location("location", 32);
     }
 
     [Fact]
@@ -35,7 +35,7 @@ public class ReadyEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(EventStatus.Ready, result.GetObj().status);
+        Assert.NotEqual(EventStatus.Ready, result.GetObj().Status);
     }
 
     [Fact]
@@ -53,7 +53,7 @@ public class ReadyEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(EventStatus.Ready, result.GetObj().status);
+        Assert.NotEqual(EventStatus.Ready, result.GetObj().Status);
     }
 
     [Fact]
@@ -71,7 +71,7 @@ public class ReadyEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(EventStatus.Ready, result.GetObj().status);
+        Assert.NotEqual(EventStatus.Ready, result.GetObj().Status);
     }
 
     [Fact]
@@ -89,6 +89,6 @@ public class ReadyEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(EventStatus.Ready, result.GetObj().status);
+        Assert.Equal(EventStatus.Ready, result.GetObj().Status);
     }
 }

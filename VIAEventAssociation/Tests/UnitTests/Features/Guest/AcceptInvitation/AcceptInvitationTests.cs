@@ -17,7 +17,7 @@ public class AcceptInvitationTests
     public AcceptInvitationTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        _location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        _location = new Location("location", 32);
         
     }
     
@@ -39,7 +39,7 @@ public class AcceptInvitationTests
         
         // Assert
         Assert.True(result.GetObj().GetStatus().Equals(InvitationStatus.Accepted));
-        Assert.Contains(guest, result.GetObj().GetEvent().GetGuests());
+        Assert.Contains(guest, result.GetObj().GetEvent().Guests);
     }
     
     [Fact]
@@ -60,7 +60,7 @@ public class AcceptInvitationTests
         
         // Assert
         Assert.True(result.GetObj().GetStatus().Equals(InvitationStatus.Accepted));
-        Assert.Contains(guest, result.GetObj().GetEvent().GetGuests());
+        Assert.Contains(guest, result.GetObj().GetEvent().Guests);
     }
 
     [Fact]
@@ -80,7 +80,7 @@ public class AcceptInvitationTests
 
         // Assert
         Assert.False(result.GetObj().GetStatus().Equals(InvitationStatus.Accepted));
-        Assert.DoesNotContain(guest, result.GetObj().GetEvent().GetGuests());
+        Assert.DoesNotContain(guest, result.GetObj().GetEvent().Guests);
     }
     
     [Fact]
@@ -105,6 +105,6 @@ public class AcceptInvitationTests
 
         // Assert
         Assert.False(result.GetObj().GetStatus().Equals(InvitationStatus.Accepted));
-        Assert.DoesNotContain(guest2, result.GetObj().GetEvent().GetGuests());
+        Assert.DoesNotContain(guest2, result.GetObj().GetEvent().Guests);
     }
 }

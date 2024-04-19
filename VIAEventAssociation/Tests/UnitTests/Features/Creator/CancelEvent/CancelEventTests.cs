@@ -17,7 +17,7 @@ public class CancelEventTests
     public CancelEventTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        _location = new Location("location", 32);
     }
     [Fact]
     public void CancelEvent_WhenEventIsReady_ShouldCancelEvent()
@@ -33,7 +33,7 @@ public class CancelEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.Equal(EventStatus.Cancelled, result.GetObj().status);
+        Assert.Equal(EventStatus.Cancelled, result.GetObj().Status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsActive_ShouldCancelEvent()
@@ -48,7 +48,7 @@ public class CancelEventTests
             foreach (var error in result.GetMessages()!)
                 _testOutputHelper.WriteLine(error.GetMessage());
         // Assert
-        Assert.Equal(EventStatus.Cancelled, result.GetObj().status);
+        Assert.Equal(EventStatus.Cancelled, result.GetObj().Status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsDeleted_ShouldNotCancelEvent()
@@ -64,7 +64,7 @@ public class CancelEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.NotEqual(EventStatus.Cancelled, result.GetObj().status);
+        Assert.NotEqual(EventStatus.Cancelled, result.GetObj().Status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsCancelled_ShouldNotCancelEvent()
@@ -80,7 +80,7 @@ public class CancelEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(EventStatus.Cancelled, result.GetObj().status);
+        Assert.Equal(EventStatus.Cancelled, result.GetObj().Status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsDraft_ShouldNotCancelEvent()
@@ -96,7 +96,7 @@ public class CancelEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.NotEqual(EventStatus.Cancelled, result.GetObj().status);
+        Assert.NotEqual(EventStatus.Cancelled, result.GetObj().Status);
     }
     
     [Fact]
@@ -114,7 +114,7 @@ public class CancelEventTests
 
         
         // Assert
-        Assert.Equal(EventStatus.Cancelled, result.GetObj().status);
+        Assert.Equal(EventStatus.Cancelled, result.GetObj().Status);
     }
     [Fact]
     public void CancelEvent_WhenEventIsDeleted_ShouldNotChangeEventStatus()
@@ -130,6 +130,6 @@ public class CancelEventTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.Equal(EventStatus.Deleted, result.GetObj().status);
+        Assert.Equal(EventStatus.Deleted, result.GetObj().Status);
     }
 }

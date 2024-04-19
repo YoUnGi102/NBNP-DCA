@@ -1,4 +1,6 @@
-﻿namespace UnitTests.Features.Location.UpdateName;
+﻿using Domain.Common.Entities;
+
+namespace UnitTests.Features.Location.UpdateName;
 
 using Domain.Aggregates.Locations;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
@@ -13,7 +15,8 @@ public class UpdateLocationNameAggregateTests
     public UpdateLocationNameAggregateTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        _location = new Location("location", 32, [DateTime.Now.AddDays(1)]);
+        _location = new Location("location", 32);
+        _location.SetAvailability(DateTime.Now, DateTime.Now.AddDays(1));
     }
 
     [Fact]
@@ -30,7 +33,7 @@ public class UpdateLocationNameAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(name, result.GetObj()?.GetName());
+        Assert.Equal(name, result.GetObj()?.Name);
     }
 
     [Fact]
@@ -46,7 +49,7 @@ public class UpdateLocationNameAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(name, result.GetObj()?.GetName());
+        Assert.NotEqual(name, result.GetObj()?.Name);
     }
 
     [Fact]
@@ -62,6 +65,6 @@ public class UpdateLocationNameAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(name, result.GetObj()?.GetName());
+        Assert.NotEqual(name, result.GetObj()?.Name);
     }
 }

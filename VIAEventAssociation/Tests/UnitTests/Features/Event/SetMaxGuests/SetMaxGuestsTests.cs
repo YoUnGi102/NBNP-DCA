@@ -16,7 +16,7 @@ public class SetMaxGuestsTests
     public SetMaxGuestsTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        Location location = new Location("location", 32);
         _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), location);
     }
@@ -35,7 +35,7 @@ public class SetMaxGuestsTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(maxGuests, result.GetObj()?.GetMaxGuests());
+        Assert.Equal(maxGuests, result.GetObj()?.MaxGuests);
     }
     
     [Fact]
@@ -52,7 +52,7 @@ public class SetMaxGuestsTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(maxGuests, result.GetObj()?.GetMaxGuests());
+        Assert.NotEqual(maxGuests, result.GetObj()?.MaxGuests);
     }
     
     [Fact]
@@ -69,7 +69,7 @@ public class SetMaxGuestsTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(maxGuests, result.GetObj()?.GetMaxGuests());
+        Assert.NotEqual(maxGuests, result.GetObj()?.MaxGuests);
     }
     
     [Fact]
@@ -86,6 +86,6 @@ public class SetMaxGuestsTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(maxGuests, result.GetObj()?.GetMaxGuests());
+        Assert.NotEqual(maxGuests, result.GetObj()?.MaxGuests);
     }
 }

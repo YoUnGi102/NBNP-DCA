@@ -18,7 +18,7 @@ public class UpdateEventDescriptionAggregateTests
     public UpdateEventDescriptionAggregateTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        Location location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        Location location = new Location("location", 32);
         _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now, 30, EventVisibility.Public,
             EventStatus.Active, new List<Guest>(), location);
     }
@@ -37,7 +37,7 @@ public class UpdateEventDescriptionAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.Equal(description, result.GetObj()?.GetDescription());
+        Assert.Equal(description, result.GetObj()?.Description);
     }
 
     [Fact]
@@ -53,7 +53,7 @@ public class UpdateEventDescriptionAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(description, result.GetObj()?.GetDescription());
+        Assert.NotEqual(description, result.GetObj()?.Description);
     }
 
     [Fact]
@@ -69,6 +69,6 @@ public class UpdateEventDescriptionAggregateTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.NotEqual(description, result.GetObj()?.GetDescription());
+        Assert.NotEqual(description, result.GetObj()?.Description);
     }
 }

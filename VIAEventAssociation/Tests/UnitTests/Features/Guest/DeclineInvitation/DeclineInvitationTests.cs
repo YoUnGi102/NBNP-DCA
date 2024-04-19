@@ -16,7 +16,7 @@ public class DeclineInvitationTests
     public DeclineInvitationTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
-        _location = new Location("location", 32, new List<DateTime> { DateTime.Now.AddDays(1) });
+        _location = new Location("location", 32);
     }
     
     [Fact]
