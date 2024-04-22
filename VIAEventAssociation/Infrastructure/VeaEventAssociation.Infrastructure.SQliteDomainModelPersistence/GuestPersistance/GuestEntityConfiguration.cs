@@ -7,6 +7,7 @@ public class GuestEntityConfiguration
 {
     public Guid id { get; init; }
     public string email { get; init; }
+    public string profilePicURL { get; init; }
     internal List<GuestEntityConfiguration> guests = new();
     internal List<InvitationEntityConfiguration> invitations = new();
     internal List<RequestEntityConfiguration> requests = new();

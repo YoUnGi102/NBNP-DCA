@@ -9,7 +9,7 @@ public class DesignTimeContextFactory : IDesignTimeDbContextFactory<DmContext>
     {
         var optionsBuilder = new DbContextOptionsBuilder<DmContext>();
         optionsBuilder.UseSqlite(
-            @"Data Source=D:\VIA\Semester6\DCA1\NBNP-DCA\NBNP-DCA\VIAEventAssociation\ViaEventAssociation");
+            @"Data Source=\NBNP-DCA\VIAEventAssociation\ViaEventAssociation");
         return new DmContext(optionsBuilder.Options);
     }
 }

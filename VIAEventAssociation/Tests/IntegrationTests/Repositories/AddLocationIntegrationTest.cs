@@ -1,4 +1,5 @@
 ﻿using System.Data.Common;
+using System.Threading.Tasks;
 using Domain.Common.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence;

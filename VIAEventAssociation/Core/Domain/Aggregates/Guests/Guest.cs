@@ -14,7 +14,7 @@ public class Guest
     public string Email { get; private set; }
     public List<Request> Requests { get; private set; }
     public List<Invitation> Invitations { get; private set; }
-
+    public string ProfilePicURL { get; private set; }
     public List<Event> Events { get; private set; } = [];
 
     
@@ -31,6 +31,13 @@ public class Guest
         Invitations = new List<Invitation>();
         Email = email;
         Requests = new List<Request>();
+    }
+
+    public Guest(int id, string email, string profilePicUrl)
+    {
+        Id = id;
+        Email = email;
+        ProfilePicURL = profilePicUrl;
     }
     
     public Guest(string email, List<Request> requests, List<Invitation> invitations)
