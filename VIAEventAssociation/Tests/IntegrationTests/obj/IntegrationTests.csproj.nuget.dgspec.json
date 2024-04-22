@@ -1,38 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Tests\\IntegrationTests\\IntegrationTests.csproj": {}
+    "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Tests\\IntegrationTests\\IntegrationTests.csproj": {}
   },
   "projects": {
-    "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj": {
+    "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\obj\\",
+        "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+        "outputPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj"
+              "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj"
               },
-              "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
-                "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
+              "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
+                "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
               }
             }
           }
@@ -62,36 +60,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj": {
+    "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\obj\\",
+        "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+        "outputPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
-                "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
+              "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
+                "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
               }
             }
           }
@@ -121,28 +117,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
+    "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj",
+        "projectUniqueName": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj",
         "projectName": "VIAEventAssociation.Core.Tools.OperationResult",
-        "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj",
-        "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\obj\\",
+        "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj",
+        "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+        "outputPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -176,36 +170,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Infrastructure\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.csproj": {
+    "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Infrastructure\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Infrastructure\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.csproj",
+        "projectUniqueName": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Infrastructure\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.csproj",
         "projectName": "VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence",
-        "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Infrastructure\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.csproj",
-        "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Infrastructure\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\\obj\\",
+        "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Infrastructure\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.csproj",
+        "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+        "outputPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Infrastructure\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj"
+              "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj"
               }
             }
           }
@@ -255,45 +247,43 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Tests\\IntegrationTests\\IntegrationTests.csproj": {
+    "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Tests\\IntegrationTests\\IntegrationTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Tests\\IntegrationTests\\IntegrationTests.csproj",
+        "projectUniqueName": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Tests\\IntegrationTests\\IntegrationTests.csproj",
         "projectName": "IntegrationTests",
-        "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Tests\\IntegrationTests\\IntegrationTests.csproj",
-        "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Tests\\IntegrationTests\\obj\\",
+        "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Tests\\IntegrationTests\\IntegrationTests.csproj",
+        "packagesPath": "C:\\Users\\chiri\\.nuget\\packages\\",
+        "outputPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Tests\\IntegrationTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\chiri\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj": {
-                "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj"
+              "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj": {
+                "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj"
               },
-              "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj"
+              "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj"
               },
-              "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
-                "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
+              "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
+                "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
               },
-              "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Infrastructure\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.csproj": {
-                "projectPath": "D:\\VIA\\Semester6\\DCA1\\NBNP-DCA\\NBNP-DCA\\VIAEventAssociation\\Infrastructure\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.csproj"
+              "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Infrastructure\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.csproj": {
+                "projectPath": "D:\\DCA\\NBNP-DCA\\VIAEventAssociation\\Infrastructure\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.csproj"
               }
             }
           }
@@ -353,7 +343,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
