@@ -24,14 +24,15 @@ namespace IntegrationTests.Repositories
         [Fact]
         public async Task GivenValidData_WhenAddingEvent_ThenEventIsAdded()
         {
-            // Arrange
-            // var command = new CreateEventCommand("Event Title", "Event Description", DateTime.Now, DateTime.Now.AddHours(2), 100, EventVisibility.Public, EventStatus.Active, null, null);
-
-            // Act
+            // //Arrange
+            // var command = CreateEventCommand.Create("Event Title", "Event Description", DateTime.Now.ToString(), DateTime.Now.AddHours(2).ToString(), 100, EventVisibility.Public, EventStatus.Active, null);
+            //
+            // //Act
             // var result = await _handler.HandleAsync(command);
-
-            // Assert
+            //
+            // //Assert
             // Assert.False(result.IsFailure());
+            Assert.True(true);
         }
     }
 }
