@@ -7,7 +7,7 @@ public partial class Invitation
 {
     public int Id { get; set; }
 
-    public int? Guestid { get; set; }
+    public int? GuestId { get; set; }
 
     public int? EventId { get; set; }
 

@@ -27,7 +27,9 @@ public partial class Event
 
     public virtual Location Location { get; set; } = null!;
 
-    public virtual ICollection<Request> Requests { get; set; } = new List<Request>();
+    public virtual ICollection<Request> RequestEventId1Navigations { get; set; } = new List<Request>();
+
+    public virtual ICollection<Request> RequestEvents { get; set; } = new List<Request>();
 
     public virtual ICollection<Guest> Guests { get; set; } = new List<Guest>();
 }
