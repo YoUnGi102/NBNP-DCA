@@ -25,7 +25,7 @@ public class RequestToJoinTests
         // Arrange
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now.AddDays(1), 10, EventVisibility.Public,
             EventStatus.Active, [],_location);
-        var guest = new Guest("email@gmail.com");
+        var guest = new Guest("email@gmail.com", "Joe", "Shmoe");
 
         var expect = guest.Requests.Count;
         
@@ -43,7 +43,7 @@ public class RequestToJoinTests
         // Arrange
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now.AddDays(1), 10, EventVisibility.Public,
             EventStatus.Active, [],_location);
-        var guest = new Guest("email@gmail.com");
+        var guest = new Guest("email@gmail.com", "Joe", "Shmoe");
         guest.RequestToJoin(_event);
 
         var expect = guest.Requests.Count;

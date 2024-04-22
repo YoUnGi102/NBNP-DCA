@@ -19,7 +19,7 @@ public class RegisterAccountCommandTests
     public async Task GivenValidData_WhenRegisteringAccount_ThenAccountRegistered()
     {
         // Arrange
-        Result<RegisterAccountCommand> result = RegisterAccountCommand.Create("Guest1");
+        Result<RegisterAccountCommand> result = RegisterAccountCommand.Create("Guest1", "Joe", "Shmoe");
         RegisterAccountCommand command = result.GetObj();
         
         // Assert
@@ -32,7 +32,7 @@ public class RegisterAccountCommandTests
     public async Task GivenEmptyUsername_WhenRegisteringAccount_ThenAccountNotRegistered()
     {
         // Arrange
-        Result<RegisterAccountCommand> result = RegisterAccountCommand.Create("");
+        Result<RegisterAccountCommand> result = RegisterAccountCommand.Create("guest1@gmail.com", "Joe", "Shmoe");
         RegisterAccountCommand command = result.GetObj();
         
         // Assert

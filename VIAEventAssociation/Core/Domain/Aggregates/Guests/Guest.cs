@@ -11,6 +11,8 @@ namespace Domain.Aggregates.Guests;
 public class Guest
 {
     public int Id { get; private set; }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
     public string Email { get; private set; }
     public List<Request> Requests { get; private set; }
     public List<Invitation> Invitations { get; private set; }
@@ -18,25 +20,31 @@ public class Guest
     public List<Event> Events { get; private set; } = [];
 
     
-    public Guest(string email)
+    public Guest(string email, string firstName, string lastName)
     {
         Email = email;
+        FirstName = firstName;
+        LastName = lastName;
         Invitations = [];
         Requests = [];
     }
     
-    public Guest(int id, string email)
+    public Guest(int id, string email, string firstName, string lastName)
     {
         Id = id;
-        Invitations = new List<Invitation>();
         Email = email;
-        Requests = new List<Request>();
+        FirstName = firstName;
+        LastName = lastName;
+        Invitations = [];
+        Requests = [];
     }
 
-    public Guest(int id, string email, string profilePicUrl)
+    public Guest(int id, string email, string firstName, string lastName, string profilePicUrl)
     {
         Id = id;
         Email = email;
+        FirstName = firstName;
+        LastName = lastName;
         ProfilePicURL = profilePicUrl;
     }
     

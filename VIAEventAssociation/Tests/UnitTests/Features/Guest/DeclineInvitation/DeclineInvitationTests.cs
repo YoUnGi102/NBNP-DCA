@@ -26,7 +26,7 @@ public class DeclineInvitationTests
         var _event = new Domain.Aggregates.Events.Event(1, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
-        var guest = new Guest(1, "email@gmail.com");
+        var guest = new Guest(1, "email@gmail.com", "Joe", "Shmoe");
         guest.SendInvitation(invitation);
         
         // Act

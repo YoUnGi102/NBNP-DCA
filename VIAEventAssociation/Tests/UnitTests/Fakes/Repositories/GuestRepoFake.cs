@@ -9,9 +9,9 @@ public class GuestRepoFake : IGuestRepository
 {
     private List<Guest> Guests { get; } =
     [
-        new Guest(1, "guest1@gmail.com"),
-        new Guest(2, "guest2@gmail.com"),
-        new Guest(3, "guest3@gmail.com")
+        new Guest(1, "guest1@gmail.com", "Joe", "Shmoe"),
+        new Guest(2, "guest2@gmail.com", "Joe", "Shmoe"),
+        new Guest(3, "guest3@gmail.com", "Joe", "Shmoe")
     ];
 
     public async Task<Guest> GetAsync(int id)

@@ -31,7 +31,7 @@ public class RegisterAccountHandlerTests
     public async Task GivenValidData_WhenRegisteringAccount_ThenAccountRegistered()
     {
         // Arrange
-        Result<RegisterAccountCommand> cmd = RegisterAccountCommand.Create("guest1@example.com");
+        Result<RegisterAccountCommand> cmd = RegisterAccountCommand.Create("guest1@example.com", "Joe", "Shmoe");
 
         // Act
         var result = await _handler.HandleAsync(cmd.GetObj());
@@ -49,7 +49,7 @@ public class RegisterAccountHandlerTests
     public async Task GivenInvalidData_WhenRegisteringAccount_ThenAccountNotRegistered()
     {
         // Arrange
-        Result<RegisterAccountCommand> cmd = RegisterAccountCommand.Create("");
+        Result<RegisterAccountCommand> cmd = RegisterAccountCommand.Create("guest@gmail.com", "Joe", "Shmoe");
 
         // Act
         if (cmd.IsFailure())

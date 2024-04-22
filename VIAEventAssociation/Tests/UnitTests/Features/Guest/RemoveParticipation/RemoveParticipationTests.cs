@@ -27,7 +27,7 @@ public class RemoveParticipationTests
         // Arrange
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Cancelled, new List<Guest>(), _location);
-        var guest = new Guest("email@gmail.com");
+        var guest = new Guest("email@gmail.com", "Joe", "Shmoe");
         // Act
         guest.Participate(_event);
         guest.RemoveParticipation(_event);
@@ -43,7 +43,7 @@ public class RemoveParticipationTests
         // Arrange
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Cancelled, new List<Guest>(), _location);
-        var guest = new Guest("email@gmail.com");
+        var guest = new Guest("email@gmail.com", "Joe", "Shmoe");
 
         // Act
         var result = guest.RemoveParticipation(_event);

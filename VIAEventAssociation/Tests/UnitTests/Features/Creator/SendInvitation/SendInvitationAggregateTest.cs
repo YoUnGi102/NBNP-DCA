@@ -25,7 +25,7 @@ public class SendInvitationAggregateTest
     {
         // Arrange
         var creator = new Creator(1, "creator", "123");
-        var guest = new Guest("guest@mail.com", [], []);
+        var guest = new Guest("guest@mail.com", "Joe", "Shmoe");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Cancelled, [], _location);
 
@@ -46,7 +46,7 @@ public class SendInvitationAggregateTest
     {
         // Arrange
         var creator = new Creator(1, "creator", "123");
-        var guest = new Guest("guest@mail.com", [], []);
+        var guest = new Guest("guest@mail.com", "Joe", "Shmoe");
         var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Cancelled, [], _location);
 

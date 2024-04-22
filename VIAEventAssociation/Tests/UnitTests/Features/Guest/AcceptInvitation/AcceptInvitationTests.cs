@@ -28,7 +28,7 @@ public class AcceptInvitationTests
         var _event = new Event(1, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
-        var guest = new Guest(1, "email@gmail.com");
+        var guest = new Guest(1, "email@gmail.com", "Joe", "Shmoe");
         guest.SendInvitation(invitation);
         
         // Act
@@ -49,7 +49,7 @@ public class AcceptInvitationTests
         var _event = new Event(1, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Declined, _event);
-        var guest = new Guest(1,"email@gmail.com");
+        var guest = new Guest(1,"email@gmail.com", "Joe", "Shmoe");
         guest.SendInvitation(invitation);
         
         // Act
@@ -70,7 +70,7 @@ public class AcceptInvitationTests
         var _event = new Event(0, "Title", "Description", DateTime.Now.AddHours(-3), DateTime.Now.AddHours(-1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
-        var guest = new Guest("email@gmail.com");
+        var guest = new Guest("email@gmail.com", "Joe", "Shmoe");
 
         // Act
         var result = guest.AcceptInvitation(invitation);
@@ -90,8 +90,8 @@ public class AcceptInvitationTests
         var _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 1,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
-        var guest1 = new Guest("email@gmail.com");
-        var guest2 = new Guest("email@gmail.org");
+        var guest1 = new Guest("email@gmail.com", "Joe", "Shmoe");
+        var guest2 = new Guest("email@gmail.org", "Joe", "Shmoe");
         
         guest2.SendInvitation(invitation);
         
