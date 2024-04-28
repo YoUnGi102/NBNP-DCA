@@ -33,7 +33,7 @@ public class SendInvitationDispatchTests
     public async Task GivenValidData_WhenSendingInvitation_ThenInvitationSent()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(1, 1);
+        Result<SendInvitationCommand> result = SendInvitationCommand.Create("e2399bcd-b83b-400f-bfba-2e58cb2b2330", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
         SendInvitationCommand command = result.GetObj()!;
         
         // Act
@@ -48,7 +48,7 @@ public class SendInvitationDispatchTests
     public async Task GivenValidData_WhenSendingInvitation_ThenInvitationSent_WithTimer()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(1, 1);
+        Result<SendInvitationCommand> result = SendInvitationCommand.Create("e2399bcd-b83b-400f-bfba-2e58cb2b2330", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
         SendInvitationCommand command = result.GetObj()!;
         
         // Act
@@ -63,7 +63,7 @@ public class SendInvitationDispatchTests
     public async Task GivenNullData_WhenSendingInvitation_ThenInvitationNotSent()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(0, 0);
+        Result<SendInvitationCommand> result = SendInvitationCommand.Create("", "");
         SendInvitationCommand command = result.GetObj()!;
         
         // Act
@@ -78,7 +78,7 @@ public class SendInvitationDispatchTests
     public async Task GivenNullData_WhenSendingInvitation_ThenInvitationNotSent_WithTimer()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(0, 0);
+        Result<SendInvitationCommand> result = SendInvitationCommand.Create("", "");
         SendInvitationCommand command = result.GetObj()!;
         
         // Act

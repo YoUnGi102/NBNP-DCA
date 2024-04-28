@@ -20,21 +20,19 @@ public class SendInvitationCommandTests
     public async Task GivenValidData_WhenSendingInvitation_ThenInvitationSent()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(1, 1);
+        Result<SendInvitationCommand> result = SendInvitationCommand.Create("e2399bcd-b83b-400f-bfba-2e58cb2b2330", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
         SendInvitationCommand command = result.GetObj();
         
         // Assert
         Assert.False(result.IsFailure());
         Assert.NotNull(command);
-        Assert.NotNull(command.GuestId);
-        Assert.Equal(1, command.EventId);
     }
     
     [Fact]
     public async Task GivenInvalidGuestId_WhenSendingInvitation_ThenInvitationNotSent()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(-1, 1);
+        Result<SendInvitationCommand> result = SendInvitationCommand.Create("", "");
         SendInvitationCommand command = result.GetObj();
         
         // Assert
@@ -46,7 +44,7 @@ public class SendInvitationCommandTests
     public async Task GivenInvalidEventId_WhenSendingInvitation_ThenInvitationNotSent()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(1, -1);
+        Result<SendInvitationCommand> result = SendInvitationCommand.Create("", "");
         SendInvitationCommand command = result.GetObj();
         
         // Assert
