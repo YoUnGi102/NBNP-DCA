@@ -25,7 +25,7 @@ public class RegisterAccountHandler : ICommandHandler<RegisterAccountCommand>
             return ResultFailure<None>.CreateMessageResult(new None(), ["Command is null."]);
         }
         
-        var guest = new Domain.Aggregates.Guests.Guest(command.Email, command.FirstName, command.LastName);
+        var guest = new Domain.Aggregates.Guests.Guest(command.Email);
 
         await _repository.AddAsync(guest);
         await _uow.SaveChangesAsync();

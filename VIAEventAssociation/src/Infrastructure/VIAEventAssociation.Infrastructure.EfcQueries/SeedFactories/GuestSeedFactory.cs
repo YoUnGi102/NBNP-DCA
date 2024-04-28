@@ -8,10 +8,10 @@ public class GuestSeedFactory
     public static List<Guest> CreateGuests()
     {
         // List<TmpGuest> tmpGuests = JsonSerializer.Deserialize<List<TmpGuest>>(GuestData.GuestsAsJson) ?? throw new InvalidOperationException();
-        // var guests = tmpGuests.Select(g => new Guest{First Email = g.Email}).ToList();
+        // var guests = tmpGuests.Select(g => new Guest{Email = g.Email}).ToList();
         // return guests;
-        return null;
+        return [];
     }
 
-    public record TmpGuest(string FirstName, string LastName, string Email);
+    public record TmpGuest(string Email);
 }
