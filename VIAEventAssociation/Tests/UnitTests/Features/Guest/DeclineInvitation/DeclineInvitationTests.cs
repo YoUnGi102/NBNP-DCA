@@ -1,4 +1,6 @@
-﻿namespace UnitTests.Features.Guest.DeclineInvitation;
+﻿using UnitTests.Fakes;
+
+namespace UnitTests.Features.Guest.DeclineInvitation;
 
 using Domain.Aggregates.Locations;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
@@ -23,10 +25,9 @@ public class DeclineInvitationTests
     public void DeclineInvitation_WhenInvitationIsUnanswered_ShouldDeclineInvitation()
     {
         // Arrange
-        var _event = new Domain.Aggregates.Events.Event(1, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
-            EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
+        var _event = Constants.TEST_EVENT;
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
-        var guest = new Guest(1, "email@gmail.com");
+        var guest = Constants.TEST_GUEST;
         guest.SendInvitation(invitation);
         
         // Act
@@ -36,6 +37,6 @@ public class DeclineInvitationTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.True(result.GetObj().GetStatus().Equals(InvitationStatus.Declined));
+        Assert.True(result.GetObj().Status.Equals(InvitationStatus.Declined));
     }
 }

@@ -10,7 +10,7 @@ namespace Domain.Aggregates.Events;
 
 public class Event
 {
-    public int Id { get; private set;}
+    public Guid Id { get; private set;}
     public string Title { get; private set; }
     public string Description { get; private set; }
     public DateTime StartDateTime { get; private set; }
@@ -27,6 +27,7 @@ public class Event
     public Event(string title, string description, DateTime startDateTime, DateTime endDateTime,
         int maxGuests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)
     {
+        Id = Guid.NewGuid();
         Title = title;
         Description = description;
         StartDateTime = startDateTime;
@@ -38,8 +39,22 @@ public class Event
         Location = location;
     }
     
-    // Needed for Fake Repositories in Unit Tests
-    public Event(int id, string title, string description, DateTime startDateTime, DateTime endDateTime,
+    public Event(string id, string title, string description, DateTime startDateTime, DateTime endDateTime,
+        int maxGuests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)
+    {
+        Id = Guid.Parse(id);
+        Title = title;
+        Description = description;
+        StartDateTime = startDateTime;
+        EndDateTime = endDateTime;
+        MaxGuests = maxGuests;
+        Visibility = visibility;
+        Status = status;
+        Guests = guests;
+        Location = location;
+    }
+    
+    public Event(Guid id, string title, string description, DateTime startDateTime, DateTime endDateTime,
         int maxGuests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)
     {
         Id = id;

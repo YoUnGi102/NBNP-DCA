@@ -1,4 +1,6 @@
-﻿namespace UnitTests.Features.Guest.Participate;
+﻿using UnitTests.Fakes;
+
+namespace UnitTests.Features.Guest.Participate;
 
 using Domain.Aggregates.Locations;
 using Xunit;
@@ -22,8 +24,9 @@ public class ParticipateTests
     public void Participate_WhenEventIsReady_ShouldNotParticipate()
     {
         // Arrange
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>(), _location);
-        var guest = new Guest("email@gmail.com");
+        var _event = Constants.TEST_EVENT;
+        var guest = Constants.TEST_GUEST;
+        
         // Act
         var result = guest.Participate(_event);
 
@@ -35,9 +38,10 @@ public class ParticipateTests
     public void Participate_WhenEventIsFull_ShouldNotParticipate()
     {
         // Arrange
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 1, EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
-        var guest1 = new Guest("email@gmail.com");
-        var guest2 = new Guest("email2@gmail.com");
+        var _event = Constants.TEST_EVENT;
+        _event.SetMaxGuests(1);
+        var guest1 = Constants.TEST_GUEST;
+        var guest2 = Constants.TEST_GUEST;
         
         // Act
         guest1.Participate(_event);

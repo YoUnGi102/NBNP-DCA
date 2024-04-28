@@ -9,45 +9,24 @@ using Domain.Common.Enums;
 
 public class Invitation
 {
-    internal int id; 
-    internal InvitationStatus status;
-    internal Event events;
-    internal Guest guest;
+    public Guid Id { get; private set; }
+    public InvitationStatus Status { get; set; }
+    public Event Event { get; private set; }
+    internal Guest Guest { get; private set; }
 
-    public Invitation(InvitationStatus status, Event events)
+    public Invitation(InvitationStatus status, Event @event)
     {
-        this.status = status;
-        this.events = events;
+        Status = status;
+        Event = @event;
     }
 
-    public Invitation(Event events, Guest guest)
+    public Invitation(Event @event, Guest guest)
     {
-        this.guest = guest;
-        this.events = events;
-        this.status = InvitationStatus.Unanswered;
+        Guest = guest;
+        Event = @event;
+        Status = InvitationStatus.Unanswered;
     }
     
     private Invitation(){}
     
-    public int Id => id;
-    
-    public InvitationStatus GetStatus()
-    {
-        return this.status;
-    }
-    
-    public Event GetEvent()
-    {
-        return this.events;
-    }
-
-    public Guest GetGuest()
-    {
-        return guest;
-    }
-
-    public void SetGuest(Guest guest)
-    {
-        this.guest = guest;
-    }
 }

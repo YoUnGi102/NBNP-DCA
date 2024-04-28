@@ -1,29 +1,32 @@
-﻿namespace Domain.Aggregates.Creator;
-
-using Domain.Aggregates.Events;
+﻿using Domain.Aggregates.Events;
 using Domain.Aggregates.Guests;
 using Domain.Common.Entities;
 using Domain.Common.Enums;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
+namespace Domain.Aggregates.Creator;
+
 public class Creator
 {
-    private int id;
-    private string username;
-    private string password;
+    public Guid Id { get; set; }
+    public string Username { get; set; }
+    public string Password { get; set; }
 
-    public Creator(int id, string username, string password)
+    public Creator(string id, string username, string password)
     {
-        this.id = id;
-        this.username = username;
-        this.password = password;
+        Id = Guid.Parse(id);
+        Username = username;
+        Password = password;
+    }
+    
+    public Creator(string username, string password)
+    {
+        Id = Guid.NewGuid();
+        Username = username;
+        Password = password;
     }
 
     private Creator(){}
-
-    public int Id => id;
-
-    public string Password => password;
 
     public Result<Event> CancelEvent(Event _event)
     {
@@ -90,7 +93,7 @@ public class Creator
     {
         foreach (var invitation in guest.Invitations)
         {
-            if (invitation.GetEvent().Equals(_event))
+            if (invitation.Event.Equals(_event))
             {
                 return ResultFailure<Invitation>.CreateMessageResult(null,
                     ["An invitation for this guest for this event already exists"]);
@@ -105,11 +108,5 @@ public class Creator
         var _invitation = new Invitation(_event, guest);
         guest.Invitations.Add(_invitation);
         return ResultSuccess<Invitation>.CreateSimpleResult(_invitation);
-        
-    }
-
-    public string Username
-    {
-        get => username;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace UnitTests.Features.Guest.AcceptInvitation;
+﻿using UnitTests.Fakes;
+
+namespace UnitTests.Features.Guest.AcceptInvitation;
 
 using Domain.Aggregates.Locations;
 using Domain.Common.Entities;
@@ -18,17 +20,15 @@ public class AcceptInvitationTests
     {
         _testOutputHelper = testOutputHelper;
         _location = new Location("location", 32);
-        
     }
     
     [Fact]
     public void AcceptInvitation_WhenInvitationIsUnanswered_ShouldAcceptInvitation()
     {
         // Arrange
-        var _event = new Event(1, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
-            EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
+        var _event = Constants.TEST_EVENT;
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
-        var guest = new Guest(1, "email@gmail.com");
+        var guest = Constants.TEST_GUEST;
         guest.SendInvitation(invitation);
         
         // Act
@@ -38,18 +38,17 @@ public class AcceptInvitationTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.True(result.GetObj().GetStatus().Equals(InvitationStatus.Accepted));
-        Assert.Contains(guest, result.GetObj().GetEvent().Guests);
+        Assert.True(result.GetObj().Status.Equals(InvitationStatus.Accepted));
+        Assert.Contains(guest, result.GetObj().Event.Guests);
     }
     
     [Fact]
     public void AcceptInvitation_WhenInvitationIsDeclined_ShouldAcceptInvitation()
     {
         // Arrange
-        var _event = new Event(1, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
-            EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
-        var invitation = new Invitation(InvitationStatus.Declined, _event);
-        var guest = new Guest(1,"email@gmail.com");
+        var _event = Constants.TEST_EVENT;
+        var invitation = new Invitation(InvitationStatus.Unanswered, _event);
+        var guest = Constants.TEST_GUEST;
         guest.SendInvitation(invitation);
         
         // Act
@@ -59,18 +58,17 @@ public class AcceptInvitationTests
                 _testOutputHelper.WriteLine(error.GetMessage());
         
         // Assert
-        Assert.True(result.GetObj().GetStatus().Equals(InvitationStatus.Accepted));
-        Assert.Contains(guest, result.GetObj().GetEvent().Guests);
+        Assert.True(result.GetObj().Status.Equals(InvitationStatus.Accepted));
+        Assert.Contains(guest, result.GetObj().Event.Guests);
     }
 
     [Fact]
     public void AcceptInvitation_WhenEventIsEnded_ShouldNotAcceptInvitation()
     {
         // Arrange
-        var _event = new Event(0, "Title", "Description", DateTime.Now.AddHours(-3), DateTime.Now.AddHours(-1), 30,
-            EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
+        var _event = Constants.TEST_EVENT;
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
-        var guest = new Guest("email@gmail.com");
+        var guest = Constants.TEST_GUEST;
 
         // Act
         var result = guest.AcceptInvitation(invitation);
@@ -79,19 +77,18 @@ public class AcceptInvitationTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.False(result.GetObj().GetStatus().Equals(InvitationStatus.Accepted));
-        Assert.DoesNotContain(guest, result.GetObj().GetEvent().Guests);
+        Assert.False(result.GetObj().Status.Equals(InvitationStatus.Accepted));
+        Assert.DoesNotContain(guest, result.GetObj().Event.Guests);
     }
     
     [Fact]
     public void AcceptInvitation_WhenMaxGuestsIsReached_ShouldNotAcceptInvitation()
     {
         // Arrange
-        var _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 1,
-            EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
+        var _event = Constants.TEST_EVENT;
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
-        var guest1 = new Guest("email@gmail.com");
-        var guest2 = new Guest("email@gmail.org");
+        var guest1 = Constants.TEST_GUEST;
+        var guest2 = Constants.TEST_GUEST;
         
         guest2.SendInvitation(invitation);
         
@@ -104,7 +101,7 @@ public class AcceptInvitationTests
                 _testOutputHelper.WriteLine(error.GetMessage());
 
         // Assert
-        Assert.False(result.GetObj().GetStatus().Equals(InvitationStatus.Accepted));
-        Assert.DoesNotContain(guest2, result.GetObj().GetEvent().Guests);
+        Assert.False(result.GetObj().Status.Equals(InvitationStatus.Accepted));
+        Assert.DoesNotContain(guest2, result.GetObj().Event.Guests);
     }
 }

@@ -4,16 +4,20 @@ namespace ViaEventAssociation.Core.Application.Features;
 
 public class UpdateLocationMaxCapacityCommand
 {
-    public int Id { get; }
+    public Guid Id { get; }
     public int MaxCapacity { get; }
 
-    public static Result<UpdateLocationMaxCapacityCommand> Create(int id, int maxCapacity)
+    public static Result<UpdateLocationMaxCapacityCommand> Create(string id, int maxCapacity)
     {
-        if (id <= 0 || maxCapacity < 0)
+        if (Guid.TryParse(id, out Guid lId) && lId != Guid.Empty)
+            return ResultFailure<UpdateLocationMaxCapacityCommand>.CreateMessageResult(null, ["LocationId must be a valid Guid"]);
+
+        
+        if (maxCapacity < 0)
             return ResultFailure<UpdateLocationMaxCapacityCommand>.CreateMessageResult(null, ["Max guests must be a positive number."]);
-        return ResultSuccess<UpdateLocationMaxCapacityCommand>.CreateSimpleResult(new UpdateLocationMaxCapacityCommand(id, maxCapacity));
+        return ResultSuccess<UpdateLocationMaxCapacityCommand>.CreateSimpleResult(new UpdateLocationMaxCapacityCommand(lId, maxCapacity));
     }
 
-    private UpdateLocationMaxCapacityCommand(int id, int maxCapacity)
+    private UpdateLocationMaxCapacityCommand(Guid id, int maxCapacity)
         => (Id, MaxCapacity) = (id, maxCapacity);
 }

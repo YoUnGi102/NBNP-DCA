@@ -51,6 +51,8 @@ public class DmContext(DbContextOptions options) : DbContext(options)
     {
         guestEntity.Property(e => e.Id).ValueGeneratedOnAdd();
         guestEntity.HasKey(e => e.Id);
+        guestEntity.Property(e => e.FirstName).IsRequired();
+        guestEntity.Property(e => e.LastName).IsRequired();
         guestEntity.Property(e => e.Email).IsRequired();
         guestEntity.Property(e => e.ProfilePicURL);
         guestEntity.HasMany(g => g.Events).WithMany(e => e.Guests).UsingEntity(j => j.ToTable("EventGuests"));;
@@ -62,7 +64,6 @@ public class DmContext(DbContextOptions options) : DbContext(options)
         locationEntity.HasKey(e => e.Id);
         locationEntity.Property(e => e.Name).IsRequired();
         locationEntity.Property(e => e.MaxCapacity).IsRequired();
-        locationEntity.HasMany(e => e.Availability).WithOne().HasForeignKey("locationId");
     }
     
     private static void ConfigureCreator(EntityTypeBuilder<Creator> creatorEntity)

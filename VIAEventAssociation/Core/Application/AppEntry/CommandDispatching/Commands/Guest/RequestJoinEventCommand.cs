@@ -4,17 +4,20 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
 
 public class RequestJoinEventCommand
 {
-    public int GuestId { get; }
-    public int EventId { get; }
+    public Guid GuestId { get; }
+    public Guid EventId { get; }
 
-    public static Result<RequestJoinEventCommand> Create(int guestId, int eventId)
+    public static Result<RequestJoinEventCommand> Create(string guestId, string eventId)
     {
-        if (guestId <= 0 || eventId <= 0)
-            return ResultFailure<RequestJoinEventCommand>.CreateMessageResult(null, ["GuestId and EventId must be greater than 0"]);
+        if (Guid.TryParse(guestId, out Guid gId) && gId != Guid.Empty)
+            return ResultFailure<RequestJoinEventCommand>.CreateMessageResult(null, ["GuestId must be a valid Guid"]);
 
-        return ResultSuccess<RequestJoinEventCommand>.CreateSimpleResult(new RequestJoinEventCommand(guestId, eventId));
+        if (Guid.TryParse(eventId, out Guid eId) && eId != Guid.Empty)
+            return ResultFailure<RequestJoinEventCommand>.CreateMessageResult(null, ["EventId must be a valid Guid"]);
+
+        return ResultSuccess<RequestJoinEventCommand>.CreateSimpleResult(new RequestJoinEventCommand(gId, eId));
     }
 
-    private RequestJoinEventCommand(int guestId, int eventId)
+    private RequestJoinEventCommand(Guid guestId, Guid eventId)
         => (GuestId, EventId) = (guestId, eventId);
 }

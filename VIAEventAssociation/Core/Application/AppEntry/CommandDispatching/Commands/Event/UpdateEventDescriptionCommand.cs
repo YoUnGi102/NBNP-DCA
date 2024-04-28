@@ -4,16 +4,17 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
 
 public class UpdateEventDescriptionCommand
 {
-    public int Id { get; }
+    public Guid Id { get; }
     public string Description { get; }
 
-    public static Result<UpdateEventDescriptionCommand> Create(int id, string description)
+    public static Result<UpdateEventDescriptionCommand> Create(string id, string description)
     {
-        if (id <= 0 || string.IsNullOrWhiteSpace(description) || description.Length > 700 || description.Length < 11)
-            return ResultFailure<UpdateEventDescriptionCommand>.CreateMessageResult(null, ["Description has to be between 11 and 700 characters long."]);
-        return ResultSuccess<UpdateEventDescriptionCommand>.CreateSimpleResult(new UpdateEventDescriptionCommand(id, description));
+        if (Guid.TryParse(id, out Guid eId) && eId != Guid.Empty)
+            return ResultFailure<UpdateEventDescriptionCommand>.CreateMessageResult(null, ["EventId must be a valid Guid"]);
+
+        return ResultSuccess<UpdateEventDescriptionCommand>.CreateSimpleResult(new UpdateEventDescriptionCommand(eId, description));
     }
 
-    private UpdateEventDescriptionCommand(int id, string description)
+    private UpdateEventDescriptionCommand(Guid id, string description)
         => (Id, Description) = (id, description);
 }

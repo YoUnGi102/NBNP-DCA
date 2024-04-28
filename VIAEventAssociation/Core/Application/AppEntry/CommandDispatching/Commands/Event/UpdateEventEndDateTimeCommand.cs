@@ -5,21 +5,19 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
 {
     public class UpdateEventEndDateTimeCommand
     {
-        public int Id { get; }
+        public Guid Id { get; }
         public DateTime EndDateTime { get; }
 
-        private UpdateEventEndDateTimeCommand(int id, DateTime endDateTime)
+        private UpdateEventEndDateTimeCommand(Guid id, DateTime endDateTime)
         {
             Id = id;
             EndDateTime = endDateTime;
         }
 
-        public static Result<UpdateEventEndDateTimeCommand> Create(int id, string endDateTime)
+        public static Result<UpdateEventEndDateTimeCommand> Create(string id, string endDateTime)
         {
-            if (id <= 0)
-            {
-                return ResultFailure<UpdateEventEndDateTimeCommand>.CreateMessageResult(null, ["Id must be greater than 0."]);
-            }
+            if (Guid.TryParse(id, out Guid eId) && eId != Guid.Empty)
+                return ResultFailure<UpdateEventEndDateTimeCommand>.CreateMessageResult(null, ["EventId must be a valid Guid"]);
 
             DateTime parsedDate;
             try
@@ -36,7 +34,7 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
                 return ResultFailure<UpdateEventEndDateTimeCommand>.CreateMessageResult(null, ["End Date Time cannot be in the past."]);
             }
 
-            return ResultSuccess<UpdateEventEndDateTimeCommand>.CreateSimpleResult(new UpdateEventEndDateTimeCommand(id, parsedDate));
+            return ResultSuccess<UpdateEventEndDateTimeCommand>.CreateSimpleResult(new UpdateEventEndDateTimeCommand(eId, parsedDate));
         }
     }
 }

@@ -5,21 +5,19 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
 {
     public class UpdateEventStartDateTimeCommand
     {
-        public int Id { get; }
+        public Guid Id { get; }
         public DateTime StartDateTime { get; }
 
-        private UpdateEventStartDateTimeCommand(int id, DateTime startDateTime)
+        private UpdateEventStartDateTimeCommand(Guid id, DateTime startDateTime)
         {
             Id = id;
             StartDateTime = startDateTime;
         }
 
-        public static Result<UpdateEventStartDateTimeCommand> Create(int id, string startDateTime)
+        public static Result<UpdateEventStartDateTimeCommand> Create(string id, string startDateTime)
         {
-            if (id <= 0)
-            {
-                return ResultFailure<UpdateEventStartDateTimeCommand>.CreateMessageResult(null, ["Id must be greater than 0."]);
-            }
+            if (Guid.TryParse(id, out Guid eId) && eId != Guid.Empty)
+                return ResultFailure<UpdateEventStartDateTimeCommand>.CreateMessageResult(null, ["EventId must be a valid Guid"]);
 
             DateTime parsedDate;
             try
@@ -36,7 +34,7 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
                 return ResultFailure<UpdateEventStartDateTimeCommand>.CreateMessageResult(null, ["Start Date Time cannot be in the past."]);
             }
 
-            return ResultSuccess<UpdateEventStartDateTimeCommand>.CreateSimpleResult(new UpdateEventStartDateTimeCommand(id, parsedDate));
+            return ResultSuccess<UpdateEventStartDateTimeCommand>.CreateSimpleResult(new UpdateEventStartDateTimeCommand(eId, parsedDate));
         }
     }
 }

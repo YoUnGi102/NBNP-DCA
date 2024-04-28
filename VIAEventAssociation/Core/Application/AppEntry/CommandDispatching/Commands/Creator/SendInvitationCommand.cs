@@ -4,21 +4,19 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
 
 public class SendInvitationCommand
 {
-    public int GuestId { get; }
-    public int EventId { get; }
+    public Guid GuestId { get; }
+    public Guid EventId { get; }
 
-    public static Result<SendInvitationCommand> Create(int guestId, int eventId)
+    public static Result<SendInvitationCommand> Create(string guestId, string eventId)
     {
-    
-        if(guestId <= 0)
-            return ResultFailure<SendInvitationCommand>.CreateMessageResult(null, ["GuestId must be greater than 0."]);
-        
-        if (eventId <= 0)
-            return ResultFailure<SendInvitationCommand>.CreateMessageResult(null, ["EventId must be greater than 0."]);
-
-        return ResultSuccess<SendInvitationCommand>.CreateSimpleResult(new SendInvitationCommand(guestId, eventId));
+        Guid gId, eId;
+        if (!Guid.TryParse(guestId, out gId) || !Guid.TryParse(eventId, out eId))
+        {
+            return ResultFailure<SendInvitationCommand>.CreateMessageResult(null, ["EventId and GuestId must be a valid Guid"]);
+        }
+        return ResultSuccess<SendInvitationCommand>.CreateSimpleResult(new SendInvitationCommand(gId, eId));
     }
 
-    private SendInvitationCommand(int guestId, int eventId)
+    private SendInvitationCommand(Guid guestId, Guid eventId)
         => (GuestId, EventId) = (guestId, eventId);
 }

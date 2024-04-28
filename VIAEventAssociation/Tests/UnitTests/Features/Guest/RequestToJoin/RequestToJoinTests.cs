@@ -1,4 +1,6 @@
-﻿namespace UnitTests.Features.Guest.RequestToJoin;
+﻿using UnitTests.Fakes;
+
+namespace UnitTests.Features.Guest.RequestToJoin;
 
 using Domain.Aggregates.Locations;
 using Domain.Common.Entities;
@@ -23,9 +25,8 @@ public class RequestToJoinTests
     public void Request_to_join_WhenInvitationIsNotCreated_ShouldCreateInvitation()
     {
         // Arrange
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now.AddDays(1), 10, EventVisibility.Public,
-            EventStatus.Active, [],_location);
-        var guest = new Guest("email@gmail.com");
+        var _event = Constants.TEST_EVENT;
+        var guest = Constants.TEST_GUEST;
 
         var expect = guest.Requests.Count;
         
@@ -41,9 +42,8 @@ public class RequestToJoinTests
     public void Request_to_join_WhenInvitationIsCreated_ShouldNotCreateInvitation()
     {
         // Arrange
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now.AddDays(1), 10, EventVisibility.Public,
-            EventStatus.Active, [],_location);
-        var guest = new Guest("email@gmail.com");
+        var _event = Constants.TEST_EVENT;
+        var guest = Constants.TEST_GUEST;
         guest.RequestToJoin(_event);
 
         var expect = guest.Requests.Count;

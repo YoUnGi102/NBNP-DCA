@@ -1,4 +1,6 @@
-﻿namespace UnitTests.Features.Creator.DeleteEvent;
+﻿using UnitTests.Fakes;
+
+namespace UnitTests.Features.Creator.DeleteEvent;
 
 using Domain.Aggregates.Locations;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
@@ -22,9 +24,9 @@ public class DeleteEventTests
     public void DeleteEvent_WhenEventIsReady_ShouldDeleteEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>(), _location);
-
+        var creator = Constants.TEST_CREATOR;
+        var _event = Constants.TEST_EVENT;
+        
         // Act
         var result = creator.DeleteEvent(_event);
         if (result is ResultFailure<Event>)
@@ -38,9 +40,9 @@ public class DeleteEventTests
     public void DeleteEvent_WhenEventIsActive_ShouldDeleteEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
-
+        var creator = Constants.TEST_CREATOR;
+        var _event = Constants.TEST_EVENT;
+        
         // Act
         var result = creator.DeleteEvent(_event);
         if (result is ResultFailure<Event>)
@@ -54,9 +56,9 @@ public class DeleteEventTests
     public void DeleteEvent_WhenEventIsCancelled_ShouldNotDeleteEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>(), _location);
-
+        var creator = Constants.TEST_CREATOR;
+        var _event = Constants.TEST_EVENT;
+        
         // Act
         var result = creator.DeleteEvent(_event);
         if (result is ResultFailure<Event>)

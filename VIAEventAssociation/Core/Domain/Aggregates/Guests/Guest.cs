@@ -10,25 +10,33 @@ namespace Domain.Aggregates.Guests;
 
 public class Guest
 {
-    public int Id { get; private set; }
+    public Guid Id { get; private set; }
     public string Email { get; private set; }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
     public List<Request> Requests { get; private set; }
     public List<Invitation> Invitations { get; private set; }
     public string ProfilePicURL { get; private set; }
     public List<Event> Events { get; private set; } = [];
-
     
-    public Guest(string email)
+    public Guest(string email, string firstName, string lastName, string? profilePicUrl)
     {
+        Id = Guid.NewGuid();
         Email = email;
+        FirstName = firstName;
+        LastName = lastName;
+        ProfilePicURL = profilePicUrl ?? "";
         Invitations = [];
         Requests = [];
     }
     
-    public Guest(int id, string email)
+    public Guest(string id, string email, string firstName, string lastName, string? profilePicUrl)
     {
-        Id = id;
+        Id = Guid.TryParse(id, out var guid) ? guid : Guid.NewGuid();
         Email = email;
+        FirstName = firstName;
+        LastName = lastName;
+        ProfilePicURL = profilePicUrl ?? "";
         Invitations = [];
         Requests = [];
     }
@@ -40,24 +48,9 @@ public class Guest
         Invitations = [];
         Requests = [];
     }
-
-    public Guest(int id, string email, string profilePicUrl)
-    {
-        Id = id;
-        Email = email;
-        ProfilePicURL = profilePicUrl;
-    }
     
     public Guest(string email, List<Request> requests, List<Invitation> invitations)
     {
-        Email = email;
-        Requests = requests;
-        Invitations = invitations;
-    }
-    
-    public Guest(int id, string email, List<Request> requests, List<Invitation> invitations)
-    {
-        Id = id;
         Email = email;
         Requests = requests;
         Invitations = invitations;
@@ -108,55 +101,55 @@ public class Guest
 
     public Result<Invitation> AcceptInvitation(Invitation invitation)
     {
-        var _event = invitation.events;
+        var _event = invitation.Event;
         if (_event.EndDateTime < DateTime.Now)
         {
-            invitation.status = InvitationStatus.Declined;
+            invitation.Status = InvitationStatus.Declined;
             return ResultFailure<Invitation>.CreateMessageResult(invitation, new []{"The event has already" +
                 " finished!"});
         }
 
         if (_event.MaxGuests == _event.Guests.Count)
         {
-            invitation.status = InvitationStatus.Declined;
+            invitation.Status = InvitationStatus.Declined;
             return ResultFailure<Invitation>.CreateMessageResult(invitation, new []{"The event doesn't have" +
                 " any spots left!"});
         }
         _event.AddGuest(this);
 
         Invitation? find = Invitations.FirstOrDefault(i =>
-            i?.events.Id == invitation?.events.Id);
+            i?.Event.Id == invitation?.Event.Id);
 
         if (find is null)
         {
             return ResultFailure<Invitation>.CreateMessageResult(invitation, ["Invitation not found!"]);
         }
 
-        find.status = InvitationStatus.Accepted;
+        find.Status = InvitationStatus.Accepted;
         return ResultSuccess<Invitation>.CreateSimpleResult(find);
     }
 
     public Result<Invitation> DeclineInvitation(Invitation invitation)
     {
         Invitation? find = Invitations.FirstOrDefault(i =>
-            i?.events.Id == invitation?.events.Id);
+            i?.Event.Id == invitation?.Event.Id);
         if (find is null)
         {
             return ResultFailure<Invitation>.CreateMessageResult(invitation, ["Invitation not found!"]);
         }
-        find.status = InvitationStatus.Declined;
+        find.Status = InvitationStatus.Declined;
         return ResultSuccess<Invitation>.CreateSimpleResult(invitation);
     }
     
     public Result<None> SendInvitation(Invitation invitation)
     {
-        if (invitation.events.Guests.Contains(invitation.guest))
+        if (invitation.Event.Guests.Contains(invitation.Guest))
         {
             return ResultFailure<None>.CreateMessageResult(new None(), ["Guest is already participating!"]);
         }
 
         Invitation? find = Invitations.FirstOrDefault(i =>
-            i?.events.Id == invitation?.events.Id);
+            i?.Event.Id == invitation?.Event.Id);
         if (find is not null)
         {
             return ResultFailure<None>.CreateMessageResult(new None(), ["Invitation already sent!"]);

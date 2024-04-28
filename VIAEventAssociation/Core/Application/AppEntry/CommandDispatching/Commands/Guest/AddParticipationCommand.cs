@@ -5,19 +5,19 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
 public class AddParticipationCommand
 {
     public string Email { get; }
-    public int EventId { get; }
+    public Guid EventId { get; }
 
-    public static Result<AddParticipationCommand> Create(string email, int eventId)
+    public static Result<AddParticipationCommand> Create(string email, string eventId)
     {
         if (string.IsNullOrEmpty(email))
             return ResultFailure<AddParticipationCommand>.CreateMessageResult(null, ["Email cannot be empty."]);
 
-        if (eventId <= 0)
-            return ResultFailure<AddParticipationCommand>.CreateMessageResult(null, ["EventId must be greater than 0."]);
+        if (Guid.TryParse(eventId, out Guid eId) && eId != Guid.Empty)
+            return ResultFailure<AddParticipationCommand>.CreateMessageResult(null, ["EventId must be a valid Guid"]);
 
-        return ResultSuccess<AddParticipationCommand>.CreateSimpleResult(new AddParticipationCommand(email, eventId));
+        return ResultSuccess<AddParticipationCommand>.CreateSimpleResult(new AddParticipationCommand(email, eId));
     }
 
-    private AddParticipationCommand(string email, int eventId)
+    private AddParticipationCommand(string email, Guid eventId)
         => (Email, EventId) = (email, eventId);
 }

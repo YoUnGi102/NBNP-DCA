@@ -6,23 +6,23 @@ namespace UnitTests.Fakes;
 public class LocationRepoFake : ILocationRepository
 {
     private List<Location> Locations { get; } = [
-        new Location(1, "VIA University College", 32),
+        new Location( "9fb2d5e8-d4df-459b-b92b-f8e1d7e73ff8","VIA University College", 32),
     ];
 
-    public async Task<Location?> GetAsync(int id)
+    public async Task<Location?> GetAsync(Guid id)
     {
-        return await Task.FromResult(Locations.FirstOrDefault(e => e.Id == id));
+        return await Task.FromResult(Locations.FirstOrDefault(e => e.Id.Equals(id)));
     }
 
-    public Task AddAsync(Location e)
+    public async Task AddAsync(Location e)
     {
         Locations.Add(e);
-        return Task.CompletedTask;
+        await Task.CompletedTask;
     }
 
-    public Task RemoveAsync(int id)
+    public async Task RemoveAsync(Guid id)
     {
-        Locations.Remove(Locations.FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException());
-        return Task.CompletedTask;
+        Locations.Remove(Locations.FirstOrDefault(e => e.Id.Equals(id)) ?? throw new InvalidOperationException());
+        await Task.CompletedTask;
     }
 }

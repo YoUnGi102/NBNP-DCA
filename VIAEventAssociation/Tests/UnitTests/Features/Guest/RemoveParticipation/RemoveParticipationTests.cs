@@ -1,4 +1,6 @@
-﻿namespace UnitTests.Features.Guest.RemoveParticipation;
+﻿using UnitTests.Fakes;
+
+namespace UnitTests.Features.Guest.RemoveParticipation;
 
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 using Xunit;
@@ -25,9 +27,8 @@ public class RemoveParticipationTests
     public void RemoveParticipation_WhenEventIsReady_ShouldRemoveParticipation()
     {
         // Arrange
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
-            EventStatus.Cancelled, new List<Guest>(), _location);
-        var guest = new Guest("email@gmail.com");
+        var _event = Constants.TEST_EVENT;
+        var guest = Constants.TEST_GUEST;
         // Act
         guest.Participate(_event);
         guest.RemoveParticipation(_event);
@@ -41,10 +42,9 @@ public class RemoveParticipationTests
     public void RemoveParticipation_whenGuestIsNotParticipating_ShouldNotRemoveParticipation()
     {
         // Arrange
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
-            EventStatus.Cancelled, new List<Guest>(), _location);
-        var guest = new Guest("email@gmail.com");
-
+        var _event = Constants.TEST_EVENT;
+        var guest = Constants.TEST_GUEST;
+        
         // Act
         var result = guest.RemoveParticipation(_event);
         if (result is ResultFailure<Event>)

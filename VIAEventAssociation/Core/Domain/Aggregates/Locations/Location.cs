@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Domain.Common.Entities;
 using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
@@ -7,26 +6,47 @@ namespace Domain.Aggregates.Locations;
 
 public class Location
 {
-    public int Id { get; init; }
+    public Guid Id { get; init; }
     public string Name { get; init; }
     public int MaxCapacity { get; init; }
+    public DateOnly AvailabilityStart { get; private set; }
+    public DateOnly? AvailabilityEnd { get; private set; }
     
-    public List<AvailabilityInterval> Availability { get; init; }
-
-    public Location(string name, int maxCapacity)
+    public Location(string id, string name, int maxCapacity)
     {
+        Id = Guid.TryParse(id, out var guid) ? guid : Guid.NewGuid();
         Name = name;
         MaxCapacity = maxCapacity;
-        Availability = [];
+        AvailabilityStart = DateOnly.FromDateTime(DateTime.Now);
+        AvailabilityEnd = null;
+    }
+    
+    public Location(string name, int maxCapacity)
+    {
+        Id = Guid.NewGuid();
+        Name = name;
+        MaxCapacity = maxCapacity;
+        AvailabilityStart = DateOnly.FromDateTime(DateTime.Now);
+        AvailabilityEnd = null;
+    }
+    
+    public Location(string name, int maxCapacity, DateOnly availabilityStart, DateOnly availabilityEnd)
+    {
+        Id = Guid.NewGuid();
+        Name = name;
+        MaxCapacity = maxCapacity;
+        AvailabilityStart = availabilityStart;
+        AvailabilityEnd = availabilityEnd;
     }
     
     // Needed for fakes
-    public Location(int id, string name, int maxCapacity)
+    public Location(Guid id, string name, int maxCapacity, DateOnly availabilityStart, DateOnly availabilityEnd)
     {
         Id = id;
         Name = name;
         MaxCapacity = maxCapacity;
-        Availability = [];
+        AvailabilityStart = availabilityStart;
+        AvailabilityEnd = availabilityEnd;
     }
     
     private Location(){}
@@ -63,8 +83,8 @@ public class Location
             return ResultFailure<Location>.CreateMessageResult(this, ["The end date time cannot be before start date time"]);
         }
         
-        AvailabilityInterval interval = new AvailabilityInterval(startDateTime, endDateTime);
-        Availability.Add(interval);
+        AvailabilityStart = DateOnly.FromDateTime(startDateTime);
+        AvailabilityEnd = DateOnly.FromDateTime(endDateTime);
         return ResultSuccess<Location>.CreateSimpleResult(new Location(Name, MaxCapacity));
     }
     

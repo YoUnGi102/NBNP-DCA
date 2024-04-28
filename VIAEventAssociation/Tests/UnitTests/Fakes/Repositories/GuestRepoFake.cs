@@ -7,34 +7,29 @@ namespace UnitTests.Fakes;
 
 public class GuestRepoFake : IGuestRepository
 {
-    private List<Guest> Guests { get; } =
-    [
-        new Guest(1, "guest1@gmail.com"),
-        new Guest(2, "guest2@gmail.com"),
-        new Guest(3, "guest3@gmail.com")
-    ];
-
-    public async Task<Guest> GetAsync(int id)
+    List<Guest> Guests = new()
     {
-        return await Task.FromResult(Guests.FirstOrDefault(g => g.Id == id)) ?? throw new InvalidOperationException();
+        new Guest("3c0e909b-b0b4-438c-8885-b37545988871", "test1@email.com", "FirstName1", "LastName1", "https://testurl1.com"),
+        new Guest("1bfc7546-551f-40c0-bf1a-be31aee3258e", "test2@email.com", "FirstName2", "LastName2", "https://testurl2.com"),
+        new Guest("addd30d1-5a88-40f1-9f91-56577c8a1816", "test3@email.com", "FirstName3", "LastName3", "https://testurl3.com"),
+    };
+
+    public async Task<Guest> GetAsync(Guid id)
+    {
+        return await Task.FromResult(Guests.FirstOrDefault(g => g.Id.Equals(id))) ?? throw new InvalidOperationException();
     }
 
     public async Task AddAsync(Guest e)
     {
-        Guests.Append(e);
+        Guests.Add(e);
         await Task.CompletedTask;
     }
 
-    public async Task RemoveAsync(int id)
+    public async Task RemoveAsync(Guid id)
     {
-        var guest = Guests.First(g => g.Id == id);
+        var guest = Guests.First(g => g.Id.Equals(id));
         Guests.Remove(guest);
         await Task.CompletedTask;
-    }
-
-    public async Task<Guest?> GetAsync(string email)
-    {
-        return await Task.FromResult(Guests.FirstOrDefault(g => g.Email == email));
     }
     
     public async Task<Guest> GetByEmailAsync(string email)
