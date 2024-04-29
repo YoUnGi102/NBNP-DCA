@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj": {}
+    "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj": {
+    "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj",
-        "packagesPath": "C:\\Users\\matas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\obj\\",
+        "projectPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj",
+        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
+        "outputPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\matas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
