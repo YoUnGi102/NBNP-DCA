@@ -7,27 +7,27 @@ using WebAPI.Endpoints.Common;
 namespace WebAPI.Endpoints.Guest;
 
 public record AcceptInvitationResponse(bool Success);
+
 public record AcceptInvitationRequest([FromBody] string Email, [FromBody] int EventId);
 
-public class AcceptInvitation(ICommandDispatcher dispatcher) : ApiEndpoint.WithRequest<AcceptInvitationRequest>.WithResponse<AcceptInvitationResponse>
+public class AcceptInvitation(ICommandDispatcher dispatcher)
+    : ApiEndpoint.WithRequest<AcceptInvitationRequest>.WithResponse<AcceptInvitationResponse>
 {
-
-    [HttpPost("guests/invitation")]
-    public override async Task<ActionResult<AcceptInvitationResponse>> HandleAsync([FromBody] AcceptInvitationRequest request)
+    [HttpPost("guests/invitation/accept")]
+    public override async Task<ActionResult<AcceptInvitationResponse>> HandleAsync(
+        [FromBody] AcceptInvitationRequest request)
     {
         Result<AcceptInvitationCommand> commandResult = AcceptInvitationCommand.Create(request.Email, request.EventId);
-        if(commandResult is ResultFailure<AcceptInvitationCommand>)
+        if (commandResult is ResultFailure<AcceptInvitationCommand>)
             return Ok(new AcceptInvitationResponse(false));
-        
-        var result = await dispatcher.DispatchAsync(commandResult.GetObj());
 
-        if (!result.IsFailure())
+        Result<None> result = await dispatcher.DispatchAsync(commandResult.GetObj());
+
+        if (result is ResultSuccess<None>)
         {
             return Ok(new AcceptInvitationResponse(true));
         }
-        else
-        {
-            return Ok(new AcceptInvitationResponse(false));
-        }
+
+        return BadRequest(new AcceptInvitationResponse(false));
     }
 }
