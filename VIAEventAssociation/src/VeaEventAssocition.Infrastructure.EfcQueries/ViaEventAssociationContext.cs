@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence;
+namespace VeaEventAssocition.Infrastructure.EfcQueries;
 
 public partial class ViaEventAssociationContext : DbContext
 {
@@ -89,5 +89,4 @@ public partial class ViaEventAssociationContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-
 }

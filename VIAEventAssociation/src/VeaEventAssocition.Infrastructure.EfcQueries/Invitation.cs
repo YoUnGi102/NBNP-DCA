@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence;
+namespace VeaEventAssocition.Infrastructure.EfcQueries;
 
 public partial class Invitation
 {
