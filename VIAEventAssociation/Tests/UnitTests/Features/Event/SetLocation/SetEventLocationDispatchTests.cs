@@ -34,8 +34,8 @@ public class SetEventLocationDispatchTests
     {
         // Arrange
         Result<SetEventLocationCommand> result = SetEventLocationCommand.Create(
-            1, 
-            1);
+            "3b1d8789-e982-41b4-9f77-a7459fd6f51e", 
+            "7c59adac-5a10-4de9-8783-ea2add07bb65");
         SetEventLocationCommand command = result.GetObj()!;
         
         // Act
@@ -51,8 +51,8 @@ public class SetEventLocationDispatchTests
     {
         // Arrange
         Result<SetEventLocationCommand> result = SetEventLocationCommand.Create(
-            1, 
-            1);
+            "3b1d8789-e982-41b4-9f77-a7459fd6f51e", 
+            "7c59adac-5a10-4de9-8783-ea2add07bb65");
         SetEventLocationCommand command = result.GetObj()!;
         
         // Act
@@ -68,8 +68,8 @@ public class SetEventLocationDispatchTests
     {
         // Arrange
         Result<SetEventLocationCommand> result = SetEventLocationCommand.Create(
-            1, 
-            0);
+            "", 
+            "");
         SetEventLocationCommand command = result.GetObj()!;
         
         // Act

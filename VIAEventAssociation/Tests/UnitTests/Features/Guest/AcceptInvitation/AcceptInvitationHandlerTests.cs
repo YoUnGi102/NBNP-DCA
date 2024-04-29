@@ -36,8 +36,8 @@ public class AcceptInvitationHandlerTests
     public async Task GivenValidData_WhenAcceptingInvitation_ThenInvitationAccepted()
     {
         // Arrange
-        var res1 = await _addHandler.HandleAsync(SendInvitationCommand.Create(1, 1).GetObj());
-        Result<AcceptInvitationCommand> cmd = AcceptInvitationCommand.Create("guest1@gmail.com", 1);
+        var res1 = await _addHandler.HandleAsync(SendInvitationCommand.Create("e2399bcd-b83b-400f-bfba-2e58cb2b2330", "3b1d8789-e982-41b4-9f77-a7459fd6f51e").GetObj());
+        Result<AcceptInvitationCommand> cmd = AcceptInvitationCommand.Create("guest1@gmail.com", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
 
         // Act
         var result = await _handler.HandleAsync(cmd.GetObj());
@@ -55,7 +55,7 @@ public class AcceptInvitationHandlerTests
     public async Task GivenNoInvitation_WhenAcceptingInvitation_ThenInvitationNotAccepted()
     {
         // Arrange
-        Result<AcceptInvitationCommand> cmd = AcceptInvitationCommand.Create("guest1@gmail.com", 1);
+        Result<AcceptInvitationCommand> cmd = AcceptInvitationCommand.Create("guest1@gmail.com", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
 
         // Act
         if (cmd.IsFailure())

@@ -34,7 +34,7 @@ public class AddAvailabilityIntervalHandlerTests
         // Arrange
         string startDate = DateParser.ToString(DateTime.Now);
         string endDate = DateParser.ToString(DateTime.Now.AddDays(1));
-        Result<AddAvailabilityIntervalCommand> intervalCommand = AddAvailabilityIntervalCommand.Create(1, startDate, endDate);
+        Result<AddAvailabilityIntervalCommand> intervalCommand = AddAvailabilityIntervalCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", startDate, endDate);
 
         // Act
         if (intervalCommand.IsFailure())
@@ -60,7 +60,7 @@ public class AddAvailabilityIntervalHandlerTests
         // Arrange
         string startDate = DateParser.ToString(DateTime.Now);
         string endDate = DateParser.ToString(DateTime.Now.AddDays(-1)); // End date is before start date
-        Result<AddAvailabilityIntervalCommand> intervalCommand = AddAvailabilityIntervalCommand.Create(1, startDate, endDate);
+        Result<AddAvailabilityIntervalCommand> intervalCommand = AddAvailabilityIntervalCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", startDate, endDate);
 
         // Act
         if (intervalCommand.IsFailure())

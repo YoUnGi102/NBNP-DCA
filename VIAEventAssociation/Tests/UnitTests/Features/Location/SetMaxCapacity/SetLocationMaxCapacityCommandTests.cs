@@ -11,7 +11,7 @@ public class UpdateLocationMaxCapacityCommandTests
     public async Task GivenValidData_WhenUpdatingMaxCapacity_ThenMaxCapacityUpdated()
     {
         // Arrange
-        Result<UpdateLocationMaxCapacityCommand> result = UpdateLocationMaxCapacityCommand.Create(1, 100);
+        Result<UpdateLocationMaxCapacityCommand> result = UpdateLocationMaxCapacityCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", 100);
         UpdateLocationMaxCapacityCommand command = result.GetObj();
 
         // Assert
@@ -24,7 +24,7 @@ public class UpdateLocationMaxCapacityCommandTests
     public async Task GivenInvalidData_WhenUpdatingMaxCapacity_ThenMaxCapacityNotUpdated()
     {
         // Arrange
-        Result<UpdateLocationMaxCapacityCommand> result = UpdateLocationMaxCapacityCommand.Create(1, -1);
+        Result<UpdateLocationMaxCapacityCommand> result = UpdateLocationMaxCapacityCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", -1);
         UpdateLocationMaxCapacityCommand command = result.GetObj();
 
         // Assert

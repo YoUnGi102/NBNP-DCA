@@ -34,7 +34,7 @@ public class UpdateEventDescriptionDispatchTests
     {
         // Arrange
         Result<UpdateEventDescriptionCommand> result = UpdateEventDescriptionCommand.Create(
-            1, 
+            "3b1d8789-e982-41b4-9f77-a7459fd6f51e", 
             "New Description");
         UpdateEventDescriptionCommand command = result.GetObj()!;
         
@@ -51,7 +51,7 @@ public class UpdateEventDescriptionDispatchTests
     {
         // Arrange
         Result<UpdateEventDescriptionCommand> result = UpdateEventDescriptionCommand.Create(
-            1, 
+            "3b1d8789-e982-41b4-9f77-a7459fd6f51e", 
             "New Description");
         UpdateEventDescriptionCommand command = result.GetObj()!;
         
@@ -68,7 +68,7 @@ public class UpdateEventDescriptionDispatchTests
     {
         // Arrange
         Result<UpdateEventDescriptionCommand> result = UpdateEventDescriptionCommand.Create(
-            1, 
+            "3b1d8789-e982-41b4-9f77-a7459fd6f51e", 
             "");
         UpdateEventDescriptionCommand command = result.GetObj()!;
         

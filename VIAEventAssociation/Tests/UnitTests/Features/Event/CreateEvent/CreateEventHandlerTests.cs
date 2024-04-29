@@ -45,7 +45,7 @@ public class CreateEventHandlerTests
             100, 
             "Public",
             "Active", 
-            1);
+            "7c59adac-5a10-4de9-8783-ea2add07bb65");
         // Act
         
         var result = await _handler.HandleAsync(cmd.GetObj());
@@ -71,7 +71,7 @@ public class CreateEventHandlerTests
             -1,
             "Public",
             "Active",
-            1);
+            "7c59adac-5a10-4de9-8783-ea2add07bb65");
 
         // Act
         if (cmd.IsFailure())

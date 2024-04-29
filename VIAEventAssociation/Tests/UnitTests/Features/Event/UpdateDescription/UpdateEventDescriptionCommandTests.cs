@@ -12,7 +12,7 @@ public class UpdateEventDescriptionCommandTests
     public async Task GivenValidData_WhenUpdatingDescription_ThenDescriptionUpdated()
     {
         // Arrange
-        Result<UpdateEventDescriptionCommand> result = UpdateEventDescriptionCommand.Create(1, "New Description");
+        Result<UpdateEventDescriptionCommand> result = UpdateEventDescriptionCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "New Description");
         UpdateEventDescriptionCommand command = result.GetObj();
         
         // Assert
@@ -22,10 +22,10 @@ public class UpdateEventDescriptionCommandTests
     }
     
     [Fact]
-    public async Task GivenValidData_WhenUpdatingShortDescription_ThenDescriptionNotUpdated()
+    public async Task GivenInvalidData_WhenUpdatingShortDescription_ThenDescriptionNotUpdated()
     {
         // Arrange
-        Result<UpdateEventDescriptionCommand> result = UpdateEventDescriptionCommand.Create(1, "");
+        Result<UpdateEventDescriptionCommand> result = UpdateEventDescriptionCommand.Create("", "");
         UpdateEventDescriptionCommand command = result.GetObj();
         
         // Assert

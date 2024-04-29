@@ -12,7 +12,7 @@ public class SetEventStatusCommandTests
     public async Task GivenValidData_WhenSettingStatus_ThenStatusSet()
     {
         // Arrange
-        Result<SetEventStatusCommand> result = SetEventStatusCommand.Create(1, "Ready");
+        Result<SetEventStatusCommand> result = SetEventStatusCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "Ready");
         SetEventStatusCommand command = result.GetObj();
         
         // Assert
@@ -25,7 +25,7 @@ public class SetEventStatusCommandTests
     public async Task GivenInvalidData_WhenSettingStatus_ThenStatusNotSet()
     {
         // Arrange
-        Result<SetEventStatusCommand> result = SetEventStatusCommand.Create(1, "InvalidStatus");
+        Result<SetEventStatusCommand> result = SetEventStatusCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "InvalidStatus");
         SetEventStatusCommand command = result.GetObj();
         
         // Assert

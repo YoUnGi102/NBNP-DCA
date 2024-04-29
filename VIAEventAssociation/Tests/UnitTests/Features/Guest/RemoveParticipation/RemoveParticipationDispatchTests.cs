@@ -35,7 +35,7 @@ public class RemoveParticipationDispatchTests
     public async Task GivenValidData_WhenRemovingParticipation_ThenParticipationRemoved()
     {
         // Arrange
-        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("guest1@gmail.com", 1);
+        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("guest1@gmail.com", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
         RemoveParticipationCommand command = result.GetObj();
         
         // Act
@@ -50,7 +50,7 @@ public class RemoveParticipationDispatchTests
     public async Task GivenValidData_WhenRemovingParticipation_ThenParticipationRemoved_WithTimer()
     {
         // Arrange
-        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("guest1@gmail.com", 1);
+        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("guest1@gmail.com", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
         RemoveParticipationCommand command = result.GetObj();
         
         // Act
@@ -65,7 +65,7 @@ public class RemoveParticipationDispatchTests
     public async Task GivenEmptyEmail_WhenRemovingParticipation_ThenParticipationNotRemoved()
     {
         // Arrange
-        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("", 1);
+        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
         RemoveParticipationCommand command = result.GetObj();
         
         // Act
@@ -80,7 +80,7 @@ public class RemoveParticipationDispatchTests
     public async Task GivenEmptyEmail_WhenRemovingParticipation_ThenParticipationNotRemoved_WithTimer()
     {
         // Arrange
-        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("", 1);
+        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
         RemoveParticipationCommand command = result.GetObj();
         
         // Act
@@ -95,7 +95,7 @@ public class RemoveParticipationDispatchTests
     public async Task GivenInvalidEventId_WhenRemovingParticipation_ThenParticipationNotRemoved()
     {
         // Arrange
-        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("Guest1@example.com", -1);
+        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("Guest1@example.com", "");
         RemoveParticipationCommand command = result.GetObj();
         
         // Act
@@ -110,7 +110,7 @@ public class RemoveParticipationDispatchTests
     public async Task GivenInvalidEventId_WhenRemovingParticipation_ThenParticipationNotRemoved_WithTimer()
     {
         // Arrange
-        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("Guest1@example.com", -1);
+        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("Guest1@example.com", "");
         RemoveParticipationCommand command = result.GetObj();
         
         // Act

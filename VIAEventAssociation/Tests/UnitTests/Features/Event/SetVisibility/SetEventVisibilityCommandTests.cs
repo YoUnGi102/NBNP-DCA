@@ -12,7 +12,7 @@ public class SetEventVisibilityCommandTests
     public async Task GivenValidData_WhenSettingVisibility_ThenVisibilitySet()
     {
         // Arrange
-        Result<SetEventVisibilityCommand> result = SetEventVisibilityCommand.Create(1, "Public");
+        Result<SetEventVisibilityCommand> result = SetEventVisibilityCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "Public");
         SetEventVisibilityCommand command = result.GetObj();
         
         // Assert
@@ -25,7 +25,7 @@ public class SetEventVisibilityCommandTests
     public async Task GivenValidData2_WhenSettingVisibility_ThenVisibilitySet()
     {
         // Arrange
-        Result<SetEventVisibilityCommand> result = SetEventVisibilityCommand.Create(1, "Private");
+        Result<SetEventVisibilityCommand> result = SetEventVisibilityCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "Private");
         SetEventVisibilityCommand command = result.GetObj();
         
         // Assert
@@ -38,7 +38,7 @@ public class SetEventVisibilityCommandTests
     public async Task GivenInvalidData_WhenSettingVisibility_ThenVisibilityNotSet()
     {
         // Arrange
-        Result<SetEventVisibilityCommand> result = SetEventVisibilityCommand.Create(1, "InvalidVisibility");
+        Result<SetEventVisibilityCommand> result = SetEventVisibilityCommand.Create("", "InvalidVisibility");
         SetEventVisibilityCommand command = result.GetObj();
         
         // Assert

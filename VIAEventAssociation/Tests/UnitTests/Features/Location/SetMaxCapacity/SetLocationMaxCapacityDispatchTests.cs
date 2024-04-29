@@ -32,7 +32,7 @@ public class SetLocationMaxCapacityDispatchTests
     public async Task GivenValidData_WhenSettingMaxCapacity_ThenMaxCapacitySet()
     {
         // Arrange
-        Result<UpdateLocationMaxCapacityCommand> result = UpdateLocationMaxCapacityCommand.Create(1, 32);
+        Result<UpdateLocationMaxCapacityCommand> result = UpdateLocationMaxCapacityCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", 32);
         UpdateLocationMaxCapacityCommand command = result.GetObj()!;
         
         // Act
@@ -47,7 +47,7 @@ public class SetLocationMaxCapacityDispatchTests
     public async Task GivenValidData_WhenSettingMaxCapacity_ThenMaxCapacitySet_WithTimer()
     {
         // Arrange
-        Result<UpdateLocationMaxCapacityCommand> result = UpdateLocationMaxCapacityCommand.Create(1, 32);
+        Result<UpdateLocationMaxCapacityCommand> result = UpdateLocationMaxCapacityCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", 32);
         UpdateLocationMaxCapacityCommand command = result.GetObj()!;
         
         // Act
@@ -62,7 +62,7 @@ public class SetLocationMaxCapacityDispatchTests
     public async Task GivenInvalidData_WhenSettingMaxCapacity_ThenMaxCapacityNotSet()
     {
         // Arrange
-        Result<UpdateLocationMaxCapacityCommand> result = UpdateLocationMaxCapacityCommand.Create(1, -1);
+        Result<UpdateLocationMaxCapacityCommand> result = UpdateLocationMaxCapacityCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", -1);
         UpdateLocationMaxCapacityCommand command = result.GetObj()!;
         
         // Act
@@ -77,7 +77,7 @@ public class SetLocationMaxCapacityDispatchTests
     public async Task GivenInvalidData_WhenSettingMaxCapacity_ThenMaxCapacityNotSet_WithTimer()
     {
         // Arrange
-        Result<UpdateLocationMaxCapacityCommand> result = UpdateLocationMaxCapacityCommand.Create(1, -1);
+        Result<UpdateLocationMaxCapacityCommand> result = UpdateLocationMaxCapacityCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", -1);
         UpdateLocationMaxCapacityCommand command = result.GetObj()!;
         
         // Act

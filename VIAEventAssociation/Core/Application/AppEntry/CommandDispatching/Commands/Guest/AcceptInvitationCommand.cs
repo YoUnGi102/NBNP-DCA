@@ -9,7 +9,7 @@ public class AcceptInvitationCommand
 
     public static Result<AcceptInvitationCommand> Create(string email, string eventId)
     {
-        if (Guid.TryParse(eventId, out Guid eId) && eId != Guid.Empty)
+        if (Guid.TryParse(eventId, out Guid eId))
             return ResultFailure<AcceptInvitationCommand>.CreateMessageResult(null, ["EventId must be a valid Guid"]);
         
         if (string.IsNullOrEmpty(email))

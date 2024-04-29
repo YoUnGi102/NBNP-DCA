@@ -35,8 +35,8 @@ public class RequestToJoinEventDispatchTests
     public async void GivenValidData_WhenCreatingCommand_ThenCommandCreated()
     {
         // Arrange
-        int validGuestId = 1;
-        int validEventId = 1;
+        string validGuestId = "e2399bcd-b83b-400f-bfba-2e58cb2b2330";
+        string validEventId = "3b1d8789-e982-41b4-9f77-a7459fd6f51e";
 
         // Act
         Result<RequestJoinEventCommand> result = RequestJoinEventCommand.Create(validGuestId, validEventId);
@@ -54,8 +54,8 @@ public class RequestToJoinEventDispatchTests
     public async void GivenValidData_WhenCreatingCommand_ThenCommandCreated_WithTimer()
     {
         // Arrange
-        int validGuestId = 1;
-        int validEventId = 1;
+        string validGuestId = "e2399bcd-b83b-400f-bfba-2e58cb2b2330";
+        string validEventId = "3b1d8789-e982-41b4-9f77-a7459fd6f51e";
 
         // Act
         Result<RequestJoinEventCommand> result = RequestJoinEventCommand.Create(validGuestId, validEventId);
@@ -73,8 +73,8 @@ public class RequestToJoinEventDispatchTests
     public async void GivenInvalidData_WhenCreatingCommand_ThenCommandNotCreated()
     {
         // Arrange
-        int invalidGuestId = -1;
-        int invalidEventId = -1;
+        string invalidGuestId = "";
+        string invalidEventId = "";
 
         // Act
         Result<RequestJoinEventCommand> result = RequestJoinEventCommand.Create(invalidGuestId, invalidEventId);
@@ -92,8 +92,8 @@ public class RequestToJoinEventDispatchTests
     public async void GivenInvalidData_WhenCreatingCommand_ThenCommandNotCreated_WithTimer()
     {
         // Arrange
-        int invalidGuestId = -1;
-        int invalidEventId = -1;
+        string invalidGuestId = "";
+        string invalidEventId = "";
 
         // Act
         Result<RequestJoinEventCommand> result = RequestJoinEventCommand.Create(invalidGuestId, invalidEventId);

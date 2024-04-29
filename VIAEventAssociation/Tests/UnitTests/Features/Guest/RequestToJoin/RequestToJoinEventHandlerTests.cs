@@ -32,7 +32,7 @@ public class RequestToJoinEventHandlerTests
     public async Task GivenValidData_WhenRequestingToJoin_ThenRequestCreated()
     {
         // Arrange
-        Result<RequestJoinEventCommand> joinCommand = RequestJoinEventCommand.Create(1, 1);
+        Result<RequestJoinEventCommand> joinCommand = RequestJoinEventCommand.Create("e2399bcd-b83b-400f-bfba-2e58cb2b2330", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
 
         // Act
         if (joinCommand.IsFailure())
@@ -56,7 +56,7 @@ public class RequestToJoinEventHandlerTests
     public async Task GivenRequestExists_WhenRequestingToJoin_ThenRequestNotCreated()
     {
         // Arrange
-        Result<RequestJoinEventCommand> joinCommand = RequestJoinEventCommand.Create(1, 1);
+        Result<RequestJoinEventCommand> joinCommand = RequestJoinEventCommand.Create("e2399bcd-b83b-400f-bfba-2e58cb2b2330", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
         await _handler.HandleAsync(joinCommand.GetObj());
         
         // Act

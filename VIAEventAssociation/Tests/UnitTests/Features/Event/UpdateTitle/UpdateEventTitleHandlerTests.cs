@@ -33,7 +33,7 @@ public class UpdateEventTitleHandlerTests
     public async Task GivenValidData_WhenUpdatingTitle_ThenTitleUpdated()
     {
         // Arrange
-        Result<UpdateEventTitleCommand> titleCommand = UpdateEventTitleCommand.Create(1, "New Title");
+        Result<UpdateEventTitleCommand> titleCommand = UpdateEventTitleCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "New Title");
 
         // Act
         if (titleCommand.IsFailure())
@@ -58,7 +58,7 @@ public class UpdateEventTitleHandlerTests
     public async Task GivenShortTitle_WhenUpdatingTitle_ThenTitleNotUpdated()
     {
         // Arrange
-        Result<UpdateEventTitleCommand> titleCommand = UpdateEventTitleCommand.Create(1, "");
+        Result<UpdateEventTitleCommand> titleCommand = UpdateEventTitleCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "");
 
         // Act
         if (titleCommand.IsFailure())

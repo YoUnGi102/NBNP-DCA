@@ -34,7 +34,7 @@ public class UpdateEventDescriptionHandlerTests
     public async Task GivenValidData_WhenUpdatingDescription_ThenDescriptionUpdated()
     {
         // Arrange
-        Result<UpdateEventDescriptionCommand> descriptionCommand = UpdateEventDescriptionCommand.Create(1, "New Description");
+        Result<UpdateEventDescriptionCommand> descriptionCommand = UpdateEventDescriptionCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "New Description");
 
         // Act
         if (descriptionCommand.IsFailure())
@@ -59,7 +59,7 @@ public class UpdateEventDescriptionHandlerTests
     public async Task GivenShortDescription_WhenUpdatingDescription_ThenDescriptionNotUpdated()
     {
         // Arrange
-        Result<UpdateEventDescriptionCommand> descriptionCommand = UpdateEventDescriptionCommand.Create(1, "");
+        Result<UpdateEventDescriptionCommand> descriptionCommand = UpdateEventDescriptionCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "");
 
         // Act
         if (descriptionCommand.IsFailure())

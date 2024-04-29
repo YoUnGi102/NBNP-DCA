@@ -17,7 +17,7 @@ public class UpdateEventEndDateTimeCommandTests
     public async Task GivenValidData_WhenUpdatingEndDateTime_ThenEndDateTimeUpdated()
     {
         // Arrange
-        Result<UpdateEventEndDateTimeCommand> result = UpdateEventEndDateTimeCommand.Create(1, DateParser.ToString(DateTime.Now.AddDays(2)));
+        Result<UpdateEventEndDateTimeCommand> result = UpdateEventEndDateTimeCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", DateParser.ToString(DateTime.Now.AddDays(2)));
         UpdateEventEndDateTimeCommand command = result.GetObj();
         
         // Assert
@@ -30,7 +30,7 @@ public class UpdateEventEndDateTimeCommandTests
     public async Task GivenPastDate_WhenUpdatingEndDateTime_ThenEndDateTimeNotUpdated()
     {
         // Arrange
-        Result<UpdateEventEndDateTimeCommand> result = UpdateEventEndDateTimeCommand.Create(1, DateParser.ToString(DateTime.Now.AddDays(-1)));
+        Result<UpdateEventEndDateTimeCommand> result = UpdateEventEndDateTimeCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", DateParser.ToString(DateTime.Now.AddDays(-1)));
         UpdateEventEndDateTimeCommand command = result.GetObj();
         
         // Assert

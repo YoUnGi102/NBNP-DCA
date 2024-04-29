@@ -11,7 +11,7 @@ public class UpdateLocationNameCommandTests
     public async Task GivenValidData_WhenUpdatingName_ThenNameUpdated()
     {
         // Arrange
-        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create(1, "New Name");
+        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", "New Name");
         UpdateLocationNameCommand command = result.GetObj();
         
         // Assert
@@ -24,7 +24,7 @@ public class UpdateLocationNameCommandTests
     public async Task GivenValidData_WhenUpdatingShortName_ThenNameNotUpdated()
     {
         // Arrange
-        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create(1, "");
+        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", "");
         UpdateLocationNameCommand command = result.GetObj();
         
         // Assert

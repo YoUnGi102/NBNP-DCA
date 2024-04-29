@@ -34,7 +34,7 @@ public class SetEventStatusHandlerTests
     public async Task GivenStatusReady_WhenSettingStatus_ThenStatusSet()
     {
         // Arrange
-        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(1, "Ready");
+        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "Ready");
 
         // Act
         if (statusCommand.IsFailure())
@@ -58,7 +58,7 @@ public class SetEventStatusHandlerTests
     public async Task GivenStatusActive_WhenSettingStatus_ThenStatusSet()
     {
         // Arrange
-        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(1, "Active");
+        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "Active");
 
         // Act
         if (statusCommand.IsFailure())
@@ -82,7 +82,7 @@ public class SetEventStatusHandlerTests
     public async Task GivenStatusCancelled_WhenSettingStatus_ThenStatusSet()
     {
         // Arrange
-        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(1, "Cancelled");
+        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "Cancelled");
 
         // Act
         if (statusCommand.IsFailure())
@@ -106,7 +106,7 @@ public class SetEventStatusHandlerTests
     public async Task GivenStatusDeleted_WhenSettingStatus_ThenStatusSet()
     {
         // Arrange
-        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(1, "Deleted");
+        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "Deleted");
 
         // Act
         if (statusCommand.IsFailure())
@@ -130,7 +130,7 @@ public class SetEventStatusHandlerTests
     public async Task GivenInvalidData_WhenSettingStatus_ThenStatusNotSet()
     {
         // Arrange
-        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(1, "InvalidStatus");
+        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "InvalidStatus");
 
         // Act
         if (statusCommand.IsFailure())

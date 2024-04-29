@@ -9,6 +9,7 @@ public class GuestRepoFake : IGuestRepository
 {
     List<Guest> Guests = new()
     {
+        Constants.TEST_GUEST,
         new Guest("3c0e909b-b0b4-438c-8885-b37545988871", "test1@email.com", "FirstName1", "LastName1", "https://testurl1.com"),
         new Guest("1bfc7546-551f-40c0-bf1a-be31aee3258e", "test2@email.com", "FirstName2", "LastName2", "https://testurl2.com"),
         new Guest("addd30d1-5a88-40f1-9f91-56577c8a1816", "test3@email.com", "FirstName3", "LastName3", "https://testurl3.com"),

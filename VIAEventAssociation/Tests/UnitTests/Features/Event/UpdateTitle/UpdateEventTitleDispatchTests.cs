@@ -34,7 +34,7 @@ public class UpdateEventTitleDispatchTests
     {
         // Arrange
         Result<UpdateEventTitleCommand> result = UpdateEventTitleCommand.Create(
-            1, 
+            "3b1d8789-e982-41b4-9f77-a7459fd6f51e", 
             "New Title");
         UpdateEventTitleCommand command = result.GetObj()!;
         
@@ -51,7 +51,7 @@ public class UpdateEventTitleDispatchTests
     {
         // Arrange
         Result<UpdateEventTitleCommand> result = UpdateEventTitleCommand.Create(
-            1, 
+            "3b1d8789-e982-41b4-9f77-a7459fd6f51e", 
             "New Title");
         UpdateEventTitleCommand command = result.GetObj()!;
         
@@ -66,7 +66,7 @@ public class UpdateEventTitleDispatchTests
     {
         // Arrange
         Result<UpdateEventTitleCommand> result = UpdateEventTitleCommand.Create(
-            1, 
+            "3b1d8789-e982-41b4-9f77-a7459fd6f51e", 
             "");
         UpdateEventTitleCommand command = result.GetObj()!;
         
@@ -83,7 +83,7 @@ public class UpdateEventTitleDispatchTests
     {
         // Arrange
         Result<UpdateEventTitleCommand> result = UpdateEventTitleCommand.Create(
-            1, 
+            "3b1d8789-e982-41b4-9f77-a7459fd6f51e", 
             "");
         UpdateEventTitleCommand command = result.GetObj()!;
         

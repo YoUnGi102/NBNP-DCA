@@ -14,13 +14,13 @@ public class AddAvailabilityIntervalCommandTests
         // Arrange
         string startDate = DateParser.ToString(DateTime.Now);
         string endDate = DateParser.ToString(DateTime.Now.AddDays(1));
-        Result<AddAvailabilityIntervalCommand> result = AddAvailabilityIntervalCommand.Create(1, startDate, endDate);
+        Result<AddAvailabilityIntervalCommand> result = AddAvailabilityIntervalCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", startDate, endDate);
         AddAvailabilityIntervalCommand command = result.GetObj();
 
         // Assert
         Assert.False(result.IsFailure());
         Assert.NotNull(command);
-        Assert.Equal(1, command.LocationId);
+        Assert.Equal("7c59adac-5a10-4de9-8783-ea2add07bb65", command.LocationId.ToString());
         Assert.Equal(DateParser.ParseDate(startDate), command.StartDate);
         Assert.Equal(DateParser.ParseDate(endDate), command.EndDate);
     }
@@ -31,7 +31,7 @@ public class AddAvailabilityIntervalCommandTests
         // Arrange
         string startDate = DateParser.ToString(DateTime.Now);
         string endDate = DateParser.ToString(DateTime.Now.AddDays(-1)); // End date is before start date
-        Result<AddAvailabilityIntervalCommand> result = AddAvailabilityIntervalCommand.Create(1, startDate, endDate);
+        Result<AddAvailabilityIntervalCommand> result = AddAvailabilityIntervalCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", startDate, endDate);
         AddAvailabilityIntervalCommand command = result.GetObj();
 
         // Assert

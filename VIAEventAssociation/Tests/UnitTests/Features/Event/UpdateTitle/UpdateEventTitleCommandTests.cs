@@ -12,7 +12,7 @@ public class UpdateEventTitleCommandTests
     public async Task GivenValidData_WhenUpdatingTitle_ThenTitleUpdated()
     {
         // Arrange
-        Result<UpdateEventTitleCommand> result = UpdateEventTitleCommand.Create(1, "New Title");
+        Result<UpdateEventTitleCommand> result = UpdateEventTitleCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "New Title");
         UpdateEventTitleCommand command = result.GetObj();
         
         // Assert
@@ -25,7 +25,7 @@ public class UpdateEventTitleCommandTests
     public async Task GivenValidData_WhenUpdatingShortTitle_ThenTitleUpdated()
     {
         // Arrange
-        Result<UpdateEventTitleCommand> result = UpdateEventTitleCommand.Create(1, "");
+        Result<UpdateEventTitleCommand> result = UpdateEventTitleCommand.Create("3b1d8789-e982-41b4-9f77-a7459fd6f51e", "");
         UpdateEventTitleCommand command = result.GetObj();
         
         // Assert

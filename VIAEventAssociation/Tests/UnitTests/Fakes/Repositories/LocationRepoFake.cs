@@ -6,6 +6,7 @@ namespace UnitTests.Fakes;
 public class LocationRepoFake : ILocationRepository
 {
     private List<Location> Locations { get; } = [
+        Constants.TEST_LOCATION,
         new Location( "9fb2d5e8-d4df-459b-b92b-f8e1d7e73ff8","VIA University College", 32),
     ];
 

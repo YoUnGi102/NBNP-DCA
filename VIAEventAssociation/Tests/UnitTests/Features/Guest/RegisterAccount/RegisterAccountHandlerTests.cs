@@ -35,10 +35,10 @@ public class RemoveParticipationHandlerTests
     public async Task GivenValidData_WhenRemovingParticipation_ThenParticipationRemoved()
     {
         // Arrange
-        Result<AddParticipationCommand> cm = AddParticipationCommand.Create("guest1@gmail.com", 1);
+        Result<AddParticipationCommand> cm = AddParticipationCommand.Create("guest1@gmail.com", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
         await _addHandler.HandleAsync(cm.GetObj());
         
-        Result<RemoveParticipationCommand> cmd = RemoveParticipationCommand.Create("guest1@gmail.com", 1);
+        Result<RemoveParticipationCommand> cmd = RemoveParticipationCommand.Create("guest1@gmail.com", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
 
         // Act
         var result = await _handler.HandleAsync(cmd.GetObj());
@@ -56,7 +56,7 @@ public class RemoveParticipationHandlerTests
     public async Task GivenGuestNotInEvent_WhenRemovingParticipation_ThenParticipationNotRemoved()
     {
         // Arrange
-        Result<RemoveParticipationCommand> cmd = RemoveParticipationCommand.Create("guest1@gmail.com", 1);
+        Result<RemoveParticipationCommand> cmd = RemoveParticipationCommand.Create("guest1@gmail.com", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
 
         // Act
         if (cmd.IsFailure())

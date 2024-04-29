@@ -33,7 +33,7 @@ public class AddParticipationHandlerTests
     public async Task GivenValidData_WhenAddingParticipation_ThenParticipationAdded()
     {
         // Arrange
-        Result<AddParticipationCommand> cmd = AddParticipationCommand.Create("guest1@gmail.com", 1);
+        Result<AddParticipationCommand> cmd = AddParticipationCommand.Create("guest1@gmail.com", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
 
         // Act
         var result = await _handler.HandleAsync(cmd.GetObj());
@@ -51,7 +51,7 @@ public class AddParticipationHandlerTests
     public async Task GivenInvalidData_WhenAddingParticipation_ThenParticipationNotAdded()
     {
         // Arrange
-        Result<AddParticipationCommand> cmd = AddParticipationCommand.Create("", 1);
+        Result<AddParticipationCommand> cmd = AddParticipationCommand.Create("", "3b1d8789-e982-41b4-9f77-a7459fd6f51e");
 
         // Act
         if (cmd.IsFailure())

@@ -32,7 +32,7 @@ public class UpdateLocationNameDispatchTests
     public async Task GivenValidData_WhenUpdatingLocationName_ThenLocationNameUpdated()
     {
         // Arrange
-        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create(1, "Name");
+        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", "Name");
         UpdateLocationNameCommand command = result.GetObj()!;
         
         // Act
@@ -47,7 +47,7 @@ public class UpdateLocationNameDispatchTests
     public async Task GivenValidData_WhenUpdatingLocationName_ThenLocationNameUpdated_WithTimer()
     {
         // Arrange
-        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create(1, "Name");
+        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", "Name");
         UpdateLocationNameCommand command = result.GetObj()!;
         
         // Act
@@ -62,7 +62,7 @@ public class UpdateLocationNameDispatchTests
     public async Task GivenInvalidData_WhenUpdatingLocationName_ThenLocationNameNotUpdated()
     {
         // Arrange
-        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create(1, "");
+        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", "");
         UpdateLocationNameCommand command = result.GetObj()!;
         
         // Act
@@ -73,7 +73,7 @@ public class UpdateLocationNameDispatchTests
     public async Task GivenInvalidData_WhenUpdatingLocationName_ThenLocationNameNotUpdated_WithTimer()
     {
         // Arrange
-        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create(1, "");
+        Result<UpdateLocationNameCommand> result = UpdateLocationNameCommand.Create("7c59adac-5a10-4de9-8783-ea2add07bb65", "");
         UpdateLocationNameCommand command = result.GetObj()!;
         
         // Act
