@@ -3,12 +3,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.CreatorPersistance;
 
-public class CreatorEfcRepository(DmContext context): BaseEfcRepository<Creator>(context), ICreatorRepository
+public class CreatorEfcRepository(DmContext context): BaseEfcRepository<Domain.Aggregates.Creator.Creator>(context), ICreatorRepository
 {
     private DbContext context = context;
-
-    public async Task<Creator> GetByUsernameAsync(string username)
+    
+    public async Task<Domain.Aggregates.Creator.Creator> GetByUsernameAsync(string username)
     {
-        return await context.Set<Creator>().FirstOrDefaultAsync(c => c.Username == username) ?? throw new InvalidOperationException();
+        var creator = await context.Set<Domain.Aggregates.Creator.Creator>().FirstOrDefaultAsync(c => c.Username == username);
+        if (creator == null)
+            throw new Exception("Creator not found");
+        return creator;
     }
 }

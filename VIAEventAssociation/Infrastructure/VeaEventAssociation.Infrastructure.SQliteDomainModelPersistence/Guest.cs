@@ -13,7 +13,7 @@ public partial class Guest
 
     public string LastName { get; set; } = null!;
 
-    public string ProfilePicUrl { get; set; } = null!;
+    public string ProfilePicURL { get; set; } = null!;
 
     public virtual ICollection<Invitation> Invitations { get; set; } = new List<Invitation>();
 
