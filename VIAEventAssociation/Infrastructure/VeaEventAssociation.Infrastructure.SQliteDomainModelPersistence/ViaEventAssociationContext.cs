@@ -89,4 +89,5 @@ public partial class ViaEventAssociationContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
 }

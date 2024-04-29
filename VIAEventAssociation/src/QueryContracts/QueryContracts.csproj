@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Infrastructure\VIAEventAssociation.Infrastructure.EfcQueries\VIAEventAssociation.Infrastructure.EfcQueries.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.csproj" />
     </ItemGroup>
 
 </Project>
