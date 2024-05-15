@@ -1,0 +1,12 @@
+D:\GIT\NBNP-DCA\VIAEventAssociation\src\ObjectMapper\bin\Debug\net8.0\ObjectMapper.deps.json
+D:\GIT\NBNP-DCA\VIAEventAssociation\src\ObjectMapper\bin\Debug\net8.0\ObjectMapper.dll
+D:\GIT\NBNP-DCA\VIAEventAssociation\src\ObjectMapper\bin\Debug\net8.0\ObjectMapper.pdb
+D:\GIT\NBNP-DCA\VIAEventAssociation\src\ObjectMapper\obj\Debug\net8.0\ObjectMapper.GeneratedMSBuildEditorConfig.editorconfig
+D:\GIT\NBNP-DCA\VIAEventAssociation\src\ObjectMapper\obj\Debug\net8.0\ObjectMapper.AssemblyInfoInputs.cache
+D:\GIT\NBNP-DCA\VIAEventAssociation\src\ObjectMapper\obj\Debug\net8.0\ObjectMapper.AssemblyInfo.cs
+D:\GIT\NBNP-DCA\VIAEventAssociation\src\ObjectMapper\obj\Debug\net8.0\ObjectMapper.csproj.CoreCompileInputs.cache
+D:\GIT\NBNP-DCA\VIAEventAssociation\src\ObjectMapper\obj\Debug\net8.0\ObjectMapper.sourcelink.json
+D:\GIT\NBNP-DCA\VIAEventAssociation\src\ObjectMapper\obj\Debug\net8.0\ObjectMapper.dll
+D:\GIT\NBNP-DCA\VIAEventAssociation\src\ObjectMapper\obj\Debug\net8.0\refint\ObjectMapper.dll
+D:\GIT\NBNP-DCA\VIAEventAssociation\src\ObjectMapper\obj\Debug\net8.0\ObjectMapper.pdb
+D:\GIT\NBNP-DCA\VIAEventAssociation\src\ObjectMapper\obj\Debug\net8.0\ref\ObjectMapper.dll

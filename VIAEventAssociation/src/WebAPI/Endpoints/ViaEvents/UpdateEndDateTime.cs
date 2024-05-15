@@ -6,7 +6,7 @@ using WebAPI.Endpoints.Common;
 
 namespace WebAPI.Endpoints.ViaEvents;
 
-public record UpdateEventEndDateTimeRequest([FromBody] int Id, [FromBody] string EndDateTime);
+public record UpdateEventEndDateTimeRequest([FromBody] Guid Id, [FromBody] string EndDateTime);
 
 public class UpdateEndDateTime(ICommandDispatcher dispatcher) :
     ApiEndpoint

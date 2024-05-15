@@ -34,7 +34,7 @@ public class SetEventMaxGuestsDispatchTests
     {
         // Arrange
         Result<SetEventMaxGuestsCommand> result = SetEventMaxGuestsCommand.Create(
-            1, 
+            new Guid(), 
             100);
         SetEventMaxGuestsCommand command = result.GetObj()!;
         
@@ -51,7 +51,7 @@ public class SetEventMaxGuestsDispatchTests
     {
         // Arrange
         Result<SetEventMaxGuestsCommand> result = SetEventMaxGuestsCommand.Create(
-            1, 
+            new Guid(), 
             100);
         SetEventMaxGuestsCommand command = result.GetObj()!;
         
@@ -68,7 +68,7 @@ public class SetEventMaxGuestsDispatchTests
     {
         // Arrange
         Result<SetEventMaxGuestsCommand> result = SetEventMaxGuestsCommand.Create(
-            1, 
+            new Guid(), 
             -1);
         SetEventMaxGuestsCommand command = result.GetObj()!;
         

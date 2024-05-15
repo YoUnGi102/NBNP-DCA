@@ -35,7 +35,7 @@ public class SendInvitationHandlerTests
     public async Task GivenValidData_WhenSendingInvitation_ThenInvitationSent()
     {
         // Arrange
-        Result<SendInvitationCommand> cmd = SendInvitationCommand.Create(1, 1);
+        Result<SendInvitationCommand> cmd = SendInvitationCommand.Create(new Guid(), new Guid());
 
         // Act
         var result = await _handler.HandleAsync(cmd.GetObj());
@@ -53,8 +53,8 @@ public class SendInvitationHandlerTests
     public async Task GivenGuestInEvent_WhenSendingInvitation_ThenInvitationNotSent()
     {
         // Arrange
-        await _addHandler.HandleAsync(AddParticipationCommand.Create("guest1@gmail.com", 1).GetObj());
-        Result<SendInvitationCommand> cmd = SendInvitationCommand.Create(1, 1);
+        await _addHandler.HandleAsync(AddParticipationCommand.Create("guest1@gmail.com", new Guid()).GetObj());
+        Result<SendInvitationCommand> cmd = SendInvitationCommand.Create(new Guid(), new Guid());
 
         // Act
         if (cmd.IsFailure())

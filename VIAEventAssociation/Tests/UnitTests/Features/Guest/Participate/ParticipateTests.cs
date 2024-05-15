@@ -22,7 +22,7 @@ public class ParticipateTests
     public void Participate_WhenEventIsReady_ShouldNotParticipate()
     {
         // Arrange
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>(), _location);
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>(), _location);
         var guest = new Guest("email@gmail.com");
         // Act
         var result = guest.Participate(_event);
@@ -35,7 +35,7 @@ public class ParticipateTests
     public void Participate_WhenEventIsFull_ShouldNotParticipate()
     {
         // Arrange
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 1, EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 1, EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var guest1 = new Guest("email@gmail.com");
         var guest2 = new Guest("email2@gmail.com");
         

@@ -36,7 +36,7 @@ public class AcceptInvitationDispatchTests
     public async Task GivenValidData_WhenAcceptingInvitation_ThenInvitationAccepted()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", 1);
+        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", Guid.NewGuid());
         AcceptInvitationCommand command = result.GetObj();
         
         // Act
@@ -51,7 +51,7 @@ public class AcceptInvitationDispatchTests
     public async Task GivenValidData_WhenAcceptingInvitation_ThenInvitationAccepted_WithTimer()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", 1);
+        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", Guid.NewGuid());
         AcceptInvitationCommand command = result.GetObj();
         
         // Act
@@ -66,7 +66,7 @@ public class AcceptInvitationDispatchTests
     public async Task GivenEmptyEmail_WhenAcceptingInvitation_ThenInvitationNotAccepted()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("", 1);
+        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("", Guid.NewGuid());
         AcceptInvitationCommand command = result.GetObj();
         
         // Act
@@ -81,7 +81,7 @@ public class AcceptInvitationDispatchTests
     public async Task GivenEmptyEmail_WhenAcceptingInvitation_ThenInvitationNotAccepted_WithTimer()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("", 1);
+        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("", Guid.NewGuid());
         AcceptInvitationCommand command = result.GetObj();
         
         // Act
@@ -96,7 +96,7 @@ public class AcceptInvitationDispatchTests
     public async Task GivenInvalidEventId_WhenAcceptingInvitation_ThenInvitationNotAccepted()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", -1);
+        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", Guid.Empty);
         AcceptInvitationCommand command = result.GetObj();
         
         // Act
@@ -111,7 +111,7 @@ public class AcceptInvitationDispatchTests
     public async Task GivenInvalidEventId_WhenAcceptingInvitation_ThenInvitationNotAccepted_WithTimer()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", -1);
+        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", Guid.Empty);
         AcceptInvitationCommand command = result.GetObj();
         
         // Act

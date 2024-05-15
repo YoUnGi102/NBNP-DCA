@@ -35,7 +35,7 @@ public class AddParticipationDispatchTests
     public async Task GivenValidData_WhenAddingParticipation_ThenParticipationAdded()
     {
         // Arrange
-        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", 1);
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", Guid.NewGuid());
         AddParticipationCommand command = result.GetObj();
         
         // Act
@@ -50,7 +50,7 @@ public class AddParticipationDispatchTests
     public async Task GivenValidData_WhenAddingParticipation_ThenParticipationAdded_WithTimer()
     {
         // Arrange
-        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", 1);
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", Guid.NewGuid());
         AddParticipationCommand command = result.GetObj();
         
         // Act
@@ -65,7 +65,7 @@ public class AddParticipationDispatchTests
     public async Task GivenEmptyEmail_WhenAddingParticipation_ThenParticipationNotAdded()
     {
         // Arrange
-        Result<AddParticipationCommand> result = AddParticipationCommand.Create("", 1);
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("", Guid.NewGuid());
         AddParticipationCommand command = result.GetObj();
         
         // Act
@@ -80,7 +80,7 @@ public class AddParticipationDispatchTests
     public async Task GivenEmptyEmail_WhenAddingParticipation_ThenParticipationNotAdded_WithTimer()
     {
         // Arrange
-        Result<AddParticipationCommand> result = AddParticipationCommand.Create("", 1);
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("", Guid.NewGuid());
         AddParticipationCommand command = result.GetObj();
         
         // Act
@@ -95,7 +95,7 @@ public class AddParticipationDispatchTests
     public async Task GivenInvalidEventId_WhenAddingParticipation_ThenParticipationNotAdded()
     {
         // Arrange
-        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", -1);
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", Guid.Empty);
         AddParticipationCommand command = result.GetObj();
         
         // Act
@@ -110,7 +110,7 @@ public class AddParticipationDispatchTests
     public async Task GivenInvalidEventId_WhenAddingParticipation_ThenParticipationNotAdded_WithTimer()
     {
         // Arrange
-        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", -1);
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", Guid.Empty);
         AddParticipationCommand command = result.GetObj();
         
         // Act

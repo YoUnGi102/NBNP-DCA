@@ -6,7 +6,7 @@ using WebAPI.Endpoints.Common;
 
 namespace WebAPI.Endpoints.ViaEvents;
 
-public record SetEventStatusRequest([FromBody] int EventId, [FromBody] int Status);
+public record SetEventStatusRequest([FromBody] Guid EventId, [FromBody] string Status);
 
 public class SetStatus(ICommandDispatcher dispatcher) :
     ApiEndpoint
@@ -17,13 +17,13 @@ public class SetStatus(ICommandDispatcher dispatcher) :
     
     public override async Task<ActionResult<SetEventStatusResponse>> HandleAsync([FromBody] SetEventStatusRequest request)
     {
-        SetEventLocationCommand cmd =
+        SetEventStatusCommand cmd =
 
-        SetEventLocationCommand.Create(request.EventId, request.Status).GetObj();
+            SetEventStatusCommand.Create(request.EventId, request.Status).GetObj();
         Result<None> result = await dispatcher.DispatchAsync(cmd);
         return result.IsFailure()
             ? BadRequest(result.GetMessages())
-            : Ok(new SetEventLocationResponse(cmd.LocationId.ToString()));
+            : Ok(new SetEventLocationResponse(cmd.Id.ToString()));
     }
 }
 

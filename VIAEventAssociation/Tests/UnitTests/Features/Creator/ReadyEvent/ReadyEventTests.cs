@@ -24,8 +24,8 @@ public class ReadyEventTests
     public void ReadyEvent_WhenEventIsCancelled_ShouldNotReadyEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Cancelled, new List<Guest>(), _location);
 
         // Act
@@ -42,8 +42,8 @@ public class ReadyEventTests
     public void ReadyEvent_WhenEventIsDeleted_ShouldNotReadyEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Deleted, new List<Guest>(), _location);
 
         // Act
@@ -60,8 +60,8 @@ public class ReadyEventTests
     public void ReadyEvent_WhenEventIsActive_ShouldNotReadyEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Active, new List<Guest>(), _location);
 
         // Act
@@ -78,8 +78,8 @@ public class ReadyEventTests
     public void ReadyEvent_WhenEventIsReady_ShouldReadyEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Ready, new List<Guest>(), _location);
 
         // Act

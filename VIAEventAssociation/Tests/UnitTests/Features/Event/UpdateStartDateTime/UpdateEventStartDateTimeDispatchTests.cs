@@ -34,7 +34,7 @@ public class UpdateEventStartDateTimeDispatchTests
     {
         // Arrange
         Result<UpdateEventStartDateTimeCommand> result = UpdateEventStartDateTimeCommand.Create(
-            1, 
+            new Guid(), 
             DateTime.Now.ToString());
         UpdateEventStartDateTimeCommand command = result.GetObj()!;
         
@@ -51,7 +51,7 @@ public class UpdateEventStartDateTimeDispatchTests
     {
         // Arrange
         Result<UpdateEventStartDateTimeCommand> result = UpdateEventStartDateTimeCommand.Create(
-            1,
+            new Guid(),
             DateTime.Now.ToString());
         UpdateEventStartDateTimeCommand command = result.GetObj()!;
 

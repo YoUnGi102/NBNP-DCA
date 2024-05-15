@@ -10,7 +10,7 @@ namespace Domain.Aggregates.Events;
 
 public class Event
 {
-    public int Id { get; private set;}
+    public Guid Id { get; private set;}
     public string Title { get; private set; }
     public string Description { get; private set; }
     public DateTime StartDateTime { get; private set; }
@@ -39,7 +39,7 @@ public class Event
     }
     
     // Needed for Fake Repositories in Unit Tests
-    public Event(int id, string title, string description, DateTime startDateTime, DateTime endDateTime,
+    public Event(Guid id, string title, string description, DateTime startDateTime, DateTime endDateTime,
         int maxGuests, EventVisibility visibility, EventStatus status, List<Guest> guests, Location location)
     {
         Id = id;

@@ -28,7 +28,7 @@ public class CreateEventCommandTests
             100, 
             "Public",
             "Active", 
-            1);
+            new Guid());
         CreateEventCommand command = result.GetObj();
         
         // Assert
@@ -49,7 +49,7 @@ public class CreateEventCommandTests
             100, 
             "Visible",
             "Active", 
-            1);
+            new Guid());
         CreateEventCommand command = result.GetObj();
         
         // Assert

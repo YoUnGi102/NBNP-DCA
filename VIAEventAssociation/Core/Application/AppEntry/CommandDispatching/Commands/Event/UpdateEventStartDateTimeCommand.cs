@@ -5,22 +5,17 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
 {
     public class UpdateEventStartDateTimeCommand
     {
-        public int Id { get; }
+        public Guid Id { get; }
         public DateTime StartDateTime { get; }
 
-        private UpdateEventStartDateTimeCommand(int id, DateTime startDateTime)
+        private UpdateEventStartDateTimeCommand(Guid id, DateTime startDateTime)
         {
             Id = id;
             StartDateTime = startDateTime;
         }
 
-        public static Result<UpdateEventStartDateTimeCommand> Create(int id, string startDateTime)
+        public static Result<UpdateEventStartDateTimeCommand> Create(Guid id, string startDateTime)
         {
-            if (id <= 0)
-            {
-                return ResultFailure<UpdateEventStartDateTimeCommand>.CreateMessageResult(null, ["Id must be greater than 0."]);
-            }
-
             DateTime parsedDate;
             try
             {

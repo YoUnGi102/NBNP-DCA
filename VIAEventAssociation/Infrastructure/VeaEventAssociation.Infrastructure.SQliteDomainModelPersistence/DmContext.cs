@@ -51,6 +51,8 @@ public class DmContext(DbContextOptions options) : DbContext(options)
     {
         guestEntity.Property(e => e.Id).ValueGeneratedOnAdd();
         guestEntity.HasKey(e => e.Id);
+        guestEntity.Property(e => e.FirstName).IsRequired();
+        guestEntity.Property(e => e.LastName).IsRequired();
         guestEntity.Property(e => e.Email).IsRequired();
         guestEntity.Property(e => e.ProfilePicURL);
         guestEntity.HasMany(g => g.Events).WithMany(e => e.Guests).UsingEntity(j => j.ToTable("EventGuests"));;

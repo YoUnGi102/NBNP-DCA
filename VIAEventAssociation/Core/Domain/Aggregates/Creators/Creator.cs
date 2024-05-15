@@ -8,11 +8,11 @@ using VIAEventAssociation.Core.Tools.OperationResult.Result;
 
 public class Creator
 {
-    private int id;
+    private Guid id;
     private string username;
     private string password;
 
-    public Creator(int id, string username, string password)
+    public Creator(Guid id, string username, string password)
     {
         this.id = id;
         this.username = username;
@@ -21,7 +21,7 @@ public class Creator
 
     private Creator(){}
 
-    public int Id => id;
+    public Guid Id => id;
 
     public string Password => password;
 

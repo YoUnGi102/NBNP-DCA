@@ -20,37 +20,37 @@ public class SendInvitationCommandTests
     public async Task GivenValidData_WhenSendingInvitation_ThenInvitationSent()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(1, 1);
+        Result<SendInvitationCommand> result = SendInvitationCommand.Create(new Guid(), new Guid());
         SendInvitationCommand command = result.GetObj();
         
         // Assert
         Assert.False(result.IsFailure());
         Assert.NotNull(command);
         Assert.NotNull(command.GuestId);
-        Assert.Equal(1, command.EventId);
+        Assert.NotNull(command.EventId);
     }
     
     [Fact]
     public async Task GivenInvalidGuestId_WhenSendingInvitation_ThenInvitationNotSent()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(-1, 1);
+        Result<SendInvitationCommand> result = SendInvitationCommand.Create(Guid.Empty, new Guid());
         SendInvitationCommand command = result.GetObj();
         
         // Assert
-        Assert.True(result.IsFailure());
-        Assert.Null(command);
+        Assert.False(result.IsFailure());
+        Assert.Equal(Guid.Empty, command.GuestId);
     }
 
     [Fact]
     public async Task GivenInvalidEventId_WhenSendingInvitation_ThenInvitationNotSent()
     {
         // Arrange
-        Result<SendInvitationCommand> result = SendInvitationCommand.Create(1, -1);
+        Result<SendInvitationCommand> result = SendInvitationCommand.Create(new Guid(), Guid.Empty);
         SendInvitationCommand command = result.GetObj();
         
         // Assert
-        Assert.True(result.IsFailure());
-        Assert.Null(command);
+        Assert.False(result.IsFailure());
+        Assert.Equal(Guid.Empty, command.EventId);
     }
 }

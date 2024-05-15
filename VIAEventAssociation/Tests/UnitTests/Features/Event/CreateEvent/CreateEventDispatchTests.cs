@@ -42,7 +42,7 @@ public class CreateEventDispatchTests
             100, 
             "Public",
             "Active", 
-            1);
+            new Guid());
         CreateEventCommand command = result.GetObj()!;
         
         // Act
@@ -65,7 +65,7 @@ public class CreateEventDispatchTests
             100, 
             "Public",
             "Active", 
-            1);
+            new Guid());
         CreateEventCommand command = result.GetObj()!;
         
         // Act
@@ -88,7 +88,7 @@ public class CreateEventDispatchTests
             100, 
             "Visible",
             "Active", 
-            1);
+            new Guid());
         CreateEventCommand? command = result.GetObj()!;
         
         // Act
@@ -111,7 +111,7 @@ public class CreateEventDispatchTests
             100, 
             "Visible",
             "Active", 
-            1);
+            new Guid());
         CreateEventCommand? command = result.GetObj()!;
         
         // Act

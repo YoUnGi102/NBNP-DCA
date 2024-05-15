@@ -24,9 +24,9 @@ public class SendInvitationAggregateTest
     public void SendInvitation_WhenGoodInput_ShouldSendInvitation()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
+        var creator = new Creator(new Guid(), "creator", "123");
         var guest = new Guest("guest@mail.com", [], []);
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Cancelled, [], _location);
 
         var expect = guest.Invitations.Count + 1;
@@ -45,9 +45,9 @@ public class SendInvitationAggregateTest
     public void SendInvitation_WhenInvitationExists_ShouldNotSendInvitation()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
+        var creator = new Creator(new Guid(), "creator", "123");
         var guest = new Guest("guest@mail.com", [], []);
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Cancelled, [], _location);
 
         creator.SendInvitation(guest, _event);

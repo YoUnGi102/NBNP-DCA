@@ -9,7 +9,7 @@ namespace WebAPI.Endpoints.Creator;
 
 public record SendInvitationResponse(bool Success);
 
-public record SendInvitationRequest([FromBody] int GuestID, [FromBody] int EventId);
+public record SendInvitationRequest([FromBody] Guid GuestID, [FromBody] Guid EventId);
 
 public class SendInvitation(ICommandDispatcher dispatcher): ApiEndpoint.WithRequest<SendInvitationRequest>.WithResponse<SendInvitationResponse>
 {

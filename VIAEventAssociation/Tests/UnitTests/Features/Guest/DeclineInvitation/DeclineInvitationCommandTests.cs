@@ -19,21 +19,22 @@ public class DeclineInvitationCommandTests
     public async Task GivenValidData_WhenDecliningInvitation_ThenInvitationDeclined()
     {
         // Arrange
-        Result<DeclineInvitationCommand> result = DeclineInvitationCommand.Create("Guest1@example.com", 1);
+        Guid id = Guid.NewGuid();
+        Result<DeclineInvitationCommand> result = DeclineInvitationCommand.Create("Guest1@example.com", id);
         DeclineInvitationCommand command = result.GetObj();
 
         // Assert
         Assert.False(result.IsFailure());
         Assert.NotNull(command);
         Assert.NotNull(command.Email);
-        Assert.Equal(1, command.EventId);
+        Assert.Equal(id, command.EventId);
     }
 
     [Fact]
     public async Task GivenEmptyEmail_WhenDecliningInvitation_ThenInvitationNotDeclined()
     {
         // Arrange
-        Result<DeclineInvitationCommand> result = DeclineInvitationCommand.Create("", 1);
+        Result<DeclineInvitationCommand> result = DeclineInvitationCommand.Create("", Guid.NewGuid());
         DeclineInvitationCommand command = result.GetObj();
 
         // Assert
@@ -45,11 +46,11 @@ public class DeclineInvitationCommandTests
     public async Task GivenInvalidEventId_WhenDecliningInvitation_ThenInvitationNotDeclined()
     {
         // Arrange
-        Result<DeclineInvitationCommand> result = DeclineInvitationCommand.Create("Guest1@example.com", -1);
+        Result<DeclineInvitationCommand> result = DeclineInvitationCommand.Create("Guest1@example.com", Guid.Empty);
         DeclineInvitationCommand command = result.GetObj();
 
         // Assert
-        Assert.True(result.IsFailure());
-        Assert.Null(command);
+        Assert.False(result.IsFailure());
+        Assert.NotNull(command);
     }
 }

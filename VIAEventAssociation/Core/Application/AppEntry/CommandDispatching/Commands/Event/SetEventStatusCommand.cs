@@ -5,21 +5,19 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
 
 public class SetEventStatusCommand
 {
-    public int Id { get; }
+    public Guid Id { get; }
     public EventStatus Status { get; }
 
-    public static Result<SetEventStatusCommand> Create(int id, string status)
+    public static Result<SetEventStatusCommand> Create(Guid id, string status)
     {
-        if (id <= 0)
-            return ResultFailure<SetEventStatusCommand>.CreateMessageResult(null, ["Id must be greater than 0."]);
         if (!Enum.TryParse(status, out EventStatus parsedStatus))
         {
             return ResultFailure<SetEventStatusCommand>.CreateMessageResult(null, ["Incorrect Status type"]);
         }
-        
+
         return ResultSuccess<SetEventStatusCommand>.CreateSimpleResult(new SetEventStatusCommand(id, parsedStatus));
     }
 
-    private SetEventStatusCommand(int id, EventStatus parsedStatus)
+    private SetEventStatusCommand(Guid id, EventStatus parsedStatus)
         => (Id, Status) = (id, parsedStatus);
 }

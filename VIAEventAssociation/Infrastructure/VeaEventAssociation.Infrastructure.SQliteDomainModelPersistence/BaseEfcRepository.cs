@@ -6,7 +6,7 @@ namespace VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence;
 public class BaseEfcRepository<T>(DmContext context) : IGenericRepository<T> where T : class
 {
     
-    public virtual async Task<T> GetAsync(int id)
+    public virtual async Task<T> GetAsync(Guid id)
     {
         var t = await context.Set<T>().FindAsync(id);
         if (t == null)
@@ -16,7 +16,7 @@ public class BaseEfcRepository<T>(DmContext context) : IGenericRepository<T> whe
 
     public virtual async Task AddAsync(T e) => await context.Set<T>().AddAsync(e);
 
-    public virtual async Task RemoveAsync(int id)
+    public virtual async Task RemoveAsync(Guid id)
     {
         var t = await context.Set<T>().FindAsync(id);
         if (t == null)

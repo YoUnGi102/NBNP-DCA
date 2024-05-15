@@ -22,8 +22,8 @@ public class DeleteEventTests
     public void DeleteEvent_WhenEventIsReady_ShouldDeleteEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>(), _location);
 
         // Act
         var result = creator.DeleteEvent(_event);
@@ -38,8 +38,8 @@ public class DeleteEventTests
     public void DeleteEvent_WhenEventIsActive_ShouldDeleteEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
 
         // Act
         var result = creator.DeleteEvent(_event);
@@ -54,8 +54,8 @@ public class DeleteEventTests
     public void DeleteEvent_WhenEventIsCancelled_ShouldNotDeleteEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>(), _location);
 
         // Act
         var result = creator.DeleteEvent(_event);

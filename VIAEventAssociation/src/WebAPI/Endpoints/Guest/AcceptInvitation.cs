@@ -8,7 +8,7 @@ namespace WebAPI.Endpoints.Guest;
 
 public record AcceptInvitationResponse(bool Success);
 
-public record AcceptInvitationRequest([FromBody] string Email, [FromBody] int EventId);
+public record AcceptInvitationRequest([FromBody] string Email, [FromBody] Guid EventId);
 
 public class AcceptInvitation(ICommandDispatcher dispatcher)
     : ApiEndpoint.WithRequest<AcceptInvitationRequest>.WithResponse<AcceptInvitationResponse>

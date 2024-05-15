@@ -6,7 +6,7 @@ using WebAPI.Endpoints.Common;
 
 namespace WebAPI.Endpoints.ViaEvents;
 
-public record SetEventMaxGuestsRequest([FromBody] int EventId, [FromBody] int MaxGuests);
+public record SetEventMaxGuestsRequest([FromBody] Guid EventId, [FromBody] int MaxGuests);
 
 public class SetMaxGuests(ICommandDispatcher dispatcher) :
     ApiEndpoint
@@ -17,13 +17,12 @@ public class SetMaxGuests(ICommandDispatcher dispatcher) :
     
     public override async Task<ActionResult<SetEventMaxGuestsResponse>> HandleAsync([FromBody] SetEventMaxGuestsRequest request)
     {
-        SetEventLocationCommand cmd =
-
-        SetEventLocationCommand.Create(request.EventId, request.MaxGuests).GetObj();
+        SetEventMaxGuestsCommand cmd =
+        SetEventMaxGuestsCommand.Create(request.EventId, request.MaxGuests).GetObj();
         Result<None> result = await dispatcher.DispatchAsync(cmd);
         return result.IsFailure()
             ? BadRequest(result.GetMessages())
-            : Ok(new SetEventLocationResponse(cmd.LocationId.ToString()));
+            : Ok(new SetEventMaxGuestsResponse(cmd.Id.ToString()));
     }
 }
 public record SetEventMaxGuestsResponse(string Id);

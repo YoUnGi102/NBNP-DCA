@@ -8,7 +8,7 @@ namespace WebAPI.Endpoints.Guest;
 
 public record RequestJoinResponse(bool Success);
 
-public record RequestJoinRequest([FromBody] int GuestId, [FromBody] int EventId);
+public record RequestJoinRequest([FromBody] Guid GuestId, [FromBody] Guid EventId);
 
 public class RequestJoin(ICommandDispatcher dispatcher)
     : ApiEndpoint.WithRequest<RequestJoinRequest>.WithResponse<RequestJoinResponse>

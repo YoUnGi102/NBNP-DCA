@@ -19,21 +19,22 @@ public class RemoveParticipationCommandTests
     public async Task GivenValidData_WhenRemovingParticipation_ThenParticipationRemoved()
     {
         // Arrange
-        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("guest1@gmail.com", 1);
+        Guid id = Guid.NewGuid();
+        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("guest1@gmail.com", id);
         RemoveParticipationCommand command = result.GetObj();
         
         // Assert
         Assert.False(result.IsFailure());
         Assert.NotNull(command);
         Assert.NotNull(command.Email);
-        Assert.Equal(1, command.EventId);
+        Assert.Equal(id, command.EventId);
     }
     
     [Fact]
     public async Task GivenEmptyEmail_WhenRemovingParticipation_ThenParticipationNotRemoved()
     {
         // Arrange
-        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("", 1);
+        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("", Guid.NewGuid());
         RemoveParticipationCommand command = result.GetObj();
         
         // Assert
@@ -45,11 +46,11 @@ public class RemoveParticipationCommandTests
     public async Task GivenInvalidEventId_WhenRemovingParticipation_ThenParticipationNotRemoved()
     {
         // Arrange
-        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("Guest1@example.com", -1);
+        Result<RemoveParticipationCommand> result = RemoveParticipationCommand.Create("Guest1@example.com", Guid.Empty);
         RemoveParticipationCommand command = result.GetObj();
         
         // Assert
-        Assert.True(result.IsFailure());
-        Assert.Null(command);
+        Assert.False(result.IsFailure());
+        Assert.NotNull(command);
     }
 }

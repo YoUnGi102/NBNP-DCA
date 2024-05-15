@@ -13,7 +13,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Endpoints\" />
+      <ProjectReference Include="..\..\Core\Application\Application.csproj" />
+      <ProjectReference Include="..\ObjectMapper\ObjectMapper.csproj" />
     </ItemGroup>
 
 </Project>

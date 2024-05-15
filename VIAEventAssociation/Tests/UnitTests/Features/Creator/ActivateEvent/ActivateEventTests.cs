@@ -25,8 +25,8 @@ public class ActivateEventTests
     public void ChangeEventStatusToActive_WhenEventIsDraft()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>(), _location);
         // Act
         var result = creator.ActivateEvent(_event);
         bool isSuccess = result.GetObj().Status == EventStatus.Active;
@@ -40,8 +40,8 @@ public class ActivateEventTests
     public void ChangeEventStatusToActive_WhenEventIsReady()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>(), _location);
         // Act
         var result = creator.ActivateEvent(_event);
         bool isSuccess = result.GetObj().Status == EventStatus.Active;
@@ -55,8 +55,8 @@ public class ActivateEventTests
     public void ChangeEventStatusToActive_WhenEventIsCancelled()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>(), _location);
         // Act
         var result = creator.ActivateEvent(_event);
         bool isSuccess = result.GetObj().Status == EventStatus.Active;
@@ -69,8 +69,8 @@ public class ActivateEventTests
     public void ChangeEventStatusToActive_WhenEventIsDeleted()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>(), _location);
         // Act
         var result = creator.ActivateEvent(_event);
         bool isSuccess = result.GetObj().Status == EventStatus.Active;
@@ -84,8 +84,8 @@ public class ActivateEventTests
     public void ChangeEventStatusToActive_WhenEventIsPrivate()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Private, EventStatus.Draft, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Private, EventStatus.Draft, new List<Guest>(), _location);
         // Act
         var result = creator.ActivateEvent(_event);
         if(result.GetType() == typeof(ResultFailure<Event>))
@@ -104,8 +104,8 @@ public class ActivateEventTests
     public void ChangeEventStatusToActive_WhenEventIsPublic()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>(), _location);
         // Act
         var result = creator.ActivateEvent(_event);
         bool isSuccess = result.GetObj().Status == EventStatus.Active;

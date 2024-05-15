@@ -12,7 +12,7 @@ public class SetEventMaxGuestsCommandTests
     public async Task GivenValidData_WhenSettingMaxGuests_ThenMaxGuestsSet()
     {
         // Arrange
-        Result<SetEventMaxGuestsCommand> result = SetEventMaxGuestsCommand.Create(1, 100);
+        Result<SetEventMaxGuestsCommand> result = SetEventMaxGuestsCommand.Create(new Guid(), 100);
         SetEventMaxGuestsCommand command = result.GetObj();
         
         // Assert
@@ -25,7 +25,7 @@ public class SetEventMaxGuestsCommandTests
     public async Task GivenInvalidData_WhenSettingMaxGuests_ThenMaxGuestsNotSet()
     {
         // Arrange
-        Result<SetEventMaxGuestsCommand> result = SetEventMaxGuestsCommand.Create(1, -1);
+        Result<SetEventMaxGuestsCommand> result = SetEventMaxGuestsCommand.Create(new Guid(), -1);
         SetEventMaxGuestsCommand command = result.GetObj();
         
         // Assert

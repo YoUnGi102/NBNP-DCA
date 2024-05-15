@@ -29,7 +29,7 @@ public class UpdateLocationNameHandlerTests
     public async Task GivenValidData_WhenUpdatingName_ThenNameUpdated()
     {
         // Arrange
-        Result<UpdateLocationNameCommand> nameCommand = UpdateLocationNameCommand.Create(1, "New Name");
+        Result<UpdateLocationNameCommand> nameCommand = UpdateLocationNameCommand.Create(Guid.NewGuid(), "New Name");
 
         // Act
         if (nameCommand.IsFailure())
@@ -54,7 +54,7 @@ public class UpdateLocationNameHandlerTests
     public async Task GivenShortName_WhenUpdatingName_ThenNameNotUpdated()
     {
         // Arrange
-        Result<UpdateLocationNameCommand> nameCommand = UpdateLocationNameCommand.Create(1, "");
+        Result<UpdateLocationNameCommand> nameCommand = UpdateLocationNameCommand.Create(Guid.NewGuid(), "");
 
         // Act
         if (nameCommand.IsFailure())

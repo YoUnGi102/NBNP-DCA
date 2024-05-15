@@ -6,7 +6,7 @@ using WebAPI.Endpoints.Common;
 
 namespace WebAPI.Endpoints.Location;
 
-public record UpdateLocationMaxCapacityRequest([FromBody] int LocationId ,[FromBody] int MaxCapacity);
+public record UpdateLocationMaxCapacityRequest([FromBody] Guid LocationId ,[FromBody] int MaxCapacity);
 
 public class UpdateMaxCapacity(ICommandDispatcher dispatcher) : 
     ApiEndpoint

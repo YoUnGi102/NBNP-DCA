@@ -8,7 +8,7 @@ namespace WebAPI.Endpoints.Guest;
 
 public record RemoveParticipationResponse(bool Success);
 
-public record RemoveParticipationRequest([FromBody] string Email, [FromBody] int EventId);
+public record RemoveParticipationRequest([FromBody] string Email, [FromBody] Guid EventId);
 
 public class RemoveParticipation(ICommandDispatcher dispatcher)
     : ApiEndpoint.WithRequest<RemoveParticipationRequest>.WithResponse<RemoveParticipationResponse>

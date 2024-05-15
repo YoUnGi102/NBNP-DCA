@@ -6,7 +6,7 @@ using WebAPI.Endpoints.Common;
 
 namespace WebAPI.Endpoints.ViaEvents;
 
-public record UpdateEventDescriptionRequest([FromBody] int Id ,[FromBody] string Description);
+public record UpdateEventDescriptionRequest([FromBody] Guid Id ,[FromBody] string Description);
 
 public class UpdateDescription(ICommandDispatcher dispatcher) :
     ApiEndpoint

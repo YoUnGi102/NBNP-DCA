@@ -4,17 +4,14 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
 
 public class SetEventLocationCommand
 {
-    public int EventId { get; }
-    public int LocationId { get; }
+    public Guid EventId { get; }
+    public Guid LocationId { get; }
 
-    public static Result<SetEventLocationCommand> Create(int eventId, int locationId)
+    public static Result<SetEventLocationCommand> Create(Guid eventId, Guid locationId)
     {
-        if (eventId <= 0 || locationId <= 0)
-            return ResultFailure<SetEventLocationCommand>.CreateMessageResult(null, ["EventId and LocationId must be greater than 0"]);
-
         return ResultSuccess<SetEventLocationCommand>.CreateSimpleResult(new SetEventLocationCommand(eventId, locationId));
     }
 
-    private SetEventLocationCommand(int eventId, int locationId)
+    private SetEventLocationCommand(Guid eventId, Guid locationId)
         => (EventId, LocationId) = (eventId, locationId);
 }

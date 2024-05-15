@@ -23,10 +23,10 @@ public class DeclineInvitationTests
     public void DeclineInvitation_WhenInvitationIsUnanswered_ShouldDeclineInvitation()
     {
         // Arrange
-        var _event = new Domain.Aggregates.Events.Event(1, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
+        var _event = new Domain.Aggregates.Events.Event(new Guid(), "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
-        var guest = new Guest(1, "email@gmail.com");
+        var guest = new Guest(new Guid(), "email@gmail.com");
         guest.SendInvitation(invitation);
         
         // Act

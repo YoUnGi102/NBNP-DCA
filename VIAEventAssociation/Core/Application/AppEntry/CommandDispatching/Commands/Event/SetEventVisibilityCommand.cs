@@ -5,21 +5,20 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
 
 public class SetEventVisibilityCommand
 {
-    public int Id { get; }
+    public Guid Id { get; }
     public EventVisibility Visibility { get; }
 
-    public static Result<SetEventVisibilityCommand> Create(int id, string visibility)
+    public static Result<SetEventVisibilityCommand> Create(Guid id, string visibility)
     {
-        if (id <= 0)
-            return ResultFailure<SetEventVisibilityCommand>.CreateMessageResult(null, ["Id must be greater than 0."]);
         if (!Enum.TryParse(visibility, out EventVisibility parsedVisibility))
         {
             return ResultFailure<SetEventVisibilityCommand>.CreateMessageResult(null, ["Incorrect Visibility type"]);
         }
-        
-        return ResultSuccess<SetEventVisibilityCommand>.CreateSimpleResult(new SetEventVisibilityCommand(id, parsedVisibility));
+
+        return ResultSuccess<SetEventVisibilityCommand>.CreateSimpleResult(
+            new SetEventVisibilityCommand(id, parsedVisibility));
     }
 
-    private SetEventVisibilityCommand(int id, EventVisibility parsedVisibility)
+    private SetEventVisibilityCommand(Guid id, EventVisibility parsedVisibility)
         => (Id, Visibility) = (id, parsedVisibility);
 }

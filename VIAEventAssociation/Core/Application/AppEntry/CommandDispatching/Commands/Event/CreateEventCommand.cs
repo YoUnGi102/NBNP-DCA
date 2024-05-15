@@ -13,9 +13,9 @@ public class CreateEventCommand
     public int MaxGuests { get; }
     public EventVisibility Visibility { get; }
     public EventStatus Status { get; }
-    public int LocationId { get; }
+    public Guid LocationId { get; }
 
-    public static Result<CreateEventCommand> Create(string title, string description, string startDateTime, string endDateTime, int maxGuests, string visibility, string status, int locationId)
+    public static Result<CreateEventCommand> Create(string title, string description, string startDateTime, string endDateTime, int maxGuests, string visibility, string status, Guid locationId)
     {
         DateTime? parsedEndDate, parsedStartDate;
         try
@@ -51,13 +51,10 @@ public class CreateEventCommand
         {
             return ResultFailure<CreateEventCommand>.CreateMessageResult(null, ["Status format is incorrect"]);
         }
-        
-        if (locationId <= 0)
-            return ResultFailure<CreateEventCommand>.CreateMessageResult(null, ["Location id must be greater than 0"]);
-        
+
         return ResultSuccess<CreateEventCommand>.CreateSimpleResult(new CreateEventCommand(title, description, (DateTime)parsedStartDate, (DateTime)parsedEndDate, maxGuests, parsedVisibility, parsedStatus, locationId));
     }
 
-    private CreateEventCommand(string title, string description, DateTime startDateTime, DateTime endDateTime, int maxGuests, EventVisibility visibility, EventStatus status, int locationId)
+    private CreateEventCommand(string title, string description, DateTime startDateTime, DateTime endDateTime, int maxGuests, EventVisibility visibility, EventStatus status, Guid locationId)
         => (Title, Description, StartDateTime, EndDateTime, MaxGuests, Visibility, Status, LocationId) = (title, description, startDateTime, endDateTime, maxGuests, visibility, status, locationId);
 }

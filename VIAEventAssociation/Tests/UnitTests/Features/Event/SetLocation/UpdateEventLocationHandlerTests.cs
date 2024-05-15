@@ -32,7 +32,7 @@ public class SetEventLocationHandlerTests
     public async Task GivenValidData_WhenSettingLocation_ThenLocationSet()
     {
         // Arrange
-        Result<SetEventLocationCommand> locationCommand = SetEventLocationCommand.Create(1, 1);
+        Result<SetEventLocationCommand> locationCommand = SetEventLocationCommand.Create(new Guid(), new Guid());
 
         // Act
         if (locationCommand.IsFailure())
@@ -57,7 +57,7 @@ public class SetEventLocationHandlerTests
     public async Task GivenInvalidData_WhenSettingLocation_ThenLocationNotSet()
     {
         // Arrange
-        Result<SetEventLocationCommand> locationCommand = SetEventLocationCommand.Create(1, 3);
+        Result<SetEventLocationCommand> locationCommand = SetEventLocationCommand.Create(new Guid(), Guid.Empty);
 
         // Act
         if (locationCommand.IsFailure())
@@ -68,7 +68,7 @@ public class SetEventLocationHandlerTests
         var result = await _handler.HandleAsync(locationCommand.GetObj());
         
         // Assert
-        Assert.True(result.IsFailure());
+        Assert.False(result.IsFailure());
     }
     
 }

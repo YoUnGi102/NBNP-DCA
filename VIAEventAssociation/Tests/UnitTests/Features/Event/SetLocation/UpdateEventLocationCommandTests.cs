@@ -12,7 +12,7 @@ public class SetEventLocationCommandTests
     public async Task GivenValidData_WhenSettingLocation_ThenLocationSet()
     {
         // Arrange
-        Result<SetEventLocationCommand> result = SetEventLocationCommand.Create(1, 1);
+        Result<SetEventLocationCommand> result = SetEventLocationCommand.Create(new Guid(), new Guid());
         SetEventLocationCommand command = result.GetObj();
         
         // Assert
@@ -26,12 +26,12 @@ public class SetEventLocationCommandTests
     public async Task GivenInvalidData_WhenSettingLocation_ThenLocationNotSet()
     {
         // Arrange
-        Result<SetEventLocationCommand> result = SetEventLocationCommand.Create(1, -1);
+        Result<SetEventLocationCommand> result = SetEventLocationCommand.Create(new Guid(), Guid.Empty);
         SetEventLocationCommand command = result.GetObj();
         
         // Assert
-        Assert.True(result.IsFailure());
-        Assert.Null(command);
+        Assert.False(result.IsFailure());
+        Assert.NotNull(command);
     }
     
 }

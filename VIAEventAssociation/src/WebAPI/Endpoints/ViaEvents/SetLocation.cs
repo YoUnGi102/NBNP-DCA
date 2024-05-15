@@ -6,7 +6,7 @@ using WebAPI.Endpoints.Common;
 
 namespace WebAPI.Endpoints.ViaEvents;
 
-public record SetEventLocationRequest([FromBody] int EventId, [FromBody] int LocationId);
+public record SetEventLocationRequest([FromBody] Guid EventId, [FromBody] Guid LocationId);
 
 public class SetLocation(ICommandDispatcher dispatcher) :
     ApiEndpoint

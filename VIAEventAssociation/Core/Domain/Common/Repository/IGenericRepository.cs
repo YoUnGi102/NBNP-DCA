@@ -2,10 +2,10 @@
 
 public interface IGenericRepository<T>
 {
-    public Task<T> GetAsync(int id);
+    public Task<T> GetAsync(Guid id);
 
     public Task AddAsync(T e);
 
-    public Task RemoveAsync(int id);
+    public Task RemoveAsync(Guid id);
 
 }

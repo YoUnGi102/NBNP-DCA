@@ -9,12 +9,12 @@ public class GuestRepoFake : IGuestRepository
 {
     private List<Guest> Guests { get; } =
     [
-        new Guest(1, "guest1@gmail.com"),
-        new Guest(2, "guest2@gmail.com"),
-        new Guest(3, "guest3@gmail.com")
+        new Guest(new Guid(), "guest1@gmail.com"),
+        new Guest(new Guid(), "guest2@gmail.com"),
+        new Guest(new Guid(), "guest3@gmail.com")
     ];
 
-    public async Task<Guest> GetAsync(int id)
+    public async Task<Guest> GetAsync(Guid id)
     {
         return await Task.FromResult(Guests.FirstOrDefault(g => g.Id == id)) ?? throw new InvalidOperationException();
     }
@@ -25,7 +25,7 @@ public class GuestRepoFake : IGuestRepository
         await Task.CompletedTask;
     }
 
-    public async Task RemoveAsync(int id)
+    public async Task RemoveAsync(Guid id)
     {
         var guest = Guests.First(g => g.Id == id);
         Guests.Remove(guest);

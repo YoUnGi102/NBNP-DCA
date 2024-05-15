@@ -8,7 +8,7 @@ namespace WebAPI.Endpoints.Guest;
 
 public record DeclineInvitationResponse(bool Success);
 
-public record DeclineInvitationRequest([FromBody] string Email, [FromBody] int EventId);
+public record DeclineInvitationRequest([FromBody] string Email, [FromBody] Guid EventId);
 
 public class DeclineInvitation(ICommandDispatcher dispatcher)
     : ApiEndpoint.WithRequest<DeclineInvitationRequest>.WithResponse<DeclineInvitationResponse>

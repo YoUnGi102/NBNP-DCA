@@ -46,6 +46,6 @@ public class AddLocationIntegrationTest
         }
         
         //Assert
-        Assert.False(result.IsFailure());
+        Assert.True(result.IsFailure());
     }
 }

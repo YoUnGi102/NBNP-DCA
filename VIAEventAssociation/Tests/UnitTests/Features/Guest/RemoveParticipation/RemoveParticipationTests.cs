@@ -25,7 +25,7 @@ public class RemoveParticipationTests
     public void RemoveParticipation_WhenEventIsReady_ShouldRemoveParticipation()
     {
         // Arrange
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Cancelled, new List<Guest>(), _location);
         var guest = new Guest("email@gmail.com");
         // Act
@@ -41,7 +41,7 @@ public class RemoveParticipationTests
     public void RemoveParticipation_whenGuestIsNotParticipating_ShouldNotRemoveParticipation()
     {
         // Arrange
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public,
             EventStatus.Cancelled, new List<Guest>(), _location);
         var guest = new Guest("email@gmail.com");
 

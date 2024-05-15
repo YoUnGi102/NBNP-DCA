@@ -34,7 +34,7 @@ public class UpdateEventDescriptionDispatchTests
     {
         // Arrange
         Result<UpdateEventDescriptionCommand> result = UpdateEventDescriptionCommand.Create(
-            1, 
+            new Guid(), 
             "New Description");
         UpdateEventDescriptionCommand command = result.GetObj()!;
         
@@ -51,7 +51,7 @@ public class UpdateEventDescriptionDispatchTests
     {
         // Arrange
         Result<UpdateEventDescriptionCommand> result = UpdateEventDescriptionCommand.Create(
-            1, 
+            new Guid(), 
             "New Description");
         UpdateEventDescriptionCommand command = result.GetObj()!;
         
@@ -68,7 +68,7 @@ public class UpdateEventDescriptionDispatchTests
     {
         // Arrange
         Result<UpdateEventDescriptionCommand> result = UpdateEventDescriptionCommand.Create(
-            1, 
+            new Guid(), 
             "");
         UpdateEventDescriptionCommand command = result.GetObj()!;
         

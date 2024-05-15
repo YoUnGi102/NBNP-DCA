@@ -25,10 +25,10 @@ public class AcceptInvitationTests
     public void AcceptInvitation_WhenInvitationIsUnanswered_ShouldAcceptInvitation()
     {
         // Arrange
-        var _event = new Event(1, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
+        var _event = new Event(new Guid(), "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
-        var guest = new Guest(1, "email@gmail.com");
+        var guest = new Guest(new Guid(), "email@gmail.com");
         guest.SendInvitation(invitation);
         
         // Act
@@ -46,10 +46,10 @@ public class AcceptInvitationTests
     public void AcceptInvitation_WhenInvitationIsDeclined_ShouldAcceptInvitation()
     {
         // Arrange
-        var _event = new Event(1, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
+        var _event = new Event(new Guid(), "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Declined, _event);
-        var guest = new Guest(1,"email@gmail.com");
+        var guest = new Guest(new Guid(),"email@gmail.com");
         guest.SendInvitation(invitation);
         
         // Act
@@ -67,7 +67,7 @@ public class AcceptInvitationTests
     public void AcceptInvitation_WhenEventIsEnded_ShouldNotAcceptInvitation()
     {
         // Arrange
-        var _event = new Event(0, "Title", "Description", DateTime.Now.AddHours(-3), DateTime.Now.AddHours(-1), 30,
+        var _event = new Event(new Guid(), "Title", "Description", DateTime.Now.AddHours(-3), DateTime.Now.AddHours(-1), 30,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
         var guest = new Guest("email@gmail.com");
@@ -87,7 +87,7 @@ public class AcceptInvitationTests
     public void AcceptInvitation_WhenMaxGuestsIsReached_ShouldNotAcceptInvitation()
     {
         // Arrange
-        var _event = new Event(0, "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 1,
+        var _event = new Event(new Guid(), "Title", "Description", DateTime.Now, DateTime.Now.AddHours(1), 1,
             EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
         var invitation = new Invitation(InvitationStatus.Unanswered, _event);
         var guest1 = new Guest("email@gmail.com");

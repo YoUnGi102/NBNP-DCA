@@ -8,7 +8,7 @@ namespace WebAPI.Endpoints.ViaEvents;
 
 public record CreateEventRequest([FromBody] string Title, [FromBody] string Description, [FromBody] string StartDate, 
     [FromBody] string EndDate, [FromBody] int MaxGuests, [FromBody] string Visibility, 
-    [FromBody] string Status, [FromBody] int LocationId);
+    [FromBody] string Status, [FromBody] Guid LocationId);
 
     public class Create(ICommandDispatcher dispatcher) :
         ApiEndpoint

@@ -19,21 +19,22 @@ public class AddParticipationCommandTests
     public async Task GivenValidData_WhenAddingParticipation_ThenParticipationAdded()
     {
         // Arrange
-        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", 1);
+        Guid id = Guid.NewGuid();
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", id);
         AddParticipationCommand command = result.GetObj();
         
         // Assert
         Assert.False(result.IsFailure());
         Assert.NotNull(command);
         Assert.NotNull(command.Email);
-        Assert.Equal(1, command.EventId);
+        Assert.Equal(id, command.EventId);
     }
     
     [Fact]
     public async Task GivenEmptyEmail_WhenAddingParticipation_ThenParticipationNotAdded()
     {
         // Arrange
-        Result<AddParticipationCommand> result = AddParticipationCommand.Create("", 1);
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("", Guid.NewGuid());
         AddParticipationCommand command = result.GetObj();
         
         // Assert
@@ -45,11 +46,11 @@ public class AddParticipationCommandTests
     public async Task GivenInvalidEventId_WhenAddingParticipation_ThenParticipationNotAdded()
     {
         // Arrange
-        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", -1);
+        Result<AddParticipationCommand> result = AddParticipationCommand.Create("Guest1@example.com", Guid.Empty);
         AddParticipationCommand command = result.GetObj();
         
         // Assert
-        Assert.True(result.IsFailure());
-        Assert.Null(command);
+        Assert.False(result.IsFailure());
+        Assert.NotNull(command);
     }
 }

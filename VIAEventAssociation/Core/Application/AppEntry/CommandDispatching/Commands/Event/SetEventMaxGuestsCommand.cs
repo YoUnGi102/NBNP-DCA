@@ -4,16 +4,16 @@ namespace ViaEventAssociation.Core.Application.AppEntry.CommandDispatching.Comma
 
 public class SetEventMaxGuestsCommand
 {
-    public int Id { get; }
+    public Guid Id { get; }
     public int MaxGuests { get; }
 
-    public static Result<SetEventMaxGuestsCommand> Create(int id, int maxGuests)
+    public static Result<SetEventMaxGuestsCommand> Create(Guid id, int maxGuests)
     {
-        if (id <= 0 || maxGuests < 0 || maxGuests > 1000)
-            return ResultFailure<SetEventMaxGuestsCommand>.CreateMessageResult(null, ["Invalid event id or maximum number of guests."]);
+        if (maxGuests < 0 || maxGuests > 1000)
+            return ResultFailure<SetEventMaxGuestsCommand>.CreateMessageResult(null, ["Invalid maximum number of guests."]);
         return ResultSuccess<SetEventMaxGuestsCommand>.CreateSimpleResult(new SetEventMaxGuestsCommand(id, maxGuests));
     }
 
-    private SetEventMaxGuestsCommand(int id, int maxGuests)
+    private SetEventMaxGuestsCommand(Guid id, int maxGuests)
         => (Id, MaxGuests) = (id, maxGuests);
 }

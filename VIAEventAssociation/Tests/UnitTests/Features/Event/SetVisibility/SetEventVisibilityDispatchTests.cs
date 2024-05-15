@@ -34,7 +34,7 @@ public class SetEventVisibilityDispatchTests
     {
         // Arrange
         Result<SetEventVisibilityCommand> result = SetEventVisibilityCommand.Create(
-            1, 
+            new Guid(), 
             "Public");
         SetEventVisibilityCommand command = result.GetObj()!;
         
@@ -51,7 +51,7 @@ public class SetEventVisibilityDispatchTests
     {
         // Arrange
         Result<SetEventVisibilityCommand> result = SetEventVisibilityCommand.Create(
-            1, 
+            new Guid(), 
             "Public");
         SetEventVisibilityCommand command = result.GetObj()!;
         

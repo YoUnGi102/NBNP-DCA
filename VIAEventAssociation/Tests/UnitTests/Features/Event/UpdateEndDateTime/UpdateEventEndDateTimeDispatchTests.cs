@@ -34,7 +34,7 @@ public class UpdateEventEndDateTimeDispatchTests
     {
         // Arrange
         Result<UpdateEventEndDateTimeCommand> result = UpdateEventEndDateTimeCommand.Create(
-            1, 
+            new Guid(), 
             DateTime.Now.ToString());
         UpdateEventEndDateTimeCommand command = result.GetObj()!;
         
@@ -51,7 +51,7 @@ public class UpdateEventEndDateTimeDispatchTests
     {
         // Arrange
         Result<UpdateEventEndDateTimeCommand> result = UpdateEventEndDateTimeCommand.Create(
-            1, 
+            new Guid(), 
             DateTime.Now.ToString());
         UpdateEventEndDateTimeCommand command = result.GetObj()!;
         

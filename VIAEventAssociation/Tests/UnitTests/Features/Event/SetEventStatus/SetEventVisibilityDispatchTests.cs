@@ -34,7 +34,7 @@ public class SetEventStatusDispatchTests
     {
         // Arrange
         Result<SetEventStatusCommand> result = SetEventStatusCommand.Create(
-            1, 
+            new Guid(), 
             "Active");
         SetEventStatusCommand command = result.GetObj()!;
         
@@ -51,7 +51,7 @@ public class SetEventStatusDispatchTests
     {
         // Arrange
         Result<SetEventStatusCommand> result = SetEventStatusCommand.Create(
-            1, 
+            new Guid(), 
             "Active");
         SetEventStatusCommand command = result.GetObj()!;
         

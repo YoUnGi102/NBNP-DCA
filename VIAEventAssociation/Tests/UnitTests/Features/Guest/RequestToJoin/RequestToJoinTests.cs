@@ -23,7 +23,7 @@ public class RequestToJoinTests
     public void Request_to_join_WhenInvitationIsNotCreated_ShouldCreateInvitation()
     {
         // Arrange
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now.AddDays(1), 10, EventVisibility.Public,
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now.AddDays(1), 10, EventVisibility.Public,
             EventStatus.Active, [],_location);
         var guest = new Guest("email@gmail.com");
 
@@ -41,7 +41,7 @@ public class RequestToJoinTests
     public void Request_to_join_WhenInvitationIsCreated_ShouldNotCreateInvitation()
     {
         // Arrange
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now.AddDays(1), 10, EventVisibility.Public,
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now.AddDays(1), 10, EventVisibility.Public,
             EventStatus.Active, [],_location);
         var guest = new Guest("email@gmail.com");
         guest.RequestToJoin(_event);

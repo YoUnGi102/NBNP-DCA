@@ -34,8 +34,8 @@ public class SetEventLocationDispatchTests
     {
         // Arrange
         Result<SetEventLocationCommand> result = SetEventLocationCommand.Create(
-            1, 
-            1);
+            new Guid(), 
+            new Guid());
         SetEventLocationCommand command = result.GetObj()!;
         
         // Act
@@ -51,8 +51,8 @@ public class SetEventLocationDispatchTests
     {
         // Arrange
         Result<SetEventLocationCommand> result = SetEventLocationCommand.Create(
-            1, 
-            1);
+            new Guid(), 
+            new Guid());
         SetEventLocationCommand command = result.GetObj()!;
         
         // Act
@@ -68,8 +68,8 @@ public class SetEventLocationDispatchTests
     {
         // Arrange
         Result<SetEventLocationCommand> result = SetEventLocationCommand.Create(
-            1, 
-            0);
+            new Guid(), 
+            Guid.Empty);
         SetEventLocationCommand command = result.GetObj()!;
         
         // Act

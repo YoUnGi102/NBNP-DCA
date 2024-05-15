@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using VIAEventAssociation.Infrastructure.EfcQueries.SeedFactory;
 
 namespace VIAEventAssociation.Infrastructure.EfcQueries;
 

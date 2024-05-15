@@ -32,7 +32,7 @@ public class AddAvailabilityIntervalDispatchTests
     public async Task GivenValidData_WhenAddingAvailabilityInterval_ThenAvailabilityIntervalAdded()
     {
         // Arrange
-        Result<AddAvailabilityIntervalCommand> result = AddAvailabilityIntervalCommand.Create(1, "2022-12-12", "2022-12-13");
+        Result<AddAvailabilityIntervalCommand> result = AddAvailabilityIntervalCommand.Create(Guid.NewGuid(), "2022-12-12", "2022-12-13");
         AddAvailabilityIntervalCommand command = result.GetObj()!;
         
         // Act
@@ -47,7 +47,7 @@ public class AddAvailabilityIntervalDispatchTests
     public async Task GivenValidData_WhenAddingAvailabilityInterval_ThenAvailabilityIntervalAdded_WithTimer()
     {
         // Arrange
-        Result<AddAvailabilityIntervalCommand> result = AddAvailabilityIntervalCommand.Create(1, "2022-12-12", "2022-12-13");
+        Result<AddAvailabilityIntervalCommand> result = AddAvailabilityIntervalCommand.Create(Guid.NewGuid(), "2022-12-12", "2022-12-13");
         AddAvailabilityIntervalCommand command = result.GetObj()!;
         
         // Act
@@ -62,7 +62,7 @@ public class AddAvailabilityIntervalDispatchTests
     public async Task GivenInvalidData_WhenAddingAvailabilityInterval_ThenAvailabilityIntervalNotAdded()
     {
         // Arrange
-        Result<AddAvailabilityIntervalCommand> result = AddAvailabilityIntervalCommand.Create(1, "2022-12-12", "2022-11-12");
+        Result<AddAvailabilityIntervalCommand> result = AddAvailabilityIntervalCommand.Create(Guid.NewGuid(), "2022-12-12", "2022-11-12");
         AddAvailabilityIntervalCommand command = result.GetObj()!;
         
         // Act
@@ -77,7 +77,7 @@ public class AddAvailabilityIntervalDispatchTests
     public async Task GivenInvalidData_WhenAddingAvailabilityInterval_ThenAvailabilityIntervalNotAdded_WithTimer()
     {
         // Arrange
-        Result<AddAvailabilityIntervalCommand> result = AddAvailabilityIntervalCommand.Create(1, "2022-12-12", "2022-11-12");
+        Result<AddAvailabilityIntervalCommand> result = AddAvailabilityIntervalCommand.Create(Guid.NewGuid(), "2022-12-12", "2022-11-12");
         AddAvailabilityIntervalCommand command = result.GetObj()!;
         
         // Act

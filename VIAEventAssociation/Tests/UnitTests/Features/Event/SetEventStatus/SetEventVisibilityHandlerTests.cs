@@ -34,7 +34,7 @@ public class SetEventStatusHandlerTests
     public async Task GivenStatusReady_WhenSettingStatus_ThenStatusSet()
     {
         // Arrange
-        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(1, "Ready");
+        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(new Guid(), "Ready");
 
         // Act
         if (statusCommand.IsFailure())
@@ -58,7 +58,7 @@ public class SetEventStatusHandlerTests
     public async Task GivenStatusActive_WhenSettingStatus_ThenStatusSet()
     {
         // Arrange
-        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(1, "Active");
+        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(new Guid(), "Active");
 
         // Act
         if (statusCommand.IsFailure())
@@ -82,7 +82,7 @@ public class SetEventStatusHandlerTests
     public async Task GivenStatusCancelled_WhenSettingStatus_ThenStatusSet()
     {
         // Arrange
-        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(1, "Cancelled");
+        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(new Guid(), "Cancelled");
 
         // Act
         if (statusCommand.IsFailure())
@@ -106,7 +106,7 @@ public class SetEventStatusHandlerTests
     public async Task GivenStatusDeleted_WhenSettingStatus_ThenStatusSet()
     {
         // Arrange
-        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(1, "Deleted");
+        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(new Guid(), "Deleted");
 
         // Act
         if (statusCommand.IsFailure())
@@ -130,7 +130,7 @@ public class SetEventStatusHandlerTests
     public async Task GivenInvalidData_WhenSettingStatus_ThenStatusNotSet()
     {
         // Arrange
-        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(1, "InvalidStatus");
+        Result<SetEventStatusCommand> statusCommand = SetEventStatusCommand.Create(new Guid(), "InvalidStatus");
 
         // Act
         if (statusCommand.IsFailure())

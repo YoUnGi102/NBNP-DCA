@@ -6,7 +6,7 @@ using WebAPI.Endpoints.Common;
 
 namespace WebAPI.Endpoints.Location;
 
-public record AddLocationAvailabilityIntervalRequest([FromBody] int LocationId ,[FromBody] string Start ,[FromBody] string End);
+public record AddLocationAvailabilityIntervalRequest([FromBody] Guid LocationId ,[FromBody] string Start ,[FromBody] string End);
 
 public class AddAvailabilityInterval(ICommandDispatcher dispatcher) :
     ApiEndpoint

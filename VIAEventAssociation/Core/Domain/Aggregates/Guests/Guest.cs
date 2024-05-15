@@ -10,7 +10,9 @@ namespace Domain.Aggregates.Guests;
 
 public class Guest
 {
-    public int Id { get; private set; }
+    public Guid Id { get; private set; }
+    public string FirstName { get; private set; }
+    public string LastName { get; private set; }
     public string Email { get; private set; }
     public List<Request> Requests { get; private set; }
     public List<Invitation> Invitations { get; private set; }
@@ -25,7 +27,7 @@ public class Guest
         Requests = [];
     }
     
-    public Guest(int id, string email)
+    public Guest(Guid id, string email)
     {
         Id = id;
         Invitations = new List<Invitation>();
@@ -33,7 +35,7 @@ public class Guest
         Requests = new List<Request>();
     }
 
-    public Guest(int id, string email, string profilePicUrl)
+    public Guest(Guid id, string email, string profilePicUrl)
     {
         Id = id;
         Email = email;
@@ -47,7 +49,7 @@ public class Guest
         Invitations = invitations;
     }
     
-    public Guest(int id, string email, List<Request> requests, List<Invitation> invitations)
+    public Guest(Guid id, string email, List<Request> requests, List<Invitation> invitations)
     {
         Id = id;
         Email = email;

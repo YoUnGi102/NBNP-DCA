@@ -7,7 +7,7 @@ namespace Domain.Aggregates.Locations;
 
 public class Location
 {
-    public int Id { get; init; }
+    public Guid Id { get; init; }
     public string Name { get; init; }
     public int MaxCapacity { get; init; }
     
@@ -21,7 +21,7 @@ public class Location
     }
     
     // Needed for fakes
-    public Location(int id, string name, int maxCapacity)
+    public Location(Guid id, string name, int maxCapacity)
     {
         Id = id;
         Name = name;

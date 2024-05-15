@@ -6,7 +6,7 @@ using WebAPI.Endpoints.Common;
 
 namespace WebAPI.Endpoints.ViaEvents;
 
-public record UpdateEventTitleRequest([FromBody] int Id, [FromBody] string Title);
+public record UpdateEventTitleRequest([FromBody] Guid Id, [FromBody] string Title);
 
 public class UpdateTitle(ICommandDispatcher dispatcher):
     ApiEndpoint

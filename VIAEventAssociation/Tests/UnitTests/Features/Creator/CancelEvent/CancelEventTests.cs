@@ -23,8 +23,8 @@ public class CancelEventTests
     public void CancelEvent_WhenEventIsReady_ShouldCancelEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Ready, new List<Guest>(), _location);
 
         // Act
         var result = creator.CancelEvent(_event);
@@ -39,8 +39,8 @@ public class CancelEventTests
     public void CancelEvent_WhenEventIsActive_ShouldCancelEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Active, new List<Guest>(), _location);
 
         // Act
         var result = creator.CancelEvent(_event);
@@ -54,8 +54,8 @@ public class CancelEventTests
     public void CancelEvent_WhenEventIsDeleted_ShouldNotCancelEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>(), _location);
 
         // Act
         var result = creator.CancelEvent(_event);
@@ -70,8 +70,8 @@ public class CancelEventTests
     public void CancelEvent_WhenEventIsCancelled_ShouldNotCancelEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>(), _location);
 
         // Act
         var result = creator.CancelEvent(_event);
@@ -86,8 +86,8 @@ public class CancelEventTests
     public void CancelEvent_WhenEventIsDraft_ShouldNotCancelEvent()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Draft, new List<Guest>(), _location);
 
         // Act
         var result = creator.CancelEvent(_event);
@@ -103,8 +103,8 @@ public class CancelEventTests
     public void CancelEvent_WhenEventIsCancelled_ShouldNotChangeEventStatus()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Cancelled, new List<Guest>(), _location);
 
         // Act
         var result = creator.CancelEvent(_event);
@@ -120,8 +120,8 @@ public class CancelEventTests
     public void CancelEvent_WhenEventIsDeleted_ShouldNotChangeEventStatus()
     {
         // Arrange
-        var creator = new Creator(1, "creator", "123");
-        var _event = new Event(1, "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>(), _location);
+        var creator = new Creator(new Guid(), "creator", "123");
+        var _event = new Event(new Guid(), "event", "description", DateTime.Now, DateTime.Now, 10, EventVisibility.Public, EventStatus.Deleted, new List<Guest>(), _location);
 
         // Act
         var result = creator.CancelEvent(_event);

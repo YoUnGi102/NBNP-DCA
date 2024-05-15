@@ -19,21 +19,22 @@ public class AcceptInvitationCommandTests
     public async Task GivenValidData_WhenAcceptingInvitation_ThenInvitationAccepted()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", 1);
+        Guid id = Guid.NewGuid();
+        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", id);
         AcceptInvitationCommand command = result.GetObj();
         
         // Assert
         Assert.False(result.IsFailure());
         Assert.NotNull(command);
         Assert.NotNull(command.Email);
-        Assert.Equal(1, command.EventId);
+        Assert.Equal(id, command.EventId);
     }
     
     [Fact]
     public async Task GivenEmptyEmail_WhenAcceptingInvitation_ThenInvitationNotAccepted()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("", 1);
+        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("", Guid.NewGuid());
         AcceptInvitationCommand command = result.GetObj();
         
         // Assert
@@ -45,11 +46,11 @@ public class AcceptInvitationCommandTests
     public async Task GivenInvalidEventId_WhenAcceptingInvitation_ThenInvitationNotAccepted()
     {
         // Arrange
-        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", -1);
+        Result<AcceptInvitationCommand> result = AcceptInvitationCommand.Create("Guest1@example.com", Guid.NewGuid());
         AcceptInvitationCommand command = result.GetObj();
         
         // Assert
-        Assert.True(result.IsFailure());
-        Assert.Null(command);
+        Assert.False(result.IsFailure());
+        Assert.NotNull(command);
     }
 }

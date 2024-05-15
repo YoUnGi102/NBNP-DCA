@@ -6,7 +6,7 @@ using WebAPI.Endpoints.Common;
 
 namespace WebAPI.Endpoints.Location;
 
-public record UpdateLocationNameRequest([FromBody] int LocationId ,[FromBody] string Name);
+public record UpdateLocationNameRequest([FromBody] Guid LocationId ,[FromBody] string Name);
 
 public class UpdateName(ICommandDispatcher dispatcher) : 
     ApiEndpoint

@@ -34,7 +34,7 @@ public class UpdateEventTitleDispatchTests
     {
         // Arrange
         Result<UpdateEventTitleCommand> result = UpdateEventTitleCommand.Create(
-            1, 
+            new Guid(), 
             "New Title");
         UpdateEventTitleCommand command = result.GetObj()!;
         
@@ -51,7 +51,7 @@ public class UpdateEventTitleDispatchTests
     {
         // Arrange
         Result<UpdateEventTitleCommand> result = UpdateEventTitleCommand.Create(
-            1, 
+            new Guid(), 
             "New Title");
         UpdateEventTitleCommand command = result.GetObj()!;
         
@@ -66,7 +66,7 @@ public class UpdateEventTitleDispatchTests
     {
         // Arrange
         Result<UpdateEventTitleCommand> result = UpdateEventTitleCommand.Create(
-            1, 
+            new Guid(), 
             "");
         UpdateEventTitleCommand command = result.GetObj()!;
         
@@ -83,7 +83,7 @@ public class UpdateEventTitleDispatchTests
     {
         // Arrange
         Result<UpdateEventTitleCommand> result = UpdateEventTitleCommand.Create(
-            1, 
+            new Guid(), 
             "");
         UpdateEventTitleCommand command = result.GetObj()!;
         

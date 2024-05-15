@@ -45,7 +45,7 @@ public class CreateEventHandlerTests
             100, 
             "Public",
             "Active", 
-            1);
+            new Guid());
         // Act
         
         var result = await _handler.HandleAsync(cmd.GetObj());
@@ -71,7 +71,7 @@ public class CreateEventHandlerTests
             -1,
             "Public",
             "Active",
-            1);
+            new Guid());
 
         // Act
         if (cmd.IsFailure())

@@ -17,7 +17,7 @@ public class UpdateEventStartDateTimeCommandTests
     public async Task GivenValidData_WhenUpdatingStartDateTime_ThenStartDateTimeUpdated()
     {
         // Arrange
-        Result<UpdateEventStartDateTimeCommand> result = UpdateEventStartDateTimeCommand.Create(1, DateParser.ToString(DateTime.Now.AddDays(2)));
+        Result<UpdateEventStartDateTimeCommand> result = UpdateEventStartDateTimeCommand.Create(new Guid(), DateParser.ToString(DateTime.Now.AddDays(2)));
         UpdateEventStartDateTimeCommand command = result.GetObj();
         
         // Assert
@@ -30,7 +30,7 @@ public class UpdateEventStartDateTimeCommandTests
     public async Task GivenPastDate_WhenUpdatingStartDateTime_ThenStartDateTimeNotUpdated()
     {
         // Arrange
-        Result<UpdateEventStartDateTimeCommand> result = UpdateEventStartDateTimeCommand.Create(1, DateParser.ToString(DateTime.Now.AddDays(-1)));
+        Result<UpdateEventStartDateTimeCommand> result = UpdateEventStartDateTimeCommand.Create(new Guid(), DateParser.ToString(DateTime.Now.AddDays(-1)));
         UpdateEventStartDateTimeCommand command = result.GetObj();
         
         // Assert

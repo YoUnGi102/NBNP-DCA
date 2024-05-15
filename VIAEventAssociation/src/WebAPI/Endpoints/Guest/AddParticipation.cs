@@ -8,7 +8,7 @@ namespace WebAPI.Endpoints.Guest;
 
 public record AddParticipationResponse(bool Success);
 
-public record AddParticipationRequest([FromBody] string Email, [FromBody] int EventId);
+public record AddParticipationRequest([FromBody] string Email, [FromBody] Guid EventId);
 
 public class AddParticipation(ICommandDispatcher dispatcher)
     : ApiEndpoint.WithRequest<AddParticipationRequest>.WithResponse<AddParticipationResponse>

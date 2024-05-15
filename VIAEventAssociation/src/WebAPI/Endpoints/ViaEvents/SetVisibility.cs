@@ -6,7 +6,7 @@ using WebAPI.Endpoints.Common;
 
 namespace WebAPI.Endpoints.ViaEvents;
 
-public record SetEventVisibilityRequest([FromBody] int Id, [FromBody] string IsVisible);
+public record SetEventVisibilityRequest([FromBody] Guid Id, [FromBody] string IsVisible);
 
 public class SetVisibility(ICommandDispatcher dispatcher) :
     ApiEndpoint
