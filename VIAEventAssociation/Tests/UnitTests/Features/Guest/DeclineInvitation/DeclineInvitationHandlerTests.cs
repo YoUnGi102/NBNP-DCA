@@ -36,8 +36,9 @@ public class DeclineInvitationHandlerTests
     public async Task GivenValidData_WhenDecliningInvitation_ThenInvitationDeclined()
     {
         // Arrange
-        var res1 = await _addHandler.HandleAsync(SendInvitationCommand.Create(Guid.NewGuid(), Guid.NewGuid()).GetObj());
-        Result<DeclineInvitationCommand> cmd = DeclineInvitationCommand.Create("guest1@gmail.com", Guid.NewGuid());
+        var guid = Guid.Empty;
+        var res1 = await _addHandler.HandleAsync(SendInvitationCommand.Create(Guid.Empty, guid).GetObj());
+        Result<DeclineInvitationCommand> cmd = DeclineInvitationCommand.Create("guest1@gmail.com", guid);
 
         // Act
         var result = await _handler.HandleAsync(cmd.GetObj());

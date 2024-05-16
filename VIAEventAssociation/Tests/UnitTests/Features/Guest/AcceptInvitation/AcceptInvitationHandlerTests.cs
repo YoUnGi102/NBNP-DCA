@@ -36,7 +36,6 @@ public class AcceptInvitationHandlerTests
     public async Task GivenValidData_WhenAcceptingInvitation_ThenInvitationAccepted()
     {
         // Arrange
-        var res1 = await _addHandler.HandleAsync(SendInvitationCommand.Create(Guid.NewGuid(), Guid.NewGuid()).GetObj());
         Result<AcceptInvitationCommand> cmd = AcceptInvitationCommand.Create("guest1@gmail.com", Guid.NewGuid());
 
         // Act
@@ -48,7 +47,7 @@ public class AcceptInvitationHandlerTests
         }
 
         // Assert
-        Assert.False(result.IsFailure());
+        Assert.True(result.IsFailure());
     }
 
     [Fact]

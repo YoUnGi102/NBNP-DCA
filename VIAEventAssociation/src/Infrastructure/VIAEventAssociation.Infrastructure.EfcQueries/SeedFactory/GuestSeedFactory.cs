@@ -1,9 +1,13 @@
-﻿namespace VIAEventAssociation.Infrastructure.EfcQueries.SeedFactory;
+﻿using Newtonsoft.Json;
+
+namespace VIAEventAssociation.Infrastructure.EfcQueries.SeedFactory;
 
 public class GuestSeedFactory
 {
-    public static List<Guest> CreateGuests()
+    public static List<Guest>? CreateGuests()
     {
-        return new List<Guest>();
+        string jsonContent = File.ReadAllText("../JSONS/Guests.json");
+        List<Guest>? guests = JsonConvert.DeserializeObject<List<Guest>>(jsonContent);
+        return guests;
     }
 }

@@ -9,7 +9,7 @@ public class GuestRepoFake : IGuestRepository
 {
     private List<Guest> Guests { get; } =
     [
-        new Guest(new Guid(), "guest1@gmail.com"),
+        new Guest(Guid.Empty, "guest1@gmail.com"),
         new Guest(new Guid(), "guest2@gmail.com"),
         new Guest(new Guid(), "guest3@gmail.com")
     ];

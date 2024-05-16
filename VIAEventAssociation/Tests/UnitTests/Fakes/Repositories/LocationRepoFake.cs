@@ -6,7 +6,7 @@ namespace UnitTests.Fakes;
 public class LocationRepoFake : ILocationRepository
 {
     private List<Location> Locations { get; } = [
-        new Location(new Guid(), "VIA University College", 32),
+        new Location(Guid.Empty, "VIA University College", 32),
     ];
 
     public async Task<Location?> GetAsync(Guid id)

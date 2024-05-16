@@ -29,7 +29,7 @@ public class UpdateLocationNameHandlerTests
     public async Task GivenValidData_WhenUpdatingName_ThenNameUpdated()
     {
         // Arrange
-        Result<UpdateLocationNameCommand> nameCommand = UpdateLocationNameCommand.Create(Guid.NewGuid(), "New Name");
+        Result<UpdateLocationNameCommand> nameCommand = UpdateLocationNameCommand.Create(Guid.Empty, "New Name");
 
         // Act
         if (nameCommand.IsFailure())
@@ -37,7 +37,7 @@ public class UpdateLocationNameHandlerTests
             foreach (var error in nameCommand.GetMessages()!)
                 _testOutputHelper.WriteLine(error.GetMessage());
         }
-        var result = await _handler.HandleAsync(nameCommand.GetObj());
+        Result<None> result = await _handler.HandleAsync(nameCommand.GetObj());
         
         if (result.IsFailure())
         {

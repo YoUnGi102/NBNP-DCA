@@ -8,19 +8,16 @@ public static class ViaEventAssociationContextExtension
     public static ViaEventAssociationContext Seed(this ViaEventAssociationContext context)
     {
         context.Guests.AddRange(GuestSeedFactory.CreateGuests());
-        List<Event> veaEvents = EventSeedFactory.CreateEvents();
-        context.Events.AddRange(veaEvents);
-        context.SaveChanges();
-        ParticipationSeedFactory.Seed(context);
-        context.SaveChanges();
-        InvitationSeedFactory.Seed(context);
+        context.Events.AddRange(EventsSeedFactory.CreateEvents());
+        context.Locations.AddRange(LocationsSeedFactory.CreateLocations());
+        context.Invitations.AddRange(InvitationsSeedFactory.CreateInvitations());
         context.SaveChanges();
         return context;
     }
     public static ViaEventAssociationContext SetupReadContext()
     {
         DbContextOptionsBuilder<ViaEventAssociationContext> optionsBuilder = new();
-        string testDbName = "Test"+Guid.NewGuid().ToString()+".db";
+        string testDbName = "Test"+Guid.NewGuid()+".db";
         optionsBuilder.UseSqlite(@"Data Source = " + testDbName);
         ViaEventAssociationContext context = new(optionsBuilder.Options);
         context.Database.EnsureDeleted();

@@ -15,8 +15,8 @@ public class DmContext(DbContextOptions options) : DbContext(options)
     public DbSet<Location> Locations => Set<Location>();
     public DbSet<Creator> Creators => Set<Creator>();
     
-    // public DbSet<Invitation> Invitations => Set<Invitation>();
-    // public DbSet<Request> Requests => Set<Request>();
+    public DbSet<Invitation> Invitations => Set<Invitation>();
+    public DbSet<Request> Requests => Set<Request>();
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

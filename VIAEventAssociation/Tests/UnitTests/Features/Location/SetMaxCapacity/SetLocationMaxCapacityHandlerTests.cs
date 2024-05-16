@@ -29,8 +29,7 @@ public class UpdateLocationMaxCapacityHandlerTests
     public async Task GivenValidData_WhenUpdatingMaxCapacity_ThenMaxCapacityUpdated()
     {
         // Arrange
-        Result<UpdateLocationMaxCapacityCommand> maxCapacityCommand = UpdateLocationMaxCapacityCommand.Create(Guid.NewGuid(), 100);
-
+        Result<UpdateLocationMaxCapacityCommand> maxCapacityCommand = UpdateLocationMaxCapacityCommand.Create(Guid.Empty, 100);
         // Act
         if (maxCapacityCommand.IsFailure())
         {
