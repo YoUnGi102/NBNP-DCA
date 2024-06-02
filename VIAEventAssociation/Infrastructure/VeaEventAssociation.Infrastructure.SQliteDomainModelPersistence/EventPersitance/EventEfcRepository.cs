@@ -11,6 +11,7 @@ public class EventEfcRepository(DmContext context) : BaseEfcRepository<Event>(co
 
     public override async Task<Event> GetAsync(Guid id)
     {
-        return await context.Set<Event>().Include(e => e.Guests).SingleAsync(e => e.Id == id) ?? throw new InvalidOperationException();
+        return await context.Set<Event>().Include(e => e.Guests)
+            .SingleAsync(e => e.Id == id) ?? throw new InvalidOperationException();
     }
 }

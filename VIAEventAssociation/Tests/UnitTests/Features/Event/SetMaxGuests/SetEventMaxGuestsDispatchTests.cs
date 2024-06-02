@@ -79,4 +79,6 @@ public class SetEventMaxGuestsDispatchTests
         _testOutputHelper.WriteLine(handler.ReachedHere().ToString());
         Assert.True(handler.ReachedHere());
     }
+    
 }
+

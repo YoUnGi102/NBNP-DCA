@@ -4,11 +4,20 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
     </PropertyGroup>
+    <ItemGroup>
+        <None Update="testhost.deps.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.6" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0-preview.3.24172.9" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="xunit" Version="2.4.2"/>
         <PackageReference Include="xunit.abstractions" Version="2.0.3" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.5.8">
@@ -41,6 +50,9 @@
         <ProjectReference Include="..\..\Core\Domain\Domain.csproj" />
         <ProjectReference Include="..\..\Core\Tools\VIAEventAssociation.Core.Tools.OperationResult\VIAEventAssociation.Core.Tools.OperationResult.csproj" />
         <ProjectReference Include="..\..\Infrastructure\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence.csproj" />
+        <ProjectReference Include="..\..\src\Infrastructure\VIAEventAssociation.Infrastructure.EfcQueries\VIAEventAssociation.Infrastructure.EfcQueries.csproj" />
+        <ProjectReference Include="..\..\src\QueryContracts\QueryContracts.csproj" />
+        <ProjectReference Include="..\..\src\WebAPI\WebAPI.csproj" />
     </ItemGroup>
 
 </Project>

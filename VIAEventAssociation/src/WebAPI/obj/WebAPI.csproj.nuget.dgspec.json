@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj": {
+    "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\obj\\",
+        "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\matas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj"
+              "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj"
               },
-              "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
-                "projectPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
+              "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
+                "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
               }
             }
           }
@@ -46,6 +46,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -62,21 +68,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj": {
+    "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\matas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -90,8 +96,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
-                "projectPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
+              "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
+                "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj"
               }
             }
           }
@@ -121,21 +127,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
+    "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj",
+        "projectUniqueName": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj",
         "projectName": "VIAEventAssociation.Core.Tools.OperationResult",
-        "projectPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj",
-        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\obj\\",
+        "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\VIAEventAssociation.Core.Tools.OperationResult.csproj",
+        "packagesPath": "C:\\Users\\matas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -176,21 +182,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\ObjectMapper\\ObjectMapper.csproj": {
+    "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\ObjectMapper\\ObjectMapper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\ObjectMapper\\ObjectMapper.csproj",
+        "projectUniqueName": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\ObjectMapper\\ObjectMapper.csproj",
         "projectName": "ObjectMapper",
-        "projectPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\ObjectMapper\\ObjectMapper.csproj",
-        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\ObjectMapper\\obj\\",
+        "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\ObjectMapper\\ObjectMapper.csproj",
+        "packagesPath": "C:\\Users\\matas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\ObjectMapper\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -231,21 +237,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj",
-        "packagesPath": "C:\\Users\\drago\\.nuget\\packages\\",
-        "outputPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\obj\\",
+        "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\WebAPI.csproj",
+        "packagesPath": "C:\\Users\\matas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\drago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -259,11 +265,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj": {
-                "projectPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj"
+              "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Application\\Application.csproj"
               },
-              "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\ObjectMapper\\ObjectMapper.csproj": {
-                "projectPath": "D:\\GIT\\NBNP-DCA\\VIAEventAssociation\\src\\ObjectMapper\\ObjectMapper.csproj"
+              "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\ObjectMapper\\ObjectMapper.csproj": {
+                "projectPath": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\ObjectMapper\\ObjectMapper.csproj"
               }
             }
           }
@@ -306,7 +312,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,0 +1,10 @@
+{
+  "Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Application",
+  "Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Domain",
+  "ObjectMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\ObjectMapper",
+  "QueryContracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\QueryContracts",
+  "VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Infrastructure\\VeaEventAssociation.Infrastructure.SQliteDomainModelPersistence",
+  "VIAEventAssociation.Core.Tools.OperationResult, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\Core\\Tools\\VIAEventAssociation.Core.Tools.OperationResult",
+  "VIAEventAssociation.Infrastructure.EfcQueries, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\Infrastructure\\VIAEventAssociation.Infrastructure.EfcQueries",
+  "WebAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\matas\\Documents\\GitHub\\NBNP-DCA\\VIAEventAssociation\\src\\WebAPI"
+}

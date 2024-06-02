@@ -9,7 +9,8 @@ public class SetEventLocationCommand
 
     public static Result<SetEventLocationCommand> Create(Guid eventId, Guid locationId)
     {
-        return ResultSuccess<SetEventLocationCommand>.CreateSimpleResult(new SetEventLocationCommand(eventId, locationId));
+        return ResultSuccess<SetEventLocationCommand>.
+            CreateSimpleResult(new SetEventLocationCommand(eventId, locationId));
     }
 
     private SetEventLocationCommand(Guid eventId, Guid locationId)

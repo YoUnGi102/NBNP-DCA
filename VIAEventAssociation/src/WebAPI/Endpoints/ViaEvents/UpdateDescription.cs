@@ -17,7 +17,7 @@ public class UpdateDescription(ICommandDispatcher dispatcher) :
     public override async Task<ActionResult<UpdateEventDescriptionResponse>> HandleAsync(
         [FromBody] UpdateEventDescriptionRequest request)
     {
-        UpdateEventDescriptionCommand cmd = UpdateEventDescriptionCommand.Create(request.Id ,request.Description).GetObj();
+        UpdateEventDescriptionCommand cmd = UpdateEventDescriptionCommand.Create(request.Id ,request.Description).GetObj()!;
         Result<None> result = await dispatcher.DispatchAsync(cmd);
         return result.IsFailure()
             ? BadRequest(result.GetMessages())

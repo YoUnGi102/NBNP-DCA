@@ -8,5 +8,6 @@ public class CommandDispatcher(IServiceProvider serviceProvider) : ICommandDispa
     public async Task<Result<None>> DispatchAsync<TCommand>(TCommand? command) => 
         await GetService<ICommandHandler<TCommand>>().HandleAsync(command);
 
-    public T GetService<T>() => (T)serviceProvider.GetService(typeof(T))! ?? throw new InvalidOperationException(nameof(T));
+    public T GetService<T>() => (T)serviceProvider.GetService(typeof(T))! ??
+                                throw new InvalidOperationException(nameof(T));
 }

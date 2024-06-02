@@ -58,7 +58,8 @@ public class SetEventVisibilityHandlerTests
     public async Task GivenValidData2_WhenSettingVisibility_ThenVisibilitySet()
     {
         // Arrange
-        Result<SetEventVisibilityCommand> visibilityCommand = SetEventVisibilityCommand.Create(new Guid(), "Private");
+        Result<SetEventVisibilityCommand> visibilityCommand = 
+            SetEventVisibilityCommand.Create(new Guid(), "Private");
 
         // Act
         if (visibilityCommand.IsFailure())
@@ -82,7 +83,8 @@ public class SetEventVisibilityHandlerTests
     public async Task GivenInvalidData_WhenSettingVisibility_ThenVisibilityNotSet()
     {
         // Arrange
-        Result<SetEventVisibilityCommand> visibilityCommand = SetEventVisibilityCommand.Create(new Guid(), "InvalidVisibility");
+        Result<SetEventVisibilityCommand> visibilityCommand = 
+            SetEventVisibilityCommand.Create(new Guid(), "InvalidVisibility");
 
         // Act
         if (visibilityCommand.IsFailure())

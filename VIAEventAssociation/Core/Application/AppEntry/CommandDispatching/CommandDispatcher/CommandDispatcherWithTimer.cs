@@ -12,7 +12,8 @@ public class CommandDispatcherWithTimer(ICommandDispatcher next): ICommandDispat
         var result = await next.DispatchAsync(command);
         timer.Stop();
         string[] timer_message = { $"Command took {timer.ElapsedMilliseconds}ms to execute." };
-        Message[] messages = ResultHelper<None>.CombineResultMessages([result, ResultFailure<None>.CreateMessageResult(default,timer_message)]);;
+        Message[] messages = ResultHelper<None>.CombineResultMessages([result, ResultFailure<None>
+            .CreateMessageResult(default,timer_message)]);;
         if (result is ResultFailure<None>)
             return ResultFailure<None>.CreateMessageResult(new None(), messages);
         return ResultSuccess<None>.CreateMessageResult(new None(), messages);

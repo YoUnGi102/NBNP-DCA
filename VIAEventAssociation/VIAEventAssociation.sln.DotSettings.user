@@ -1,6 +1,10 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=03eee4cf_002D3f31_002D4ff9_002D8821_002D387e7f852df7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;Tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="D:\GIT\NBNP-DCA\VIAEventAssociation" Presentation="&amp;lt;Tests&amp;gt;" /&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::96142F78-F632-40FA-9973-C12F212203D9::net8.0::IntegrationTests.Queries.MyEventsPageQueryTest.HandleAsync_WhenCalled_ShouldReturnMyEventsPageViewAnswer&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::96142F78-F632-40FA-9973-C12F212203D9::net8.0::IntegrationTests.WebAPI.Event.CreateEventTests.CreateEventTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::96142F78-F632-40FA-9973-C12F212203D9::net8.0::IntegrationTests.WebAPI.Event.CreateEventTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	
 	

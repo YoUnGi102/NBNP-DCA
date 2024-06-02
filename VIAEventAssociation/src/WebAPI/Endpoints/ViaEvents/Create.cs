@@ -21,7 +21,7 @@ public record CreateEventRequest([FromBody] string Title, [FromBody] string Desc
         {
             CreateEventCommand cmd = CreateEventCommand.Create(request.Title, request.Description, 
                 request.StartDate, request.EndDate, request.MaxGuests, 
-                request.Visibility, request.Status, request.LocationId).GetObj();
+                request.Visibility, request.Status, request.LocationId).GetObj()!;
             Result<None> result = await dispatcher.DispatchAsync(cmd);
             return result.IsFailure()
                 ? BadRequest(result.GetMessages())
